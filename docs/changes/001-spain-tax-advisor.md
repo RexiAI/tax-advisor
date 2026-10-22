@@ -2953,4 +2953,6 @@ The answer is a document, not a bubble, and it is not wrapped in a card. It sits
 - **Task 16** (offline test harness) and **Task 17** (runbook and ADRs): no frontend surface.
 
 PR: https://github.com/RexiAI/tax-advisor/pull/1
-Commits: 19
+Commits: 19 at measurement; 21 at branch head 86666c2 after two audit fix-ups.
+Deploy verification: SKIPPED — No Vercel project linked to this repository — manual setup required.
+CI verification: no checks reported on the spec branch; `.github/` workflows are operator baseline and were not committed by this spec.
