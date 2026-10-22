@@ -1,0 +1,10 @@
+.turn {
+  max-width: 100%;
+}
+
+.text {
+  font-size: var(--font-size-user);
+  line-height: var(--line-user);
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}

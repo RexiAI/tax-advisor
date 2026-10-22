@@ -1,0 +1,51 @@
+.examples {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: var(--measure);
+}
+
+.heading {
+  font-size: var(--font-size-body);
+  line-height: var(--line-body);
+  font-weight: var(--weight-regular);
+  color: var(--ink);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  max-width: 100%;
+}
+
+.example {
+  min-height: var(--tap-target);
+  max-width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: var(--hairline-width) solid var(--hairline);
+  border-radius: var(--radius);
+  background: var(--surface-raised);
+  color: var(--ink);
+  font-size: var(--font-size-notice);
+  line-height: var(--line-notice);
+  text-align: left;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.example:focus-visible {
+  outline: var(--focus-ring-width) solid var(--accent);
+  outline-offset: var(--focus-ring-offset);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .example {
+    transition: transform var(--motion-fast) ease-out;
+  }
+
+  .example:active {
+    transform: scale(var(--motion-press));
+  }
+}

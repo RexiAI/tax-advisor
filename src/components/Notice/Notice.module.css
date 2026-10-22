@@ -1,0 +1,64 @@
+.notice {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 100%;
+  padding: var(--space-4);
+  border-radius: var(--radius);
+  background: var(--surface-sunken);
+  color: var(--ink);
+}
+
+.info {
+  border-left: var(--notice-rule-width) solid var(--accent);
+}
+
+.warning {
+  border-left: var(--notice-rule-width) solid var(--warning);
+}
+
+.error {
+  border-left: var(--notice-rule-width) solid var(--error);
+}
+
+.title {
+  font-size: var(--font-size-h2);
+  line-height: var(--line-h2);
+  font-weight: var(--weight-semibold);
+  color: var(--ink-secondary);
+}
+
+.body {
+  font-size: var(--font-size-notice);
+  line-height: var(--line-notice);
+  white-space: pre-line;
+}
+
+.action {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  padding-block: var(--space-2);
+  font-size: var(--font-size-notice);
+  font-weight: var(--weight-medium);
+  color: var(--accent);
+}
+
+.action:focus-visible {
+  outline: var(--focus-ring-width) solid var(--accent);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.footer {
+  font-size: var(--font-size-disclaimer);
+  color: var(--ink-secondary);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .notice {
+    transition:
+      opacity var(--motion-fast) ease-out,
+      transform var(--motion-fast) ease-out;
+  }
+}
