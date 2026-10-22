@@ -1,0 +1,19 @@
+# Per-machine direnv file (spec 025): never committed.
+.envrc
+
+# Local environment files. `.env.example` is the committed template and is
+# deliberately NOT ignored; every real environment file is.
+.env
+.env.*
+*.local.env
+!.env.example
+
+# Next.js build output and test artefacts
+.next/
+out/
+coverage/
+*.tsbuildinfo
+next-env.d.ts
+
+# Dependencies
+node_modules/
