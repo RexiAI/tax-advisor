@@ -2951,3 +2951,6 @@ The answer is a document, not a bubble, and it is not wrapped in a card. It sits
 - **Task 14** (`/health`): operational endpoint, not a screen. No design work, and no health
   UI is to be built.
 - **Task 16** (offline test harness) and **Task 17** (runbook and ADRs): no frontend surface.
+
+PR: https://github.com/RexiAI/tax-advisor/pull/1
+Commits: 19
