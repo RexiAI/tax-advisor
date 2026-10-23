@@ -38,7 +38,7 @@ export interface EvidenceOptions {
   readonly topK?: number;
 }
 
-export function toEvidencePassage(passage: Passage): EvidencePassage {
+function toEvidencePassage(passage: Passage): EvidencePassage {
   return { ...citationOf(passage), text: passage.text };
 }
 

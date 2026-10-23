@@ -1,15 +1,8 @@
 /**
- * Out-of-scope topic classification (Task 11): one ordered, closed map from topic
- * to a reason code and one official body. The guard imports this map; the strings
- * live here and nowhere else.
- *
- * Order is precedence: the first match wins, which is what makes a mixed message
- * ("¿Puedo deducir el alquiler y cuánto IVA pago?") deterministic.
- *
- * Each entry carries its own matcher over the normalized message. Most topics are
- * a list of patterns; `filing_request` is a composition of direct-address forms
- * (`./filing-request.ts`) because a filing request is defined by who is being
- * asked, not by which words appear.
+ * Out-of-scope topics (Task 11): one ordered map from topic to reason code and
+ * official body. The first match wins, so a mixed message is deterministic.
+ * `filing_request` delegates to `./filing-request.ts`; the rest are patterns over
+ * the normalized message.
  */
 
 import { isFilingRequest } from './filing-request';
@@ -38,7 +31,7 @@ export interface OutOfScopeTopic {
 }
 
 /** The common case: a topic identified by any of a few patterns. */
-export function anyOf(patterns: readonly RegExp[]): (normalizedText: string) => boolean {
+function anyOf(patterns: readonly RegExp[]): (normalizedText: string) => boolean {
   return (normalizedText) => patterns.some((pattern) => pattern.test(normalizedText));
 }
 

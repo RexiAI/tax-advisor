@@ -1,25 +1,12 @@
 /**
- * The `filing_request` matcher (Task 11).
+ * `filing_request` matcher (Task 11).
  *
- * The topic is a request to *this product* to file, sign, prepare or represent.
- * Spanish uses the same second-person forms for a generic "tú" in a subordinate
- * clause ("si presentas la declaración conjunta…"), and that is a question about
- * the rules, not a request. So the matcher keys on **direct address**, and it
- * accepts only these shapes:
- *
- *  - imperative + benefactive clitic        "Preséntame…", "Trámítame…", "Hazme la declaración"
- *  - message-initial imperative, own filing "Presenta mi declaración"
- *  - question-initial modal + filing verb   "¿Puedes presentar…?", "¿Podrías firmar…?"
- *  - "me" + second person                   "¿Me presentas la declaración?"
- *  - "me la/lo" cluster + action verb       "¿Me la puedes preparar tú?", "¿Me la preparas?"
- *  - "quiero/necesito que" + 2sg subjunctive "Quiero que presentes…"
- *  - representation with a filing verb      "… por mí", "… en mi nombre"
- *
- * Every shape is anchored to the start of the message or to a benefactive clitic,
- * so a conditional, temporal or causal clause (si / cuando / mientras / al + verb)
- * stays in scope whatever its object is called ("el borrador" included). Where a
- * verb is polysemous — "presentar" also means "to hand over" — the shape requires
- * the filing as its object, so "¿me presentas el resumen?" is not a filing request.
+ * Keys on direct address, not on filing vocabulary: "si presentas la declaración
+ * conjunta" is a generic-tú question about the rules, while "preséntame la
+ * declaración" is a request to this product. Every shape is anchored to the
+ * message start or to a benefactive clitic. A polysemous verb such as "presentar"
+ * also requires the filing as its object, so "¿me presentas el resumen?" stays in
+ * scope.
  */
 
 /** Where a message starts, once its opening punctuation is out of the way. */

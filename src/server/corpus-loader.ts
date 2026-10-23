@@ -55,3 +55,11 @@ export function createCorpusLoader(
   const loaded = loadCorpusFromFile(path);
   return () => loaded;
 }
+
+let shared: CorpusProviderResult | undefined;
+
+/** Process-wide corpus, shared by the page metadata and the chat route. */
+export function getSharedCorpus(): CorpusProviderResult {
+  shared ??= loadCorpusFromFile(join(process.cwd(), CORPUS_ARTIFACT_PATH));
+  return shared;
+}

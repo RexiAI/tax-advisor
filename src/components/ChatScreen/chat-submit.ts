@@ -93,11 +93,10 @@ function handleFrame(block: string, onDelta: DeltaListener | undefined): ChatRes
   return JSON.parse(frame.data) as ChatResponse;
 }
 
-async function collectFrames(
-  body: ReadableStream<Uint8Array>,
+async function readUntilFinal(
+  reader: ReadableStreamDefaultReader<Uint8Array>,
   onDelta: DeltaListener | undefined
 ): Promise<ChatResponse | null> {
-  const reader = body.getReader();
   const decoder = new TextDecoder();
   let buffer = '';
   let final: ChatResponse | null = null;
@@ -111,6 +110,24 @@ async function collectFrames(
     for (const block of blocks) final = handleFrame(block, onDelta) ?? final;
   }
 
+  return final;
+}
+
+async function cancelQuietly(reader: ReadableStreamDefaultReader<Uint8Array>): Promise<void> {
+  try {
+    await reader.cancel();
+  } catch {
+    // The stream is already closed; nothing to release.
+  }
+}
+
+async function collectFrames(
+  body: ReadableStream<Uint8Array>,
+  onDelta: DeltaListener | undefined
+): Promise<ChatResponse | null> {
+  const reader = body.getReader();
+  const final = await readUntilFinal(reader, onDelta);
+  if (final !== null) await cancelQuietly(reader);
   return final;
 }
 

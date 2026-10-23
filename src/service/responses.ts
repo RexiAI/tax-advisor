@@ -28,7 +28,7 @@ const ERROR_CODE_BY_LLM: Readonly<Record<LlmErrorCode, keyof typeof ERROR_MESSAG
   malformed_response: 'llm_malformed_response',
 };
 
-const YEAR_IN_RANGE = /\b20(?:2\d|3[0-5])\b/g;
+const YEAR_IN_RANGE = /\b20(?:1[5-9]|2\d|3[0-5])\b/g;
 const INTERROGATIVE = /¿[^?]*\?/;
 const TRAILING_QUESTION = /[^.?!\n]*\?/;
 

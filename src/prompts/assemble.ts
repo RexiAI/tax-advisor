@@ -21,11 +21,11 @@ export interface AssembleInput {
   readonly passages: readonly PassageForPrompt[];
 }
 
-export const USER_MESSAGE_OPEN = '<<<USER_MESSAGE>>>';
-export const USER_MESSAGE_CLOSE = '<<<END USER_MESSAGE>>>';
-export const PASSAGE_CLOSE = '<<<END PASSAGE>>>';
+const USER_MESSAGE_OPEN = '<<<USER_MESSAGE>>>';
+const USER_MESSAGE_CLOSE = '<<<END USER_MESSAGE>>>';
+const PASSAGE_CLOSE = '<<<END PASSAGE>>>';
 
-export function passageOpenTag(passageId: string): string {
+function passageOpenTag(passageId: string): string {
   return `<<<PASSAGE id=${passageId}>>>>`;
 }
 

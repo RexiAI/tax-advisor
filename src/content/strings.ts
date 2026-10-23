@@ -1,7 +1,6 @@
 /**
- * Every user-facing string in the product (Task 15). Spanish only, one module,
- * one export per string. The product name and the handoff destination are single
- * constants so the human gate can change each in one line.
+ * Every user-facing string (Task 15). Spanish only; name and handoff destination
+ * are single constants.
  */
 
 export const APP_NAME = 'Renta Clara';
@@ -42,7 +41,6 @@ export const OUT_OF_SCOPE_TITLE = 'Fuera del alcance de esta herramienta';
 export const CLARIFICATION_TITLE = 'Necesito un dato más';
 
 export const STATUS_SEARCHING = 'Buscando en el BOE';
-export const STATUS_CHECKING_SOURCES = 'Comprobando fuentes';
 
 export const COMPOSER_LABEL = 'Escribe tu pregunta';
 export const COMPOSER_PLACEHOLDER = 'Pregunta sobre el IRPF';
@@ -79,8 +77,11 @@ export const ERROR_MESSAGES = {
   missing_llm_config:
     'El servicio no está configurado en este momento. Vuelve a intentarlo más tarde.',
   message_too_long:
-    'La pregunta es demasiado larga. El límite es de 2.000 caracteres: acórtala y vuelve a intentarlo.',
+    'La pregunta es demasiado larga. Acórtala y vuelve a intentarlo.',
+  invalid_request: 'La solicitud no tiene el formato esperado.',
   unexpected_field: 'La solicitud contiene campos que no están permitidos.',
+  corpus_unavailable:
+    'No puedo consultar el texto del BOE en este momento. Vuelve a intentarlo más tarde.',
   rate_limited:
     'Has hecho demasiadas preguntas seguidas. Espera unos segundos antes de volver a preguntar.',
   llm_timeout: 'La respuesta ha tardado demasiado. Vuelve a intentarlo.',
@@ -96,5 +97,3 @@ export const ERROR_MESSAGES = {
 export type ErrorCode = keyof typeof ERROR_MESSAGES;
 
 export const RETRY_AFTER_LABEL = 'Puedes volver a preguntar en {seconds} segundos.';
-
-export const NOT_FOUND_TITLE = 'Página no encontrada';

@@ -158,6 +158,7 @@ export function testConfig(overrides: Partial<Config> = {}): Config {
     llmBaseUrl: 'https://llm.example.test/v1',
     llmApiKey: 'k-test',
     llmModel: 'm-test',
+    llmDisableReasoning: false,
     corpusTaxYear: 2025,
     minRetrievalScore: 0.01,
     retrievalTopK: 5,

@@ -15,7 +15,6 @@ import {
   HANDOFF_LABEL,
   OUT_OF_SCOPE_TITLE,
   RETRY_AFTER_LABEL,
-  STATUS_CHECKING_SOURCES,
   STATUS_SEARCHING,
 } from '@/content/strings';
 import type { AnswerResponse, ChatResponse } from '@/service/types';
@@ -183,7 +182,7 @@ export function useChatTurn(options: { readonly submit: Submit }): ChatTurn {
     busy,
     streamingText,
     notice,
-    statusText: streamingText === '' ? STATUS_SEARCHING : STATUS_CHECKING_SOURCES,
+    statusText: STATUS_SEARCHING,
     setDraft,
     handleSubmit,
   };

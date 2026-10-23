@@ -18,8 +18,8 @@ export interface ConversationStoreOptions {
   readonly now?: () => number;
 }
 
-export const CONVERSATION_TTL_MS = 30 * 60 * 1000;
-export const CONVERSATION_MAX_ENTRIES = 1000;
+const CONVERSATION_TTL_MS = 30 * 60 * 1000;
+const CONVERSATION_MAX_ENTRIES = 1000;
 
 interface Entry {
   readonly clarifiedAt: number;

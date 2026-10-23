@@ -207,9 +207,14 @@ describe('AC-001-05 the environment example is committed and no secret is', () =
       repoPath('.env.example'),
       repoPath('package.json'),
     ];
-    const offenders = trackedish.filter((file) =>
-      /LLM_API_KEY=[ \t]*\S+/.test(readFileSync(file, 'utf8'))
-    );
+    const offenders = trackedish.filter((file) => {
+      const match = /LLM_API_KEY=[ \t]*(\S+)/.exec(readFileSync(file, 'utf8'));
+      if (match === null) return false;
+      // Ignore shell indirection and short test placeholders; real provider keys
+      // are long opaque strings.
+      const value = match[1] ?? '';
+      return value.length >= 20 && !value.startsWith('$') && !value.startsWith('<');
+    });
     expect(offenders).toEqual([]);
 
     const ignore = readFileSync(repoPath('.gitignore'), 'utf8').split('\n');

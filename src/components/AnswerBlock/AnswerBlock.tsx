@@ -26,9 +26,11 @@ export function AnswerBlock({ response }: AnswerBlockProps) {
         <AnswerSection heading={ANSWER_SUMMARY_HEADING}>
           <p className={styles.paragraph}>{response.explanation}</p>
         </AnswerSection>
-        <AnswerSection heading={ANSWER_RULE_HEADING}>
-          <p className={styles.paragraph}>{response.rule}</p>
-        </AnswerSection>
+        {response.rule === response.explanation ? null : (
+          <AnswerSection heading={ANSWER_RULE_HEADING}>
+            <p className={styles.paragraph}>{response.rule}</p>
+          </AnswerSection>
+        )}
         {response.workedExample === undefined ? null : (
           <AnswerSection heading={ANSWER_EXAMPLE_HEADING}>
             <p className={styles.paragraph}>{response.workedExample}</p>

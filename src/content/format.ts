@@ -16,3 +16,19 @@ export function formatSpanishDate(value: string): string {
     timeZone: 'UTC',
   }).format(date);
 }
+
+/**
+ * Models occasionally answer with Markdown emphasis or headings even when asked
+ * for plain paragraphs. The UI renders text nodes, not Markdown, so strip the
+ * markup rather than showing literal `**` to a taxpayer.
+ */
+export function toPlainText(value: string): string {
+  return value
+    .replace(/\*\*(.+?)\*\*/g, '$1')
+    .replace(/(^|\s)__(.+?)__(?=\s|$)/g, '$1$2')
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/^#{1,6}\s+/gm, '')
+    .replace(/\s+([.,;:!?)}»])/g, '$1')
+    .replace(/\r\n/g, '\n')
+    .trim();
+}

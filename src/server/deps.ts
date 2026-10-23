@@ -11,7 +11,7 @@ import { newRequestId, type LogSink } from '../observability/log';
 import { createConversationStore, type ConversationStore } from '../service/conversation-store';
 import { createRateLimiter, type RateLimiter } from '../service/rate-limit';
 
-import { createCorpusLoader, type CorpusProviderResult } from './corpus-loader';
+import { getSharedCorpus, type CorpusProviderResult } from './corpus-loader';
 
 export interface AppDeps {
   readonly loadConfig: () => ConfigResult;
@@ -30,7 +30,7 @@ export function createDefaultDeps(overrides: Partial<AppDeps> = {}): AppDeps {
 
   const defaults: AppDeps = {
     loadConfig,
-    loadCorpus: createCorpusLoader(),
+    loadCorpus: getSharedCorpus,
     createAdapter: (config: Config) => new OpenAiCompatibleAdapter(config),
     rateLimiter: createRateLimiter({
       max: bounds.rateLimitMax,

@@ -1,16 +1,14 @@
 /**
- * The single place environment variables are read (Task 1).
- *
- * No provider hostname, vendor name or model id is a literal in this module: the
- * three LLM values must arrive from the environment, and a missing one is a
- * configured failure rather than a silent default. There is no fallback answer,
- * no default model and no default base URL anywhere in the codebase.
+ * The single place environment variables are read (Task 1). The three LLM values
+ * have no defaults: a missing one is a configuration error, never a silent
+ * fallback.
  */
 
 export interface Config {
   readonly llmBaseUrl: string;
   readonly llmApiKey: string;
   readonly llmModel: string;
+  readonly llmDisableReasoning: boolean;
   readonly corpusTaxYear: number;
   readonly minRetrievalScore: number;
   readonly retrievalTopK: number;
@@ -22,7 +20,7 @@ export interface Config {
 
 export type LlmVariable = 'LLM_BASE_URL' | 'LLM_API_KEY' | 'LLM_MODEL';
 
-export const LLM_VARIABLES: readonly LlmVariable[] = ['LLM_BASE_URL', 'LLM_API_KEY', 'LLM_MODEL'];
+const LLM_VARIABLES: readonly LlmVariable[] = ['LLM_BASE_URL', 'LLM_API_KEY', 'LLM_MODEL'];
 
 export type ConfigResult =
   | { readonly ok: true; readonly config: Config }
@@ -43,7 +41,10 @@ export const DEFAULT_BOUNDS = {
   llmTimeoutMs: 60000,
 } as const;
 
-export type Bounds = Omit<Config, 'llmBaseUrl' | 'llmApiKey' | 'llmModel'>;
+export type Bounds = Omit<
+  Config,
+  'llmBaseUrl' | 'llmApiKey' | 'llmModel' | 'llmDisableReasoning'
+>;
 
 function readString(name: string): string {
   const raw = process.env[name];
@@ -55,6 +56,10 @@ function readNumber(name: string, fallback: number): number {
   if (raw === '') return fallback;
   const parsed = Number(raw);
   return Number.isFinite(parsed) ? parsed : fallback;
+}
+
+function readBoolean(name: string): boolean {
+  return /^(1|true|yes)$/i.test(readString(name));
 }
 
 /**
@@ -91,6 +96,12 @@ export function loadConfig(): ConfigResult {
 
   return {
     ok: true,
-    config: { llmBaseUrl, llmApiKey, llmModel, ...readBounds() },
+    config: {
+      llmBaseUrl,
+      llmApiKey,
+      llmModel,
+      llmDisableReasoning: readBoolean('LLM_DISABLE_REASONING'),
+      ...readBounds(),
+    },
   };
 }

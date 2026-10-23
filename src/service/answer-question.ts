@@ -1,16 +1,12 @@
 /**
- * Answer orchestration (Task 10) — the single entry point that composes
- * retrieval, the model and citation validation, and decides which of the closed
- * response kinds a turn produces.
- *
- * Pure orchestration: no `fetch`, no `fs`, no `child_process`, no provider SDK,
- * no persistence. The only collaborators are the injected index, adapter and
- * conversation store. The response shapes themselves are built in
- * `./responses.ts`; this module only decides which one a turn yields.
+ * Answer orchestration (Task 10): retrieval → model → citation validation, with
+ * one closed response kind per turn. No I/O; collaborators are injected. Response
+ * shapes live in `./responses.ts`.
  */
 
 import { stripCitationMarkers } from '../citations/extract';
 import { validateCitations } from '../citations/validate';
+import { toPlainText } from '../content/format';
 import {
   AI_DISCLOSURE,
   HANDOFF_URL,
@@ -20,7 +16,7 @@ import {
 import type { Citation } from '../domain/citation';
 import type { EvidenceBundle } from '../evidence/build-evidence';
 import { buildEvidence } from '../evidence/build-evidence';
-import type { LlmAdapter, LlmErrorCode } from '../llm/types';
+import type { LlmAdapter, LlmCallOptions, LlmErrorCode } from '../llm/types';
 import { assembleRequest } from '../prompts/assemble';
 import type { CorpusIndex } from '../retrieval/types';
 
@@ -43,6 +39,7 @@ export interface AnswerDeps {
   readonly conversations: ConversationStore;
   readonly telemetry: TurnTelemetry;
   readonly now: () => number;
+  readonly signal?: AbortSignal;
 }
 
 const WORKED_EXAMPLE_PREFIX = /^ejemplo\s*:\s*/i;
@@ -88,6 +85,10 @@ function scopeResponse(message: string): ChatResponse | null {
   };
 }
 
+function callOptions(deps: AnswerDeps): LlmCallOptions {
+  return deps.signal === undefined ? {} : { signal: deps.signal };
+}
+
 type PreModel = { readonly response: ChatResponse } | { readonly bundle: EvidenceBundle };
 
 function preModel(input: ChatRequest, deps: AnswerDeps): PreModel {
@@ -119,7 +120,7 @@ function answerResponse(
   answerText: string,
   deps: AnswerDeps
 ): ChatResponse {
-  const paragraphs = splitParagraphs(answerText);
+  const paragraphs = splitParagraphs(toPlainText(answerText));
   const workedExample = workedExampleOf(paragraphs);
   const body = paragraphs.filter((paragraph) => !WORKED_EXAMPLE_PREFIX.test(paragraph));
   const explanation = body[0] ?? answerText.trim();
@@ -189,7 +190,7 @@ export async function answerQuestion(input: ChatRequest, deps: AnswerDeps): Prom
 
   const startedAt = deps.now();
   const request = assembleRequest({ message: input.message, passages: pre.bundle.passages });
-  const result = await deps.adapter.completeAll(request);
+  const result = await deps.adapter.completeAll(request, callOptions(deps));
   deps.telemetry.firstTokenMs = Math.max(0, deps.now() - startedAt);
 
   if (!result.ok) return errorResponseFor(result.error);
@@ -219,7 +220,7 @@ async function* collectModelStream(
   let carry = '';
 
   const request = assembleRequest({ message: input.message, passages: bundle.passages });
-  for await (const event of deps.adapter.complete(request)) {
+  for await (const event of deps.adapter.complete(request, callOptions(deps))) {
     if (event.type === 'error') return { text, error: event.error };
     if (event.type === 'usage') {
       deps.telemetry.promptTokens = event.promptTokens;
@@ -237,9 +238,11 @@ async function* collectModelStream(
 }
 
 function redactPartialMarker(combined: string): { emit: string; carry: string } {
-  const open = combined.lastIndexOf('[^p');
-  if (open !== -1 && combined.indexOf(']', open) === -1) {
-    return { emit: stripCitationMarkers(combined.slice(0, open)), carry: combined.slice(open) };
+  const open = combined.lastIndexOf('[^');
+  const suffix = open === -1 ? '' : combined.slice(open);
+  const isMarkerPrefix = '[^p:'.startsWith(suffix) || suffix.startsWith('[^p:');
+  if (open !== -1 && combined.indexOf(']', open) === -1 && isMarkerPrefix) {
+    return { emit: stripCitationMarkers(combined.slice(0, open)), carry: suffix };
   }
   return { emit: stripCitationMarkers(combined), carry: '' };
 }

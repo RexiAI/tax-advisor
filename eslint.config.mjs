@@ -1,6 +1,7 @@
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import nextPlugin from '@next/eslint-plugin-next';
 import { FlatCompat } from '@eslint/eslintrc';
 
 const baseDirectory = dirname(fileURLToPath(import.meta.url));
@@ -22,6 +23,7 @@ const eslintConfig = [
   },
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
   {
+    plugins: { '@next/next': nextPlugin },
     rules: {
       '@typescript-eslint/no-explicit-any': 'error',
       'prefer-const': 'error',

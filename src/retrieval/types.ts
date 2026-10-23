@@ -5,6 +5,8 @@ export interface CorpusIndex {
   readonly passages: readonly Passage[];
   /** Per-passage normalized term counts, aligned with `passages` by position. */
   readonly termFrequency: readonly ReadonlyMap<string, number>[];
+  /** Per-passage total token count, aligned with `passages` by position. */
+  readonly documentLength: readonly number[];
   /** Number of passages each normalized term appears in. */
   readonly documentFrequency: ReadonlyMap<string, number>;
 }

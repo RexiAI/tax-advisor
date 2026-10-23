@@ -71,6 +71,7 @@ describe('yearNoticeFor', () => {
 
   it('fires when one of several years is outside the corpus year', () => {
     expect(yearNoticeFor('Comparo 2025 con 2031', 2025)).toBeDefined();
+    expect(yearNoticeFor('¿Y si la renta es de 2019?', 2025)).toBeDefined();
   });
 });
 
@@ -89,17 +90,26 @@ describe('firstQuestion', () => {
 });
 
 describe('parseChatBody', () => {
-  it('rejects a body that is not a JSON object', () => {
-    expect(parseChatBody('not json')).toBeNull();
-    expect(parseChatBody('[]')).toBeNull();
-    expect(parseChatBody('null')).toBeNull();
+  it('distinguishes malformed JSON from an unexpected field', () => {
+    expect(parseChatBody('not json')).toEqual({ ok: false, error: 'invalid_request' });
+    expect(parseChatBody('[]')).toEqual({ ok: false, error: 'invalid_request' });
+    expect(parseChatBody('null')).toEqual({ ok: false, error: 'invalid_request' });
+    expect(parseChatBody(JSON.stringify({ message: 'x', name: 'y' }))).toEqual({
+      ok: false,
+      error: 'unexpected_field',
+    });
   });
 
-  it('rejects unknown keys and wrong types', () => {
-    expect(parseChatBody(JSON.stringify({ message: 'x', name: 'y' }))).toBeNull();
-    expect(parseChatBody(JSON.stringify({ message: 3 }))).toBeNull();
-    expect(parseChatBody(JSON.stringify({ message: 'x', conversationId: 3 }))).toBeNull();
-    expect(parseChatBody(JSON.stringify({}))).toBeNull();
+  it('rejects wrong types and missing message', () => {
+    expect(parseChatBody(JSON.stringify({ message: 3 }))).toEqual({
+      ok: false,
+      error: 'invalid_request',
+    });
+    expect(parseChatBody(JSON.stringify({ message: 'x', conversationId: 3 }))).toEqual({
+      ok: false,
+      error: 'invalid_request',
+    });
+    expect(parseChatBody(JSON.stringify({}))).toEqual({ ok: false, error: 'invalid_request' });
   });
 
   it('accepts message alone or with a conversationId', () => {

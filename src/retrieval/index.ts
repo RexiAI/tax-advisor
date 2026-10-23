@@ -41,11 +41,13 @@ export function buildIndex(passages: readonly Passage[]): BuildIndexResult {
 
   const termFrequency = passages.map((passage) => countTerms(normalizeTerms(passage.text)));
   const documentFrequency = buildDocumentFrequency(termFrequency);
+  const documentLength = termFrequency.map(totalTerms);
 
   const index: CorpusIndex = Object.freeze({
     size: passages.length,
     passages: Object.freeze([...passages]),
     termFrequency: Object.freeze(termFrequency),
+    documentLength: Object.freeze(documentLength),
     documentFrequency,
   });
 
@@ -66,10 +68,10 @@ function inverseDocumentFrequency(term: string, index: CorpusIndex): number {
 
 function scorePassage(
   counts: ReadonlyMap<string, number>,
+  total: number,
   terms: readonly string[],
   index: CorpusIndex
 ): number {
-  const total = totalTerms(counts);
   if (total === 0) return 0;
   let score = 0;
   for (const term of terms) {
@@ -99,7 +101,7 @@ export function search(index: CorpusIndex, query: string, k?: number): SearchRes
   index.passages.forEach((passage, position) => {
     const counts = index.termFrequency[position];
     if (counts === undefined) return;
-    const score = scorePassage(counts, terms, index);
+    const score = scorePassage(counts, index.documentLength[position] ?? 0, terms, index);
     if (score > 0) results.push({ passage, score });
   });
 

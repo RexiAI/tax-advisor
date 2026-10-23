@@ -49,13 +49,32 @@ describe('AC-001-31 the request is built entirely from configuration', () => {
     expect(calls[0]!.url).toBe('https://llm.example.test/v1/chat/completions');
     const headers = calls[0]!.init.headers as Record<string, string>;
     expect(headers.authorization).toBe('Bearer k-test');
-    const body = JSON.parse(String(calls[0]!.init.body)) as { model: string };
+    const body = JSON.parse(String(calls[0]!.init.body)) as {
+      model: string;
+      stream_options?: { include_usage?: boolean };
+    };
     expect(body.model).toBe('m-test');
+    expect(body.stream_options).toEqual({ include_usage: true });
+    expect((body as { thinking?: unknown }).thinking).toBeUndefined();
 
     const moduleSource = readFileSync(repoPath('src/llm/openai-compatible.ts'), 'utf8');
     for (const literal of ['llm.example.test', 'k-test', 'm-test', 'api.openai.com']) {
       expect(moduleSource).not.toContain(literal);
     }
+  });
+
+  it('AC-001-31: reasoning can be disabled through configuration', async () => {
+    const { fetchImpl, calls } = recordingFetch(
+      sseResponse([sseChunk('Hola.'), 'data: [DONE]\n\n'])
+    );
+    const adapter = new OpenAiCompatibleAdapter(config({ llmDisableReasoning: true }), {
+      fetchImpl,
+    });
+
+    await adapter.completeAll(REQUEST);
+
+    const body = JSON.parse(String(calls[0]!.init.body)) as { thinking?: unknown };
+    expect(body.thinking).toEqual({ type: 'disabled' });
   });
 });
 
@@ -100,6 +119,21 @@ describe('AC-001-32 deltas stream in order and concatenate to the full answer', 
     expect(result.ok).toBe(true);
     if (!result.ok) return;
     expect(result.usage).toEqual({ promptTokens: 11, completionTokens: 7 });
+  });
+
+  it('AC-001-32: a null usage field on every chunk is not a malformed response', async () => {
+    const chunk = (text: string): string =>
+      `data: ${JSON.stringify({
+        choices: [{ delta: { content: text } }],
+        usage: null,
+      })}\n\n`;
+    const { fetchImpl } = recordingFetch(
+      sseResponse([chunk('Hola'), chunk('.'), 'data: [DONE]\n\n'])
+    );
+    const result = await new OpenAiCompatibleAdapter(config(), { fetchImpl }).completeAll(REQUEST);
+    expect(result.ok).toBe(true);
+    if (!result.ok) return;
+    expect(result.text).toBe('Hola.');
   });
 });
 

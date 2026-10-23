@@ -1,12 +1,9 @@
 /**
  * `POST /api/chat` (Task 13).
  *
- * Order of checks is deliberate and observable: client IP → rate limit →
- * configuration → body shape → message length → corpus → model. A rejected
- * request therefore never constructs the adapter and never touches retrieval.
- *
- * The only mutable state the route holds is the injected rate-limit store and the
- * injected conversation store.
+ * Check order is deliberate: IP → rate limit → configuration → body → length →
+ * corpus → model. A rejected request never constructs the adapter or touches
+ * retrieval.
  */
 
 import type { Config, ConfigResult } from '../config/env';
@@ -15,20 +12,21 @@ import type { LlmAdapter } from '../llm/types';
 import { serializeLogRecord, statusForResponseKind, type LogRecord } from '../observability/log';
 import type { AnswerDeps } from '../service/answer-question';
 import { answerQuestion, streamAnswer } from '../service/answer-question';
-import { insufficientResponse } from '../service/responses';
 import type { ChatRequest, ChatResponse, TurnFrame, TurnTelemetry } from '../service/types';
 import { createTurnTelemetry } from '../service/types';
 
 import type { AppDeps } from './deps';
 
-export const CHAT_ROUTE = '/api/chat';
+const CHAT_ROUTE = '/api/chat';
 
 const ALLOWED_BODY_KEYS = new Set(['message', 'conversationId']);
 
 const STATUS_BY_ERROR: Readonly<Record<ErrorCode, number>> = {
   missing_llm_config: 503,
   message_too_long: 400,
+  invalid_request: 400,
   unexpected_field: 400,
+  corpus_unavailable: 503,
   rate_limited: 429,
   llm_timeout: 504,
   llm_unauthorized: 502,
@@ -37,15 +35,17 @@ const STATUS_BY_ERROR: Readonly<Record<ErrorCode, number>> = {
   llm_malformed_response: 502,
 };
 
+const MAX_BODY_BYTES = 10_000;
+
 export interface TurnContext {
   readonly requestId: string;
   readonly startedAt: number;
+  readonly signal: AbortSignal;
 }
 
-interface ParsedBody {
-  readonly ok: true;
-  readonly request: ChatRequest;
-}
+type ParsedBody =
+  | { readonly ok: true; readonly request: ChatRequest }
+  | { readonly ok: false; readonly error: 'invalid_request' | 'unexpected_field' };
 
 interface Completion {
   readonly response: Response;
@@ -88,15 +88,15 @@ function isOptionalString(value: unknown): boolean {
   return value === undefined || typeof value === 'string';
 }
 
-export function parseChatBody(raw: string): ParsedBody | null {
+export function parseChatBody(raw: string): ParsedBody {
   const value = tryParseJson(raw);
-  if (!isPlainObject(value)) return null;
-  if (hasUnexpectedField(value)) return null;
+  if (!isPlainObject(value)) return { ok: false, error: 'invalid_request' };
+  if (hasUnexpectedField(value)) return { ok: false, error: 'unexpected_field' };
 
   const message = value.message;
   const conversationId = value.conversationId;
-  if (typeof message !== 'string') return null;
-  if (!isOptionalString(conversationId)) return null;
+  if (typeof message !== 'string') return { ok: false, error: 'invalid_request' };
+  if (!isOptionalString(conversationId)) return { ok: false, error: 'invalid_request' };
 
   if (conversationId === undefined) return { ok: true, request: { message } };
   return { ok: true, request: { message, conversationId: conversationId as string } };
@@ -122,8 +122,8 @@ function wantsJson(headers: Headers): boolean {
   return (headers.get('accept') ?? '').includes('application/json');
 }
 
-function startContext(deps: AppDeps): TurnContext {
-  return { requestId: deps.newRequestId(), startedAt: deps.now() };
+function startContext(deps: AppDeps, signal: AbortSignal): TurnContext {
+  return { requestId: deps.newRequestId(), startedAt: deps.now(), signal };
 }
 
 function emitLog(
@@ -163,14 +163,13 @@ function responseStatus(payload: ChatResponse): number {
  */
 function errorCompletion(
   errorCode: ErrorCode,
-  status: number,
   extra: {
     readonly values?: Record<string, unknown>;
     readonly headers?: Record<string, string>;
   } = {}
 ): Completion {
   return {
-    response: jsonResponse(errorPayload(errorCode, extra.values), status, extra.headers),
+    response: jsonResponse(errorPayload(errorCode, extra.values), STATUS_BY_ERROR[errorCode], extra.headers),
     status: 'error',
   };
 }
@@ -215,6 +214,7 @@ function buildAnswerDeps(
   corpusIndex: AnswerDeps['index'],
   adapter: LlmAdapter,
   config: Config,
+  context: TurnContext,
   deps: AppDeps
 ): AnswerDeps {
   return {
@@ -224,6 +224,7 @@ function buildAnswerDeps(
     conversations: deps.conversations,
     telemetry: createTurnTelemetry(),
     now: deps.now,
+    signal: context.signal,
   };
 }
 
@@ -235,13 +236,10 @@ async function answerTurn(
   deps: AppDeps
 ): Promise<Response> {
   const corpus = deps.loadCorpus();
-  if (!corpus.ok) {
-    const payload = insufficientResponse('corpus_unavailable');
-    return complete(context, { response: jsonResponse(payload), status: payload.kind }, deps);
-  }
+  if (!corpus.ok) return complete(context, errorCompletion('corpus_unavailable'), deps);
 
   const adapter = deps.createAdapter(config);
-  const answerDeps = buildAnswerDeps(corpus.corpus.index, adapter, config, deps);
+  const answerDeps = buildAnswerDeps(corpus.corpus.index, adapter, config, context, deps);
 
   if (wantsStream) return sseResponse(request, answerDeps, context, deps);
 
@@ -266,7 +264,7 @@ function guardPrefix(
   const limit = deps.rateLimiter.check(ip, context.startedAt);
   if (!limit.allowed) {
     return {
-      completion: errorCompletion('rate_limited', 429, {
+      completion: errorCompletion('rate_limited', {
         headers: { 'retry-after': String(limit.retryAfterSeconds) },
       }),
     };
@@ -275,7 +273,7 @@ function guardPrefix(
   const config: ConfigResult = deps.loadConfig();
   if (!config.ok) {
     return {
-      completion: errorCompletion('missing_llm_config', 503, {
+      completion: errorCompletion('missing_llm_config', {
         values: { missing: config.missing },
       }),
     };
@@ -286,16 +284,21 @@ function guardPrefix(
 
 export function createChatRouteHandler(deps: AppDeps): (request: Request) => Promise<Response> {
   return async function handleChatRequest(request: Request): Promise<Response> {
-    const context = startContext(deps);
+    const context = startContext(deps, request.signal);
     const guard = guardPrefix(request, context, deps);
     if ('completion' in guard) return complete(context, guard.completion, deps);
 
+    const declaredLength = Number(request.headers.get('content-length'));
+    if (Number.isFinite(declaredLength) && declaredLength > MAX_BODY_BYTES) {
+      return complete(context, errorCompletion('message_too_long'), deps);
+    }
+
     const body = parseChatBody(await request.text());
-    if (body === null) return complete(context, errorCompletion('unexpected_field', 400), deps);
+    if (!body.ok) return complete(context, errorCompletion(body.error), deps);
 
     const { config } = guard;
     if (body.request.message.length > config.maxMessageChars) {
-      return complete(context, errorCompletion('message_too_long', 400), deps);
+      return complete(context, errorCompletion('message_too_long'), deps);
     }
 
     return answerTurn(wantsJson(request.headers) === false, body.request, config, context, deps);

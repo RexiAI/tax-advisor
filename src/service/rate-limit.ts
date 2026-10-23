@@ -22,11 +22,21 @@ export interface RateLimiterOptions {
   readonly windowMs: number;
 }
 
+const MAX_WINDOWS = 10_000;
+
+function evictExpired(windows: Map<string, Window>, nowMs: number, windowMs: number): void {
+  for (const [key, window] of windows) {
+    if (nowMs - window.startedAt >= windowMs) windows.delete(key);
+  }
+}
+
 export function createRateLimiter(options: RateLimiterOptions): RateLimiter {
   const windows = new Map<string, Window>();
 
   return {
     check(key: string, nowMs: number): RateLimitDecision {
+      if (windows.size > MAX_WINDOWS) evictExpired(windows, nowMs, options.windowMs);
+
       const existing = windows.get(key);
       const window =
         existing === undefined || nowMs - existing.startedAt >= options.windowMs

@@ -1,9 +1,6 @@
 /**
- * OpenAI-compatible chat-completions client (Task 7).
- *
- * URL, key and model all come from configuration; this module holds no hostname,
- * vendor name or model id. Upstream error bodies are never surfaced — every
- * failure collapses to an error code from the closed set.
+ * OpenAI-compatible chat-completions client (Task 7). URL, key and model come
+ * from configuration; upstream error bodies collapse to a closed error code.
  */
 
 import type { Config } from '../config/env';
@@ -53,17 +50,23 @@ function toCount(value: unknown): number {
   return typeof value === 'number' && Number.isFinite(value) ? value : 0;
 }
 
+type UsageChunk = { prompt_tokens?: unknown; completion_tokens?: unknown } | null | undefined;
+
+function usageEvent(usage: UsageChunk): LlmStreamEvent | null {
+  if (usage === undefined || usage === null) return null;
+  return {
+    type: 'usage',
+    promptTokens: toCount(usage.prompt_tokens),
+    completionTokens: toCount(usage.completion_tokens),
+  };
+}
+
 function chunkToEvent(chunk: {
   choices?: { delta?: { content?: unknown } }[];
-  usage?: { prompt_tokens?: unknown; completion_tokens?: unknown };
+  usage?: UsageChunk;
 }): LlmStreamEvent {
-  if (chunk.usage !== undefined) {
-    return {
-      type: 'usage',
-      promptTokens: toCount(chunk.usage.prompt_tokens),
-      completionTokens: toCount(chunk.usage.completion_tokens),
-    };
-  }
+  const usage = usageEvent(chunk.usage);
+  if (usage !== null) return usage;
   const content = chunk.choices?.[0]?.delta?.content;
   return { type: 'delta', text: typeof content === 'string' ? content : '' };
 }
@@ -82,6 +85,18 @@ function parseSseLine(line: string): SseLineOutcome {
   }
 }
 
+function isVisibleEvent(event: LlmStreamEvent | undefined): event is LlmStreamEvent {
+  return event !== undefined && !(event.type === 'delta' && event.text === '');
+}
+
+function collectLine(
+  outcome: SseLineOutcome,
+  events: LlmStreamEvent[]
+): { readonly done: boolean; readonly malformed: boolean } {
+  if (isVisibleEvent(outcome.event)) events.push(outcome.event);
+  return { done: outcome.kind === 'done', malformed: outcome.kind === 'malformed' };
+}
+
 function consumeSseBuffer(buffer: string): SseBufferOutcome {
   const lines = buffer.split('\n');
   const rest = lines.pop() ?? '';
@@ -90,10 +105,9 @@ function consumeSseBuffer(buffer: string): SseBufferOutcome {
   let malformed = false;
 
   for (const line of lines) {
-    const outcome = parseSseLine(line);
-    if (outcome.event !== undefined) events.push(outcome.event);
-    done = done || outcome.kind === 'done';
-    malformed = malformed || outcome.kind === 'malformed';
+    const flags = collectLine(parseSseLine(line), events);
+    done = done || flags.done;
+    malformed = malformed || flags.malformed;
   }
 
   return { events, rest, done, malformed };
@@ -176,6 +190,7 @@ export class OpenAiCompatibleAdapter implements LlmAdapter {
   private readonly apiKey: string;
   private readonly model: string;
   private readonly timeoutMs: number;
+  private readonly disableReasoning: boolean;
   private readonly fetchImpl: typeof fetch;
 
   constructor(config: Config, options: OpenAiCompatibleOptions = {}) {
@@ -183,6 +198,7 @@ export class OpenAiCompatibleAdapter implements LlmAdapter {
     this.apiKey = config.llmApiKey;
     this.model = config.llmModel;
     this.timeoutMs = config.llmTimeoutMs;
+    this.disableReasoning = config.llmDisableReasoning;
     this.fetchImpl = options.fetchImpl ?? ((input, init) => globalThis.fetch(input, init));
   }
 
@@ -245,6 +261,8 @@ export class OpenAiCompatibleAdapter implements LlmAdapter {
         body: JSON.stringify({
           model: this.model,
           stream: true,
+          stream_options: { include_usage: true },
+          ...(this.disableReasoning ? { thinking: { type: 'disabled' } } : {}),
           messages: [{ role: 'system', content: request.system }, ...request.messages],
         }),
         signal,

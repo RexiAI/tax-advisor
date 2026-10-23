@@ -11,8 +11,10 @@ import {
 
 import styles from './Composer.module.css';
 
-/** The counter stays hidden until the message approaches the cap. */
-const COUNTER_VISIBLE_FROM = 1800;
+/** Show the counter only when the message is within 10% of the cap. */
+function counterVisibleFrom(maxChars: number): number {
+  return Math.max(1, Math.round(maxChars * 0.9));
+}
 
 export interface ComposerProps {
   readonly value: string;
@@ -52,7 +54,7 @@ export function Composer({ value, maxChars, busy, onChange, onSubmit }: Composer
           <ArrowUp aria-hidden="true" size={18} />
         </button>
       </div>
-      {value.length > COUNTER_VISIBLE_FROM ? (
+      {value.length > counterVisibleFrom(maxChars) ? (
         <p className={styles.counter}>
           {value.length} / {maxChars}
         </p>
