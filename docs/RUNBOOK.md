@@ -38,6 +38,10 @@ npm run corpus:sync
 | `RATE_LIMIT_MAX`       | `20`            | Requests per client IP per window                   |
 | `RATE_LIMIT_WINDOW_MS` | `600000`        | Fixed window length (10 minutes)                    |
 | `LLM_TIMEOUT_MS`       | `60000`         | Upper bound on a single model call                  |
+| `AUTH_ALLOWED_EMAIL`   | none — required | The only email allowed to sign in                   |
+| `AUTH_PASSWORD`        | none — required | Login password; server-only, never committed        |
+| `AUTH_SECRET`          | none — required | 32+ random bytes for the session-cookie HMAC        |
+| `AUTH_SESSION_SECONDS` | `28800`         | Session lifetime (8 hours)                          |
 
 Copy `.env.example` to `.env.local` and fill it in; `.env.local` is gitignored and must never
 be committed. A missing LLM variable is a configuration error: `POST /api/chat` answers `503`
@@ -63,13 +67,19 @@ npm start
 `npm test` runs entirely offline: a global test setup replaces `fetch` with a stub that throws,
 the model is a fake, and BOE access is a fake fetcher over `test/fixtures/boe/`.
 
+`/` and `/api/chat` require a session. Sign in at `/login` with
+`AUTH_ALLOWED_EMAIL` / `AUTH_PASSWORD`; read the generated local password with
+`grep '^AUTH_PASSWORD=' .env.local`. `/health` stays public for the platform probe.
+The session cookie is HttpOnly, SameSite=Lax, and `Secure` when
+`NODE_ENV=production`; `AUTH_SECRET` signs it.
+
 ## 4. Deploy
 
 The frontend deploys through the hosting platform's Git integration: a push to a branch
 produces a preview deployment, a merge to the default branch produces production. Do not run
 `vercel deploy` from a workstation or CI — it double-builds the same commit.
 
-1. Set the eleven environment variables from §2 in the project's environment settings
+1. Set the fifteen environment variables from §2 in the project's environment settings
    (Production, Preview, and Development). The Vercel project is already linked; `vercel.json`
    pins the Next.js framework preset.
 2. Push the branch and let the platform build.

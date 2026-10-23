@@ -6,6 +6,13 @@
   padding-block: var(--space-5) var(--space-4);
 }
 
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
 .title {
   font-size: var(--font-size-h1);
   line-height: var(--line-h1);

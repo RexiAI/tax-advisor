@@ -26,6 +26,8 @@ const STATUS_BY_ERROR: Readonly<Record<ErrorCode, number>> = {
   message_too_long: 400,
   invalid_request: 400,
   unexpected_field: 400,
+  unauthorized: 401,
+  missing_auth_config: 503,
   corpus_unavailable: 503,
   rate_limited: 429,
   llm_timeout: 504,

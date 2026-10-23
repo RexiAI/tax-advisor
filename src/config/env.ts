@@ -46,6 +46,49 @@ export type Bounds = Omit<
   'llmBaseUrl' | 'llmApiKey' | 'llmModel' | 'llmDisableReasoning'
 >;
 
+export interface AuthConfig {
+  readonly allowedEmail: string;
+  readonly password: string;
+  readonly secret: string;
+  readonly sessionTtlSeconds: number;
+  readonly secureCookies: boolean;
+}
+
+export type AuthVariable = 'AUTH_ALLOWED_EMAIL' | 'AUTH_PASSWORD' | 'AUTH_SECRET';
+
+export const AUTH_VARIABLES: readonly AuthVariable[] = [
+  'AUTH_ALLOWED_EMAIL',
+  'AUTH_PASSWORD',
+  'AUTH_SECRET',
+];
+
+export type AuthConfigResult =
+  | { readonly ok: true; readonly config: AuthConfig }
+  | {
+      readonly ok: false;
+      readonly error: 'missing_auth_config';
+      readonly missing: readonly AuthVariable[];
+    };
+
+const DEFAULT_SESSION_TTL_SECONDS = 8 * 60 * 60;
+
+/** Auth is separate from the LLM config: the login route must work when the model is down. */
+export function loadAuthConfig(): AuthConfigResult {
+  const missing = AUTH_VARIABLES.filter((name) => readString(name) === '');
+  if (missing.length > 0) return { ok: false, error: 'missing_auth_config', missing };
+
+  return {
+    ok: true,
+    config: {
+      allowedEmail: readString('AUTH_ALLOWED_EMAIL').toLowerCase(),
+      password: readString('AUTH_PASSWORD'),
+      secret: readString('AUTH_SECRET'),
+      sessionTtlSeconds: readNumber('AUTH_SESSION_SECONDS', DEFAULT_SESSION_TTL_SECONDS),
+      secureCookies: process.env.NODE_ENV === 'production',
+    },
+  };
+}
+
 function readString(name: string): string {
   const raw = process.env[name];
   return typeof raw === 'string' ? raw.trim() : '';

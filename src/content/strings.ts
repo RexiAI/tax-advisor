@@ -80,6 +80,8 @@ export const ERROR_MESSAGES = {
     'La pregunta es demasiado larga. Acórtala y vuelve a intentarlo.',
   invalid_request: 'La solicitud no tiene el formato esperado.',
   unexpected_field: 'La solicitud contiene campos que no están permitidos.',
+  unauthorized: 'Tu sesión ha caducado. Vuelve a entrar.',
+  missing_auth_config: 'El acceso no está configurado en este momento.',
   corpus_unavailable:
     'No puedo consultar el texto del BOE en este momento. Vuelve a intentarlo más tarde.',
   rate_limited:

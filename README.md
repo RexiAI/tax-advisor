@@ -26,10 +26,28 @@ Required environment variables:
 | `LLM_API_KEY` | Provider key |
 | `LLM_MODEL` | Model id, e.g. `deepseek-flash` |
 | `LLM_DISABLE_REASONING` | Optional; `true` sends `{"thinking":{"type":"disabled"}}` |
+| `AUTH_ALLOWED_EMAIL` | The only email allowed to sign in |
+| `AUTH_PASSWORD` | The login password (server-only; never commit) |
+| `AUTH_SECRET` | 32+ random bytes used to sign the session cookie |
+| `AUTH_SESSION_SECONDS` | Session lifetime; default 8 hours |
 
 Bounded defaults live in `src/config/env.ts`; every one can be overridden with
 `CORPUS_TAX_YEAR`, `MIN_RETRIEVAL_SCORE`, `RETRIEVAL_TOP_K`, `MAX_MESSAGE_CHARS`,
 `RATE_LIMIT_MAX`, `RATE_LIMIT_WINDOW_MS`, and `LLM_TIMEOUT_MS`.
+
+## Login
+
+`/` and `/api/chat` are protected by middleware. `/login` is public; `/health`
+stays public for monitoring. A successful login sets an HttpOnly, SameSite=Lax
+session cookie signed with `AUTH_SECRET`; `Secure` is added in production. The
+only accepted email is `AUTH_ALLOWED_EMAIL`; the only accepted password is
+`AUTH_PASSWORD`. Login attempts are capped at 5 per 10 minutes per IP.
+
+To read the generated local password:
+
+```bash
+grep '^AUTH_PASSWORD=' .env.local
+```
 
 ## Commands
 
