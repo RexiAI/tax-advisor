@@ -10,6 +10,7 @@ import { readBounds } from '../config/env';
 import { findDuplicatePassageId } from '../domain/passage';
 import type { Passage } from '../domain/passage';
 
+import { expandTerms } from './expand';
 import { normalizeTerms } from './normalize';
 import type { BuildIndexResult, CorpusIndex, SearchResult } from './types';
 
@@ -66,14 +67,25 @@ function inverseDocumentFrequency(term: string, index: CorpusIndex): number {
   return 1 + Math.log(index.size / documentsWithTerm);
 }
 
+function titleBoost(passage: Passage, terms: readonly string[]): number {
+  // BOE `blockTitle` is often just "Artículo 103"; the actual heading is the
+  // first line of the text ("Artículo 103. Devolución derivada…").
+  const heading = `${passage.articleLabel} ${passage.blockTitle} ${passage.text.slice(0, 160)}`;
+  const titleTerms = new Set(normalizeTerms(heading));
+  let matches = 0;
+  for (const term of terms) if (titleTerms.has(term)) matches += 1;
+  return matches * 0.3;
+}
+
 function scorePassage(
+  passage: Passage,
   counts: ReadonlyMap<string, number>,
   total: number,
   terms: readonly string[],
   index: CorpusIndex
 ): number {
   if (total === 0) return 0;
-  let score = 0;
+  let score = titleBoost(passage, terms);
   for (const term of terms) {
     const occurrences = counts.get(term) ?? 0;
     if (occurrences === 0) continue;
@@ -92,7 +104,7 @@ function compareResults(left: SearchResult, right: SearchResult): number {
  * configured `retrievalTopK`. An empty or stopword-only query returns `[]`.
  */
 export function search(index: CorpusIndex, query: string, k?: number): SearchResult[] {
-  const terms = [...new Set(normalizeTerms(query))];
+  const terms = [...new Set([...normalizeTerms(query), ...expandTerms(query)])];
   if (terms.length === 0) return [];
 
   const limit = k ?? readBounds().retrievalTopK;
@@ -101,7 +113,13 @@ export function search(index: CorpusIndex, query: string, k?: number): SearchRes
   index.passages.forEach((passage, position) => {
     const counts = index.termFrequency[position];
     if (counts === undefined) return;
-    const score = scorePassage(counts, index.documentLength[position] ?? 0, terms, index);
+    const score = scorePassage(
+      passage,
+      counts,
+      index.documentLength[position] ?? 0,
+      terms,
+      index
+    );
     if (score > 0) results.push({ passage, score });
   });
 

@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
+import { expandTerms } from '@/retrieval/expand';
 import { normalizeTerms, normalizeText } from '@/retrieval/normalize';
 
 describe('normalizeText', () => {
@@ -34,5 +35,22 @@ describe('normalizeTerms', () => {
 
   it('collapses repeated terms into the same token, leaving de-duplication to the caller', () => {
     expect(normalizeTerms('alquiler alquiler')).toEqual(['alquiler', 'alquiler']);
+  });
+});
+
+describe('expandTerms', () => {
+  it('maps "me sale a pagar o a devolver" to the BOE vocabulary', () => {
+    expect(expandTerms('¿Me sale a pagar o a devolver?')).toEqual(
+      expect.arrayContaining(['cuota', 'diferencial', 'devolucion'])
+    );
+  });
+
+  it('maps common taxpayer words to their BOE equivalents', () => {
+    expect(expandTerms('alquiler de vivienda')).toEqual(expect.arrayContaining(['arrendamiento', 'inmueble']));
+    expect(expandTerms('gastos de autónomo')).toEqual(expect.arrayContaining(['autonomos']));
+  });
+
+  it('returns nothing for an unrelated question', () => {
+    expect(expandTerms('¿Qué es el IRPF?')).toEqual([]);
   });
 });
