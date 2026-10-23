@@ -30,6 +30,7 @@ npm run corpus:sync
 | `LLM_BASE_URL`         | none — required | Base URL of the OpenAI-compatible endpoint          |
 | `LLM_API_KEY`          | none — required | Bearer token for that endpoint                      |
 | `LLM_MODEL`            | none — required | Model id requested from that endpoint               |
+| `LLM_DISABLE_REASONING`| `false`         | `true` sends `{"thinking":{"type":"disabled"}}`; skips chain-of-thought tokens on providers that support it |
 | `CORPUS_TAX_YEAR`      | `2025`          | Tax year the corpus covers                          |
 | `MIN_RETRIEVAL_SCORE`  | `0.1`           | Minimum top retrieval score for sufficient evidence |
 | `RETRIEVAL_TOP_K`      | `5`             | Passages retrieved per query                        |
@@ -68,7 +69,9 @@ The frontend deploys through the hosting platform's Git integration: a push to a
 produces a preview deployment, a merge to the default branch produces production. Do not run
 `vercel deploy` from a workstation or CI — it double-builds the same commit.
 
-1. Set the ten environment variables from §2 in the project's environment settings.
+1. Set the eleven environment variables from §2 in the project's environment settings
+   (Production, Preview, and Development). The Vercel project is already linked; `vercel.json`
+   pins the Next.js framework preset.
 2. Push the branch and let the platform build.
 3. Verify liveness:
 

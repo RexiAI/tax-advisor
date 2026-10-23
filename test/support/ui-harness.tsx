@@ -29,7 +29,6 @@ export function answerResponse(overrides: Partial<AnswerResponse> = {}): AnswerR
     kind: 'answer',
     explanation: 'La escala general del impuesto se aplica a la base liquidable.',
     rule: 'El artículo 63 fija la escala general.',
-    citedPassages: [CITATION],
     citations: [CITATION],
     disclaimer: DEFAULT_DISCLAIMER,
     ...overrides,

@@ -19,7 +19,6 @@ export interface AnswerResponse {
   readonly kind: 'answer';
   readonly explanation: string;
   readonly rule: string;
-  readonly citedPassages: readonly Citation[];
   readonly citations: readonly Citation[];
   readonly disclaimer: string;
   readonly workedExample?: string;

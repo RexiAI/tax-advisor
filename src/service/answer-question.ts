@@ -131,7 +131,6 @@ function answerResponse(
     kind: 'answer',
     explanation,
     rule,
-    citedPassages: citations,
     citations,
     disclaimer: AI_DISCLOSURE,
     ...(workedExample === undefined ? {} : { workedExample }),

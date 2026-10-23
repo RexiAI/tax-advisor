@@ -52,7 +52,7 @@ describe('AC-001-48 a supported turn produces an answer with at least one citati
     expect(response.rule.length).toBeGreaterThan(0);
     expect(response.disclaimer.length).toBeGreaterThan(0);
     expect(response.citations.length).toBeGreaterThanOrEqual(1);
-    expect(response.citedPassages.map((citation) => citation.passageId)).toContain(id);
+    expect(response.citations.map((citation) => citation.passageId)).toContain(id);
     expect(adapter.callCount).toBe(1);
   });
 });
