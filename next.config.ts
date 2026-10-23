@@ -11,6 +11,12 @@ const nextConfig: NextConfig = {
   // Pin the trace root to this repo. A lockfile in a parent directory otherwise
   // makes Next.js infer /home/<user> as the workspace root.
   outputFileTracingRoot: projectRoot,
+  // The corpus is read at runtime from disk, so tracing cannot infer it.
+  outputFileTracingIncludes: {
+    '/': ['./corpus/corpus.json'],
+    '/api/chat': ['./corpus/corpus.json'],
+    '/health': ['./corpus/corpus.json'],
+  },
 };
 
 export default nextConfig;
