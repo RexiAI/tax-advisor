@@ -5,7 +5,7 @@
  */
 
 import type { Citation } from '../domain/citation';
-import type { OutOfScopeReasonCode } from '../content/scope-topics';
+import type { OfficialLink, OutOfScopeReasonCode } from '../content/scope-topics';
 import type { ErrorCode } from '../content/strings';
 import type { CitationValidationStatus } from '../observability/log';
 import type { SensitiveCategory } from './privacy';
@@ -39,6 +39,8 @@ export interface OutOfScopeResponse {
   readonly topicLabel: string;
   readonly officialBody: string;
   readonly explanation: string;
+  readonly steps?: readonly string[];
+  readonly links?: readonly OfficialLink[];
   readonly handoffUrl: string;
   readonly disclaimer: string;
 }

@@ -70,6 +70,8 @@ function abstentionNotice(response: ChatResponse): NoticeProps | null {
       tone: 'info',
       title: OUT_OF_SCOPE_TITLE,
       body: response.explanation,
+      ...(response.steps === undefined ? {} : { items: response.steps }),
+      ...(response.links === undefined ? {} : { links: response.links }),
       action: { href: response.handoffUrl, label: HANDOFF_LABEL },
     };
   }

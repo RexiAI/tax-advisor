@@ -15,7 +15,13 @@ export type OutOfScopeReasonCode =
   | 'ibi'
   | 'non_residents'
   | 'company_tax'
-  | 'social_security';
+  | 'social_security'
+  | 'autonomo_registration';
+
+export interface OfficialLink {
+  readonly href: string;
+  readonly label: string;
+}
 
 export const AEAT = 'Agencia Tributaria';
 export const COMUNIDAD_AUTONOMA = 'la autoridad tributaria de tu comunidad autónoma';
@@ -81,6 +87,18 @@ export const OUT_OF_SCOPE_TOPICS: readonly OutOfScopeTopic[] = [
     label: 'el Impuesto sobre Sociedades',
     officialBody: AEAT,
     match: anyOf([/impuesto sobre sociedades/]),
+  },
+  {
+    reasonCode: 'autonomo_registration',
+    label: 'el alta de autónomos',
+    officialBody: 'Agencia Tributaria y Tesorería General de la Seguridad Social',
+    // Registration intent, not an IRPF deduction question. "¿Qué gastos puedo
+    // deducirme siendo autónomo?" must stay in scope.
+    match: anyOf([
+      /\b(dar|darme|darse|quiero|empezar|iniciar|alta|registro)\b[^.]{0,40}\bautonom/,
+      /\bautonom[oa]s?\b[^.]{0,30}\b(alta|empezar|iniciar|ser|darse)\b/,
+      /\balta\b[^.]{0,30}\breta\b/,
+    ]),
   },
   {
     reasonCode: 'social_security',

@@ -77,6 +77,22 @@ describe('AC-001-57 Social Security, non-residents and company tax are routed, n
   });
 });
 
+describe('autónomo registration is routed with a checklist, not an IRPF abstention', () => {
+  it('returns steps and official links without calling the model', async () => {
+    const { response, adapter } = await ask('Me quiero dar de alta como autónomo en España. Dime pasos');
+
+    expect(response.kind).toBe('out_of_scope');
+    if (response.kind !== 'out_of_scope') return;
+    expect(response.reasonCode).toBe('autonomo_registration');
+    expect(response.steps?.length).toBeGreaterThanOrEqual(5);
+    expect(response.links?.map((link) => link.href)).toEqual(
+      expect.arrayContaining([expect.stringContaining('sede.agenciatributaria.gob.es')])
+    );
+    expect(adapter.callCount).toBe(0);
+    expect('citations' in response).toBe(false);
+  });
+});
+
 describe('AC-001-58 a filing request is out of scope, and out-of-scope wins a mixed message', () => {
   it('AC-001-58: filing is refused and a mixed IRPF/IVA message is classified as IVA', async () => {
     const filing = await ask('Hazme la declaración de la renta de 2024');

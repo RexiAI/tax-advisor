@@ -53,6 +53,14 @@ describe('classifyScope', () => {
   it('matches a non-resident question', () => {
     expect(classifyScope('Soy NO RESIDENTE en España')?.reasonCode).toBe('non_residents');
   });
+
+  it('routes a registration request to the alta de autónomos topic, not to IRPF', () => {
+    expect(classifyScope('Me quiero dar de alta como autónomo en España. Dime pasos')?.reasonCode).toBe(
+      'autonomo_registration'
+    );
+    expect(classifyScope('Quiero empezar como autónomo')?.reasonCode).toBe('autonomo_registration');
+    expect(classifyScope('¿Qué gastos puedo deducirme siendo autónomo?')).toBeNull();
+  });
 });
 
 describe('yearNoticeFor', () => {

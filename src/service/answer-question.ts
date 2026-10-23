@@ -6,6 +6,7 @@
 
 import { stripCitationMarkers } from '../citations/extract';
 import { validateCitations } from '../citations/validate';
+import { AUTONOMO_EXPLANATION, AUTONOMO_LINKS, AUTONOMO_STEPS } from '../content/autonomo';
 import { toPlainText } from '../content/format';
 import {
   AI_DISCLOSURE,
@@ -74,12 +75,16 @@ function privacyResponse(message: string): ChatResponse | null {
 function scopeResponse(message: string): ChatResponse | null {
   const match = classifyScope(message);
   if (match === null) return null;
+  const registration = match.reasonCode === 'autonomo_registration';
   return {
     kind: 'out_of_scope',
     reasonCode: match.reasonCode,
     topicLabel: match.label,
     officialBody: match.officialBody,
-    explanation: `Las preguntas sobre ${match.label} quedan fuera del alcance de esta herramienta: aquí solo explico el IRPF. Para ${match.label}, la administración competente es ${match.officialBody}.`,
+    explanation: registration
+      ? AUTONOMO_EXPLANATION
+      : `Las preguntas sobre ${match.label} quedan fuera del alcance de esta herramienta: aquí solo explico el IRPF. Para ${match.label}, la administración competente es ${match.officialBody}.`,
+    ...(registration ? { steps: AUTONOMO_STEPS, links: AUTONOMO_LINKS } : {}),
     handoffUrl: HANDOFF_URL,
     disclaimer: AI_DISCLOSURE,
   };
