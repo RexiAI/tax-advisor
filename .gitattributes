@@ -1,0 +1,6 @@
+# Normalize line endings regardless of core.autocrlf: LF everywhere except
+# explicit Windows scripts.
+* text=auto eol=lf
+*.sh text eol=lf
+Makefile* text eol=lf
+*.bat text eol=crlf
