@@ -1,0 +1,70 @@
+/*
+ * Design tokens: the single source for colour, space, radius, type and motion
+ * (15-design.md §Global Tokens). Components reference `var(--token)` and never a
+ * bare hex or px value of their own.
+ *
+ * Fonts are self-hosted through @fontsource packages imported in `layout.tsx`;
+ * no third-party font host is contacted at runtime. The family stack keeps a
+ * documented fallback so a failed font load degrades to a system sans rather
+ * than to an unreadable page — the metric difference is a known CLS risk.
+ */
+:root {
+  color-scheme: light;
+
+  --font-sans: 'IBM Plex Sans Variable', 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --accent: #1b5e4b;
+  --accent-contrast: #ffffff;
+  --surface: #fbfcfb;
+  --surface-raised: #ffffff;
+  --surface-sunken: #f2f4f2;
+  --hairline: #dde1de;
+  --ink: #161a18;
+  --ink-secondary: #5a625e;
+  --ink-tertiary: #656d68;
+  --error: #8a3b2f;
+  --warning: #7a5a18;
+
+  --radius: 8px;
+  --hairline-width: 1px;
+  --notice-rule-width: 3px;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+
+  --font-size-h1: 22px;
+  --line-h1: 1.25;
+  --font-size-h2: 15px;
+  --line-h2: 1.35;
+  --font-size-body: 17px;
+  --line-body: 1.6;
+  --font-size-user: 16px;
+  --line-user: 1.5;
+  --font-size-notice: 14px;
+  --line-notice: 1.5;
+  --font-size-citation-label: 13px;
+  --font-size-citation-norm: 14px;
+  --font-size-citation-date: 12px;
+  --font-size-disclaimer: 12.5px;
+  --line-metadata: 1.45;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
+  --measure: 62ch;
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+  --tap-target: 44px;
+
+  --motion-fast: 120ms;
+  --motion-replace: 160ms;
+  --motion-shift: 4px;
+  --motion-press: 0.98;
+}

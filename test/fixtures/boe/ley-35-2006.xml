@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<documento>
+  <metadatos>
+    <titulo>Ley 35/2006, de 28 de noviembre, del Impuesto sobre la Renta de las Personas Físicas</titulo>
+    <fecha_actualizacion>2026-03-17</fecha_actualizacion>
+  </metadatos>
+  <texto>
+    <bloque id="preambulo" tipo="preambulo" titulo="Preámbulo">
+      <version id="p-1">
+        <p>Texto introductorio de la norma.</p>
+      </version>
+    </bloque>
+    <bloque id="a63" tipo="normativo" titulo="Artículo 63. Escala general del impuesto">
+      <version id="v-2023">
+        <p>Versión anterior de la escala general.</p>
+      </version>
+      <version id="v-2026">
+        <p>Escala general del impuesto vigente para el <strong>ahorro</strong> &amp; la base liquidable.</p>
+        <table>
+          <tr>
+            <td>Hasta 12.450 €</td>
+            <td>9.500 €</td>
+          </tr>
+          <tr>
+            <td>Resto de base liquidable</td>
+            <td>22.000 €</td>
+          </tr>
+        </table>
+      </version>
+    </bloque>
+    <bloque id="a64" tipo="normativo" titulo="Artículo 64. Cuota íntegra">
+      <version id="v-1">
+        <p>La cuota íntegra se obtiene aplicando la escala general a la base liquidable.</p>
+      </version>
+    </bloque>
+    <bloque id="da-primera" tipo="normativo" titulo="Disposición adicional primera">
+      <version id="v-1">
+        <p>Deducción por alquiler de vivienda habitual: régimen transitorio.</p>
+      </version>
+    </bloque>
+  </texto>
+</documento>

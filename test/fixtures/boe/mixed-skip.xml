@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<documento>
+  <texto>
+    <bloque id="a1" tipo="normativo" titulo="Artículo 1. Objeto">
+      <version id="v-1">
+        <p>Texto normativo que sí se publica.</p>
+      </version>
+    </bloque>
+    <bloque id="preambulo" tipo="preambulo" titulo="Preámbulo">
+      <version id="v-1">
+        <p>Texto de preámbulo que no es normativo.</p>
+      </version>
+    </bloque>
+    <bloque id="vacio" tipo="normativo" titulo="Artículo 2. Vacío">
+      <version id="v-1">
+        <p>   </p>
+      </version>
+    </bloque>
+  </texto>
+</documento>

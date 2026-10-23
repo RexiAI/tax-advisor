@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Reproduces the live BOE consolidated-text vocabulary observed on
+  https://www.boe.es/datosabiertos/api/legislacion-consolidada/id/BOE-A-2006-20764/texto
+  on 2026-10-07: `nota_inicial`, `preambulo`, `encabezado`, `precepto`, `firma`.
+  Only `precepto` blocks carry rule text; the rest must not become passages.
+  Shapes are trimmed to the parts the parser reads; no network access is involved.
+-->
+<response>
+  <status>
+    <code>200</code>
+    <text>ok</text>
+  </status>
+  <data>
+    <texto>
+      <bloque id="no" tipo="nota_inicial">
+        <version id_norma="BOE-A-2006-20764" fecha_publicacion="20061129" fecha_vigencia="20070101">
+          <p class="textoCompleto">Incluye la corrección de errores publicada en BOE núm. 57, de 7 de marzo de 2007. <a class="refPost">Ref. BOE-A-2007-4731</a></p>
+        </version>
+      </bloque>
+      <bloque id="preambulo" tipo="preambulo">
+        <version id_norma="BOE-A-2006-20764" fecha_publicacion="20061129" fecha_vigencia="20070101">
+          <p class="subseccion">JUAN CARLOS I</p>
+          <p class="textoCompleto">REY DE ESPAÑA.</p>
+        </version>
+      </bloque>
+      <bloque id="tpreliminar" tipo="encabezado" titulo="TÍTULO PRELIMINAR">
+        <version id_norma="BOE-A-2006-20764" fecha_publicacion="20061129" fecha_vigencia="20070101">
+          <p class="titulo_num">TÍTULO PRELIMINAR</p>
+          <p class="titulo_tit">Naturaleza, objeto y ámbito de aplicación</p>
+        </version>
+      </bloque>
+      <bloque id="a20" tipo="precepto" titulo="Artículo 20">
+        <version id_norma="BOE-A-2006-20764" fecha_publicacion="20231001" fecha_vigencia="20230101">
+          <p class="textoCompleto">Reducción por obtención de rendimientos del trabajo. Versión anterior.</p>
+        </version>
+        <version id_norma="BOE-A-2006-20764" fecha_publicacion="20261007" fecha_vigencia="20230101">
+          <p class="textoCompleto">Artículo 20. Reducción por obtención de rendimientos del trabajo.</p>
+          <p class="textoCompleto">Los contribuyentes con rendimientos netos del trabajo inferiores a 19.747,50 euros &amp; con cotizaciones aplicarán una reducción.</p>
+          <table class="tabla">
+            <tr>
+              <td>Rendimientos netos</td>
+              <td>Reducción</td>
+            </tr>
+            <tr>
+              <td>Hasta 14.852 €</td>
+              <td>6.498 €</td>
+            </tr>
+          </table>
+        </version>
+      </bloque>
+      <bloque id="firma" tipo="firma">
+        <version id_norma="BOE-A-2006-20764" fecha_publicacion="20061129" fecha_vigencia="20070101">
+          <p class="textoCompleto">Por tanto,</p>
+          <p class="textoCompleto">Mando a todos los españoles, particulares y autoridades, que guarden y hagan guardar esta ley.</p>
+        </version>
+      </bloque>
+    </texto>
+  </data>
+</response>

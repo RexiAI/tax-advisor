@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<documento>
+  <metadatos>
+    <titulo>Real Decreto 439/2007, de 30 de marzo, por el que se aprueba el Reglamento del IRPF</titulo>
+    <fecha_actualizacion>2026-02-11</fecha_actualizacion>
+  </metadatos>
+  <texto>
+    <bloque id="a1" tipo="normativo" titulo="Artículo 1. Aprobación del Reglamento">
+      <version id="v-1">
+        <p>Se aprueba el Reglamento del Impuesto sobre la Renta de las Personas Físicas.</p>
+      </version>
+    </bloque>
+    <bloque id="a2" tipo="normativo" titulo="Artículo 2. Deducción por alquiler">
+      <version id="v-1">
+        <p>La deducción por alquiler de vivienda habitual se aplica en los términos del régimen transitorio.</p>
+      </version>
+    </bloque>
+  </texto>
+</documento>

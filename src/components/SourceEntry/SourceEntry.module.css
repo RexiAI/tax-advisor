@@ -1,0 +1,53 @@
+.entry {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  max-width: 100%;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-citation-label);
+  font-weight: var(--weight-medium);
+  line-height: var(--line-metadata);
+  color: var(--ink);
+}
+
+.norm {
+  font-size: var(--font-size-citation-norm);
+  line-height: var(--line-metadata);
+  color: var(--ink-secondary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: var(--tap-target);
+  font-size: var(--font-size-citation-norm);
+  font-weight: var(--weight-medium);
+  color: var(--accent);
+}
+
+.link:focus-visible {
+  outline: var(--focus-ring-width) solid var(--accent);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.date {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-citation-date);
+  line-height: var(--line-metadata);
+  color: var(--ink-tertiary);
+}
