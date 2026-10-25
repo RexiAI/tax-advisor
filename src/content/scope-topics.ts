@@ -1,6 +1,14 @@
 /**
- * Out-of-scope topics (Task 11): one ordered map from topic to reason code and
- * official body. The first match wins, so a mixed message is deterministic.
+ * Out-of-scope topics (Task 11, narrowed by spec 002): one ordered map from topic
+ * to reason code and official body. The first match wins, so a mixed message is
+ * deterministic.
+ *
+ * VAT, Social Security contributions and autónomo registration are not in this
+ * map any more: the corpus covers them, so those questions reach retrieval and
+ * get a citation like any other. What stays out is what the corpus cannot ground
+ * — a request to file, and the taxes of other administrations (ITP, ISD, IBI,
+ * non-residents, company tax).
+ *
  * `filing_request` delegates to `./filing-request.ts`; the rest are patterns over
  * the normalized message.
  */
@@ -8,15 +16,7 @@
 import { isFilingRequest } from './filing-request';
 
 export type OutOfScopeReasonCode =
-  | 'filing_request'
-  | 'iva'
-  | 'itp'
-  | 'isd'
-  | 'ibi'
-  | 'non_residents'
-  | 'company_tax'
-  | 'social_security'
-  | 'autonomo_registration';
+  'filing_request' | 'itp' | 'isd' | 'ibi' | 'non_residents' | 'company_tax';
 
 export interface OfficialLink {
   readonly href: string;
@@ -25,7 +25,6 @@ export interface OfficialLink {
 
 export const AEAT = 'Agencia Tributaria';
 export const COMUNIDAD_AUTONOMA = 'la autoridad tributaria de tu comunidad autónoma';
-export const TESORERIA_SEGURIDAD_SOCIAL = 'Tesorería General de la Seguridad Social';
 
 export interface OutOfScopeTopic {
   readonly reasonCode: OutOfScopeReasonCode;
@@ -48,12 +47,6 @@ export const OUT_OF_SCOPE_TOPICS: readonly OutOfScopeTopic[] = [
     officialBody: AEAT,
     // Defined by direct address (six forms), not by vocabulary — see the module.
     match: isFilingRequest,
-  },
-  {
-    reasonCode: 'iva',
-    label: 'el IVA',
-    officialBody: AEAT,
-    match: anyOf([/\biva\b/]),
   },
   {
     reasonCode: 'itp',
@@ -87,31 +80,5 @@ export const OUT_OF_SCOPE_TOPICS: readonly OutOfScopeTopic[] = [
     label: 'el Impuesto sobre Sociedades',
     officialBody: AEAT,
     match: anyOf([/impuesto sobre sociedades/]),
-  },
-  {
-    reasonCode: 'autonomo_registration',
-    label: 'el alta de autónomos',
-    officialBody: 'Agencia Tributaria y Tesorería General de la Seguridad Social',
-    // Registration intent, not an IRPF deduction question. "¿Qué gastos puedo
-    // deducirme siendo autónomo?" must stay in scope.
-    match: anyOf([
-      /\b(dar|darme|darse|quiero|empezar|iniciar|alta|registro)\b[^.]{0,40}\bautonom/,
-      /\bautonom[oa]s?\b[^.]{0,30}\b(alta|empezar|iniciar|ser|darse)\b/,
-      /\balta\b[^.]{0,30}\breta\b/,
-    ]),
-  },
-  {
-    reasonCode: 'social_security',
-    label: 'la cuota de autónomos y la Seguridad Social',
-    officialBody: TESORERIA_SEGURIDAD_SOCIAL,
-    // The contribution quota and the payment/affiliation sense, not the IRPF
-    // deductibility of contributions: "¿son deducibles las cotizaciones a la
-    // Seguridad Social?" is an IRPF question and stays in scope, while "¿cuánto
-    // pago a la Seguridad Social?" is the quota and is routed.
-    match: anyOf([
-      /cuota de autonomos?/,
-      /\b(pagar|pago|pagando|cuota|alta|baja|afiliacion)\b[^.]*\bseguridad social\b/,
-      /\bseguridad social\b[^.]*\b(pagar|pago|cuota|alta|baja|afiliacion)\b/,
-    ]),
   },
 ];
