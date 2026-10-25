@@ -75,6 +75,15 @@ function abstentionNotice(response: ChatResponse): NoticeProps | null {
       action: { href: response.handoffUrl, label: HANDOFF_LABEL },
     };
   }
+  if (response.kind === 'guide') {
+    return {
+      tone: 'info',
+      title: response.title,
+      body: response.explanation,
+      items: response.steps,
+      links: response.links,
+    };
+  }
   return null;
 }
 

@@ -8,6 +8,7 @@ import { stripCitationMarkers } from '../citations/extract';
 import { validateCitations } from '../citations/validate';
 import { AUTONOMO_EXPLANATION, AUTONOMO_LINKS, AUTONOMO_STEPS } from '../content/autonomo';
 import { toPlainText } from '../content/format';
+import { gestorGuide, type GuideContent } from '../content/gestor-guides';
 import {
   AI_DISCLOSURE,
   HANDOFF_URL,
@@ -90,6 +91,17 @@ function scopeResponse(message: string): ChatResponse | null {
   };
 }
 
+function guideResponse(guide: GuideContent): ChatResponse {
+  return {
+    kind: 'guide',
+    title: guide.title,
+    explanation: guide.summary,
+    steps: guide.steps,
+    links: guide.links,
+    disclaimer: AI_DISCLOSURE,
+  };
+}
+
 function callOptions(deps: AnswerDeps): LlmCallOptions {
   return deps.signal === undefined ? {} : { signal: deps.signal };
 }
@@ -97,7 +109,11 @@ function callOptions(deps: AnswerDeps): LlmCallOptions {
 type PreModel = { readonly response: ChatResponse } | { readonly bundle: EvidenceBundle };
 
 function preModel(input: ChatRequest, deps: AnswerDeps): PreModel {
-  const blocked = privacyResponse(input.message) ?? scopeResponse(input.message);
+  const guide = gestorGuide(input.message);
+  const blocked =
+    privacyResponse(input.message) ??
+    (guide === null ? null : guideResponse(guide)) ??
+    scopeResponse(input.message);
   if (blocked !== null) return { response: blocked };
 
   const bundle = buildEvidence(input.message, deps.index, {

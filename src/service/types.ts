@@ -45,6 +45,15 @@ export interface OutOfScopeResponse {
   readonly disclaimer: string;
 }
 
+export interface GuideResponse {
+  readonly kind: 'guide';
+  readonly title: string;
+  readonly explanation: string;
+  readonly steps: readonly string[];
+  readonly links: readonly OfficialLink[];
+  readonly disclaimer: string;
+}
+
 export interface PrivacyWarningResponse {
   readonly kind: 'privacy_warning';
   readonly category: SensitiveCategory;
@@ -69,6 +78,7 @@ export type ChatResponse =
   | AnswerResponse
   | InsufficientEvidenceResponse
   | OutOfScopeResponse
+  | GuideResponse
   | PrivacyWarningResponse
   | ClarificationResponse
   | ErrorResponse;

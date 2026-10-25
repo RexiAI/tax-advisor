@@ -3,8 +3,10 @@
 A Spanish IRPF explainer that answers from the consolidated BOE text and shows
 the article, link, and last-updated date behind every substantive answer.
 
-- **Scope:** IRPF, tax year 2025, resident individuals. No filing, signing,
-  representation, numeric estimator, IVA, ISD, ITP, or non-residents.
+- **Scope:** IRPF Q&A for resident individuals (tax year 2025), plus gestor
+  guidance for autónomos: IVA, common models (303, 390, 130, 131, 100, 036),
+  invoices, expenses and RETA. Guidance only: no filing, signing,
+  representation, numeric estimator, ISD, ITP, or non-residents.
 - **Grounding:** BOE consolidated legislation (`BOE-A-2006-20764`,
   `BOE-A-2007-6820`) and AEAT Renta 2025 manual pages.
 - **Privacy:** no accounts, no persistence, no document upload, no DNI/NIE/IBAN
