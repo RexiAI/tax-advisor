@@ -21,6 +21,8 @@ export interface AnswerResponse {
   readonly rule: string;
   readonly citations: readonly Citation[];
   readonly disclaimer: string;
+  /** Present when a validated citation belongs to a non-IRPF norm. */
+  readonly scopeDisclaimer?: string;
   readonly workedExample?: string;
   readonly yearNotice?: string;
 }
@@ -39,8 +41,6 @@ export interface OutOfScopeResponse {
   readonly topicLabel: string;
   readonly officialBody: string;
   readonly explanation: string;
-  readonly steps?: readonly string[];
-  readonly links?: readonly OfficialLink[];
   readonly handoffUrl: string;
   readonly disclaimer: string;
 }
