@@ -6,6 +6,7 @@ import {
   ANSWER_EXAMPLE_HEADING,
   ANSWER_RULE_HEADING,
   ANSWER_SUMMARY_HEADING,
+  YEAR_NOTICE_TITLE,
 } from '@/content/strings';
 import type { AnswerResponse } from '@/service/types';
 
@@ -13,34 +14,60 @@ export interface AnswerBlockProps {
   readonly response: AnswerResponse;
 }
 
+/** One headed paragraph: the shape every part of the answer's prose takes. */
+function Prose({ heading, text }: { readonly heading: string; readonly text: string }) {
+  return (
+    <AnswerSection heading={heading}>
+      <p className={styles.paragraph}>{text}</p>
+    </AnswerSection>
+  );
+}
+
+/** Summary, rule and the optional worked example — the answer's prose body. */
+function AnswerBody({ response }: AnswerBlockProps) {
+  return (
+    <div className={styles.body} aria-live="polite" aria-atomic="false">
+      <Prose heading={ANSWER_SUMMARY_HEADING} text={response.explanation} />
+      {response.rule === response.explanation ? null : (
+        <Prose heading={ANSWER_RULE_HEADING} text={response.rule} />
+      )}
+      {response.workedExample === undefined ? null : (
+        <Prose heading={ANSWER_EXAMPLE_HEADING} text={response.workedExample} />
+      )}
+    </div>
+  );
+}
+
+/** AI disclosure, then the reinforced scope line when the norms are not IRPF. */
+function AnswerDisclaimers({ response }: AnswerBlockProps) {
+  return (
+    <>
+      <p className={styles.disclaimer}>{response.disclaimer}</p>
+      {response.scopeDisclaimer === undefined ? null : (
+        <p className={styles.disclaimer}>{response.scopeDisclaimer}</p>
+      )}
+    </>
+  );
+}
+
 /**
  * The answer is a document, not a message bubble: summary, rule, optional worked
- * example, then the sources block and the disclaimer footer.
+ * example, the year notice next to the evidence it qualifies, then the sources
+ * block and the footer (AI disclosure, the reinforced scope line when the answer
+ * leans on a non-IRPF norm).
  */
 export function AnswerBlock({ response }: AnswerBlockProps) {
   return (
     <article className={styles.answer}>
-      {response.yearNotice === undefined ? null : <Notice tone="info" body={response.yearNotice} />}
+      <AnswerBody response={response} />
 
-      <div className={styles.body} aria-live="polite" aria-atomic="false">
-        <AnswerSection heading={ANSWER_SUMMARY_HEADING}>
-          <p className={styles.paragraph}>{response.explanation}</p>
-        </AnswerSection>
-        {response.rule === response.explanation ? null : (
-          <AnswerSection heading={ANSWER_RULE_HEADING}>
-            <p className={styles.paragraph}>{response.rule}</p>
-          </AnswerSection>
-        )}
-        {response.workedExample === undefined ? null : (
-          <AnswerSection heading={ANSWER_EXAMPLE_HEADING}>
-            <p className={styles.paragraph}>{response.workedExample}</p>
-          </AnswerSection>
-        )}
-      </div>
+      {response.yearNotice === undefined ? null : (
+        <Notice tone="info" title={YEAR_NOTICE_TITLE} body={response.yearNotice} />
+      )}
 
       <SourcesList citations={response.citations} />
 
-      <p className={styles.disclaimer}>{response.disclaimer}</p>
+      <AnswerDisclaimers response={response} />
     </article>
   );
 }
