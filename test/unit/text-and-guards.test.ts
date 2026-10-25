@@ -47,18 +47,21 @@ describe('classifyScope', () => {
   });
 
   it('is accent-insensitive', () => {
-    expect(classifyScope('¿Cuánto es la CUOTA DE AUTÓNOMOS?')?.reasonCode).toBe('social_security');
+    // Spec 002: the quota is in scope, so accent folding is proved on a topic
+    // that is still refused.
+    expect(classifyScope('¿Cuánto es el IBI de mi VIVIENDA?')?.reasonCode).toBe('ibi');
+    expect(classifyScope('¿CUÁNTO ES LA CUOTA DE AUTÓNOMOS?')).toBeNull();
   });
 
   it('matches a non-resident question', () => {
     expect(classifyScope('Soy NO RESIDENTE en España')?.reasonCode).toBe('non_residents');
   });
 
-  it('routes a registration request to the alta de autónomos topic, not to IRPF', () => {
-    expect(classifyScope('Me quiero dar de alta como autónomo en España. Dime pasos')?.reasonCode).toBe(
-      'autonomo_registration'
-    );
-    expect(classifyScope('Quiero empezar como autónomo')?.reasonCode).toBe('autonomo_registration');
+  it('leaves registration and IRPF deduction questions in scope', () => {
+    // Spec 002 moved the alta into scope: the corpus covers the censal and RETA
+    // registrations, so the question must reach retrieval.
+    expect(classifyScope('Me quiero dar de alta como autónomo en España. Dime pasos')).toBeNull();
+    expect(classifyScope('Quiero empezar como autónomo')).toBeNull();
     expect(classifyScope('¿Qué gastos puedo deducirme siendo autónomo?')).toBeNull();
   });
 });
@@ -218,12 +221,21 @@ describe('classifyScope — the filing_request topic is direct address, not voca
     // Other topics keep their routing.
     ['¿Cuánto es el IBI de mi vivienda?', 'ibi'],
     ['¿Cuánto pago de impuesto sobre bienes inmuebles?', 'ibi'],
-    ['¿Cuánto es la cuota de autónomos este año?', 'social_security'],
-    ['¿Cuánto pago a la Seguridad Social como autónomo?', 'social_security'],
+    ['¿Cuánto se paga de ITP por una vivienda?', 'itp'],
   ];
 
   it.each(theProductIsAskedToAct)('refuses %s as %s', (message, reasonCode) => {
     expect(classifyScope(message)?.reasonCode).toBe(reasonCode);
+  });
+
+  // Spec 002: VAT, the quota and the alta are answered from the corpus now.
+  it.each([
+    '¿Cuánto es la cuota de autónomos este año?',
+    '¿Cuánto pago a la Seguridad Social como autónomo?',
+    '¿Cuánto IVA pago?',
+    'Me quiero dar de alta como autónomo',
+  ])('leaves %s in scope', (message) => {
+    expect(classifyScope(message)).toBeNull();
   });
 });
 

@@ -162,23 +162,26 @@ describe('AC-001-79 non-answer states render their affordances', () => {
     expect(screen.queryByText(/^Fuentes/)).toBeNull();
   });
 
+  // Spec 002 narrowed `OutOfScopeReasonCode`: VAT is in scope now, so the fixture
+  // uses a topic that is still refused (IBI). The scenario id and the assertions
+  // are unchanged.
   it('AC-001-79: out of scope names the topic and the official body', async () => {
     renderScreen({
       submit: submitReturning({
         kind: 'out_of_scope',
-        reasonCode: 'iva',
-        topicLabel: 'el IVA',
-        officialBody: 'Agencia Tributaria',
+        reasonCode: 'ibi',
+        topicLabel: 'el IBI',
+        officialBody: 'la autoridad tributaria de tu comunidad autónoma',
         explanation:
-          'Las preguntas sobre el IVA quedan fuera del alcance de esta herramienta. Para el IVA, la administración competente es Agencia Tributaria.',
+          'Las preguntas sobre el IBI quedan fuera de mi alcance: la administración competente es la autoridad tributaria de tu comunidad autónoma.',
         handoffUrl: HANDOFF_URL,
         disclaimer: DEFAULT_DISCLAIMER,
       }),
     });
     await askAndWait();
 
-    expect(await screen.findByText(/el IVA/)).toBeVisible();
-    expect(screen.getByText(/Agencia Tributaria/)).toBeVisible();
+    expect(await screen.findByText(/el IBI/)).toBeVisible();
+    expect(screen.getByText(/la autoridad tributaria de tu comunidad autónoma/)).toBeVisible();
     expect(screen.getByRole('link', { name: 'Hablar con un asesor' })).toBeVisible();
     expect(screen.queryByText(/^Fuentes/)).toBeNull();
   });

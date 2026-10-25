@@ -86,12 +86,20 @@ describe('AC-001-08 empty text, empty block id and non-https sources are rejecte
   });
 });
 
-describe('AC-001-09 only the two in-scope norms are accepted, duplicates refused', () => {
-  it('AC-001-09: the allowed-norm set holds exactly the two IRPF norms', () => {
-    expect(ALLOWED_NORMS.map((norm) => norm.normId).sort()).toEqual([
-      'BOE-A-2006-20764',
-      'BOE-A-2007-6820',
-    ]);
+describe('AC-001-09 the in-scope norms are accepted, duplicates refused', () => {
+  it('AC-001-09: the allowed-norm set holds the covered norms and nothing else', () => {
+    expect(ALLOWED_NORMS.map((norm) => norm.normId).sort()).toEqual(
+      [
+        'BOE-A-2006-20764',
+        'BOE-A-2007-6820',
+        'BOE-A-2003-23186',
+        'BOE-A-2007-15984',
+        'BOE-A-2015-11724',
+        'BOE-A-1996-4447',
+        'BOE-A-1992-28740',
+        'BOE-A-1990-23930',
+      ].sort()
+    );
   });
 
   it('AC-001-09: an unknown norm is refused and duplicate ids cannot both enter a collection', () => {

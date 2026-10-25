@@ -13,23 +13,19 @@ import {
 } from '@/corpus/artifact';
 import { runCorpusSync } from '@/corpus/sync';
 import { runCorpusSyncCli } from '@/corpus/sync-cli';
+import { ALLOWED_NORMS } from '@/domain/allowed-norms';
 
-import { FakeCorpusFetcher } from '../support/fake-fetcher';
-import { fixturePassages, readFixture } from '../support/harness';
+import type { FakeCorpusFetcher } from '../support/fake-fetcher';
+import { fixtureFetcher, fixturePassages, readFixture } from '../support/harness';
 
 const GENERATED_AT = '2026-03-18T08:00:00Z';
 
+/**
+ * One document per covered norm. The sync walks the whole registry, so a fetcher
+ * that served only the IRPF pair would fail on every other norm.
+ */
 function fetcher(): FakeCorpusFetcher {
-  return new FakeCorpusFetcher({
-    'BOE-A-2006-20764': {
-      xml: readFixture('boe', 'ley-35-2006.xml'),
-      fechaActualizacion: '2026-03-17',
-    },
-    'BOE-A-2007-6820': {
-      xml: readFixture('boe', 'rd-439-2007.xml'),
-      fechaActualizacion: '2026-02-11',
-    },
-  });
+  return fixtureFetcher();
 }
 
 async function runCli(
@@ -149,7 +145,8 @@ describe('AC-001-17 only changed norms are re-fetched', () => {
     expect(fakeFetcher.fetchCount).toBe(1);
     expect(fakeFetcher.fetchedNormIds).toEqual(['BOE-A-2007-6820']);
     expect(result.fetchedNormIds).toEqual(['BOE-A-2007-6820']);
-    expect(result.reusedNormIds).toEqual(['BOE-A-2006-20764']);
+    expect(result.reusedNormIds).toHaveLength(ALLOWED_NORMS.length - 1);
+    expect(result.reusedNormIds).not.toContain('BOE-A-2007-6820');
 
     const untouched = result.artifact.norms.find((norm) => norm.normId === 'BOE-A-2006-20764');
     expect(untouched?.fetchedAt).toBe(first.artifact.norms[0]!.fetchedAt);
@@ -183,16 +180,12 @@ describe('AC-001-19 a broken parse never ships a shrunken corpus', () => {
       expect(healthy.exitCode).toBe(0);
       const before = readFileSync(path, 'utf8');
 
-      const broken = new FakeCorpusFetcher({
-        'BOE-A-2006-20764': {
-          xml: readFixture('boe', 'malformed-truncated.xml'),
-          fechaActualizacion: '2026-05-01',
-        },
-        'BOE-A-2007-6820': {
-          xml: readFixture('boe', 'rd-439-2007.xml'),
-          fechaActualizacion: '2026-02-11',
-        },
-      });
+      const broken = fixtureFetcher();
+      broken.replaceXml(
+        'BOE-A-2006-20764',
+        readFixture('boe', 'malformed-truncated.xml'),
+        '2026-05-01'
+      );
       const failed = await runCli(path, broken);
 
       expect(failed.exitCode).toBe(1);
