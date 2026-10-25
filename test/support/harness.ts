@@ -17,6 +17,7 @@ import { createDefaultDeps, type AppDeps } from '@/server/deps';
 import type { LoadedCorpus, CorpusProviderResult } from '@/server/corpus-loader';
 import { buildIndex } from '@/retrieval/index';
 
+import { FakeCorpusFetcher } from './fake-fetcher';
 import { FakeLlmAdapter } from './fake-llm-adapter';
 import { repoPath } from './paths';
 
@@ -30,16 +31,59 @@ const FIXTURE_META = [
   {
     file: ['boe', 'ley-35-2006.xml'],
     normId: 'BOE-A-2006-20764',
-    boeUpdatedAt: '2026-03-17',
+    boeUpdatedAt: '2026-10-07',
     fetchedAt: '2026-03-18T08:00:00Z',
   },
   {
     file: ['boe', 'rd-439-2007.xml'],
     normId: 'BOE-A-2007-6820',
-    boeUpdatedAt: '2026-02-11',
+    boeUpdatedAt: '2026-10-07',
+    fetchedAt: '2026-03-18T08:00:00Z',
+  },
+  {
+    file: ['boe', 'ley-58-2003.xml'],
+    normId: 'BOE-A-2003-23186',
+    boeUpdatedAt: '2026-10-09',
+    fetchedAt: '2026-03-18T08:00:00Z',
+  },
+  {
+    file: ['boe', 'rd-1065-2007.xml'],
+    normId: 'BOE-A-2007-15984',
+    boeUpdatedAt: '2026-10-09',
+    fetchedAt: '2026-03-18T08:00:00Z',
+  },
+  {
+    file: ['boe', 'rdleg-8-2015-lgss.xml'],
+    normId: 'BOE-A-2015-11724',
+    boeUpdatedAt: '2026-10-23',
+    fetchedAt: '2026-03-18T08:00:00Z',
+  },
+  {
+    file: ['boe', 'rd-84-1996.xml'],
+    normId: 'BOE-A-1996-4447',
+    boeUpdatedAt: '2026-07-30',
+    fetchedAt: '2026-03-18T08:00:00Z',
+  },
+  {
+    file: ['boe', 'ley-37-1992-iva.xml'],
+    normId: 'BOE-A-1992-28740',
+    boeUpdatedAt: '2026-10-07',
+    fetchedAt: '2026-03-18T08:00:00Z',
+  },
+  {
+    file: ['boe', 'rdleg-1175-1990-iae.xml'],
+    normId: 'BOE-A-1990-23930',
+    boeUpdatedAt: '2026-06-04',
     fetchedAt: '2026-03-18T08:00:00Z',
   },
 ] as const;
+
+export type FixtureMeta = (typeof FIXTURE_META)[number];
+
+/** The committed fixtures, one per covered norm, in registry order. */
+export function fixtureMeta(): readonly FixtureMeta[] {
+  return FIXTURE_META;
+}
 
 let cachedPassages: readonly Passage[] | null = null;
 
@@ -89,6 +133,23 @@ export function fixtureCorpus(): LoadedCorpus {
 
 export function fixtureCorpusProvider(): CorpusProviderResult {
   return { ok: true, corpus: fixtureCorpus() };
+}
+
+/**
+ * A fake BOE fetcher serving every committed fixture, keyed by its declared
+ * metadata. `sync` tests use it so a sync over the whole registry never leaves
+ * the fixtures — and so `contentHashOf(fixturePassages())` equals the hash of a
+ * freshly synced artifact.
+ */
+export function fixtureFetcher(): FakeCorpusFetcher {
+  return new FakeCorpusFetcher(
+    Object.fromEntries(
+      FIXTURE_META.map((meta) => [
+        meta.normId,
+        { xml: readFixture(...meta.file), fechaActualizacion: meta.boeUpdatedAt },
+      ])
+    )
+  );
 }
 
 export function setEnv(values: Record<string, string | undefined>): void {

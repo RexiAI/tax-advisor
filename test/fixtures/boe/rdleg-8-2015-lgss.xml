@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Ley General de la Seguridad Social (BOE-A-2015-11724).
+  Extracto del texto consolidado del BOE (datos abiertos,
+  https://www.boe.es/datosabiertos/api/legislacion-consolidada). Los bloques se
+  copian integros, en su orden de origen: es un subconjunto para los fixtures
+  offline de la suite, no el texto completo. El corpus de produccion
+  (corpus/corpus.json) se construye con el documento entero.
+-->
+<documento>
+  <metadatos>
+    <titulo>Ley General de la Seguridad Social</titulo>
+    <fecha_actualizacion>2026-10-23</fecha_actualizacion>
+  </metadatos>
+  <texto>
+<bloque id="aunico" tipo="precepto" titulo="Artículo único">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo único. Aprobación del texto refundido de la Ley General de la Seguridad Social.</p>
+          <p class="parrafo">Se aprueba el texto refundido de la Ley General de la Seguridad Social que se inserta a continuación.</p>
+        </version>
+      </bloque>
+<bloque id="a1" tipo="precepto" titulo="Artículo 1">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 1. Derecho de los españoles a la Seguridad Social.</p>
+          <p class="parrafo">El derecho de los españoles a la Seguridad Social, establecido en el artículo 41 de la Constitución, se ajustará a lo dispuesto en la presente ley.</p>
+        </version>
+      </bloque>
+<bloque id="a2" tipo="precepto" titulo="Artículo 2">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 2. Principios y fines de la Seguridad Social.</p>
+          <p class="parrafo">1. El sistema de la Seguridad Social, configurado por la acción protectora en sus modalidades contributiva y no contributiva, se fundamenta en los principios de universalidad, unidad, solidaridad e igualdad.</p>
+          <p class="parrafo">2. El Estado, por medio de la Seguridad Social, garantiza a las personas comprendidas en el campo de aplicación de esta, por cumplir los requisitos exigidos en las modalidades contributiva o no contributiva, así como a los familiares o asimilados que tuvieran a su cargo, la protección adecuada frente a las contingencias y en las situaciones que se contemplan en esta ley.</p>
+        </version>
+      </bloque>
+<bloque id="a3" tipo="precepto" titulo="Artículo 3">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 3. Irrenunciabilidad de los derechos de la Seguridad Social.</p>
+          <p class="parrafo">Será nulo todo pacto, individual o colectivo, por el cual el trabajador renuncie a los derechos que le confiere la presente ley.</p>
+        </version>
+      </bloque>
+<bloque id="a4" tipo="precepto" titulo="Artículo 4">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 4. Delimitación de funciones.</p>
+          <p class="parrafo">1. Corresponde al Estado la ordenación, jurisdicción e inspección de la Seguridad Social.</p>
+          <p class="parrafo">2. Los trabajadores y empresarios colaborarán en la gestión de la Seguridad Social en los términos previstos en la presente ley, sin perjuicio de otras formas de participación de los interesados establecidas por las leyes, de acuerdo con el artículo 129.1 de la Constitución.</p>
+          <p class="parrafo">3. En ningún caso, la ordenación de la Seguridad Social podrá servir de fundamento a operaciones de lucro mercantil.</p>
+        </version>
+      </bloque>
+<bloque id="a6" tipo="precepto" titulo="Artículo 6">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 6. Coordinación de funciones afines.</p>
+          <p class="parrafo">Corresponde al Gobierno dictar las disposiciones necesarias para coordinar la acción de los organismos, servicios y entidades gestoras del sistema de la Seguridad Social con la de los que cumplen funciones afines de previsión social, sanidad, educación y asistencia social.</p>
+        </version>
+      </bloque>
+<bloque id="a8" tipo="precepto" titulo="Artículo 8">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 8. Prohibición de inclusión múltiple obligatoria.</p>
+          <p class="parrafo">1. Las personas comprendidas en el campo de aplicación del sistema de la Seguridad Social no podrán estar incluidas por el mismo trabajo, con carácter obligatorio, en otros regímenes de previsión distintos de los que integran dicho sistema.</p>
+          <p class="parrafo">2. Los sistemas de previsión obligatoria distintos de los regulados en esta ley, que pudieran tener constituidos determinados grupos profesionales, se integrarán en el Régimen General o en los regímenes especiales, según proceda, siempre que resulte obligatoria la inclusión de los grupos mencionados en el campo de aplicación de dichos regímenes.</p>
+        </version>
+      </bloque>
+<bloque id="a11" tipo="precepto" titulo="Artículo 11">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 11. Sistemas especiales.</p>
+          <p class="parrafo">Además de los sistemas especiales regulados en esta ley, en aquellos regímenes de la Seguridad Social en que así resulte necesario, podrán establecerse sistemas especiales exclusivamente en alguna o algunas de las siguientes materias: encuadramiento, afiliación, forma de cotización o recaudación. En la regulación de tales sistemas informará el ministerio competente por razón de la actividad o condición de las personas en ellos incluidos.</p>
+        </version>
+      </bloque>
+<bloque id="a13" tipo="precepto" titulo="Artículo 13">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 13. Trabajadores con discapacidad.</p>
+          <p class="parrafo">1. Los trabajadores con discapacidad empleados en los centros especiales de empleo quedarán incluidos como trabajadores por cuenta ajena en el régimen de la Seguridad Social que corresponda a su actividad.</p>
+          <p class="parrafo">2. Por el Gobierno se aprobarán normas específicas relativas a sus condiciones de trabajo y de Seguridad Social en atención a las peculiares características de su actividad laboral.</p>
+        </version>
+      </bloque>
+<bloque id="a15" tipo="precepto" titulo="Artículo 15">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 15. Obligatoriedad y alcance de la afiliación.</p>
+          <p class="parrafo">La afiliación a la Seguridad Social es obligatoria para las personas a que se refiere el artículo 7.1 y única para toda su vida y para todo el sistema, sin perjuicio de las altas y bajas en los distintos regímenes que lo integran, así como de las demás variaciones que puedan producirse con posterioridad a la afiliación.</p>
+        </version>
+      </bloque>
+<bloque id="a28" tipo="precepto" titulo="Artículo 28">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 28. Efectos de la falta de pago en plazo reglamentario.</p>
+          <p class="parrafo">La falta de pago de la deuda dentro del plazo reglamentario de ingreso establecido determinará la aplicación del recargo y el devengo de los intereses de demora en los términos establecidos en esta ley.</p>
+          <p class="parrafo">El recargo y los intereses de demora, cuando sean exigibles, se ingresarán conjuntamente con las deudas sobre las que recaigan.</p>
+          <p class="parrafo">Cuando el ingreso fuera del plazo reglamentario sea imputable a error de la Administración, sin que la misma actúe en calidad de empresario, no se aplicará recargo ni se devengarán intereses.</p>
+        </version>
+      </bloque>
+<bloque id="a32" tipo="precepto" titulo="Artículo 32">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 32. Imputación de pagos.</p>
+          <p class="parrafo">Sin perjuicio de las especialidades previstas en esta ley para los aplazamientos y en el ordenamiento jurídico para el deudor incurso en procedimiento concursal, el cobro parcial de la deuda apremiada se imputará, en primer lugar, al pago de la que hubiera sido objeto del embargo o garantía cuya ejecución haya producido dicho cobro y, luego, al resto de la deuda. Tanto en un caso como en otro, el cobro se aplicará primero a las costas y luego a los títulos más antiguos, distribuyéndose proporcionalmente el importe entre principal, recargo e intereses.</p>
+        </version>
+      </bloque>
+<bloque id="a41" tipo="precepto" titulo="Artículo 41">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 41. Levantamiento de bienes embargables.</p>
+          <p class="parrafo">Las personas o entidades depositarias de bienes embargables que, con conocimiento previo del embargo practicado por la Seguridad Social, conforme al procedimiento administrativo de apremio reglamentariamente establecido, colaboren o consientan en el incumplimiento de las órdenes de embargo o en el levantamiento de los bienes, serán responsables solidarios del pago de la deuda hasta el importe del valor de los bienes que se hubieran podido embargar o enajenar.</p>
+        </version>
+      </bloque>
+<bloque id="a43" tipo="precepto" titulo="Artículo 43">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 43. Mejoras voluntarias.</p>
+          <p class="parrafo">1. La modalidad contributiva de la acción protectora que el sistema de la Seguridad Social otorga a las personas comprendidas en el artículo 7.1 podrá ser mejorada voluntariamente en la forma y condiciones que se establezcan en las normas reguladoras del Régimen General y de los regímenes especiales.</p>
+          <p class="parrafo">2. Sin otra excepción que el establecimiento de mejoras voluntarias, conforme a lo previsto en el apartado anterior, la Seguridad Social no podrá ser objeto de contratación colectiva.</p>
+        </version>
+      </bloque>
+<bloque id="a48" tipo="precepto" titulo="Artículo 48">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 48. Transformación de los plazos en días.</p>
+          <p class="parrafo">Para el acceso a las pensiones de la Seguridad Social, así como para la determinación de su cuantía, los plazos señalados en la presente ley en años, semestres, trimestres o meses, serán objeto de adecuación a días mediante las correspondientes equivalencias.</p>
+        </version>
+      </bloque>
+<bloque id="a49" tipo="precepto" titulo="Artículo 49">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 49. Efecto de las cotizaciones superpuestas en varios regímenes en orden a las pensiones de la Seguridad Social.</p>
+          <p class="parrafo">Cuando se acrediten cotizaciones a varios regímenes y no se cause derecho a pensión en uno de ellos, las bases de cotización acreditadas en este último en régimen de pluriactividad podrán ser acumuladas a las del régimen en que se cause la pensión, exclusivamente para la determinación de la base reguladora de la misma, sin que la suma de las bases pueda exceder del límite máximo de cotización vigente en cada momento.</p>
+        </version>
+      </bloque>
+<bloque id="a56" tipo="precepto" titulo="Artículo 56">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 56. Consideración como pensiones públicas.</p>
+          <p class="parrafo">Las pensiones abonadas por el Régimen General y los regímenes especiales, así como las no contributivas de la Seguridad Social, tendrán, a efectos de lo previsto en la presente sección, la consideración de pensiones públicas, a tenor de lo establecido en el artículo 42 de la Ley 37/1988, de 28 de diciembre, de Presupuestos Generales del Estado para 1989.</p>
+        </version>
+      </bloque>
+<bloque id="a62" tipo="precepto" titulo="Artículo 62">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 62. Revalorización.</p>
+          <p class="parrafo">Las pensiones no contributivas de la Seguridad Social serán actualizadas en la correspondiente Ley de Presupuestos Generales del Estado, al menos, en el mismo porcentaje que dicha ley establezca como incremento general de las pensiones contributivas de la Seguridad Social.</p>
+        </version>
+      </bloque>
+<bloque id="a63" tipo="precepto" titulo="Artículo 63">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 63. Objeto.</p>
+          <p class="parrafo">Como complemento de las prestaciones correspondientes a las situaciones específicamente protegidas por la Seguridad Social, esta, con sujeción a lo dispuesto por el departamento ministerial que corresponda y en conexión con sus respectivos órganos y servicios, extenderá su acción a las prestaciones de servicios sociales, establecidas legal o reglamentariamente, de conformidad con lo previsto en el artículo 42.1.e).</p>
+        </version>
+      </bloque>
+<bloque id="a70" tipo="precepto" titulo="Artículo 70">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 70. Relaciones y servicios internacionales.</p>
+          <p class="parrafo">Las entidades gestoras, con la previa conformidad del departamento ministerial de tutela, podrán pertenecer a asociaciones y organismos internacionales, concertar operaciones, establecer reciprocidad de servicios con instituciones extranjeras de análogo carácter y participar, en la medida y con el alcance que se les atribuya, en la ejecución de los convenios internacionales de Seguridad Social.</p>
+        </version>
+      </bloque>
+<bloque id="a73" tipo="precepto" titulo="Artículo 73">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 73. Creación.</p>
+          <p class="parrafo">Corresponde al Gobierno, a propuesta del Ministerio de Empleo y Seguridad Social, el establecimiento de servicios comunes, así como la reglamentación de su estructura y competencias.</p>
+        </version>
+      </bloque>
+<bloque id="a75" tipo="precepto" titulo="Artículo 75">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 75. Reserva de nombre.</p>
+          <p class="parrafo">Ninguna entidad pública o privada podrá usar en España el título o los nombres de las entidades gestoras y servicios comunes de la Seguridad Social, ni los que puedan resultar de la adición a los mismos de algunas palabras o de la mera combinación, en otra forma, de las principales que los constituyen. Tampoco podrán incluir en su denominación la expresión Seguridad Social, salvo expresa autorización del Ministerio de Empleo y Seguridad Social.</p>
+        </version>
+      </bloque>
+<bloque id="a78" tipo="precepto" titulo="Artículo 78">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 78. Régimen de personal.</p>
+          <p class="parrafo">1. Los funcionarios de la Administración de la Seguridad Social se regirán por lo dispuesto en la Ley 7/2007, de 12 de abril, del Estatuto Básico del Empleado Público, la Ley 30/1984, de 2 de agosto, de Medidas para la Reforma de la Función Pública, y las demás disposiciones que les sean de aplicación.</p>
+          <p class="parrafo">2. Corresponde al Gobierno, a propuesta del ministro competente, el nombramiento y cese de los cargos directivos con categoría de director general o asimilada.</p>
+        </version>
+      </bloque>
+<bloque id="a79" tipo="precepto" titulo="Artículo 79">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 79. Enumeración.</p>
+          <p class="parrafo">1. La colaboración en la gestión del sistema de la Seguridad Social se llevará a cabo por mutuas colaboradoras con la Seguridad Social y por empresas, de acuerdo con lo establecido en el presente capítulo.</p>
+          <p class="parrafo">2. La colaboración en la gestión se podrá realizar también por asociaciones, fundaciones y entidades públicas y privadas, previa su inscripción en un registro público.</p>
+        </version>
+      </bloque>
+<bloque id="a85" tipo="precepto" titulo="Artículo 85">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 85. Enumeración.</p>
+          <p class="parrafo">Los órganos de gobierno de las mutuas colaboradoras con la Seguridad Social son la Junta General, la Junta Directiva y el Director Gerente.</p>
+          <p class="parrafo">El órgano de participación institucional es la Comisión de Control y Seguimiento.</p>
+          <p class="parrafo">La Comisión de Prestaciones Especiales es el órgano a quien corresponde la concesión de los beneficios de la asistencia social potestativa prevista en el artículo 96.1.b).</p>
+        </version>
+      </bloque>
+<bloque id="a108" tipo="precepto" titulo="Artículo 108">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 108. Inembargabilidad.</p>
+          <p class="parrafo">Los bienes y derechos que integran el patrimonio de la Seguridad Social son inembargables. Ningún tribunal ni autoridad administrativa podrá dictar providencia de embargo ni despachar mandamiento de ejecución contra los bienes y derechos del patrimonio de la Seguridad Social, ni contra sus rentas, frutos o productos del mismo, siendo de aplicación, en su caso, lo dispuesto sobre esta materia en los artículos 23, 24 y 25 de la Ley 47/2003, de 26 de noviembre, General Presupuestaria.</p>
+        </version>
+      </bloque>
+<bloque id="a114" tipo="precepto" titulo="Artículo 114">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 114. Amortización de adquisiciones.</p>
+          <p class="parrafo">El inmovilizado de la Seguridad Social deberá ser objeto de la amortización anual, dentro de los límites que fije el titular del Ministerio de Empleo y Seguridad Social por los principios y procedimientos establecidos en el Plan General de la Contabilidad Pública.</p>
+        </version>
+      </bloque>
+<bloque id="a116" tipo="precepto" titulo="Artículo 116">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 116. Cuentas de la Seguridad Social.</p>
+          <p class="parrafo">1. Las cuentas de las entidades que integran el sistema de la Seguridad Social se formarán y rendirán de acuerdo con los principios y normas establecidos en el título V de la Ley 47/2003, de 26 de noviembre.</p>
+          <p class="parrafo">2. Se autoriza a la persona titular del Ministerio de Empleo y Seguridad Social para que pueda disponer la no liquidación o, en su caso, la anulación y baja en contabilidad de todas aquellas liquidaciones de las que resulten deudas inferiores a la cuantía que se estime y fije como insuficiente para la cobertura del coste que su exacción y recaudación representen.</p>
+        </version>
+      </bloque>
+<bloque id="a126" tipo="precepto" titulo="Artículo 126">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 126. Carácter de las operaciones de gestión e imputación presupuestaria.</p>
+          <p class="parrafo">Las materializaciones, inversiones, reinversiones, desinversiones y demás operaciones de adquisición, disposición y gestión de los activos financieros del Fondo de Reserva de la Seguridad Social correspondientes a cada ejercicio tendrán carácter extrapresupuestario y se imputarán definitivamente, al último día hábil del mismo, al presupuesto de la Tesorería General de la Seguridad Social, conforme a la situación patrimonial del Fondo en dicha fecha, a cuyo efecto serán objeto de adecuación los créditos presupuestarios.</p>
+        </version>
+      </bloque>
+<bloque id="a127" tipo="precepto" titulo="Artículo 127">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 127. Informe anual.</p>
+          <p class="parrafo">El Gobierno presentará a las Cortes Generales un informe anual sobre la evolución y composición del Fondo de Reserva de la Seguridad Social.</p>
+          <p class="parrafo">Dicho informe será remitido por el Gobierno a las Cortes Generales a través de su Oficina Presupuestaria que lo pondrá a disposición de los Diputados, Senadores y las Comisiones parlamentarias.</p>
+        </version>
+      </bloque>
+<bloque id="a134" tipo="precepto" titulo="Artículo 134">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 134. Colaboración con la Inspección.</p>
+          <p class="parrafo">Las entidades gestoras y colaboradoras y los servicios comunes de la Seguridad Social prestarán su colaboración a la Inspección de Trabajo y Seguridad Social en orden a la vigilancia que esta tiene atribuida respecto al cumplimiento de las obligaciones de empresarios y trabajadores establecidas en la presente ley.</p>
+        </version>
+      </bloque>
+<bloque id="a140" tipo="precepto" titulo="Artículo 140">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 140. Procedimiento y plazos.</p>
+          <p class="parrafo">1. El cumplimiento de las obligaciones que se establecen en los artículos anteriores se ajustará, en cuanto a la forma, plazos y procedimiento, a lo establecido reglamentariamente.</p>
+          <p class="parrafo">2. La afiliación y altas sucesivas solicitadas fuera de plazo por el empresario o el trabajador no tendrán efecto retroactivo alguno. Cuando tales actos se practiquen de oficio, su eficacia temporal e imputación de responsabilidades resultantes serán las que se determinan en esta ley y sus disposiciones de aplicación y desarrollo.</p>
+        </version>
+      </bloque>
+<bloque id="a141" tipo="precepto" titulo="Artículo 141">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 141. Sujetos obligados.</p>
+          <p class="parrafo">1. Estarán sujetos a la obligación de cotizar al Régimen General de la Seguridad Social los trabajadores y asimilados comprendidos en su campo de aplicación y los empresarios por cuya cuenta trabajen.</p>
+          <p class="parrafo">2. La cotización comprenderá dos aportaciones:</p>
+          <p class="parrafo_2">a) De los empresarios, y</p>
+          <p class="parrafo">b) de los trabajadores.</p>
+          <p class="parrafo_2">3. No obstante lo dispuesto en los apartados anteriores, por las contingencias de accidentes de trabajo y enfermedades profesionales la cotización completa correrá a cargo exclusivamente de los empresarios.</p>
+        </version>
+      </bloque>
+<bloque id="a143" tipo="precepto" titulo="Artículo 143">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 143. Nulidad de pactos.</p>
+          <p class="parrafo">Será nulo todo pacto, individual o colectivo, por el cual el trabajador asuma la obligación de pagar total o parcialmente la prima o parte de cuota a cargo del empresario.</p>
+          <p class="parrafo">Igualmente, será nulo todo pacto que pretenda alterar las bases de cotización que se fijan en el artículo 147.</p>
+        </version>
+      </bloque>
+<bloque id="a150" tipo="precepto" titulo="Artículo 150">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 150. Normalización.</p>
+          <p class="parrafo">El Ministerio de Empleo y Seguridad Social establecerá la normalización de las bases de cotización que resulten con arreglo a lo establecido en la presente sección.</p>
+        </version>
+      </bloque>
+<bloque id="a202" tipo="precepto" titulo="Artículo 202">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 202. Beneficiarios.</p>
+          <p class="parrafo">Serán beneficiarios de las indemnizaciones a que se refiere el artículo anterior los trabajadores integrados en este Régimen General que reúnan la condición general exigida en el artículo 165.1 y hayan sido dados de alta médica.</p>
+        </version>
+      </bloque>
+<bloque id="a212" tipo="precepto" titulo="Artículo 212">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 212. Imprescriptibilidad.</p>
+          <p class="parrafo">El derecho al reconocimiento de la pensión de jubilación es imprescriptible, sin perjuicio de que, en los supuestos de jubilación en situación de alta, los efectos de tal reconocimiento se produzcan a partir de los tres meses anteriores a la fecha en que se presente la correspondiente solicitud.</p>
+        </version>
+      </bloque>
+<bloque id="a235" tipo="precepto" titulo="Artículo 235">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 235. Periodos de cotización asimilados por parto.</p>
+          <p class="parrafo">A efectos de las pensiones contributivas de jubilación y de incapacidad permanente, se computarán a favor de la trabajadora solicitante de la pensión un total de ciento doce días completos de cotización por cada parto de un solo hijo y de catorce días más por cada hijo a partir del segundo, este incluido, si el parto fuera múltiple, salvo que, por ser trabajadora o funcionaria en el momento del parto, se hubiera cotizado durante la totalidad de las dieciséis semanas o durante el tiempo que corresponda si el parto fuese múltiple.</p>
+        </version>
+      </bloque>
+<bloque id="a238" tipo="precepto" titulo="Artículo 238">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 238. Mejoras de la acción protectora.</p>
+          <p class="parrafo">1. Las mejoras voluntarias de la acción protectora de este Régimen General podrán efectuarse a través de:</p>
+          <p class="parrafo_2">a) Mejora directa de las prestaciones.</p>
+          <p class="parrafo">b) Establecimiento de tipos de cotización adicionales.</p>
+          <p class="parrafo_2">2. La concesión de mejoras voluntarias por las empresas deberá ajustarse a lo establecido en esta sección y en las normas dictadas para su aplicación y desarrollo.</p>
+        </version>
+      </bloque>
+<bloque id="a240" tipo="precepto" titulo="Artículo 240">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 240. Modos de gestión de la mejora directa.</p>
+          <p class="parrafo">1. Las empresas, en las condiciones que reglamentariamente se determinen, podrán realizar la mejora de prestaciones a que se refiere el artículo anterior por sí mismas o a través de la Administración de la Seguridad Social, fundaciones laborales, montepíos y mutualidades de previsión social o entidades aseguradoras de cualquier clase.</p>
+          <p class="parrafo">2. Las fundaciones laborales legalmente constituidas para el cumplimiento de los fines que les sean propios gozarán del trato fiscal y de las demás exenciones concedidas, en los términos que las normas aplicables establezcan.</p>
+        </version>
+      </bloque>
+<bloque id="a241" tipo="precepto" titulo="Artículo 241">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 241. Mejora por establecimiento de tipos de cotización adicionales.</p>
+          <p class="parrafo">El Ministerio de Empleo y Seguridad Social, a instancia de los interesados, podrá aprobar cotizaciones adicionales efectuadas mediante el aumento del tipo de cotización al que se refiere el artículo 145, con destino a la revalorización de las pensiones u otras prestaciones periódicas ya causadas y financiadas con cargo al mismo o para mejorar las futuras.</p>
+        </version>
+      </bloque>
+<bloque id="a242" tipo="precepto" titulo="Artículo 242">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 242. Incumplimientos en materia de accidentes de trabajo.</p>
+          <p class="parrafo">El incumplimiento por parte de las empresas de las órdenes de la Inspección de Trabajo y Seguridad Social y de las resoluciones de la autoridad laboral en materia de paralización de trabajos que no cumplan las normas de seguridad y salud se equiparará, respecto de los accidentes de trabajo que en tal caso pudieran producirse, a la falta de formalización de la protección por dicha contingencia de los trabajadores afectados, con independencia de cualquier otra responsabilidad o sanción a que hubiera lugar.</p>
+        </version>
+      </bloque>
+<bloque id="a246" tipo="precepto" titulo="Artículo 246">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 246. Cotización.</p>
+          <p class="parrafo">1. La base de cotización a la Seguridad Social y de las aportaciones que se recaudan conjuntamente con las cuotas de aquella será siempre mensual y estará constituida por las retribuciones efectivamente percibidas en función de las horas trabajadas, tanto ordinarias como complementarias.</p>
+          <p class="parrafo">2. La base de cotización así determinada no podrá ser inferior a las cantidades que reglamentariamente se determinen.</p>
+          <p class="parrafo">3. Las horas complementarias cotizarán a la Seguridad Social sobre las mismas bases y tipos que las horas ordinarias.</p>
+        </version>
+      </bloque>
+<bloque id="a257" tipo="precepto" titulo="Artículo 257">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 257. Gestión y colaboración en la gestión.</p>
+          <p class="parrafo">La gestión del Régimen General de la Seguridad Social, así como la colaboración en la gestión por parte de las mutuas colaboradoras con la Seguridad Social y empresas, se regirá por lo dispuesto en los capítulos V y VI del título I.</p>
+        </version>
+      </bloque>
+<bloque id="a259" tipo="precepto" titulo="Artículo 259">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 259. Sistema financiero.</p>
+          <p class="parrafo">El sistema financiero del Régimen General de la Seguridad Social será el previsto en el artículo 110, con las particularidades que, en materia de accidentes de trabajo y enfermedades profesionales, se establecen en el artículo siguiente.</p>
+        </version>
+      </bloque>
+<bloque id="a281" tipo="precepto" titulo="Artículo 281">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 281. Automaticidad del derecho a las prestaciones.</p>
+          <p class="parrafo">La entidad gestora competente pagará las prestaciones por desempleo en los supuestos de incumplimiento de las obligaciones de afiliación, alta y de cotización, sin perjuicio de las acciones que pueda adoptar contra la empresa infractora y la responsabilidad que corresponda a esta por las prestaciones abonadas.</p>
+        </version>
+      </bloque>
+<bloque id="a290" tipo="precepto" titulo="Artículo 290">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 290. Trabajadores contratados para la formación y aprendizaje.</p>
+          <p class="parrafo">1. La cotización por la contingencia de desempleo en el contrato para la formación y el aprendizaje se efectuará por la cuota fija resultante de aplicar a la base mínima correspondiente a las contingencias de accidentes de trabajo y enfermedades profesionales el mismo tipo de cotización y distribución entre empresario y trabajador establecidos para el contrato en prácticas.</p>
+          <p class="parrafo">2. Para determinar la base reguladora y la cuantía de la prestación por desempleo se aplicará lo establecido en el artículo 270 de esta ley.</p>
+        </version>
+      </bloque>
+<bloque id="a291" tipo="precepto" titulo="Artículo 291">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 291. Trabajadores del Régimen Especial de la Seguridad Social de los Trabajadores del Mar.</p>
+          <p class="parrafo">Sin perjuicio de lo establecido en el artículo 19 de esta ley, a las bases de cotización para desempleo en el Régimen Especial de la Seguridad Social de los Trabajadores del Mar les será también de aplicación lo dispuesto en el artículo 11 de la Ley 47/2015, de 21 de octubre, reguladora de la protección social de las personas trabajadoras del sector marítimo-pesquero.</p>
+        </version>
+      </bloque>
+<bloque id="a293" tipo="precepto" titulo="Artículo 293">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 293. Financiación.</p>
+          <p class="parrafo">1. La acción protectora regulada en este título se financiará mediante la cotización de empresarios y trabajadores y la aportación del Estado.</p>
+          <p class="parrafo">2. La cuantía de la aportación del Estado será cada año la fijada en la correspondiente Ley de Presupuestos Generales del Estado.</p>
+        </version>
+      </bloque>
+<bloque id="a294" tipo="precepto" titulo="Artículo 294">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 294. Entidad gestora.</p>
+          <p class="parrafo">1. Corresponde al Servicio Público de Empleo Estatal gestionar las funciones y servicios derivados de las prestaciones de protección por desempleo y declarar el reconocimiento, suspensión, extinción y reanudación de las prestaciones, sin perjuicio de las atribuciones reconocidas a los órganos competentes de la Administración laboral en materia de sanciones.</p>
+          <p class="parrafo">2. Las empresas colaborarán con la entidad gestora asumiendo el pago delegado de la prestación por desempleo en los supuestos y en las condiciones que reglamentariamente se determinen.</p>
+        </version>
+      </bloque>
+<bloque id="a302" tipo="precepto" titulo="Artículo 302">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 302. Infracciones y sanciones.</p>
+          <p class="parrafo">En materia de infracciones y sanciones, se estará a lo dispuesto en este título y en el texto refundido de la Ley sobre Infracciones y Sanciones en el Orden Social, aprobado por el Real Decreto Legislativo 5/2000, de 4 de agosto.</p>
+        </version>
+      </bloque>
+<bloque id="a306" tipo="precepto" titulo="Artículo 306">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 306. Exclusiones.</p>
+          <p class="parrafo">1. Estarán excluidos de este régimen especial los trabajadores por cuenta propia o autónomos a que se refiere el artículo anterior cuando por razón de su actividad marítimo-pesquera deban quedar comprendidos en el Régimen Especial de la Seguridad Social de los Trabajadores del Mar.</p>
+          <p class="parrafo">2. No estarán comprendidos en el sistema de Seguridad Social los socios, sean o no administradores, de sociedades de capital cuyo objeto social no esté constituido por el ejercicio de actividades empresariales o profesionales, sino por la mera administración del patrimonio de los socios.</p>
+        </version>
+      </bloque>
+<bloque id="a314" tipo="precepto" titulo="Artículo 314">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 314. Alcance de la acción protectora.</p>
+          <p class="parrafo">La acción protectora de este régimen especial será la establecida en el artículo 42, con excepción de la protección por desempleo y las prestaciones no contributivas.</p>
+          <p class="parrafo">Las prestaciones y beneficios se reconocerán en los términos y condiciones que se determinan en el presente título y en sus disposiciones de aplicación y desarrollo.</p>
+          <p class="parrafo">En todo caso, para el reconocimiento y abono de las prestaciones, los trabajadores incluidos en este régimen especial han de cumplir el requisito de estar al corriente en el pago de las cotizaciones previsto en el artículo 47.</p>
+        </version>
+      </bloque>
+<bloque id="a326" tipo="precepto" titulo="Artículo 326">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 326. Cobertura de la incapacidad temporal y de las contingencias profesionales.</p>
+          <p class="parrafo">De conformidad con lo previsto en la disposición adicional tercera de la Ley 20/2007, de 11 de julio, del Estatuto del trabajo autónomo, la cobertura de la incapacidad temporal y de las contingencias de accidente de trabajo y enfermedad profesional tendrá carácter voluntario en este sistema especial, sin perjuicio de lo que las Leyes de Presupuestos Generales del Estado puedan establecer, en particular, respecto de la protección por incapacidad permanente y muerte y supervivencia derivadas de dichas contingencias profesionales.</p>
+        </version>
+      </bloque>
+<bloque id="a328" tipo="precepto" titulo="Artículo 328">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 328. Régimen jurídico.</p>
+          <p class="parrafo">1. La protección por cese de actividad se rige por lo dispuesto en esta ley y en sus normas de desarrollo, así como, supletoriamente, por las normas que regulan el régimen especial de la Seguridad Social de encuadramiento.</p>
+          <p class="parrafo">2. Las condiciones y supuestos específicos por los que se rija el sistema de protección de los trabajadores por cuenta propia incluidos en el Sistema Especial de Trabajadores por Cuenta Propia Agrarios se desarrollarán reglamentariamente.</p>
+        </version>
+      </bloque>
+<bloque id="a345" tipo="precepto" titulo="Artículo 345">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 345. Recaudación.</p>
+          <p class="parrafo">1. La cuota de protección por cese de actividad se recaudará por la Tesorería General de la Seguridad Social conjuntamente con la cuota o las cuotas del Régimen Especial de los Trabajadores por Cuenta Propia o Autónomos, o del Régimen Especial de los Trabajadores del Mar, liquidándose e ingresándose de conformidad con las normas reguladoras de la gestión recaudatoria de la Seguridad Social para dichos regímenes especiales.</p>
+          <p class="parrafo">2. Las normas reguladoras de la recaudación de cuotas, tanto en vía voluntaria como ejecutiva, serán de aplicación a la cotización por cese en la actividad a la Seguridad Social para los regímenes señalados.</p>
+        </version>
+      </bloque>
+<bloque id="a349" tipo="precepto" titulo="Artículo 349">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 349. Infracciones.</p>
+          <p class="parrafo">En materia de infracciones y sanciones se estará a lo dispuesto en esta ley y en el texto refundido de la Ley sobre Infracciones y Sanciones en el Orden Social.</p>
+        </version>
+      </bloque>
+<bloque id="a356" tipo="precepto" titulo="Artículo 356">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Artículo 356. Devengo y abono.</p>
+          <p class="parrafo">1. Las asignaciones económicas por hijo o menor a cargo se devengarán en función de las mensualidades a que, dentro de cada ejercicio económico, tenga derecho el beneficiario.</p>
+          <p class="parrafo">2. El abono de las asignaciones económicas por hijo o menor a cargo se efectuará con la periodicidad que se establezca en las normas de desarrollo de esta ley.</p>
+        </version>
+      </bloque>
+<bloque id="dadecimosexta" tipo="precepto" titulo="Disposición adicional decimosexta">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Disposición adicional decimosexta. Cónyuge del titular de la explotación agraria.</p>
+          <p class="parrafo">Las referencias al cónyuge del titular de la explotación agraria contenidas en el capítulo IV del título IV de esta ley se entenderán también realizadas a la persona ligada de forma estable con aquel por una relación de afectividad análoga a la conyugal una vez que se regule, en el ámbito del campo de aplicación del sistema de la Seguridad Social y de los regímenes que conforman el mismo, el alcance del encuadramiento de la pareja de hecho del empresario o del titular del negocio industrial o mercantil o de la explotación agraria o marítimo-pesquera.</p>
+        </version>
+      </bloque>
+<bloque id="davigesimasegunda" tipo="precepto" titulo="Disposición adicional vigésima segunda">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Disposición adicional vigésima segunda. Informe sobre la adecuación y suficiencia de las pensiones del sistema de la Seguridad Social.</p>
+          <p class="parrafo">El Gobierno elaborará quinquenalmente, desde la aprobación de la Ley 23/2013, de 23 de diciembre, reguladora del Factor de Sostenibilidad y del Índice de Revalorización del Sistema de Pensiones de la Seguridad Social, un estudio, para su presentación en el Congreso de los Diputados y en el ámbito del diálogo social con las organizaciones sindicales y empresariales, sobre los efectos de las medidas adoptadas en dicha norma en la suficiencia y adecuación de las pensiones de la Seguridad Social.</p>
+        </version>
+      </bloque>
+<bloque id="da-10" tipo="precepto" titulo="Disposición adicional trigésima sexta">
+        <version id_norma="BOE-A-2021-1529" fecha_publicacion="20210203" fecha_vigencia="20210204">
+          <p class="articulo">Disposición adicional trigésima sexta. Financiación del complemento de pensiones contributivas para la reducción de la brecha de género.</p>
+          <p class="parrafo">La financiación del complemento de pensiones contributivas para la reducción de la brecha de género del artículo 60, se realizará mediante una transferencia del Estado al presupuesto de la Seguridad Social.</p>
+          <blockquote>
+            <p class="nota_pie">Se añade por el art. 1.2 del Real Decreto-ley 3/2021, de 2 de febrero. <a class="refPost">Ref. BOE-A-2021-1529#a1</a></p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="dtduodecima" tipo="precepto" titulo="Disposición transitoria duodécima">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Disposición transitoria duodécima. Cómputo a efectos de jubilación de períodos con exoneración de cuotas de trabajadores con sesenta y cinco o más años.</p>
+          <p class="parrafo">Con respecto a los trabajadores que hayan dado lugar a las exenciones de la obligación de cotizar previstas en los artículos 152 y 311 con anterioridad a 1 de enero de 2013 y que accedan al derecho a la pensión de jubilación con posterioridad a dicha fecha, el período durante el que se hayan extendido dichas exenciones será considerado como cotizado a efectos del cálculo de la pensión correspondiente.</p>
+        </version>
+      </bloque>
+<bloque id="dtvigesimaprimera" tipo="precepto" titulo="Disposición transitoria vigésima primera">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Disposición transitoria vigésima primera. Integración de entidades sustitutorias</p>
+          <p class="parrafo">El Gobierno, a propuesta del Ministerio de Empleo y Seguridad Social, determinará la forma y condiciones en que se integrarán en el Régimen General de la Seguridad Social, o en alguno de sus regímenes especiales, aquellos colectivos asegurados en entidades sustitutorias aún no integrados que, de acuerdo con lo dispuesto en esta ley, se encuentren comprendidos en el campo de aplicación del sistema de la Seguridad Social. Las normas que se establezcan contendrán las disposiciones de carácter económico que compensen, en cada caso, la integración dispuesta.</p>
+        </version>
+      </bloque>
+<bloque id="dtvigesimatercera" tipo="precepto" titulo="Disposición transitoria vigésima tercera">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Disposición transitoria vigésima tercera. Conciertos para la recaudación.</p>
+          <p class="parrafo">La facultad de concertar los servicios de recaudación, concedida por el artículo 21 a la Tesorería General de la Seguridad Social, subsistirá hasta tanto se organice un sistema de recaudación unificado para el Estado y la Seguridad Social.</p>
+        </version>
+      </bloque>
+<bloque id="dtvigesimanovena" tipo="precepto" titulo="Disposición transitoria vigésima novena">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Disposición transitoria vigésima novena. Cobertura de la prestación económica por incapacidad temporal de los trabajadores incorporados al Régimen Especial de la Seguridad Social de los Trabajadores por Cuenta Propia o Autónomos con anterioridad al 1 de enero de 1998.</p>
+          <p class="parrafo">La obligación de formalizar con una mutua colaboradora con la Seguridad Social la protección por la prestación económica por incapacidad temporal establecida en el artículo 83.1.b) no será exigible a los trabajadores incorporados al Régimen Especial de Trabajadores por Cuenta Propia o Autónomos con anterioridad al 1 de enero de 1998 y que tuvieran cubierta la misma con la entidad gestora.</p>
+        </version>
+      </bloque>
+<bloque id="dt-6" tipo="precepto" titulo="Disposición transitoria trigésima quinta">
+        <version id_norma="BOE-A-2022-22128" fecha_publicacion="20221224" fecha_vigencia="20230101">
+          <p class="articulo">Disposición transitoria trigésima quinta. Distribución del excedente y constitución de las reservas de estabilización correspondientes al ejercicio 2022.</p>
+          <p class="parrafo">Lo dispuesto en los artículos 95.2, 96.1 y 118.3 será de aplicación a la liquidación de las cuentas anuales correspondientes al ejercicio 2022 que realicen las mutuas colaboradoras con la Seguridad Social.</p>
+          <blockquote>
+            <p class="nota_pie">Se añade por la disposición final 25.9 de la Ley 31/2022, de 23 de diciembre. <a class="refPost">Ref. BOE-A-2022-22128#df-25</a></p>
+          </blockquote>
+          <p> </p>
+        </version>
+      </bloque>
+<bloque id="dfprimera" tipo="precepto" titulo="Disposición final primera">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Disposición final primera. Título competencial.</p>
+          <p class="parrafo">La regulación contenida en esta ley será de aplicación general al amparo de lo previsto en el artículo 149.1.17ª de la Constitución, salvo los aspectos relativos al modo de ejercicio de las competencias y a la organización de los servicios en las comunidades autónomas que, de acuerdo con lo establecido en sus estatutos de autonomía, hayan asumido competencias en la materia regulada.</p>
+        </version>
+      </bloque>
+<bloque id="dfsegunda" tipo="precepto" titulo="Disposición final segunda">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Disposición final segunda. Competencias de otros departamentos ministeriales.</p>
+          <p class="parrafo">Las competencias que en esta ley se atribuyen al Ministerio de Empleo y Seguridad Social se entenderán sin perjuicio de las que, en relación con las distintas materias en ella reguladas, puedan corresponder a otros departamentos ministeriales.</p>
+        </version>
+      </bloque>
+<bloque id="dftercera" tipo="precepto" titulo="Disposición final tercera">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Disposición final tercera. Acomodación de las normas sobre pensión de jubilación por disminución de la edad.</p>
+          <p class="parrafo">El Gobierno, a propuesta del Ministerio de Empleo y Seguridad Social, acomodará la legislación vigente sobre pensión de jubilación en el sistema de Seguridad Social a efectos de la aplicación de lo previsto en el artículo 215 de la presente ley y en aquellos otros supuestos en los que la edad establecida con carácter general para tener derecho a dicha pensión haya de ser rebajada en desarrollo de medidas de fomento de empleo, siempre que las mismas conduzcan a la sustitución de unos trabajadores jubilados por otros en situación de desempleados.</p>
+        </version>
+      </bloque>
+<bloque id="dfseptima" tipo="precepto" titulo="Disposición final séptima">
+        <version id_norma="BOE-A-2015-11724" fecha_publicacion="20151031" fecha_vigencia="20160102">
+          <p class="articulo">Disposición final séptima. Competencias sobre la incapacidad temporal.</p>
+          <p class="parrafo">La Secretaría de Estado de la Seguridad Social, a propuesta del Instituto Nacional de la Seguridad Social, y mediante resolución publicada en el «Boletín Oficial del Estado», determinará la fecha a partir de la cual se asumirán las funciones atribuidas en el artículo 170.1.</p>
+        </version>
+      </bloque>
+  </texto>
+</documento>

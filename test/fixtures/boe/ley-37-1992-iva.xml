@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Ley del Impuesto sobre el Valor Añadido (BOE-A-1992-28740).
+  Extracto del texto consolidado del BOE (datos abiertos,
+  https://www.boe.es/datosabiertos/api/legislacion-consolidada). Los bloques se
+  copian integros, en su orden de origen: es un subconjunto para los fixtures
+  offline de la suite, no el texto completo. El corpus de produccion
+  (corpus/corpus.json) se construye con el documento entero.
+-->
+<documento>
+  <metadatos>
+    <titulo>Ley del Impuesto sobre el Valor Añadido</titulo>
+    <fecha_actualizacion>2026-10-07</fecha_actualizacion>
+  </metadatos>
+  <texto>
+<bloque id="a12" tipo="precepto" titulo="Artículo 12">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 12. Operaciones asimiladas a las prestaciones de servicios.</p>
+          <p class="parrafo">Se considerarán operaciones asimiladas a las prestaciones de servicios a título oneroso los autoconsumos de servicios.</p>
+          <p class="parrafo">A efectos de este impuesto serán autoconsumos de servicios las siguientes operaciones realizadas sin contraprestación:</p>
+          <p class="parrafo_2">1.º Las transferencias de bienes y derechos, no comprendidas en el artículo 9, número 1.º, de esta Ley, del patrimonio empresarial o profesional al patrimonio personal del sujeto pasivo.</p>
+          <p class="parrafo">2.º La aplicación total o parcial al uso particular del sujeto pasivo o, en general, a fines ajenos a su actividad empresarial o profesional de los bienes integrantes de su patrimonio empresarial o profesional.</p>
+          <p class="parrafo">3.º Las demás prestaciones de servicios efectuadas a título gratuito por el sujeto pasivo no mencionadas en los números anteriores de este artículo.</p>
+        </version>
+        <version id_norma="BOE-A-2006-20843" fecha_publicacion="20061130" fecha_vigencia="20061201">
+          <p class="articulo">Artículo 12. Operaciones asimiladas a las prestaciones de servicios.</p>
+          <p class="parrafo">Se considerarán operaciones asimiladas a las prestaciones de servicios a título oneroso los autoconsumos de servicios.</p>
+          <p class="parrafo">A efectos de este impuesto serán autoconsumos de servicios las siguientes operaciones realizadas sin contraprestación:</p>
+          <p class="parrafo_2">1.º Las transferencias de bienes y derechos, no comprendidas en el artículo 9, número 1.º, de esta Ley, del patrimonio empresarial o profesional al patrimonio personal del sujeto pasivo.</p>
+          <p class="parrafo">2.º La aplicación total o parcial al uso particular del sujeto pasivo o, en general, a fines ajenos a su actividad empresarial o profesional de los bienes integrantes de su patrimonio empresarial o profesional.</p>
+          <p class="parrafo">3.º Las demás prestaciones de servicios efectuadas a título gratuito por el sujeto pasivo no mencionadas en los números anteriores de este artículo, siempre que se realicen para fines ajenos a los de la actividad empresarial o profesional.</p>
+          <blockquote>
+            <p class="nota_pie">Se modifica el número 3º por el art. 3.1 de la Ley 36/2006, de 29 de noviembre. <a class="refPost">Ref. BOE-A-2006-20843</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a2-2" tipo="precepto" titulo="Artículo 20 bis">
+        <version id_norma="BOE-A-2021-6872" fecha_publicacion="20210428" fecha_vigencia="20210701">
+          <p class="articulo">Artículo 20 bis. Exención de las entregas de bienes facilitadas a través de una interfaz digital.</p>
+          <p class="parrafo">Estarán exentas del impuesto, en el supuesto previsto en el artículo 8 bis.b) de esta Ley, las entregas de bienes efectuadas a favor del empresario o profesional que facilite la entrega a través de la interfaz digital, cuando dichas entregas se entiendan realizadas en el territorio de aplicación del impuesto.</p>
+          <blockquote caduca="20210701" class="soloTexto">
+            <p class="parrafo">Téngase en cuenta que este artículo, añadido por el art. 10.6 del Real Decreto-ley 7/2021, de 27 de abril. <a class="refPost">Ref. BOE-A-2021-6872#ad</a>, entra en vigor el 1 de julio de 2021, según establece su disposición final octava.</p>
+          </blockquote>
+          <blockquote>
+            <p class="nota_pie">Se añade, con efectos de 1 de julio de 2021, por el art. 10.6 del Real Decreto-ley 7/2021, de 27 de abril. <a class="refPost">Ref. BOE-A-2021-6872#ad</a></p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a30" tipo="precepto" titulo="Artículo 30">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 30. Importaciones de bienes personales destinados al amueblamiento de una vivienda secundaria.</p>
+          <p class="parrafo">Uno. Estarán exentas del impuesto las importaciones de bienes personales efectuadas por particulares, con el fin de amueblar una vivienda secundaria del importador.</p>
+          <p class="parrafo">Dos. La exención establecida en el apartado anterior quedará condicionada a la concurrencia de los siguientes requisitos:</p>
+          <p class="parrafo_2">1.º Los establecidos en el apartado dos, números 2.º, 3.º, 4.º y 6.º, del artículo 28 de esta Ley, en cuanto sean aplicables.</p>
+          <p class="parrafo">2.º Que el importador fuese propietario de la vivienda secundaria o, en su caso, arrendatario de la misma, por un plazo mínimo de doce meses.</p>
+          <p class="parrafo">3.º Que los bienes importados correspondan al mobiliario o ajuar normal de la vivienda secundaria.</p>
+        </version>
+      </bloque>
+<bloque id="a32" tipo="precepto" titulo="Artículo 32">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 32. Importaciones de bienes personales por causa de herencia.</p>
+          <p class="parrafo">Uno. Estarán exentas del Impuesto sobre el Valor Añadido las importaciones de bienes personales adquiridos mortis causa, cuando se efectúen por personas físicas que tengan su residencia habitual en el territorio de aplicación del impuesto.</p>
+          <p class="parrafo">Dos. La exención sólo se aplicará respecto de los bienes importados en el plazo de dos años a partir del momento en que el interesado hubiese entrado en posesión de los bienes adquiridos, salvo causas excepcionales apreciadas por la Administración.</p>
+          <p class="parrafo">Tres. Lo dispuesto en los apartados anteriores se aplicará también a las importaciones de bienes personales adquiridos mortis causa por entidades sin fines de lucro establecidas en el territorio de aplicación del impuesto.</p>
+          <p class="parrafo">Cuatro. Quedan excluidos de la exención los siguientes bienes:</p>
+          <p class="parrafo_2">1.º Los productos alcohólicos comprendidos en los códigos NC 22.03 a 22.08 del Arancel aduanero.</p>
+          <p class="parrafo">2.º El tabaco en rama o manufacturado.</p>
+          <p class="parrafo">3.º Los medios de transporte de carácter industrial.</p>
+          <p class="parrafo">4.º Los materiales de uso profesional distintos de los instrumentos portátiles necesarios para el ejercicio de la profesión del difunto.</p>
+          <p class="parrafo">5.º Las existencias de materias primas y de productos terminados o semiterminados.</p>
+          <p class="parrafo">6.º El ganado vivo y las existencias de productos agrícolas que excedan de las cantidades correspondientes a un aprovisionamiento familiar normal.</p>
+        </version>
+      </bloque>
+<bloque id="a33" tipo="precepto" titulo="Artículo 33">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 33. Importaciones de bienes muebles efectuadas por estudiantes.</p>
+          <p class="parrafo">Uno. Estarán exentas del impuesto las importaciones del ajuar, material de estudio y otros bienes muebles usados que constituyan el equipamiento normal de una habitación de estudiante, pertenecientes a personas que vayan a residir temporalmente en el territorio de aplicación del impuesto para realizar en él sus estudios y que se destinen a su uso personal mientras duren los mismos.</p>
+          <p class="parrafo">Para la aplicación de esta exención se entenderá por:</p>
+          <p class="parrafo_2">a) Estudiante: Toda persona regularmente inscrita en un centro de enseñanza establecido en el territorio de aplicación del impuesto para seguir con plena dedicación los cursos que se impartan en dicho centro.</p>
+          <p class="parrafo">b) Ajuar: La ropa de uso personal o de casa, incluso en estado nuevo.</p>
+          <p class="parrafo">c) Material de estudio: Los objetos e instrumentos empleados normalmente por los estudiantes para la realización de sus estudios.</p>
+          <p class="parrafo_2">Dos. La exención se concederá solamente una vez por año escolar.</p>
+        </version>
+      </bloque>
+<bloque id="a38" tipo="precepto" titulo="Artículo 38">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 38. Bienes obtenidos por productores agrícolas o ganaderos en tierras situadas en terceros países.</p>
+          <p class="parrafo">Uno. Estarán exentas las importaciones de productos agrícolas, ganaderos, hortícolas o silvícolas procedentes de tierras situadas en un país tercero contiguo al territorio de aplicación del impuesto, obtenidos por productores cuya sede de explotación se encuentre en el mencionado territorio en la proximidad inmediata de aquel país.</p>
+          <p class="parrafo">Dos. La exención prevista en este artículo estará condicionada al cumplimiento de los siguientes requisitos:</p>
+          <p class="parrafo_2">1.º Los productos ganaderos deben proceder de animales criados, adquiridos o importados en las condiciones generales de tributación de la Comunidad.</p>
+          <p class="parrafo">2.º Los caballos de raza pura no podrán tener más de seis meses de edad y deberán haber nacido en el país tercero de un animal fecundado en el territorio de aplicación del impuesto y exportado temporalmente para parir.</p>
+          <p class="parrafo">3.º Los bienes deberán ser importados por el productor o por persona que actúe en nombre y por cuenta de él.</p>
+        </version>
+      </bloque>
+<bloque id="a39" tipo="precepto" titulo="Artículo 39">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 39. Semillas, abonos y productos para el tratamiento del suelo y de los vegetales.</p>
+          <p class="parrafo">Uno. Estarán exentas del impuesto, a condición de reciprocidad, las importaciones de semillas, abonos y productos para el tratamiento del suelo y de los vegetales, destinados a la explotación de tierras situadas en la proximidad inmediata de un país tercero y explotadas por productores agrícolas cuya sede de explotación se encuentre en dicho país tercero, en la proximidad inmediata del territorio de aplicación del impuesto.</p>
+          <p class="parrafo">Dos. La exención estará condicionada a los siguientes requisitos:</p>
+          <p class="parrafo_2">1.º Que los mencionados productos se importen en cantidades no superiores a las necesarias para la explotación de las tierras a que se destinen.</p>
+          <p class="parrafo">2.º Que la importación se efectúe por el productor o por persona que actúe en nombre y por cuenta de él.</p>
+        </version>
+      </bloque>
+<bloque id="a40" tipo="precepto" titulo="Artículo 40">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 40. Importaciones de animales de laboratorio y sustancias biológicas y químicas destinados a la investigación.</p>
+          <p class="parrafo">Estarán exentas del impuesto las importaciones, a título gratuito, de animales especialmente preparados para ser utilizados en laboratorios y de sustancias biológicas y químicas procedentes de países terceros, siempre que unos y otras se importen por establecimientos públicos, o servicios dependientes de ellos, que tengan por objeto esencial la enseñanza o investigación científica, o, previa autorización, por establecimientos privados dedicados también esencialmente a las mismas actividades.</p>
+          <p class="parrafo">La exención establecida en este artículo se concederá con los mismos límites y condiciones fijados en la legislación aduanera.</p>
+        </version>
+      </bloque>
+<bloque id="a41" tipo="precepto" titulo="Artículo 41">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 41. Importaciones de sustancias terapéuticas de origen humano y de reactivos para la determinación de los grupos sanguíneos y de los tejidos humanos.</p>
+          <p class="parrafo">Uno. Sin perjuicio de lo dispuesto en el artículo 27, número 1.º, de esta Ley, estarán exentas del impuesto las importaciones de sustancias terapéuticas de origen humano y de reactivos destinados a la determinación de los grupos sanguíneos y de los tejidos humanos.</p>
+          <p class="parrafo">La exención alcanzará también a los embalajes especiales indispensables para el transporte de dichos productos, así como a los disolventes y accesorios necesarios para su conservación y utilización.</p>
+          <p class="parrafo">Dos. A estos efectos, se considerarán:</p>
+          <p class="parrafo_2">«Sustancias terapéuticas de origen humano»: La sangre humana y sus derivados, tales como sangre humana total, plasma humano desecado, albúmina humana y soluciones estables de proteínas plasmáticas humanas, inmoglobulina y fibrinógeno humano.</p>
+          <p class="parrafo">«Reactivos para la determinación de los grupos sanguíneos»: Todos los reactivos de origen humano, vegetal u otro, para la determinación de los grupos sanguíneos y la detección de incompatibilidades sanguíneas.</p>
+          <p class="parrafo">«Reactivos para la determinación de los grupos de tejidos humanos»: Todos los reactivos de origen humano, animal, vegetal u otro, para la determinación de los grupos de los tejidos humanos.</p>
+          <p class="parrafo_2">Tres. Esta exención sólo se aplicará cuando se cumplan los siguientes requisitos:</p>
+          <p class="parrafo_2">1.º Que se destinen a organismos o laboratorios autorizados por la Administración, para su utilización exclusiva en fines médicos o científicos con exclusión de toda operación comercial.</p>
+          <p class="parrafo">2.º Que los bienes importados se presenten en recipientes provistos de una etiqueta especial de identificación.</p>
+          <p class="parrafo">3.º Que la naturaleza y destino de los productos importados se acredite en el momento de la importación mediante un certificado expedido por organismo habilitado para ello en el país de origen.</p>
+        </version>
+      </bloque>
+<bloque id="a42" tipo="precepto" titulo="Artículo 42">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 42. Importaciones de sustancias de referencia para el control de calidad de los medicamentos.</p>
+          <p class="parrafo">Estarán exentas del impuesto las importaciones de muestras de sustancias referenciadas, autorizadas por la Organización Mundial de la Salud para el control de calidad de las materias utilizadas para la fabricación de medicamentos, cuando se importen por entidades autorizadas para recibir dichos envíos con exención.</p>
+        </version>
+      </bloque>
+<bloque id="a45" tipo="precepto" titulo="Artículo 45">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 45. Bienes importados en beneficio de personas con minusvalía.</p>
+          <p class="parrafo">Uno. Estarán exentas del impuesto las importaciones de bienes especialmente concebidos para la educación, el empleo o la promoción social de las personas físicas o mentalmente disminuidas, efectuadas por instituciones u organismos debidamente autorizados que tengan por actividad principal la educación o asistencia a estas personas, cuando se remitan gratuitamente y sin fines comerciales a las mencionadas instituciones u organismos.</p>
+          <p class="parrafo">La exención se extenderá a las importaciones de los repuestos, elementos o accesorios de los citados bienes y de las herramientas o instrumentos utilizados en su mantenimiento, control, calibrado o reparación, cuando se importen conjuntamente con los bienes o se identifique que correspondan a ellos.</p>
+          <p class="parrafo">Dos. Los bienes importados con exención podrán ser prestados, alquilados o cedidos, sin ánimo de lucro, por las entidades o establecimientos beneficiarios a las personas mencionadas en el apartado anterior, sin pérdida del beneficio de la exención.</p>
+          <p class="parrafo">Tres. Sin perjuicio de lo previsto en el apartado precedente, a las exenciones reguladas en este artículo y en relación con los fines descritos en él, será de aplicación lo dispuesto en el artículo 44, apartado tres, de esta Ley.</p>
+        </version>
+      </bloque>
+<bloque id="a46" tipo="precepto" titulo="Artículo 46">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 46. Importaciones de bienes en beneficio de las víctimas de catástrofes.</p>
+          <p class="parrafo">Uno. Estarán exentas del impuesto las importaciones de bienes de cualquier clase, efectuadas por entidades públicas o por organismos privados o autorizados, de carácter caritativo o filantrópico, siempre que se destinen a los siguientes fines:</p>
+          <p class="parrafo_2">1.º La distribución gratuita a las víctimas de catástrofes que afecten al territorio de aplicación del impuesto.</p>
+          <p class="parrafo">2.º La cesión de uso gratuita a las víctimas de dichas catástrofes, manteniendo los mencionados organismos la propiedad de los bienes.</p>
+          <p class="parrafo_2">Dos. Igualmente estarán exentas las importaciones de bienes efectuadas por unidades de socorro para atender sus necesidades durante el tiempo de su intervención en auxilio de las citadas personas.</p>
+          <p class="parrafo">Tres. Se excluirán de la exención establecida en el presente artículo los materiales de cualquier clase destinados a la reconstrucción de las zonas siniestradas.</p>
+          <p class="parrafo">Cuatro. La exención contemplada en este artículo quedará condicionada a la previa autorización de la Comisión de las Comunidades Europeas. No obstante, hasta que se conceda la mencionada autorización podrá realizarse la importación con suspensión provisional del pago del impuesto, si el importador presta garantía suficiente.</p>
+          <p class="parrafo">Cinco. En las exenciones reguladas en este artículo y en relación con los fines que las condicionan, será de aplicación lo dispuesto en el artículo 44, apartado tres, de esta Ley.</p>
+        </version>
+      </bloque>
+<bloque id="a49" tipo="precepto" titulo="Artículo 49">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 49. Importaciones de bienes para ser objeto de exámenes, análisis o ensayos.</p>
+          <p class="parrafo">Uno. Estarán exentas del impuesto las importaciones de bienes destinados a ser objeto de exámenes, análisis o ensayos para determinar su composición, calidad u otras características técnicas con fines de información o de investigaciones de carácter industrial o comercial.</p>
+          <p class="parrafo">Se excluyen de la exención los bienes que se utilicen en exámenes, análisis o ensayos que en sí mismos constituyan operaciones de promoción comercial.</p>
+          <p class="parrafo">Dos. La exención sólo alcanzará a la cantidad de los mencionados bienes que sea estrictamente necesaria para la realización de los objetivos indicados y quedará condicionada a que los mismos sean totalmente consumidos o destruidos en el curso de las operaciones de investigación.</p>
+          <p class="parrafo">No obstante, la exención se extenderá igualmente a los productos restantes que pudieran resultar de dichas operaciones si, con autorización de la Administración, fuesen destruidos o convertidos en bienes sin valor comercial, abandonados en favor del Estado libres de gastos reexportados a un país tercero. En defecto de la citada autorización los mencionados productos quedarán sujetos al pago del impuesto en el estado en que se encontrasen, con referencia al momento en que se ultimasen las operaciones de examen, análisis o ensayo.</p>
+          <p class="parrafo">A estos efectos, se entiende por productos restantes los que resulten de los exámenes, análisis o ensayos, o bien las mercancías importadas con dicha finalidad que no fuesen efectivamente utilizadas.</p>
+        </version>
+      </bloque>
+<bloque id="a54" tipo="precepto" titulo="Artículo 54">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 54. Importaciones de objetos de colección o de arte.</p>
+          <p class="parrafo">Estarán exentas del impuesto las importaciones de los objetos de colección o de arte de carácter educativo, científico o cultural, no destinados a la venta e importados por museos, galerías y otros establecimientos autorizados para recibir esos objetos con exención.</p>
+          <p class="parrafo">La exención estará condicionada a que los objetos se importen a título gratuito o, si lo fueran a título oneroso, que sean entregados por una persona o Entidad que no actúe como empresario o profesional.</p>
+        </version>
+      </bloque>
+<bloque id="a55" tipo="precepto" titulo="Artículo 55">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 55. Importaciones de materiales para el acondicionamiento y protección de mercancías.</p>
+          <p class="parrafo">Estarán exentas del impuesto las importaciones de los materiales utilizados para el acondicionamiento o protección, incluso térmica, de mercancías durante su transporte, siempre que con respecto de dichos materiales se cumplan los siguientes requisitos:</p>
+          <p class="parrafo_2">a) Que no sean normalmente susceptibles de reutilización.</p>
+          <p class="parrafo">b) Que su contraprestación esté incluida en la base imponible del impuesto en la importación de las mercancías a que se refieran.</p>
+        </version>
+      </bloque>
+<bloque id="a60" tipo="precepto" titulo="Artículo 60">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 60. Importaciones de bienes en régimen diplomático o consular.</p>
+          <p class="parrafo">Estarán exentas del impuesto las importaciones de bienes en régimen diplomático o consular cuando gocen de exención de los derechos de importación.</p>
+        </version>
+      </bloque>
+<bloque id="a63" tipo="precepto" titulo="Artículo 63">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 63. Reimportaciones de bienes.</p>
+          <p class="parrafo">Estarán exentas del impuesto las reimportaciones de bienes en el mismo estado en que fueran exportados previamente, cuando se efectúen por quien los hubiese exportado y se beneficien, asimismo, de la exención de los derechos de importación.</p>
+        </version>
+      </bloque>
+<bloque id="a64" tipo="precepto" titulo="Artículo 64">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 64. Prestaciones de servicios relacionados con las importaciones.</p>
+          <p class="parrafo">Estarán exentas del impuesto las prestaciones de servicios, distintas de las declaradas exentas en el artículo 20 de esta Ley, cuya contraprestación esté incluida en la base imponible de las importaciones de bienes a que se refieran, de acuerdo con lo establecido en el artículo 84 <sup>(*)</sup> de esta Ley.</p>
+          <p class="cita_con_pleca">(*) Entiéndase que se refiere al art. 83.</p>
+        </version>
+      </bloque>
+<bloque id="a67" tipo="precepto" titulo="Artículo 67">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 67. Normas generales aplicables a las exenciones previstas en el presente capítulo.</p>
+          <p class="parrafo">Uno.–El importador deberá aportar las pruebas suficientes para acreditar el cumplimiento de los requisitos establecidos en los artículos precedentes.</p>
+          <p class="parrafo">Dos.–El contravalor en moneda nacional de las cantidades expresadas en Ecus relativas a las exenciones de las importaciones de bienes se fijará anualmente por el Ministro de Economía y Hacienda.</p>
+          <p class="parrafo">Los tipos de cambio aplicables serán los del primer día hábil del mes de octubre, y las cantidades que resulten podrán redondearse hasta el límite de 2 Ecus.</p>
+          <p class="parrafo">Los nuevos valores serán de aplicación a partir del día 1 de enero siguiente.</p>
+          <p class="parrafo">El tipo de cambio vigente en el momento de la entrada en vigor de esta Ley y los aplicables en los años sucesivos podrán mantenerse en el año siguiente, cuando la variación que resultara aplicable fuese inferior al 5 por ciento de la cuantía correspondiente al año en curso o cuando dicha variación supusiera una reducción de las cantidades establecidas.</p>
+        </version>
+        <version id_norma="BOE-A-2001-24965" fecha_publicacion="20011231" fecha_vigencia="20020101">
+          <p class="articulo">Artículo 67. Normas generales aplicables a las exenciones previstas en el presente capítulo.</p>
+          <p class="parrafo">El importador deberá aportar las pruebas suficientes para acreditar el cumplimiento de los requisitos establecidos en los artículos precedentes.</p>
+          <blockquote>
+            <p class="nota_pie">Se deroga el apartado 2, renumerando el 1 como párrafo único, por la disposición derogatoria única.3 de la Ley 24/2001, de 27 de diciembre. <a class="refPost">Ref. BOE-A-2001-24965</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a77" tipo="precepto" titulo="Artículo 77">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 77. Devengo del impuesto.</p>
+          <p class="parrafo">Uno. En las importaciones de bienes, el devengo del impuesto se producirá en el momento en que hubiera tenido lugar el devengo de los derechos de importación, de acuerdo con la legislación aduanera, independientemente de que dichas importaciones estén o no sujetas a los mencionados derechos de importación.</p>
+          <p class="parrafo">No obstante, en el supuesto de abandono del régimen de depósito distinto del aduanero, el devengo se producirá en el momento en que tenga lugar el abandono de dicho régimen.</p>
+          <p class="parrafo">Dos. En las operaciones asimiladas a las importaciones definidas en el artículo 19 de esta Ley, el devengo se producirá en el momento en que tengan lugar las circunstancias que en el mismo se indican.</p>
+        </version>
+      </bloque>
+<bloque id="a81" tipo="precepto" titulo="Artículo 81">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 81. Determinación de la base imponible.</p>
+          <p class="parrafo">Uno. Con carácter general, la base imponible se determinará en régimen de estimación directa, sin más excepciones que las establecidas en esta Ley y en las normas reguladoras del régimen de estimación indirecta de las bases imponibles.</p>
+          <p class="parrafo">La aplicación del régimen de estimación indirecta comprenderá el importe de las adquisiciones de bienes y servicios efectuadas por el sujeto pasivo y el impuesto soportado correspondiente a las mismas.</p>
+          <p class="parrafo">Dos. Reglamentariamente, en los sectores o actividades económicas y con las limitaciones que se especifiquen, podrá establecerse el régimen de estimación objetiva para la determinación de la base imponible.</p>
+          <p class="parrafo">En ningún caso, este régimen se aplicará en las entregas de bienes inmuebles ni en las operaciones a que se refieren los artículos 9, número 1.º, letras c) y d), 13, 17 y 84, apartado uno, número 2.º, de esta Ley.</p>
+          <p class="parrafo">Tres. En los supuestos de falta de presentación de las declaraciones-liquidaciones se estará a lo dispuesto en el artículo 168 de esta Ley en relación con la liquidación provisional de oficio.</p>
+        </version>
+      </bloque>
+<bloque id="a100" tipo="precepto" titulo="Artículo 100">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 100. Caducidad del derecho a la deducción.</p>
+          <p class="parrafo">El derecho a la deducción caduca cuando el titular no lo hubiera ejercitado en los plazos y cuantías señalados en el artículo 99 de esta Ley.</p>
+          <p class="parrafo">No obstante, en los casos en que la procedencia del derecho a deducir o la cuantía de la deducción esté pendiente de la resolución de una controversia en vía administrativa o jurisdiccional, el derecho a la deducción caducará cuando hubiesen transcurrido cinco años desde la fecha en que la resolución o sentencia sean firmes.</p>
+        </version>
+        <version id_norma="BOE-A-1999-24786" fecha_publicacion="19991230" fecha_vigencia="20000101">
+          <p class="articulo">Artículo 100. Caducidad del derecho a la deducción.</p>
+          <p class="parrafo">El derecho a la deducción caduca cuando el titular no lo hubiera ejercitado en los plazos y cuantías señalados en el artículo 99 de esta Ley.</p>
+          <p class="parrafo">No obstante, en los casos en que la procedencia del derecho a deducir o la cuantía de la deducción esté pendiente de la resolución de una controversia en vía administrativa o jurisdiccional, el derecho a la deducción caducará cuando hubiesen transcurrido cuatro años desde la fecha en que la resolución o sentencia sean firmes.</p>
+          <blockquote>
+            <p class="nota_pie">Se modifica el párrafo 2 por el art. 6.6 de la Ley 55/1999, de 29 de diciembre. <a class="refPost">Ref. BOE-A-1999-24786</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a103" tipo="precepto" titulo="Artículo 103">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 103. Clases de prorrata y criterios de aplicación.</p>
+          <p class="parrafo">Uno. La regla de prorrata tendrá dos modalidades de aplicación: general y especial.</p>
+          <p class="parrafo">La regla de prorrata general se aplicará cuando no se den las circunstancias indicadas en el apartado siguiente.</p>
+          <p class="parrafo">Dos. La regla de prorrata especial será aplicable en los siguientes supuestos:</p>
+          <p class="parrafo_2">1.º Cuando los sujetos pasivos opten por la aplicación de dicha regla en los plazos y forma que se determinen reglamentariamente.</p>
+          <p class="parrafo">2.º Cuando el montante total de las cuotas deducibles en un año natural por aplicación de la regla de prorrata general exceda en un 20 por 100 del que resultaría por aplicación de la regla de prorrata especial.</p>
+        </version>
+        <version id_norma="BOE-A-2014-12329" fecha_publicacion="20141128" fecha_vigencia="20150101">
+          <p class="articulo">Artículo 103. Clases de prorrata y criterios de aplicación.</p>
+          <p class="parrafo">Uno. La regla de prorrata tendrá dos modalidades de aplicación: general y especial.</p>
+          <p class="parrafo">La regla de prorrata general se aplicará cuando no se den las circunstancias indicadas en el apartado siguiente.</p>
+          <p class="parrafo">Dos. La regla de prorrata especial será aplicable en los siguientes supuestos:</p>
+          <p class="parrafo_2">1.º Cuando los sujetos pasivos opten por la aplicación de dicha regla en los plazos y forma que se determinen reglamentariamente.</p>
+          <p class="parrafo">2.º Cuando el montante total de las cuotas deducibles en un año natural por aplicación de la regla de prorrata general exceda en un 10 por ciento o más del que resultaría por aplicación de la regla de prorrata especial.</p>
+          <blockquote>
+            <p class="nota_pie">Se modifica el apartado 2.2º por el art. 1.26 de la Ley 28/2014, de 27 de noviembre. <a class="refPost">Ref. BOE-A-2014-12329</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a108" tipo="precepto" titulo="Artículo 108">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 108. Concepto de bienes de inversión.</p>
+          <p class="parrafo">Uno. A los efectos de este impuesto, se considerarán de inversión los bienes corporales, muebles, semovientes o inmuebles que, por su naturaleza y función, estén normalmente destinados a ser utilizados por un período de tiempo superior a un año como instrumentos de trabajo o medios de explotación.</p>
+          <p class="parrafo">Dos. No tendrán la consideración de bienes de inversión:</p>
+          <p class="parrafo_2">1.º Los accesorios y piezas de recambio adquiridos para la reparación de los bienes de inversión utilizados por el sujeto pasivo.</p>
+          <p class="parrafo">2.º Las ejecuciones de obra para la reparación de otros bienes de inversión.</p>
+          <p class="parrafo">3.º Los envases y embalajes, aunque sean susceptibles de reutilización.</p>
+          <p class="parrafo">4.º Las ropas utilizadas para el trabajo por los sujetos pasivos o el personal dependiente.</p>
+          <p class="parrafo">5.º Cualquier otro bien cuyo valor de adquisición sea inferior a quinientas mil pesetas.</p>
+        </version>
+      </bloque>
+<bloque id="a109" tipo="precepto" titulo="Artículo 109">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 109. Procedimiento para practicar la regularización de deducciones por bienes de inversión.</p>
+          <p class="parrafo">La regularización de las deducciones a que se refiere el artículo 107 de esta Ley se realizará del siguiente modo:</p>
+          <p class="parrafo_2">1.º Conocido el porcentaje de deducción definitivamente aplicable en cada uno de los años en que deba tener lugar la regularización, se determinará el importe de la deducción que procedería si la repercusión de las cuotas se hubiese soportado en el año que se considere.</p>
+          <p class="parrafo">2.º Dicho importe se restará del de la deducción efectuada en el año en que tuvo lugar la repercusión.</p>
+          <p class="parrafo">3.º La diferencia positiva o negativa se dividirá por cinco o, tratándose de terrenos o edificaciones, por diez, y el cociente resultante será la cuantía del ingreso o de la deducción complementarios a efectuar.</p>
+        </version>
+      </bloque>
+<bloque id="a117" tipo="precepto" titulo="Artículo 117">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 117. Devoluciones a exportadores en régimen de viajeros.</p>
+          <p class="parrafo">Uno. En el régimen de viajeros regulado en el artículo 21, número 2.º, de esta Ley, la devolución de las cuotas soportadas en las adquisiciones de bienes se ajustará a los requisitos y procedimiento que se establezcan reglamentariamente.</p>
+          <p class="parrafo">Dos. La devolución de las cuotas a que se refiere el apartado anterior también procederá respecto de las ventas efectuadas por los sujetos pasivos a quienes sea aplicable el régimen especial del recargo de equivalencia.</p>
+          <p class="parrafo">Tres. La devolución de las cuotas regulada en el presente artículo podrá realizarse también a través de entidades colaboradoras, en las condiciones que se determinen reglamentariamente.</p>
+        </version>
+      </bloque>
+<bloque id="a127" tipo="precepto" titulo="Artículo 127">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 127. Servicios accesorios incluidos en el régimen especial.</p>
+          <p class="parrafo">Uno. Se considerarán incluidos en el régimen especial de la agricultura, ganadería y pesca los servicios de carácter accesorio que los titulares de las explotaciones descritas en el artículo 125 de esta Ley presten a terceros, con los medios ordinariamente utilizados en dichas explotaciones, siempre que contribuyan a la realización de las producciones agrícolas, forestales, ganaderas o pesqueras de los destinatarios.</p>
+          <p class="parrafo">Dos. Lo dispuesto en el apartado precedente no será de aplicación si, durante el año inmediato anterior, el importe de facturación por el conjunto de los servicios accesorios prestados excediera del 20 por 100 del volumen total de operaciones de la explotación agrícola, forestal, ganadera o pesquera principal.</p>
+        </version>
+        <version id_norma="BOE-A-1997-28053" fecha_publicacion="19971231" fecha_vigencia="19980101">
+          <p class="articulo">Artículo 127. Servicios accesorios incluidos en el régimen especial.</p>
+          <p class="parrafo">Uno. Se considerarán incluidos en el régimen especial de la agricultura, ganadería y pesca los servicios de carácter accesorio a las explotaciones a las que resulte aplicable dicho régimen especial que presten los titulares de las mismas a terceros con los medios ordinariamente utilizados en dichas explotaciones, siempre que tales servicios contribuyan a la realización de las producciones agrícolas, forestales, ganaderas o pesqueras de los destinatarios.</p>
+          <p class="parrafo">Dos. Lo dispuesto en el apartado precedente no será de aplicación si durante el año inmediato anterior el importe del conjunto de los servicios accesorios prestados excediera del 20 por 100 del volumen total de operaciones de las explotaciones agrícolas, forestales, ganaderas o pesqueras principales a las que resulte aplicable el régimen especial regulado en este capítulo.</p>
+          <blockquote>
+            <p class="nota_pie">Se modifica por el art. 6.28 de la Ley 66/1997, de 30 de diciembre. <a class="refPost">Ref. BOE-A-1997-28053</a></p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a128" tipo="precepto" titulo="Artículo 128">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 128. Realización de actividades económicas en sectores diferenciados de la actividad empresarial o profesional.</p>
+          <p class="parrafo">Uno. Podrán acogerse al régimen especial regulado en este capítulo los titulares de explotaciones agrícolas, forestales, ganaderas o pesqueras aunque realicen simultáneamente operaciones en otros sectores de su actividad empresarial o profesional. En tal caso el régimen especial sólo producirá efectos respecto de las operaciones incluidas en el mismo.</p>
+          <p class="parrafo">A efectos de lo dispuesto en el párrafo anterior, se considerarán actividades realizadas en sectores diferenciados en los términos previstos en el artículo 9, número 1.º, letra c), de esta Ley, las excluidas del ámbito de aplicación de este régimen especial.</p>
+          <p class="parrafo">Dos. En los casos a que se refiere el apartado anterior, se considerarán exclusivamente utilizados en la realización de actividades incluidas en el régimen especial regulado en este capítulo los bienes y servicios adquiridos o importados que sean utilizados únicamente en las explotaciones agrícolas, forestales, ganaderas o pesqueras, aunque parte de los productos naturales obtenidos en las mismas se utilicen por el sujeto pasivo en la realización de otras actividades excluidas del régimen especial.</p>
+        </version>
+        <version id_norma="BOE-A-1997-28053" fecha_publicacion="19971231" fecha_vigencia="19980101">
+          <p class="articulo">Artículo 128. Realización de actividades económicas en sectores diferenciados de la actividad empresarial o profesional.</p>
+          <p class="parrafo">Podrán acogerse al régimen especial regulado en este capítulo los titulares de explotaciones agrícolas, forestales, ganaderas o pesqueras a las que resulte aplicable el mismo, aunque realicen otras actividades de carácter empresarial o profesional. En tal caso, el régimen especial sólo producirá efectos respecto a las actividades incluidas en el mismo, y dichas actividades tendrán siempre la consideración de sector diferenciado de la actividad económica del sujeto pasivo.</p>
+          <blockquote>
+            <p class="nota_pie">Se modifica por el art. 6.29 de la Ley 66/1997, de 30 de diciembre. <a class="refPost">Ref. BOE-A-1997-28053</a></p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a131" tipo="precepto" titulo="Artículo 131">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 131. Obligados al reintegro de las compensaciones.</p>
+          <p class="parrafo">El reintegro de las compensaciones a que se refiere el artículo 130 de esta Ley se efectuará por:</p>
+          <p class="parrafo_2">1.º La Hacienda Pública por las entregas de bienes que sean objeto de exportación o de expedición o transporte a otro Estado miembro y por los servicios comprendidos en el régimen especial prestados a destinatarios establecidos fuera del territorio de aplicación del Impuesto.</p>
+          <p class="parrafo">2.º El adquirente de los bienes que sean objeto de entregas distintas de las mencionadas en el número anterior y el destinatario de los servicios comprendidos en el régimen especial establecido en el territorio de aplicación del impuesto.</p>
+        </version>
+      </bloque>
+<bloque id="a134" tipo="precepto" titulo="Artículo 134">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 134. Deducción de las compensaciones correspondientes al régimen especial de la agricultura, ganadería y pesca.</p>
+          <p class="parrafo">Uno. Los sujetos pasivos que hayan satisfecho las compensaciones a que se refiere el artículo 130 de esta Ley podrán deducir su importe de las cuotas devengadas por las operaciones que realicen aplicando lo dispuesto en el Título VIII de esta Ley respecto de las cuotas soportadas deducibles.</p>
+          <p class="parrafo">Dos. Se exceptúan de lo dispuesto en el apartado anterior los sujetos pasivos a quienes sea aplicable el régimen especial del recargo de equivalencia en relación con las adquisiciones de los productos naturales destinados a su comercialización al amparo de dicho régimen especial.</p>
+          <p class="parrafo">Tres. Para ejercitar el derecho establecido en este artículo deberán estar en posesión del documento emitido por ellos mismos en la forma y con los requisitos que se determinen reglamentariamente.</p>
+        </version>
+      </bloque>
+<bloque id="a138" tipo="precepto" titulo="Artículo 138">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 138. Régimen especial de los objetos de arte, antigüedades y objetos de colección.</p>
+          <p class="parrafo">Los sujetos pasivos que realicen con habitualidad entregas de bienes muebles que tengan la consideración de objetos de arte, antigüedades u objetos de colección podrán optar por la aplicación de este régimen especial.</p>
+          <p class="parrafo">La opción deberá efectuarse en los plazos y forma que se determinen reglamentariamente.</p>
+        </version>
+        <version id_norma="BOE-A-1994-28968" fecha_publicacion="19941231" fecha_vigencia="19950101">
+          <p class="articulo">Artículo 138. Repercusión del Impuesto.</p>
+          <p class="parrafo">En las facturas que documenten las operaciones a que resulte aplicable este régimen especial, los sujetos pasivos no podrán consignar separadamente la cuota repercutida, debiendo entenderse ésta comprendida en el precio total de la operación.</p>
+          <p class="parrafo">No serán deducibles las cuotas soportadas por los adquirentes de bienes usados, objetos de arte, antigüedades u objetos de colección que les hayan sido entregados por sujetos pasivos revendedores con aplicación del régimen especial regulado en este capítulo.</p>
+          <blockquote>
+            <p class="nota_pie">Se modifica por el art. 17.8 de la Ley 42/1994, de 30 de diciembre. <a class="refPost">Ref. BOE-A-1994-28968</a></p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a140bis" tipo="precepto" titulo="Artículo 140 bis">
+        <version id_norma="BOE-A-1999-24786" fecha_publicacion="19991230" fecha_vigencia="20000101">
+          <p class="articulo">Artículo 140 bis. Exenciones.</p>
+          <p class="parrafo">Uno. Estarán exentas del impuesto las siguientes operaciones:</p>
+          <p class="parrafo_2">1.º Las entregas, adquisiciones intracomunitarias e importaciones de oro de inversión. Se incluirán en el ámbito de la exención, en concepto de entregas, los préstamos y las operaciones de permuta financiera, así como las operaciones derivadas de contratos de futuro o a plazo, siempre que tengan por objeto, en todos los casos, oro de inversión y siempre que impliquen la transmisión del poder de disposición sobre dicho oro.</p>
+          <p class="parrafo">No se aplicará lo dispuesto en el párrafo anterior:</p>
+          <p class="parrafo_2">a) A las prestaciones de servicios que tengan por objeto oro de inversión, sin perjuicio de lo dispuesto en el número 2.º de este artículo.</p>
+          <p class="parrafo">b) A las adquisiciones intracomunitarias de oro de inversión en el caso de que el empresario que efectúe la entrega haya renunciado a la exención del impuesto en el régimen especial previsto para dicha entrega en el Estado miembro de origen.</p>
+          <p class="parrafo_2">2.º Los servicios de mediación en las operaciones exentas de acuerdo con el número 1.º anterior, prestados en nombre y por cuenta ajena.</p>
+          <p class="parrafo_2">Dos. En el caso de que a una misma entrega le sean de aplicación la exención regulada en este precepto y la contemplada en el artículo 25 de esta Ley, se considerará aplicable la regulada en este precepto, salvo que se efectúe la renuncia a la misma, de acuerdo con lo dispuesto en el apartado uno del artículo 140 ter.</p>
+          <blockquote>
+            <p class="nota_pie">Se añade por el art. 6.14 de la Ley 55/1999, de 29 de diciembre. <a class="refPost">Ref. BOE-A-1999-24786</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a140ter" tipo="precepto" titulo="Artículo 140 ter">
+        <version id_norma="BOE-A-1999-24786" fecha_publicacion="19991230" fecha_vigencia="20000101">
+          <p class="articulo">Artículo 140 ter. Renuncia a la exención.</p>
+          <p class="parrafo">Uno. La exención del impuesto aplicable a las entregas de oro de inversión, a que se refiere el artículo 140 bis, uno.1.º de esta Ley, podrá ser objeto de renuncia por parte del transmitente, en la forma y con los requisitos que reglamentariamente se determinen y siempre que se cumplan las condiciones siguientes:</p>
+          <p class="parrafo_2">1.ª Que el transmitente se dedique con habitualidad a la realización de actividades de producción de oro de inversión o de transformación de oro que no sea de inversión en oro de inversión y siempre que la entrega tenga por objeto oro de inversión resultante de las actividades citadas.</p>
+          <p class="parrafo">2.ª Que el adquirente sea un empresario o profesional que actúe en el ejercicio de sus actividades empresariales o profesionales.</p>
+          <p class="parrafo_2">Dos. La exención del impuesto aplicable a los servicios de mediación a que se refiere el número 2.º del apartado uno del artículo 140 bis de esta Ley podrá ser objeto de renuncia, siempre que el destinatario del servicio de mediación sea un empresario o profesional que actúe en el ejercicio de sus actividades empresariales o profesionales, en la forma y con los requisitos que reglamentariamente se determinen y siempre que se efectúe la renuncia a la exención aplicable a la entrega del oro de inversión a que se refiere el servicio de mediación.</p>
+          <blockquote>
+            <p class="nota_pie">Se añade por el art. 6.14 de la Ley 55/1999, de 29 de diciembre. <a class="refPost">Ref. BOE-A-1999-24786</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a140cuarter" tipo="precepto" titulo="Artículo 140 cuarter">
+        <version id_norma="BOE-A-1999-24786" fecha_publicacion="19991230" fecha_vigencia="20000101">
+          <p class="articulo">Artículo 140 cuarter. Deducciones.</p>
+          <p class="parrafo">Uno. Las cuotas del Impuesto sobre el Valor Añadido comprendidas en el artículo 92 de esta Ley no serán deducibles en la medida en que los bienes o servicios por cuya adquisición o importación se soporten o satisfagan dichas cuotas se utilicen en la realización de las entregas de oro de inversión exentas de acuerdo con lo dispuesto en el artículo 140 bis de esta Ley.</p>
+          <p class="parrafo">Dos. Por excepción a lo dispuesto en el apartado anterior, la realización de las entregas de oro de inversión a que se refiere el mismo generará el derecho a deducir las siguientes cuotas:</p>
+          <p class="parrafo_2">1.º Las soportadas por la adquisición de ese oro cuando el proveedor del mismo haya efectuado la renuncia a la exención regulada en el artículo 140 ter, apartado uno.</p>
+          <p class="parrafo">Lo dispuesto en el párrafo anterior se aplicará también a las cuotas correspondientes a las adquisiciones intracomunitarias de oro de inversión en el caso de que el empresario que efectúe la entrega haya renunciado a la exención del impuesto en el régimen especial previsto para dicha entrega en el Estado miembro de origen.</p>
+          <p class="parrafo">2.º Las soportadas o satisfechas por la adquisición o importación de ese oro, cuando en el momento de la adquisición o importación no reunía los requisitos para ser considerado como oro de inversión, habiendo sido transformado en oro de inversión por quien efectúa la entrega exenta o por su cuenta.</p>
+          <p class="parrafo">3.º Las soportadas por los servicios que consistan en el cambio de forma, de peso o de ley de ese oro.</p>
+          <p class="parrafo_2">Tres. Igualmente, por excepción a lo dispuesto en el apartado uno anterior, la realización de entregas de oro de inversión exentas del impuesto por parte de los empresarios o profesionales que lo hayan producido directamente u obtenido mediante transformación generará el derecho a deducir las cuotas del impuesto soportadas o satisfechas por la adquisición o importación de bienes y servicios vinculados con dicha producción o transformación.</p>
+          <blockquote>
+            <p class="nota_pie">Se añade por el art. 6.14 de la Ley 55/1999, de 29 de diciembre. <a class="refPost">Ref. BOE-A-1999-24786</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a140quinque" tipo="precepto" titulo="Artículo 140 quinque">
+        <version id_norma="BOE-A-1999-24786" fecha_publicacion="19991230" fecha_vigencia="20000101">
+          <p class="articulo">Artículo 140 quinque. Sujeto pasivo.</p>
+          <p class="parrafo">Será sujeto pasivo del impuesto correspondiente a las entregas de oro de inversión que resulten gravadas por haberse efectuado la renuncia a la exención a que se refiere el artículo 140 ter, el empresario o profesional para quien se efectúe la operación gravada.</p>
+          <blockquote>
+            <p class="nota_pie">Se añade por el art. 6.14 de la Ley 55/1999, de 29 de diciembre. <a class="refPost">Ref. BOE-A-1999-24786</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a140sexies" tipo="precepto" titulo="Artículo 140 sexies">
+        <version id_norma="BOE-A-1999-24786" fecha_publicacion="20021231" fecha_vigencia="20030101">
+          <p class="articulo">Artículo 140 sexies. Conservación de las facturas.</p>
+          <p class="parrafo">Los empresarios y profesionales que realicen operaciones que tengan por objeto oro de inversión, deberán conservar las copias de las facturas correspondientes a dichas operaciones, así como los registros de las mismas, durante un período de cinco años.</p>
+          <blockquote>
+            <p class="nota_pie">Se añade por el art. 4.23 de la Ley 53/2002, de 30 de diciembre. <a class="refPost">Ref. BOE-A-2002-25412</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a142" tipo="precepto" titulo="Artículo 142">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 142. Repercusión del impuesto</p>
+          <p class="parrafo">En las operaciones a las que resulte aplicable este régimen en especial los sujetos pasivos no estarán obligados a consignar en factura separadamente la cuota repercutida, debiendo entenderse, en su caso, comprendida en el precio de la operación.</p>
+        </version>
+        <version id_norma="BOE-A-1994-28968" fecha_publicacion="19941231" fecha_vigencia="19950101">
+          <p class="articulo">Artículo 142. Repercusión del impuesto</p>
+          <p class="parrafo">En las operaciones a las que resulte aplicable este régimen especial los sujetos pasivos no estarán obligados a consignar en factura separadamente la cuota repercutida, debiendo entenderse, en su caso, comprendida en el precio de la operación.</p>
+          <p class="parrafo">En las operaciones efectuadas para otros empresarios o profesionales, que comprendan exclusivamente entregas de bienes o prestaciones de servicios realizadas totalmente en el ámbito espacial del Impuesto, se podrá hacer constar en la factura, a solicitud del interesado y bajo la denominación "cuotas de IVA incluidas en el precio", la cantidad resultante de multiplicar el precio total de la operación por 6 y dividir el resultado por 100. Dichas cuotas tendrán la consideración de cuotas soportadas por repercusión directa para el empresario o profesional destinatario de la operación.</p>
+          <blockquote>
+            <p class="nota_pie">Se modifica por el art. 16.2 de la Ley 42/1994, de 30 de diciembre. <a class="refPost">Ref. BOE-A-1994-28968</a>.</p>
+          </blockquote>
+        </version>
+        <version id_norma="BOE-A-2014-12329" fecha_publicacion="20141128" fecha_vigencia="20150101">
+          <p class="articulo">Artículo 142. Repercusión del impuesto</p>
+          <p class="parrafo">En las operaciones a las que resulte aplicable este régimen especial los sujetos pasivos no estarán obligados a consignar en factura separadamente la cuota repercutida, debiendo entenderse, en su caso, comprendida en el precio de la operación.</p>
+          <blockquote>
+            <p class="nota_pie">Se modifica por el art. 1.31 de la Ley 28/2014, de 27 de noviembre. <a class="refPost">Ref. BOE-A-2014-12329</a>.</p>
+            <p class="nota_pie">Se modifica por el art. 16.2 de la Ley 42/1994, de 30 de diciembre. <a class="refPost">Ref. BOE-A-1994-28968</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a143" tipo="precepto" titulo="Artículo 143">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 143. Exenciones.</p>
+          <p class="parrafo">Estarán exentos del impuesto los servicios prestados por los sujetos pasivos sometidos al régimen especial de las agencias de viajes cuando las entregas de bienes o prestaciones de servicios, adquiridos en beneficio del viajero y utilizados para efectuar el viaje, se realicen fuera de la Comunidad.</p>
+          <p class="parrafo">En el caso de que las mencionadas entregas de bienes o prestaciones de servicios se realicen sólo parcialmente en el territorio de la Comunidad, únicamente gozará de exención la parte de la prestación de servicios de la agencia correspondiente a las efectuadas fuera de dicho territorio.</p>
+        </version>
+        <version id_norma="BOE-A-2014-12329" fecha_publicacion="20141128" fecha_vigencia="20150101">
+          <p class="articulo">Artículo 143. Exenciones.</p>
+          <p class="parrafo">Estarán exentos del Impuesto los servicios prestados por los sujetos pasivos sometidos al régimen especial de las agencias de viajes cuando las entregas de bienes o prestaciones de servicios, adquiridos en beneficio del viajero y utilizados para efectuar el viaje, se realicen fuera de la Comunidad.</p>
+          <p class="parrafo">En el caso de que las mencionadas entregas de bienes o prestaciones de servicios se realicen sólo parcialmente en el territorio de la Comunidad, únicamente gozará de exención la parte de la prestación de servicios de la agencia correspondiente a las efectuadas fuera de dicho territorio.</p>
+          <blockquote>
+            <p class="nota_pie">Se modifica por el art. 1.31 de la Ley 28/2014, de 27 de noviembre. <a class="refPost">Ref. BOE-A-2014-12329</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a147" tipo="precepto" titulo="Artículo 147">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 147. Deducciones.</p>
+          <p class="parrafo">Las agencias de viajes a las que se aplique este régimen especial podrán practicar sus deducciones en los términos establecidos en el Título VIII de esta Ley.</p>
+          <p class="parrafo">No obstante, no podrán deducir el impuesto soportado en las adquisiciones de bienes y servicios que, efectuadas para la realización del viaje, redunden directamente en beneficio del viajero.</p>
+        </version>
+        <version id_norma="BOE-A-2014-12329" fecha_publicacion="20141128" fecha_vigencia="20150101">
+          <p class="articulo">Artículo 147. Supuesto de no aplicación del régimen especial.</p>
+          <p class="parrafo">Por excepción a lo previsto en el artículo 141 de esta Ley, y en la forma que se establezca reglamentariamente, los sujetos pasivos podrán no aplicar el régimen especial previsto en este Capítulo y aplicar el régimen general de este Impuesto, operación por operación, respecto de aquellos servicios que realicen y de los que sean destinatarios empresarios o profesionales que tengan derecho a la deducción o a la devolución del Impuesto sobre el Valor Añadido según lo previsto en el Título VIII de esta Ley.</p>
+          <blockquote>
+            <p class="nota_pie">Se modifica por el art. 1.31 de la Ley 28/2014, de 27 de noviembre. <a class="refPost">Ref. BOE-A-2014-12329</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a148" tipo="precepto" titulo="Artículo 148">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 148. Regímenes especiales del comercio minorista.</p>
+          <p class="parrafo">Uno. Los regímenes especiales del comercio minorista serán los siguientes:</p>
+          <p class="parrafo_2">1.º Régimen de determinación proporcional de las bases imponibles.</p>
+          <p class="parrafo">2.º Régimen de recargo de equivalencia.</p>
+          <p class="parrafo_2">Dos. Los regímenes especiales a que se refiere el apartado anterior serán aplicables exclusivamente a los comerciantes minoristas definidos en el artículo 149 de esta Ley.</p>
+          <p class="parrafo">Tres. Reglamentariamente podrán determinarse los artículos o productos cuya comercialización quedará excluida de los regímenes especiales del comercio minorista.</p>
+        </version>
+        <version id_norma="BOE-A-1999-24786" fecha_publicacion="19991230" fecha_vigencia="20000101">
+          <p class="articulo">Artículo 148. Régimen especial del recargo de equivalencia.</p>
+          <p class="parrafo">Uno. El régimen especial del recargo de equivalencia se aplicará a los comerciantes minoristas que sean personas físicas o entidades en régimen de atribución de rentas en el Impuesto sobre la Renta de las Personas Físicas, que desarrollen su actividad en los sectores económicos y cumplan los requisitos que se determinen reglamentariamente.</p>
+          <p class="parrafo">Dos. En el supuesto de que el sujeto pasivo a quien sea de aplicación este régimen especial realizase otras actividades empresariales o profesionales sujetas al Impuesto sobre el Valor Añadido, la de comercio minorista sometida a dicho régimen especial tendrá, en todo caso, la consideración de sector diferenciado de la actividad económica.</p>
+          <p class="parrafo">Tres. Reglamentariamente podrán determinarse los artículos o productos cuya comercialización quedará excluida de este régimen especial.</p>
+          <blockquote>
+            <p class="nota_pie">Se modifica por el art. 6.15.3º de la Ley 55/1999, de 29 de diciembre. <a class="refPost">Ref. BOE-A-1999-24786</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a149" tipo="precepto" titulo="Artículo 149">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 149. Concepto de comerciante minorista.</p>
+          <p class="parrafo">Uno. A los efectos de esta Ley, se considerarán comerciantes minoristas los sujetos pasivos en quienes concurran los siguientes requisitos:</p>
+          <p class="parrafo_2">1.º Realizar con habitualidad entregas de bienes muebles o semovientes sin haberlos sometido a proceso alguno de fabricación, elaboración o manufactura, por sí mismos o por medio de terceros.</p>
+          <p class="parrafo">No se considerarán comerciantes minoristas, en relación con los productos por ellos transformados, quienes hubiesen sometido los productos objeto de su actividad por sí mismos o por medio de terceros, a algunos de los procesos indicados en el párrafo anterior, sin perjuicio de su consideración como tales respecto de otros productos de análoga o distinta naturaleza que comercialicen en el mismo estado en que los adquirieron.</p>
+          <p class="parrafo">2.º Que la suma de las contraprestaciones correspondientes a las entregas de dichos bienes a la Seguridad Social, a sus entidades gestoras o colaboradoras o a quienes no tengan la condición de empresarios o profesionales, efectuadas durante el año precedente, hubiese excedido del 80 por 100 del total de las entregas realizadas de los citados bienes.</p>
+          <p class="parrafo">El requisito establecido en el párrafo anterior no será de aplicación en relación con los sujetos pasivos que tengan la condición de comerciantes minoristas según las normas reguladoras del Impuesto sobre Actividades Económicas, siempre que en ellos concurra alguna de las siguientes circunstancias:</p>
+          <p class="parrafo_2">a) Que no puedan calcular el porcentaje que se indica en dicho párrafo por no haber realizado durante el año precedente actividades comerciales.</p>
+          <p class="parrafo">b) Que les sea de aplicación y no hayan renunciado a la modalidad de signos, índices y módulos del método de estimación objetiva del Impuesto sobre la Renta de las Personas Físicas.</p>
+          <p class="parrafo_2">Dos. Reglamentariamente se determinarán las operaciones o procesos que no tienen la consideración de transformación a los efectos de la pérdida de la condición de comerciante minorista.</p>
+        </version>
+      </bloque>
+<bloque id="a150" tipo="precepto" titulo="Artículo 150">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 150. Régimen especial de determinación proporcional de las bases imponibles.</p>
+          <p class="parrafo">Los comerciantes minoristas que realicen con habitualidad entregas de bienes a los que corresponda aplicar tipos impositivos diferentes podrán optar por el régimen especial de determinación proporcional de las bases imponibles en los plazos y forma que se determinen reglamentariamente.</p>
+        </version>
+        <version id_norma="BOE-A-1999-24786" fecha_publicacion="19991230" fecha_vigencia="20000101">
+          <p class="articulo">Artículo 150. Régimen especial de determinación proporcional de las bases imponibles.</p>
+          <p class="parrafo">
+            <strong>(Derogado)</strong>
+          </p>
+          <blockquote>
+            <p class="nota_pie">Se deroga por el art. 6.16 de la Ley 55/1999, de 29 de diciembre. <a class="refPost">Ref. BOE-A-1999-24786</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a151" tipo="precepto" titulo="Artículo 151">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 151. Exclusiones del régimen especial de determinación proporcional de las bases imponibles.</p>
+          <p class="parrafo">Quedarán excluidos del régimen especial de determinación proporcional de las bases imponibles los comerciantes minoristas sometidos al régimen especial del recargo de equivalencia.</p>
+        </version>
+        <version id_norma="BOE-A-1997-28053" fecha_publicacion="19971231" fecha_vigencia="19980101">
+          <p class="articulo">Artículo 151. Exclusiones del régimen especial de determinación proporcional de las bases imponibles.</p>
+          <p class="parrafo">Quedarán excluidos del régimen especial de determinación proporcional de las bases imponibles los siguientes comerciantes minoristas:</p>
+          <p class="parrafo">1.º Los sometidos al régimen especial del recargo de equivalencia.</p>
+          <p class="parrafo">2.º Los comerciantes minoristas cuyo volumen de operaciones correspondiente a todas sus actividades empresariales o profesionales del año natural precedente haya excedido de 100 millones de pesetas.</p>
+          <blockquote>
+            <p class="nota_pie">Se modifica por el art. 6.24 de la Ley 66/1997, de 30 de diciembre. <a class="refPost">Ref. BOE-A-1997-28053</a></p>
+          </blockquote>
+        </version>
+        <version id_norma="BOE-A-1999-24786" fecha_publicacion="19991230" fecha_vigencia="20000101">
+          <p class="articulo">Artículo 151. Exclusiones del régimen especial de determinación proporcional de las bases imponibles.</p>
+          <p class="parrafo">
+            <strong>(Derogado)</strong>
+          </p>
+          <blockquote>
+            <p class="nota_pie">Se deroga por el art. 6.16 de la Ley 55/1999, de 29 de diciembre. <a class="refPost">Ref. BOE-A-1999-24786</a>.</p>
+            <p class="nota_pie">Se modifica por el art. 6.24 de la Ley 66/1997, de 30 de diciembre. <a class="refPost">Ref. BOE-A-1997-28053</a></p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="s3" tipo="precepto" fecha_caducidad="19991230" titulo="Sección 3">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="seccion">Sección 3.ª Régimen especial del recargo de equivalencias</p>
+        </version>
+      </bloque>
+<bloque id="a153" tipo="precepto" titulo="Artículo 153">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 153. Régimen especial del recargo de equivalencia.</p>
+          <p class="parrafo">Uno. El régimen especial del recargo de equivalencia se aplicará a los comerciantes minoristas que sean personas físicas o entidades en régimen de atribución de rentas en el Impuesto sobre la Renta de las Personas Físicas, que desarrollen su actividad en los sectores económicos y cumplan los requisitos que se determinen reglamentariamente.</p>
+          <p class="parrafo">Dos. En el supuesto de que el sujeto pasivo a quien sea de aplicación este régimen especial realizase otras actividades empresariales o profesionales sujetas al Impuesto sobre el Valor Añadido, la de comercio minorista sometida a dicho régimen especial tendrá, en todo caso, la consideración de sector diferenciado de la actividad económica.</p>
+        </version>
+        <version id_norma="BOE-A-1999-24786" fecha_publicacion="19991230" fecha_vigencia="20000101">
+          <p class="articulo">Artículo 153. Régimen especial del recargo de equivalencia.</p>
+          <p class="parrafo">
+            <strong>(Derogado)</strong>
+          </p>
+          <blockquote>
+            <p class="nota_pie">Se deroga por el art. 6.16 de la Ley 55/1999, de 29 de diciembre. <a class="refPost">Ref. BOE-A-1999-24786</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a155" tipo="precepto" titulo="Artículo 155">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 155. Comienzo o cese de actividades sujetas al régimen especial del recargo de equivalencia.</p>
+          <p class="parrafo">En los supuestos de iniciación o cese en el régimen especial del recargo de equivalencia serán de aplicación las siguientes reglas:</p>
+          <p class="parrafo_2">1.º En los casos de iniciación los sujetos pasivos deberán efectuar la liquidación e ingreso de la cantidad resultante de aplicar al valor de adquisición de las existencias inventariadas, Impuesto sobre el Valor Añadido excluido, los tipos del citado impuesto y del recargo de equivalencia vigentes en la fecha de iniciación.</p>
+          <p class="parrafo">Lo dispuesto en el párrafo anterior no será de aplicación cuando las existencias hubiesen sido adquiridas a un comerciante sometido igualmente a dicho régimen especial en virtud de la transmisión de la totalidad o parte de un patrimonio empresarial no sujeta al Impuesto sobre el Valor Añadido en virtud de lo establecido en el artículo 7, número 1.º de esta Ley.</p>
+          <p class="parrafo">2.º En los casos de cese debido a la falta de concurrencia de los requisitos previstos en el artículo 149 de esta Ley, los sujetos pasivos podrán efectuar la deducción de la cuota resultante de aplicar al valor de adquisición de sus existencias inventariadas en la fecha del cese, Impuesto sobre el Valor Añadido y recargo de equivalencia excluidos, los tipos de dicho impuesto y recargo que estuviesen vigentes en la misma fecha.</p>
+          <p class="parrafo">Si el cese se produjese como consecuencia de la transmisión, total o parcial, del patrimonio empresarial no sujeta al impuesto a comerciantes no sometidos al régimen especial del recargo de equivalencia, los adquirentes podrán deducir la cuota resultante de aplicar los tipos del impuesto que estuviesen vigentes el día de la transmisión al valor del mercado de las existencias en dicha fecha.</p>
+          <p class="parrafo">3.º A los efectos de lo dispuesto en las dos reglas anteriores, los sujetos pasivos deberán confeccionar, en la forma que reglamentariamente se determine, inventarios de sus existencias con referencia a los días de iniciación y cese en la aplicación de este régimen.</p>
+        </version>
+      </bloque>
+<bloque id="a156" tipo="precepto" titulo="Artículo 156">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 156. Recargo de equivalencia.</p>
+          <p class="parrafo">El recargo de equivalencia se exigirá en las siguientes operaciones que estén sujetas y no exentas del Impuesto sobre el Valor Añadido:</p>
+          <p class="parrafo_2">1.º Las entregas de bienes muebles o semovientes que los empresarios efectúen a comerciantes minoristas que no sean sociedades mercantiles.</p>
+          <p class="parrafo">2.º Las adquisiciones intracomunitarias o importaciones de bienes realizadas por los comerciantes a que se refiere el número anterior.</p>
+          <p class="parrafo">3.º Las adquisiciones de bienes realizadas por los citados comerciantes a que se refiere el artículo 84, apartado uno, número 2.º de esta Ley.</p>
+        </version>
+      </bloque>
+<bloque id="a157" tipo="precepto" titulo="Artículo 157">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 157. Supuestos de no aplicación del recargo de equivalencia.</p>
+          <p class="parrafo">Se exceptúan de lo dispuesto en el artículo anterior las siguientes operaciones:</p>
+          <p class="parrafo_2">1.º Las entregas efectuadas a comerciantes que acrediten, en la forma que reglamentariamente se determine, no estar sometidos al régimen especial del recargo de equivalencia.</p>
+          <p class="parrafo">2.º Las entregas efectuadas por los sujetos pasivos acogidos al régimen especial de la agricultura, ganadería y pesca con sujeción a las normas que regulan dicho régimen especial.</p>
+          <p class="parrafo">3.º Las entregas, adquisiciones intracomunitarias e importaciones de bienes de cualquier naturaleza que no sean objeto de comercio por el adquirente.</p>
+          <p class="parrafo">4.º Las operaciones del número anterior relativas a artículos excluidos de la aplicación del régimen especial del recargo de equivalencia.</p>
+        </version>
+      </bloque>
+<bloque id="a158" tipo="precepto" titulo="Artículo 158">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 158. Sujetos pasivos del recargo de equivalencia.</p>
+          <p class="parrafo">Estarán obligados al pago del recargo de equivalencia:</p>
+          <p class="parrafo_2">1.º Los sujetos pasivos del impuesto que efectúen las entregas sometidas al mismo.</p>
+          <p class="parrafo">2.º Los propios comerciantes sometidos a este régimen especial en las adquisiciones intracomunitarias de bienes e importaciones que efectúen, así como en los supuestos contemplados en el artículo 84, apartado uno, número 2.º de esta Ley.</p>
+        </version>
+      </bloque>
+<bloque id="a159" tipo="precepto" titulo="Artículo 159">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 159. Repercusión del recargo de equivalencia.</p>
+          <p class="parrafo">Los sujetos pasivos indicados en el número 1.º del artículo anterior están obligados a efectuar la repercusión del recargo de equivalencia sobre los respectivos adquirentes en la forma establecida en el artículo 88 de esta Ley.</p>
+        </version>
+      </bloque>
+<bloque id="a160" tipo="precepto" titulo="Artículo 160">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 160. Base imponible.</p>
+          <p class="parrafo">La base imponible del recargo de equivalencia será la misma que resulte para el Impuesto sobre el Valor Añadido.</p>
+        </version>
+      </bloque>
+<bloque id="a162" tipo="precepto" titulo="Artículo 162">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 162. Liquidación e ingreso.</p>
+          <p class="parrafo">La liquidación y el ingreso del recargo de equivalencia se efectuarán conjuntamente con el Impuesto sobre el Valor Añadido y ajustándose a la mismas normas establecidas para la exacción de dicho impuesto.</p>
+        </version>
+      </bloque>
+<bloque id="a163" tipo="precepto" titulo="Artículo 163">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 163. Obligación de acreditar la sujeción al régimen especial del recargo de equivalencia.</p>
+          <p class="parrafo">Las personas o entidades que no sean sociedades mercantiles y realicen habitualmente operaciones de ventas al por menor estarán obligadas a acreditar ante sus proveedores o, en su caso, ante la Aduana, el hecho de estar sometidos o no al régimen especial del recargo de equivalencia en relación con las adquisiciones o importaciones de bienes que realicen.</p>
+        </version>
+      </bloque>
+<bloque id="a163septies" tipo="precepto" titulo="Artículo 163 septies">
+        <version id_norma="BOE-A-2006-20843" fecha_publicacion="20061130" fecha_vigencia="20061201">
+          <p class="articulo">Artículo 163 septies. Causas determinantes de la pérdida del derecho al régimen especial del grupo de entidades.</p>
+          <p class="parrafo">Uno. El régimen especial regulado en este Capítulo se dejará de aplicar por las siguientes causas:</p>
+          <p class="parrafo_2">1.ª La concurrencia de cualquiera de las circunstancias que, de acuerdo con lo establecido en el artículo 53 de la Ley 58/2003, de 17 de diciembre, General Tributaria, determinan la aplicación del método de estimación indirecta.</p>
+          <p class="parrafo">2.ª El incumplimiento de la obligación de confección y conservación del sistema de información a que se refiere el artículo 163 nonies.cuatro.3.ª de esta Ley.</p>
+          <p class="parrafo_2">La no aplicación del régimen especial regulado en este capítulo por las causas anteriormente enunciadas no impedirá la imposición, en su caso, de las sanciones previstas en el artículo 163 nonies.siete de esta Ley.</p>
+          <p class="parrafo">Dos. El cese en la aplicación del régimen especial del grupo de entidades que se establece en el apartado anterior producirá efecto en el período de liquidación en que concurra alguna de estas circunstancias y siguientes, debiendo el total de las entidades integrantes del grupo cumplir el conjunto de las obligaciones establecidas en esta Ley a partir de dicho período.</p>
+          <p class="parrafo">Tres. En el supuesto de que una entidad perteneciente al grupo se encontrase al término de cualquier período de liquidación en situación de concurso o en proceso de liquidación, quedará excluida del régimen especial del grupo desde dicho período.</p>
+          <p class="parrafo">Lo anterior se entenderá sin perjuicio de que se continúe aplicando el régimen especial al resto de entidades que cumpla los requisitos establecidos al efecto.</p>
+          <blockquote>
+            <p class="nota_pie">Se añade por el art. 3.5 de la Ley 36/2006, de 29 de noviembre. <a class="refPost">Ref. BOE-A-2006-20843</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a163decies" tipo="precepto" titulo="Artículo 163 decies">
+        <version id_norma="BOE-A-2013-10074" fecha_publicacion="20130928" fecha_vigencia="20140101">
+          <p class="articulo">Artículo 163 decies. Requisitos subjetivos de aplicación.</p>
+          <p class="parrafo">Uno. Podrán aplicar el régimen especial del criterio de caja los sujetos pasivos del Impuesto cuyo volumen de operaciones durante el año natural anterior no haya superado los 2.000.000 de euros.</p>
+          <p class="parrafo">Dos. Cuando el sujeto pasivo hubiera iniciado la realización de actividades empresariales o profesionales en el año natural anterior, el importe del volumen de operaciones deberá elevarse al año.</p>
+          <p class="parrafo">Tres. Cuando el sujeto pasivo no hubiera iniciado la realización de actividades empresariales o profesionales en el año natural anterior, podrá aplicar este régimen especial en el año natural en curso.</p>
+          <p class="parrafo">Cuatro. A efectos de determinar el volumen de operaciones efectuadas por el sujeto pasivo referido en los apartados anteriores, las mismas se entenderán realizadas cuando se produzca o, en su caso, se hubiera producido el devengo del Impuesto sobre el Valor Añadido, si a las operaciones no les hubiera sido de aplicación el régimen especial del criterio de caja.</p>
+          <p class="parrafo">Cinco. Quedarán excluidos del régimen de caja los sujetos pasivos cuyos cobros en efectivo respecto de un mismo destinatario durante el año natural superen la cuantía que se determine reglamentariamente.</p>
+          <blockquote>
+            <p class="nota_pie">Se añade por el art. 23.2 de la Ley 14/2013, de 27 de septiembre. <a class="refPost">Ref. BOE-A-2013-10074</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a163duodecies" tipo="precepto" titulo="Artículo 163 duodecies">
+        <version id_norma="BOE-A-2013-10074" fecha_publicacion="20130928" fecha_vigencia="20140101">
+          <p class="articulo">Artículo 163 duodecies. Requisitos objetivos de aplicación.</p>
+          <p class="parrafo">Uno. El régimen especial del criterio de caja podrá aplicarse por los sujetos pasivos a que se refiere el artículo 163 decies a las operaciones que se entiendan realizadas en el territorio de aplicación del Impuesto.</p>
+          <p class="parrafo">El régimen especial del criterio de caja se referirá a todas las operaciones realizadas por el sujeto pasivo sin perjuicio de lo establecido en el apartado siguiente de este artículo.</p>
+          <p class="parrafo">Dos. Quedan excluidas del régimen especial del criterio de caja las siguientes operaciones:</p>
+          <p class="parrafo_2">a) Las acogidas a los regímenes especiales simplificado, de la agricultura, ganadería y pesca, del recargo de equivalencia, del oro de inversión, aplicable a los servicios prestados por vía electrónica y del grupo de entidades.</p>
+          <p class="parrafo">b) Las entregas de bienes exentas a las que se refieren los artículos 21, 22, 23, 24 y 25 de esta Ley.</p>
+          <p class="parrafo">c) Las adquisiciones intracomunitarias de bienes.</p>
+          <p class="parrafo">d) Aquellas en las que el sujeto pasivo del Impuesto sea el empresario o profesional para quien se realiza la operación de conformidad con los números 2.º, 3.º y 4.º del apartado uno del artículo 84 de esta Ley.</p>
+          <p class="parrafo">e) Las importaciones y las operaciones asimiladas a las importaciones.</p>
+          <p class="parrafo">f) Aquellas a las que se refieren los artículos 9.1.º y 12 de esta Ley.</p>
+          <blockquote>
+            <p class="nota_pie">Se añade por el art. 23.2 de la Ley 14/2013, de 27 de septiembre. <a class="refPost">Ref. BOE-A-2013-10074</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a163quinquiesdecies" tipo="precepto" titulo="Artículo 163 quinquiesdecies">
+        <version id_norma="BOE-A-2013-10074" fecha_publicacion="20130928" fecha_vigencia="20140101">
+          <p class="articulo">Artículo 163 quinquiesdecies. Operaciones afectadas por el régimen especial del criterio de caja.</p>
+          <p class="parrafo">Uno. El nacimiento del derecho a la deducción de los sujetos pasivos no acogidos al régimen especial del criterio de caja, pero que sean destinatarios de las operaciones incluidas en el mismo, en relación con las cuotas soportadas por esas operaciones, se producirá en el momento del pago total o parcial del precio de las mismas, por los importes efectivamente satisfechos, o, si este no se ha producido, el 31 de diciembre del año inmediato posterior a aquel en que se haya realizado la operación.</p>
+          <p class="parrafo">Lo anterior será de aplicación con independencia del momento en que se entienda realizado el hecho imponible.</p>
+          <p class="parrafo">A estos efectos, deberá acreditarse el momento del pago, total o parcial, del precio de la operación.</p>
+          <p class="parrafo">Reglamentariamente se determinarán las obligaciones formales que deban cumplir los sujetos pasivos que sean destinatarios de las operaciones afectadas por el régimen especial del criterio de caja.</p>
+          <p class="parrafo">Dos. La modificación de la base imponible a que se refiere el apartado cuatro del artículo 80 de esta Ley, efectuada por sujetos pasivos que no se encuentren acogidos al régimen especial del criterio de caja, determinará el nacimiento del derecho a la deducción de las cuotas soportadas por el sujeto pasivo deudor, acogido a dicho régimen especial correspondientes a las operaciones modificadas y que estuvieran aún pendientes de deducción en la fecha en que se realice la referida modificación de la base imponible.</p>
+          <blockquote>
+            <p class="nota_pie">Se añade por el art. 23.2 de la Ley 14/2013, de 27 de septiembre. <a class="refPost">Ref. BOE-A-2013-10074</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a163sexiesdecies" tipo="precepto" titulo="Artículo 163 sexiesdecies">
+        <version id_norma="BOE-A-2013-10074" fecha_publicacion="20130928" fecha_vigencia="20140101">
+          <p class="articulo">Artículo 163 sexiesdecies. Efectos del auto de declaración del concurso.</p>
+          <p class="parrafo">La declaración de concurso del sujeto pasivo acogido al régimen especial de criterio de caja o del sujeto pasivo destinatario de sus operaciones determinará, en la fecha del auto de declaración de concurso:</p>
+          <p class="parrafo_2">a) el devengo de las cuotas repercutidas por el sujeto pasivo acogido al régimen especial del criterio de caja que estuvieran aún pendientes de devengo en dicha fecha;</p>
+          <p class="parrafo">b) el nacimiento del derecho a la deducción de las cuotas soportadas por el sujeto pasivo respecto de las operaciones que haya sido destinatario y a las que haya sido de aplicación el régimen especial del criterio de caja que estuvieran pendientes de pago y en las que no haya transcurrido el plazo previsto en el artículo 163.terdecies.Tres, letra a), en dicha fecha;</p>
+          <p class="parrafo">c) el nacimiento del derecho a la deducción de las cuotas soportadas por el sujeto pasivo concursado acogido al régimen especial del criterio de caja, respecto de las operaciones que haya sido destinatario no acogidas a dicho régimen especial que estuvieran aún pendientes de pago y en las que no haya transcurrido el plazo previsto en el artículo 163.terdecies.Tres, letra a), en dicha fecha.</p>
+          <p class="parrafo_2">El sujeto pasivo en concurso deberá declarar las cuotas devengadas y ejercitar la deducción de las cuotas soportadas referidas en los párrafos anteriores en la declaración-liquidación prevista reglamentariamente, correspondiente a los hechos imponibles anteriores a la declaración de concurso. Asimismo, el sujeto pasivo deberá declarar en dicha declaración-liquidación, las demás cuotas soportadas que estuvieran pendientes de deducción a dicha fecha.</p>
+          <blockquote>
+            <p class="nota_pie">Se añade por el art. 23.2 de la Ley 14/2013, de 27 de septiembre. <a class="refPost">Ref. BOE-A-2013-10074</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a1-3" tipo="precepto" titulo="Artículo 163 sexvivies">
+        <version id_norma="BOE-A-2021-6872" fecha_publicacion="20210428" fecha_vigencia="20210701">
+          <p class="articulo">Artículo 163 sexvicies. Devengo.</p>
+          <p class="parrafo">En las entregas de bienes acogidas a este régimen especial el devengo del impuesto se producirá en el momento de la entrega, que se entenderá producida con la aceptación del pago del cliente.</p>
+          <blockquote caduca="20210701" class="soloTexto">
+            <p class="parrafo">Téngase en cuenta que este art. 163 sexvicies, añadido por el art. 10.22 del Real Decreto-ley 7/2021, de 27 de abril. <a class="refPost">Ref. BOE-A-2021-6872#ad</a>, entra en vigor el 1 de julio de 2021, según determina su disposición final octava.</p>
+          </blockquote>
+          <blockquote>
+            <p class="nota_pie">Se añade, con efectos de 1 de julio de 2021, por el art. 10.22 del Real Decreto-ley 7/2021, de 27 de abril. <a class="refPost">Ref. BOE-A-2021-6872#ad</a></p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a168" tipo="precepto" titulo="Artículo 168">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 168. Liquidación provisional de oficio.</p>
+          <p class="parrafo">Uno. Transcurridos treinta días desde la notificación al sujeto pasivo del requerimiento de la Administración tributaria para que efectúe la declaración-liquidación que no realizó en el plazo reglamentario, se podrá iniciar por aquélla el procedimiento para la práctica de la liquidación provisional del Impuesto sobre el Valor Añadido correspondiente, salvo que en el indicado plazo se subsane el incumplimiento o se justifique debidamente la inexistencia de la obligación.</p>
+          <p class="parrafo">Dos. La liquidación provisional de oficio se realizará en base a los datos, antecedentes, signos, índices, módulos o demás elementos de que disponga la Administración tributaria y que sean relevantes al efecto, ajustándose al procedimiento que se determine reglamentariamente.</p>
+          <p class="parrafo">Tres. Las liquidaciones provisionales reguladas en este artículo, una vez notificadas, serán inmediatamente ejecutivas, sin perjuicio de las reclamaciones que legalmente puedan interponerse contra ellas.</p>
+          <p class="parrafo">Cuatro. Sin perjuicio de lo establecido en los apartados anteriores de este artículo, la Administración podrá efectuar ulteriormente la comprobación de la situación tributaria de los sujetos pasivos, practicando las liquidaciones que procedan con arreglo a lo dispuesto en la Ley General Tributaria.</p>
+        </version>
+      </bloque>
+<bloque id="a169" tipo="precepto" titulo="Artículo 169">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Artículo 169. Suspensión del ingreso.</p>
+          <p class="parrafo">Uno. El Gobierno, a propuesta del Ministro de Economía y Hacienda, podrá autorizar la suspensión de la exacción del impuesto en los supuestos de adquisición de bienes o servicios relacionados directamente con las entregas de bienes, destinados a otro Estado miembro o a la exportación, en los sectores o actividades y con los requisitos que se establezcan reglamentariamente.</p>
+          <p class="parrafo">Dos. Los adquirentes de bienes o servicios acogidos al régimen de suspensión del ingreso estarán obligados a efectuar el pago de las cuotas no ingresadas por sus proveedores cuando no acreditasen, en la forma y plazos que se determinen reglamentariamente, la realización de las operaciones que justifiquen dicha suspensión. En ningún caso serán deducibles las cuotas ingresadas en virtud de lo dispuesto en este apartado.</p>
+          <p class="parrafo">Tres. El Gobierno podrá establecer límites cuantitativos para la aplicación de lo dispuesto en este artículo.</p>
+        </version>
+      </bloque>
+<bloque id="dasegunda" tipo="precepto" titulo="Disposición adicional segunda">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Disposición adicional segunda. Proyecto de Ley del Impuesto sobre Sociedades.</p>
+          <p class="parrafo">Se prorroga, hasta el 31 de diciembre de 1993, el plazo establecido en la disposición adicional vigésima de la Ley 18/1991, de 6 de junio, del Impuesto sobre la Renta de las Personas Físicas, para que en la elaboración del proyecto de Ley del Impuesto sobre Sociedades puedan tenerse en cuenta las proposiciones comunitarias respecto de la armonización en materia de tributación sobre el beneficio empresarial.</p>
+        </version>
+      </bloque>
+<bloque id="dtsegunda" tipo="precepto" titulo="Disposición transitoria segunda">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Disposición transitoria segunda. Exenciones relativas a buques a la navegación marítima internacional.</p>
+          <p class="parrafo">A efectos de la aplicación de estas exenciones, los buques que, el día 31 de diciembre de 1992, hubiesen efectuado durante los períodos establecidos en los artículos 22, apartado uno, párrafo tercero, segundo y 27, número 2.º de esta Ley, los recorridos igualmente establecidos en dichos preceptos, se considerarán afectos a navegación marítima internacional.</p>
+          <p class="parrafo">Los buques que, en la citada fecha no hubiesen efectuado aún en los períodos indicados los recorridos también indicados, se considerarán afectos a la navegación marítima internacional en el momento en que los realicen conforme a las disposiciones de esta Ley.</p>
+        </version>
+      </bloque>
+<bloque id="dttercera" tipo="precepto" titulo="Disposición transitoria tercera">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Disposición transitoria tercera. Exenciones relativas a aeronaves dedicadas esencialmente a la navegación aérea internacional.</p>
+          <p class="parrafo">A efectos de la aplicación de estas exenciones, las compañías de navegación aérea, cuyas aeronaves, el día 31 de diciembre de 1992, hubiesen efectuado durante los períodos establecidos en los artículos 22, apartado cuatro, párrafo tercero, segundo y 27, número 3.º de esta Ley, los recorridos igualmente establecidos en dichos preceptos, se considerarán dedicadas esencialmente a la navegación aérea internacional.</p>
+          <p class="parrafo">Las compañías cuyas aeronaves, en la citada fecha no hubiesen efectuado aún en los períodos indicados los recorridos también indicados, se considerarán dedicadas esencialmente a la navegación aérea internacional en el momento en que los realicen conforme a las disposiciones de esta Ley.</p>
+        </version>
+      </bloque>
+<bloque id="dtcuarta" tipo="precepto" titulo="Disposición transitoria cuarta">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Disposición transitoria cuarta. Rectificación de cuotas impositivas repercutidas y deducciones.</p>
+          <p class="parrafo">Las condiciones que establece la presente Ley para la rectificación de las cuotas impositivas repercutidas y de las deducciones efectuadas serán de aplicación respecto de las operaciones cuyo impuesto se haya devengado con anterioridad a su entrada en vigor sin que haya transcurrido el período de prescripción.</p>
+        </version>
+      </bloque>
+<bloque id="dtquinta" tipo="precepto" titulo="Disposición transitoria quinta">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Disposición transitoria quinta. Deducción en las adquisiciones utilizadas en autoconsumos.</p>
+          <p class="parrafo">Las cuotas soportadas por la adquisición de bienes o servicios que se destinen a la realización de los autoconsumos a que se refiere el artículo 102, apartado dos de esta Ley, sólo podrán deducirse en su totalidad cuando el devengo de los mencionados autoconsumos se produzca después del día 31 de diciembre de 1992.</p>
+        </version>
+      </bloque>
+<bloque id="dtsexta" tipo="precepto" titulo="Disposición transitoria sexta">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Disposición transitoria sexta. Deducciones anteriores al inicio de la actividad.</p>
+          <p class="parrafo">El procedimiento de deducción de las cuotas soportadas con anterioridad al comienzo de las actividades empresariales, que se hubiese iniciado antes de la entrada en vigor de la presente Ley, se adecuará a lo establecido en la misma.</p>
+          <p class="parrafo">Cuando haya transcurrido el plazo establecido en el artículo 111, apartado uno, párrafo primero, los sujetos pasivos deberán solicitar la prórroga a que se refiere el párrafo segundo del mismo apartado, antes del 31 de marzo de 1993.</p>
+          <blockquote>
+            <p class="nota_pie">Redactada conforme a la correción de errores publicada en BOE núm. 33, de 8 de febrero de 1993. <a class="refPost">Ref. BOE-A-1993-3297</a></p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="dtseptima" tipo="precepto" titulo="Disposición transitoria séptima">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Disposición transitoria séptima. Regularización de las deducciones efectuadas con anterioridad al inicio de la actividad.</p>
+          <p class="parrafo">La regularización en curso a la entrada en vigor de la presente Ley de las deducciones por cuotas soportadas con anterioridad al comienzo de las actividades empresariales o profesionales o, en su caso, de un sector diferenciado de la actividad, se finalizará de acuerdo con la normativa vigente a 31 de diciembre de 1992.</p>
+          <p class="parrafo">Cuando el inicio de la actividad empresarial o profesional o, en su caso, de un sector de la actividad, se produzca después de la entrada en vigor de la presente Ley, la regularización de las deducciones efectuadas con anterioridad se realizará de acuerdo con las normas contenidas en los artículos 112 y 113 de la misma.</p>
+        </version>
+      </bloque>
+<bloque id="dtduodecima" tipo="precepto" titulo="Disposición transitoria duodécima">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Disposición transitoria duodécima. Devengo en las entregas de determinados medios de transporte.</p>
+          <p class="parrafo">El devengo del Impuesto sobre el Valor Añadido en las entregas de medios de transporte, cuya primera matriculación se hubiese efectuado antes del 1 de enero de 1993 y hubiese estado sujeta al Impuesto Especial sobre determinados medios de transporte a partir de dicha fecha, se producirá el día 31 de diciembre de 1992 cuando la puesta a disposición correspondiente a dichas entregas tuviese lugar a partir del 1 de enero de 1993.</p>
+        </version>
+      </bloque>
+<bloque id="dfprimera" tipo="precepto" titulo="Disposición final primera">
+        <version id_norma="BOE-A-1992-28740" fecha_publicacion="19921229" fecha_vigencia="19930101">
+          <p class="articulo">Disposición final primera. Modificaciones por Ley de Presupuestos.</p>
+          <p class="parrafo">Mediante Ley de Presupuestos podrán efectuarse las siguientes modificaciones de las normas reguladoras del Impuesto sobre el Valor Añadido:</p>
+          <p class="parrafo_2">1.º Determinación de los tipos del impuesto y del recargo de equivalencia.</p>
+          <p class="parrafo">2.º Los límites cuantitativos y porcentajes fijos establecidos en la Ley.</p>
+          <p class="parrafo">3.º Las exenciones del impuesto.</p>
+          <p class="parrafo">4.º Los aspectos procedimentales y de gestión del Impuesto regulados en esta Ley.</p>
+          <p class="parrafo">5.º Las demás adaptaciones que vengan exigidas por las normas de armonización fiscal aprobadas en la Comunidad Económica Europea.</p>
+        </version>
+      </bloque>
+  </texto>
+</documento>
