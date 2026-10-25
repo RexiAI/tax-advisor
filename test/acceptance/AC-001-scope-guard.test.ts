@@ -39,40 +39,46 @@ describe('AC-001-55 a VAT question is answered with the IVA guide', () => {
   });
 });
 
-describe('AC-001-56 regional taxes are routed to the comunidad autónoma', () => {
-  it('AC-001-56: ITP, ISD and IBI name the regional authority, not the AEAT', async () => {
-    const messages = [
-      '¿Cuánto tengo que pagar de ITP por la compra de mi casa?',
-      '¿Cuánto se paga de ISD por una herencia?',
-      '¿Cuánto es el IBI de mi vivienda?',
-    ];
+describe('AC-001-56 regional taxes get guides or regional routing', () => {
+  it('AC-001-56: ITP and ISD return guides; IBI still names the regional authority', async () => {
+    const itp = await ask('¿Cuánto tengo que pagar de ITP por la compra de mi casa?');
+    expect(itp.response.kind).toBe('guide');
+    if (itp.response.kind === 'guide') expect(itp.response.title).toContain('ITP');
+    expect(itp.adapter.callCount).toBe(0);
 
-    for (const message of messages) {
-      const { response, adapter } = await ask(message);
-      expect(response.kind).toBe('out_of_scope');
-      if (response.kind !== 'out_of_scope') return;
-      expect(response.officialBody).toContain('comunidad autónoma');
-      expect(response.officialBody).not.toBe('Agencia Tributaria');
-      expect(adapter.callCount).toBe(0);
-    }
+    const isd = await ask('¿Cuánto se paga de ISD por una herencia?');
+    expect(isd.response.kind).toBe('guide');
+    if (isd.response.kind === 'guide') expect(isd.response.title).toContain('Sucesiones');
+    expect(isd.adapter.callCount).toBe(0);
+
+    const ibi = await ask('¿Cuánto es el IBI de mi vivienda?');
+    expect(ibi.response.kind).toBe('out_of_scope');
+    if (ibi.response.kind !== 'out_of_scope') return;
+    expect(ibi.response.officialBody).toContain('comunidad autónoma');
+    expect(ibi.adapter.callCount).toBe(0);
   });
 });
 
-describe('AC-001-57 Social Security, non-residents and company tax are routed, not answered', () => {
-  it('AC-001-57: each names its body, stays out of scope and carries no citations', async () => {
-    const cases: [string, string][] = [
-      ['¿Cuánto pago a la Seguridad Social como autónomo?', 'Tesorería General de la Seguridad Social'],
-      ['Soy no residente y tengo una casa en España, ¿qué impuesto pago?', 'Agencia Tributaria'],
-      ['¿Cómo tributa el Impuesto sobre Sociedades?', 'Agencia Tributaria'],
-    ];
+describe('AC-001-57 Social Security is routed; non-residents and company tax get guides', () => {
+  it('AC-001-57: the remaining out-of-scope case names its body', async () => {
+    const { response } = await ask('¿Cuánto pago a la Seguridad Social como autónomo?');
+    expect(response.kind).toBe('out_of_scope');
+    if (response.kind !== 'out_of_scope') return;
+    expect(response.officialBody).toBe('Tesorería General de la Seguridad Social');
+    expect('citations' in response).toBe(false);
+  });
 
-    for (const [message, body] of cases) {
-      const { response } = await ask(message);
-      expect(response.kind).toBe('out_of_scope');
-      if (response.kind !== 'out_of_scope') return;
-      expect(response.officialBody).toBe(body);
-      expect('errorCode' in response).toBe(false);
-      expect('citations' in response).toBe(false);
+  it('AC-001-57: non-residents and company tax return guides', async () => {
+    const nonResident = await ask('Soy no residente y tengo una casa en España, ¿qué impuesto pago?');
+    expect(nonResident.response.kind).toBe('guide');
+    if (nonResident.response.kind === 'guide') {
+      expect(nonResident.response.title).toContain('No residentes');
+    }
+
+    const company = await ask('¿Cómo tributa el Impuesto sobre Sociedades?');
+    expect(company.response.kind).toBe('guide');
+    if (company.response.kind === 'guide') {
+      expect(company.response.title).toContain('Sociedades');
     }
   });
 });

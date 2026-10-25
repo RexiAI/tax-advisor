@@ -48,6 +48,22 @@ describe('gestorGuide', () => {
     expect(gestorGuide('¿Puedo deducirme el alquiler de mi vivienda habitual?')).toBeNull();
   });
 
+  it('covers the former gestor limits with a guide', () => {
+    const cases: [string, string][] = [
+      ['¿Cómo hago una nómina?', 'Nóminas'],
+      ['¿Tengo que depositar las cuentas anuales?', 'Contabilidad'],
+      ['¿Cómo tributa una sociedad limitada?', 'Sociedades'],
+      ['Soy de Bizkaia, ¿dónde presento el IRPF?', 'forales'],
+      ['Soy no residente y tengo una casa en España', 'No residentes'],
+      ['¿Cómo se calcula el impuesto de sucesiones?', 'Sucesiones'],
+      ['¿Cuánto ITP pago por una vivienda?', 'ITP'],
+      ['¿Cómo presento con certificado digital?', 'Presentación'],
+    ];
+    for (const [message, expected] of cases) {
+      expect(gestorGuide(message)?.title).toContain(expected);
+    }
+  });
+
   it('leaves a first-person filing request to the filing guard', () => {
     expect(gestorGuide('Hazme el modelo 303')).toBeNull();
   });
