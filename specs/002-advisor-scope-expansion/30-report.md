@@ -533,3 +533,67 @@ append the `PR:` line to this file after the PR opens.
 Nothing was committed or pushed by stage 5a. No production code and no test was modified. The
 measurement worktree used for the baseline numbers was removed (`git worktree list` shows only
 the spec branch checkout).
+
+---
+
+## PR — appended by stage 5b (PR Opener)
+
+PR: https://github.com/RexiAI/tax-advisor/pull/13
+commit-count: 13
+at: 2026-10-25T17:58:44Z
+
+Draft PR, base `main`, head `spec/002-advisor-scope-expansion`. One conventional commit per task
+in `10-tasks.md` (11), plus `docs(spec-002)` for the artifacts and this amendment. Files that
+span tasks were grouped in the task that owns them (`allowed-norms.ts` → Task 1,
+`responses.ts`/`answer-question.ts`/`types.ts`/`use-chat-turn.ts` → Task 4, `strings.ts` →
+Task 7) and the grouping is stated in each commit body; no file was split across commits.
+
+Archive state, recorded so the next stage does not misread the red gate: this PR deliberately
+carries `specs/002-advisor-scope-expansion/` and no `docs/changes/` one-pager.
+`check-specs-archived.sh` therefore exits 1 at this head — stage 5d (the Archiver) resolves it as
+the pipeline's final act, after stage 5c writes `40-deploy.md` into this folder
+(`docs/SPEC_PIPELINE.md` §Archive in the PR). Archiving at 5b would delete the folder stage 5c
+needs. This repo's CI (`.github/workflows/ci.yml`) does not wire that gate, so CI is unaffected;
+the PR is simply not mergeable until 5d runs.
+
+### Evidence: draft PR opened
+
+command: gh pr create --draft --base main --head spec/002-advisor-scope-expansion --title "feat: expand the advisor from IRPF explainer to autónomo fiscal cycle" --body-file /tmp/opencode/pr-body-002.md
+exit: 0
+at: 2026-10-25T17:58:44Z
+
+```
+https://github.com/RexiAI/tax-advisor/pull/13
+```
+
+### Evidence: PR is a draft against main
+
+command: gh pr view 13 --json number,url,isDraft,baseRefName,headRefName,state
+exit: 0
+at: 2026-10-25T17:58:44Z
+
+```
+{"baseRefName":"main","headRefName":"spec/002-advisor-scope-expansion","isDraft":true,"number":13,"state":"OPEN","url":"https://github.com/RexiAI/tax-advisor/pull/13"}
+```
+
+### Evidence: audit-trail gate, re-run at the committed tree
+
+command: .standards/scripts/check-audit-trail.sh 002-advisor-scope-expansion
+exit: 0
+at: 2026-10-25T17:57:20Z
+
+```
+✔ Audit-trail check: specs/002-advisor-scope-expansion complete, verifier evidence recorded.
+```
+
+### Evidence: archive gate at this head (expected red until stage 5d)
+
+command: .standards/scripts/check-specs-archived.sh
+exit: 1
+at: 2026-10-25T17:57:20Z
+
+```
+  [FAIL] 002-advisor-scope-expansion is finished (has 30-report.md) but not archived — missing docs/changes/002-advisor-scope-expansion.md
+         Run: scripts/archive-spec.sh 002-advisor-scope-expansion (stage 5d does this automatically)
+1 finished spec(s) not archived!
+```
