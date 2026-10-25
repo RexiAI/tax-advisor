@@ -18,6 +18,10 @@ const PHRASE_SYNONYMS: readonly (readonly [RegExp, readonly string[]])[] = [
   [/\bdeclaracion de la renta\b/, ['autoliquidacion', 'declaracion']],
   [/\bborrador\b/, ['autoliquidacion']],
   [/\bcuota de autonomos\b/, ['cotizacion', 'seguridad social']],
+  [
+    /\b(gastos? deducibles?|deducir.*gastos?|gastos?.*deducir|que gastos?)\b/,
+    ['gasto', 'deducible', 'estimacion', 'directa', 'rendimiento', 'neto'],
+  ],
 ];
 
 const TERM_SYNONYMS: Readonly<Record<string, readonly string[]>> = {
@@ -35,6 +39,10 @@ const TERM_SYNONYMS: Readonly<Record<string, readonly string[]>> = {
   acciones: ['participaciones', 'transmision'],
   vivienda: ['inmueble'],
   nomina: ['rendimientos del trabajo'],
+  gasto: ['gastos', 'deducible'],
+  gastos: ['gasto', 'deducible'],
+  deducir: ['deducible', 'deduccion'],
+  deducirme: ['deducible', 'deduccion'],
 };
 
 export function expandTerms(query: string): string[] {

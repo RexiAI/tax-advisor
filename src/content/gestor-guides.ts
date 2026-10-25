@@ -175,6 +175,28 @@ export const FACTURA_GUIDE: GuideContent = {
   ],
 };
 
+export const GASTOS_GUIDE: GuideContent = {
+  title: 'Gastos deducibles de autónomos · Criterios generales',
+  summary:
+    'No todo gasto es deducible: debe estar vinculado a la actividad, justificado con factura y registrado. La deducción depende del régimen de IRPF y de si el gasto es exclusivo o de uso mixto.',
+  steps: [
+    'Identifica si el gasto está vinculado a la actividad y en qué proporción.',
+    'Exige factura completa a nombre del titular y anótalo en tus registros.',
+    'Categorías habituales: suministros, móvil/internet, alquiler del local, personal, seguros, formación, servicios profesionales y amortización de bienes afectos.',
+    'En dietas y manutención solo se deduce la parte con límites y requisitos reglamentarios; no es un importe libre.',
+    'No deduzcas gastos personales, sanciones, inversiones no afectas ni el IVA no deducible como gasto de IRPF.',
+    'En estimación directa, el rendimiento neto es ingresos menos gastos deducibles; en estimación objetiva se aplican módulos.',
+  ],
+  links: [
+    {
+      href: 'https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764#a30',
+      label: 'BOE · Ley 35/2006, artículo 30',
+    },
+    { href: 'https://sede.agenciatributaria.gob.es/Sede/procedimientoini/G601.shtml', label: 'AEAT · Modelo 130' },
+    AEAT_MODELOS,
+  ],
+};
+
 export const RETA_GUIDE: GuideContent = {
   title: 'Cuota de autónomos · Base de cotización y tarifa plana',
   summary:
@@ -246,19 +268,32 @@ function quotaGuide(text: string): GuideContent | null {
   return quota || base ? RETA_GUIDE : null;
 }
 
+function gastosGuide(text: string): GuideContent | null {
+  const aboutExpenses = /\bgastos?\b/.test(text);
+  const aboutDeduction = /\bdeduc/.test(text);
+  return aboutExpenses && aboutDeduction ? GASTOS_GUIDE : null;
+}
+
 /**
  * Guided answers for the gestor workflows the IRPF corpus cannot ground:
  * models, IVA and invoicing. Returns null for IRPF questions so the normal
  * retrieval path still owns them.
  */
+const GUIDE_MATCHERS: readonly ((text: string) => GuideContent | null)[] = [
+  modelGuide,
+  facturaGuide,
+  ivaGuide,
+  quotaGuide,
+  gastosGuide,
+  modelsOverview,
+];
+
 export function gestorGuide(message: string): GuideContent | null {
   const text = normalizeText(message);
   if (isFilingRequest(text)) return null;
-  return (
-    modelGuide(text) ??
-    facturaGuide(text) ??
-    ivaGuide(text) ??
-    quotaGuide(text) ??
-    modelsOverview(text)
-  );
+  for (const matcher of GUIDE_MATCHERS) {
+    const guide = matcher(text);
+    if (guide !== null) return guide;
+  }
+  return null;
 }

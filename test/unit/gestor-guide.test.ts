@@ -38,8 +38,14 @@ describe('gestorGuide', () => {
     expect(guide?.steps.join(' ')).toContain('303');
   });
 
-  it('leaves IRPF deduction questions to the corpus', () => {
-    expect(gestorGuide('¿Qué gastos puedo deducirme como autónomo?')).toBeNull();
+  it('returns deduction guidance for a general expenses question', () => {
+    const guide = gestorGuide('¿Qué gastos puedo deducirme como autónomo?');
+    expect(guide?.title).toContain('Gastos deducibles');
+    expect(guide?.links.some((link) => link.href.includes('BOE-A-2006-20764'))).toBe(true);
+  });
+
+  it('leaves a specific IRPF deduction question without a general expenses guide', () => {
+    expect(gestorGuide('¿Puedo deducirme el alquiler de mi vivienda habitual?')).toBeNull();
   });
 
   it('leaves a first-person filing request to the filing guard', () => {

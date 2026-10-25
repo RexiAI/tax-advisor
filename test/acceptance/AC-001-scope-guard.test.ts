@@ -77,6 +77,18 @@ describe('AC-001-57 Social Security, non-residents and company tax are routed, n
   });
 });
 
+describe('autónomo expense questions get a deduction checklist', () => {
+  it('returns the expenses guide with the BOE article 30 link', async () => {
+    const { response, adapter } = await ask('¿Qué gastos puedo deducirme como autónomo?');
+
+    expect(response.kind).toBe('guide');
+    if (response.kind !== 'guide') return;
+    expect(response.title).toContain('Gastos deducibles');
+    expect(response.links.some((link) => link.href.includes('BOE-A-2006-20764'))).toBe(true);
+    expect(adapter.callCount).toBe(0);
+  });
+});
+
 describe('RETA questions get a guide, not a bare refusal', () => {
   it('returns the quota guide with official links', async () => {
     const { response, adapter } = await ask('¿Cuánto es la cuota de autónomos este año?');
