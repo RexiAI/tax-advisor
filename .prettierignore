@@ -1,0 +1,10 @@
+.next
+node_modules
+coverage
+corpus
+.standards
+package-lock.json
+test/fixtures
+AGENTS.md
+README.md
+docs/research

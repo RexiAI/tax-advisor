@@ -1,0 +1,20 @@
+.sources {
+  max-width: 100%;
+  padding: var(--space-4);
+  border: var(--hairline-width) solid var(--hairline);
+  border-radius: var(--radius);
+  background: var(--surface-raised);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.notice {
+  margin-top: var(--space-4);
+  font-size: var(--font-size-disclaimer);
+  line-height: var(--line-metadata);
+  color: var(--ink-secondary);
+}

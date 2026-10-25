@@ -1,0 +1,6 @@
+.status {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-citation-date);
+  line-height: var(--line-metadata);
+  color: var(--ink-secondary);
+}
