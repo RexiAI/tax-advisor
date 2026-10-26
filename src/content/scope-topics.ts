@@ -40,6 +40,32 @@ function anyOf(patterns: readonly RegExp[]): (normalizedText: string) => boolean
   return (normalizedText) => patterns.some((pattern) => pattern.test(normalizedText));
 }
 
+/** The tax itself, in either spelling. Tested against the normalized text. */
+const IBI_PATTERNS: readonly RegExp[] = [/\bibi\b/, /impuesto sobre bienes inmuebles/];
+
+export function mentionsIbi(normalizedText: string): boolean {
+  return anyOf(IBI_PATTERNS)(normalizedText);
+}
+
+/**
+ * The expense-deductibility stems: first and second person, where the taxpayer is
+ * the subject of the verb (`deducirme`, `desgravar`, `deducción`, `deducible`).
+ *
+ * Third-person present forms are excluded on purpose — in `¿cuánto desgrava el
+ * IBI en mi ayuntamiento?` the tax is the subject and the amount it is asked for
+ * is the IBI's own rate, which is a question about the IBI, not about deducting
+ * an expense. `descontar`, `descuento` and `restar` are not signals at all:
+ * `descontar el IVA de una factura` is subtraction, not expense deductibility.
+ * The irregular first person `deduzco` is not reachable by the stem and stays out
+ * of the signal.
+ */
+const DEDUCTIBILITY_STEM = /\b(?:deduc|desgrav)\w*/;
+const THIRD_PERSON_STEM = /\b(?:deduce|deduces|deducen|desgrava|desgravas|desgravan)\b/;
+
+export function isDeductibilityQuestion(normalizedText: string): boolean {
+  return DEDUCTIBILITY_STEM.test(normalizedText) && !THIRD_PERSON_STEM.test(normalizedText);
+}
+
 export const OUT_OF_SCOPE_TOPICS: readonly OutOfScopeTopic[] = [
   {
     reasonCode: 'filing_request',
@@ -67,7 +93,12 @@ export const OUT_OF_SCOPE_TOPICS: readonly OutOfScopeTopic[] = [
     // The tax itself, not the Spanish phrase for "real estate": a question about
     // "los rendimientos del alquiler de bienes inmuebles" is core IRPF (arts. 22-24
     // LIRPF) and must reach retrieval.
-    match: anyOf([/\bibi\b/, /impuesto sobre bienes inmuebles/]),
+    //
+    // Spec 003: naming the IBI inside an expense-deductibility question is not a
+    // question about the IBI. That turn reaches retrieval, and the answer says
+    // separately that the IBI's own rules are not covered (the boundary note).
+    match: (normalizedText) =>
+      mentionsIbi(normalizedText) && !isDeductibilityQuestion(normalizedText),
   },
   {
     reasonCode: 'non_residents',
