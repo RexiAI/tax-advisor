@@ -596,3 +596,113 @@ CI verdict (the CI is green; the archive gate is simply not a CI gate here).
 ### Round-1 outcome
 
 PASS — every CI check green, no failing check IDs to record, no log-failure excerpt, no routing.
+
+---
+
+## Phase 2 — round 2 (post-PR CI)
+
+PR #13, draft, head `a36b435785992b9def0c9fa29e46f60df447f911` ("docs(spec-002): record the
+phase-3 remediation and the deploy verdict"), branch `spec/002-advisor-scope-expansion`, repo
+RexiAI/tax-advisor. Round 2 of the phase-2 CI check-and-remediate loop. Round 1 was green at
+`c343e17`. Budget: `SPEC_LOOP_COUNT=3`, `SPEC_PHASE1_RETRIES=1`, `SPEC_PHASE2_RETRIES=1`.
+
+### Verdict: PASS
+
+All CI checks terminal and green at the new head; no FAIL, no BLOCK, no routing.
+
+## Evidence: PR checks query (terminal, round 2)
+
+command: gh pr checks 13 --json name,state,bucket,workflow,link
+exit: 0
+at: 2026-10-26T07:03:28Z
+
+[{"bucket":"pass","link":"https://vercel.com/github","name":"Vercel Preview Comments","state":"SUCCESS","workflow":""},
+ {"bucket":"pass","link":"https://github.com/RexiAI/tax-advisor/actions/runs/40283358247/job/121441335133","name":"lint","state":"SUCCESS","workflow":"CI"},
+ {"bucket":"pass","link":"https://github.com/RexiAI/tax-advisor/actions/runs/40283358247/job/121441335318","name":"test","state":"SUCCESS","workflow":"CI"},
+ {"bucket":"pass","link":"https://github.com/RexiAI/tax-advisor/actions/runs/40283358247/job/121441334680","name":"build","state":"SUCCESS","workflow":"CI"},
+ {"bucket":"pass","link":"https://vercel.com/danielbueno76-4270s-projects/tax-advisor/7zFRYALu1hqTxRBLQCJt1dK1RAhn","name":"Vercel","state":"SUCCESS","workflow":""}]
+
+Per-check parse (`bucket` → PASS/FAIL):
+
+| Check | bucket | state | Round-2 verdict |
+|---|---|---|---|
+| Vercel Preview Comments | pass | SUCCESS | PASS |
+| lint (CI) | pass | SUCCESS | PASS |
+| test (CI) | pass | SUCCESS | PASS |
+| build (CI) | pass | SUCCESS | PASS |
+| Vercel | pass | SUCCESS | PASS |
+
+### Polling
+
+**1 poll, ~0 s waited** — the run (`40283358247`) had already completed when first queried
+(`completed success`, start `07:02:30Z`, end ≈`07:03:24Z`). The `statusCheckRollup` re-query at
+`07:03:35Z` confirmed every check terminal (0 IN_PROGRESS/QUEUED): lint SUCCESS, test SUCCESS,
+build SUCCESS, Vercel SUCCESS, Vercel Preview Comments SUCCESS.
+
+## Evidence: CI test job log (suite contents + count)
+
+command: gh run view 40283358247 --log | grep -aE 'Test Files|Tests |AC-002-retrieval|AC-002-policy'
+exit: 0
+at: 2026-10-26T07:04:04Z
+
+test	Run npm test	… ✓ test/acceptance/AC-002-retrieval-vocabulary.test.ts (5 tests)  226ms
+test	Run npm test	… ✓ AC-002-29 the 001 tests that fixed the old routing are updated, ids kept > AC-002-29: the end-to-end flow reaches retrieval for VAT, RETA and registration  443ms
+test	Run npm test	… ✓ test/acceptance/AC-002-policy-scope.test.ts (3 tests)  5ms
+test	Run npm test	…  Test Files  46 passed (46)
+test	Run npm test	…       Tests  413 passed (413)
+test	Run npm test	…    Duration  17.50s (transform 1.29s, setup 499ms, collect 19.70s, tests 16.30s, environment 2.54s, prepare 4.19s)
+
+### Confirmation 1 — new acceptance files ran in CI; 413 matches local
+
+Both new acceptance files are present locally and were executed by the CI `test` job:
+`test/acceptance/AC-002-retrieval-vocabulary.test.ts` (5 tests) and
+`test/acceptance/AC-002-policy-scope.test.ts` (3 tests). CI reports **46 files / 413 tests passed**,
+matching the expected local count of 413. No discrepancy.
+
+### Confirmation 2 — `check-specs-archived.sh` false green (REAL; out of scope, not fixed)
+
+**Mechanism verified.** `.standards/scripts/check-specs-archived.sh` walks
+`git ls-files 'specs/*/30-report.md'`, and for an unarchived finished spec reads the INDEX copy of
+`40-deploy.md` (`git show ":specs/$slug/40-deploy.md"`) and fires its spec-031 exception when:
+
+```
+grep -qE 'Phase-3 budget exhausted|Verdict:[[:space:]]*ESCALATED'
+```
+
+The **substring** `Phase-3 budget exhausted` matches unconditionally — including in text that
+*denies* exhaustion. This spec's `40-deploy.md` has exactly two such negating lines:
+
+- line 28: ``| Phase-3 budget | **2 of 3** attempts used; 0 fix rounds consumed; `Phase-3 budget exhausted` does **not** apply |``
+- line 258: ``- The marker line `Phase-3 budget exhausted` does **not** apply: this is a pass on attempt 2 of 3.``
+
+Both contain the literal `Phase-3 budget exhausted`, so the regex matches and the exception fires.
+The `Verdict: ESCALATED` alternative is irrelevant: the final line is line 276 `Verdict: PASS`, and
+`grep -nE 'Verdict:[[:space:]]*ESCALATED'` returns nothing.
+
+**It is a real false green.** The spec is finished (`30-report.md` tracked) and **not** archived
+(`git ls-files --error-unmatch docs/changes/002-advisor-scope-expansion.md` → "did not match any
+file(s)"; only `docs/changes/001-spain-tax-advisor.md` is tracked), yet the script exits 0 treating
+it as an escalation-deferred archive:
+
+```
+$ .standards/scripts/check-specs-archived.sh ; echo $?
+  [OK] 002-advisor-scope-expansion phase-3 budget exhausted (40-deploy.md records escalation) — archival deferred to the human
+All finished specs archived.
+0
+```
+
+So an unarchived, PASS-verdict spec reads as "archived-ok". **Out-of-scope finding, recorded not
+fixed** (the script is off-limits to the Verifier): the exception should match the *marker/value*
+(e.g. a `Phase-3 budget exhausted` value in the budget table, or a bare `Verdict: ESCALATED` line),
+not the bare phrase appearing in prose that negates it. Consequence: this repo's CI has no
+archive backstop for spec 002 (see round 1's merge-order note), and the archive gate that *is* run
+locally reports a false pass — stage 5d must still archive `specs/002-advisor-scope-expansion/` into
+`docs/changes/` before merge, and the human/pipeline must not rely on this gate's green here.
+
+---
+
+### Round-2 outcome
+
+PASS — every CI check green at `a36b435`; the two new acceptance files ran (413 tests, 46 files);
+no failing check IDs, no log-failure excerpt, no routing. The `check-specs-archived.sh` false green
+is recorded as an out-of-scope finding, not a round failure.

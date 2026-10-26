@@ -472,9 +472,8 @@ obligación de IVA al vocabulario normativo del BOE. **No** se baja `minRetrieva
 corte. Llevarlo al bundle exigiría un cambio de scoring (no de vocabulario), que se difiere a una
 spec posterior. No se persigue en esta tarea.
 
-**Procedencia.** Esta tarea entró en el pipeline como **fase 3 (verificación en despliegue),
-intento 2 de 3**, no como parte del gate original: el fallo se detectó en una ejecución live del
-sistema ya desplegado, no en los tests de la spec original.
+**Procedencia.** Ronda de remediación 1, dentro del intento 2 de la fase 3 (verificación en despliegue):
+el fallo se detectó en una ejecución live del sistema ya desplegado, no en los tests de la spec original.
 
 **Scenarios:** AC-002-34 – AC-002-35 → `20-acceptance/AC-002-retrieval-vocabulary.md`
 
@@ -524,9 +523,8 @@ normativo, y se mantienen intactas todas las reglas de seguridad.
 
 **Escenario añadido.** AC-002-36 → `20-acceptance/AC-002-policy-scope.md`.
 
-**Procedencia.** Esta tarea entró en el pipeline como **fase 3 (verificación en despliegue),
-intento 3 de 3**: el defecto se detectó en una ejecución live del sistema, no en los tests de la
-spec original ni en los intentos de fase 3 anteriores.
+**Procedencia.** Ronda de remediación 2, dentro del intento 2 de la fase 3 (verificación en despliegue):
+el defecto se detectó en la re-verificación live del arreglo de la ronda 1 (retrieval), no en los tests de la spec original.
 
 **Scenarios:** AC-002-36 → `20-acceptance/AC-002-policy-scope.md`
 
