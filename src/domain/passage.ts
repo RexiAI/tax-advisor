@@ -56,6 +56,16 @@ export function passageIdOf(normId: string, blockId: string): string {
   return `${normId}#${blockId}`;
 }
 
+/**
+ * The inverse of `passageIdOf`: the norm a passage id belongs to. Block ids in
+ * the BOE consolidated text never contain `#`, and every id this codebase builds
+ * goes through `passageIdOf`, so the first separator is the boundary.
+ */
+export function normIdOfPassageId(passageId: string): string {
+  const separator = passageId.indexOf('#');
+  return separator === -1 ? passageId : passageId.slice(0, separator);
+}
+
 function isHttpsUrl(value: string): boolean {
   if (!value.startsWith('https://')) return false;
   try {

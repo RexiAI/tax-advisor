@@ -1,0 +1,1694 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Tarifas e instrucción del Impuesto sobre Actividades Económicas (BOE-A-1990-23930).
+  Extracto del texto consolidado del BOE (datos abiertos,
+  https://www.boe.es/datosabiertos/api/legislacion-consolidada). Los bloques se
+  copian integros, en su orden de origen: es un subconjunto para los fixtures
+  offline de la suite, no el texto completo. El corpus de produccion
+  (corpus/corpus.json) se construye con el documento entero.
+-->
+<documento>
+  <metadatos>
+    <titulo>Tarifas e instrucción del Impuesto sobre Actividades Económicas</titulo>
+    <fecha_actualizacion>2026-06-04</fecha_actualizacion>
+  </metadatos>
+  <texto>
+<bloque id="aunico" tipo="precepto" titulo="Artículo único">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="articulo">Artículo único.</p>
+          <p class="parrafo">Se aprueban las tarifas del Impuesto sobre Actividades Económicas, que se incluyen en el anexo I del presente Real Decreto Legislativo, así como la instrucción para la aplicación de aquéllas, la cual se incluye en el anexo II del mismo.</p>
+        </version>
+      </bloque>
+<bloque id="da" tipo="precepto" titulo="Disposición adicional">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="articulo">Disposición adicional</p>
+          <p class="parrafo">El recurso permanente para las Cámaras de Comercio, Industria y Navegación, establecido por la base quinta de la Ley de 29 de junio de 1911, y que se ha venido liquidando sobre las cuotas de las licencias fiscales de actividades comerciales e industriales y de profesionales y de artistas, se liquidará, a partir de 1 de enero de 1992, sobre las correlativas cuotas de las tarifas del Impuesto sobre Actividades Económicas. A estos efectos no se tendrá en cuenta el importe del elemento tributario constituido por la superficie de los locales en los que se realicen las actividades gravadas, ni tampoco el correspondiente al coeficiente de incremento, al índice de situación y al recargo provincial, regulados, respectivamente, en los artículos 88, 89 y 124 de la Ley 39/1988, de 28 de diciembre.</p>
+        </version>
+      </bloque>
+<bloque id="df" tipo="precepto" titulo="Disposición final">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="articulo">Disposición final</p>
+          <p class="parrafo">Se autoriza al Gobierno de la Nación para dictar las normas de desarrollo y aplicación de cuanto se establece en este Real Decreto Legislativo.</p>
+        </version>
+      </bloque>
+<bloque id="agrupacion13" tipo="precepto" titulo="Agrupación 13">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 13. Refino de petróleo.</p>
+          <p class="articulo">Grupo 130. Refino de petróleo.</p>
+          <p class="parrafo_2">Cuota de: Por cada 1.000 toneladas o fracción anuales de tratamiento de crudos petrolíferos, 9.000 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 13. Refino de petróleo.</p>
+          <p class="articulo">Grupo 130. Refino de petróleo.</p>
+          <p class="parrafo_2">Cuota de: Por cada 1.000 toneladas o fracción anuales de tratamiento de crudos petrolíferos, 9.315 pesetas. (55,984278 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+          <p class="parrafo_2"> </p>
+        </version>
+      </bloque>
+<bloque id="agrupacion14" tipo="precepto" titulo="Agrupación 14">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 14. Extracción y transformación de minerales radiactivos.</p>
+          <p class="articulo">Grupo 141. Extracción y preparación de minerales radiactivos.</p>
+          <p class="parrafo_2">Cuota de:</p>
+          <p class="parrafo_2">Por cada obrero: 1.120 pesetas.</p>
+          <p class="parrafo">Por cada Kw: 750 pesetas.</p>
+          <p class="articulo">Grupo 142. Preparación de minerales radiactivos en factoría independiente o fuera del perímetro de la concesión o explotación minera.</p>
+          <p class="parrafo_2">Cuota de:</p>
+          <p class="parrafo_2">Por cada obrero: 1.870 pesetas.</p>
+          <p class="parrafo">Por cada Kw: 1.310 pesetas.</p>
+          <p class="articulo">Grupo 143. Transformación de minerales radiactivos.</p>
+          <p class="parrafo_2">Cuota de:</p>
+          <p class="parrafo_2">Por cada obrero: 2.430 pesetas.</p>
+          <p class="parrafo">Por cada Kw: 1.690 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1992-28826" fecha_publicacion="19921230" fecha_vigencia="19930119">
+          <p class="capitulo">Agrupación 14. Extracción y transformación de minerales radiactivos.</p>
+          <p class="articulo">Grupo 141. Extracción y preparación de minerales radiactivos.</p>
+          <p class="parrafo_2">Cuota de:</p>
+          <p class="parrafo_2">Por cada obrero: 1.120 pesetas.</p>
+          <p class="parrafo">Por cada Kw: 750 pesetas.</p>
+          <p class="articulo">Grupo 142. Preparación de minerales radiactivos en factoría independiente o fuera del perímetro de la concesión o explotación minera.</p>
+          <p class="parrafo_2">Cuota de:</p>
+          <p class="parrafo_2">Por cada obrero: 1.870 pesetas.</p>
+          <p class="parrafo">Por cada Kw: 1.310 pesetas.</p>
+          <p class="articulo">Grupo 143. Transformación de minerales radiactivos y tratamiento y almacenamiento de residuos radiactivos</p>
+          <p class="parrafo">Epígrafe 143.1 Transformación de minerales radiactivos.</p>
+          <p class="parrafo">Cuota de:</p>
+          <p class="parrafo">– Por cada obrero: 2.430 pesetas.</p>
+          <p class="parrafo">– Por cada Kw: 1.690 pesetas.</p>
+          <p class="parrafo">Epígrafe 143.2 Tratamiento de residuos radiactivos.</p>
+          <p class="parrafo">Cuota de:</p>
+          <p class="parrafo">– Por cada obrero: 1.870 pesetas.</p>
+          <p class="parrafo">– Por cada Kw: 1.310 pesetas.</p>
+          <p class="parrafo">Epígrafe 143.3 Almacenamiento de residuos radiactivos.</p>
+          <p class="parrafo">Cuota de: 5.000.000 de pesetas.</p>
+          <p class="parrafo">Nota común a los epígrafes 143.2 y 143.3: Estos epígrafes facultan para el desmantelamiento de instalaciones nucleares y para el transporte de los residuos radiactivos.</p>
+          <blockquote>
+            <p class="nota_pie">Se modifica el Grupo 143 por el art. 75.1.1 de la Ley 39/1992, de 29 de diciembre. <a class="refPost">Ref. BOE-A-1992-28826</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta para su aplicación el art. 75.3.</p>
+          </blockquote>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 14. Extracción y transformación de minerales radiactivos.</p>
+          <p class="articulo">Grupo 141. Extracción y preparación de minerales radiactivos.</p>
+          <p class="parrafo_2">Cuota de:</p>
+          <p class="parrafo_2">Por cada obrero: 1.160 pesetas. (6,971740 euros)</p>
+          <p class="parrafo">Por cada Kw: 777 pesetas. 4,669864 euros)</p>
+          <p class="articulo">Grupo 142. Preparación de minerales radiactivos en factoría independiente o fuera del perímetro de la concesión o explotación minera.</p>
+          <p class="parrafo_2">Cuota de:</p>
+          <p class="parrafo_2">Por cada obrero: 1.936 pesetas. (11,635594 euros)</p>
+          <p class="parrafo">Por cada Kw: 1.356 pesetas. (8,149724 euros)</p>
+          <p class="articulo">Grupo 143. Transformación de minerales radiactivos y tratamiento y almacenamiento de residuos radiactivos</p>
+          <p class="parrafo">Epígrafe 143.1 Transformación de minerales radiactivos.</p>
+          <p class="parrafo_2">Cuota de:</p>
+          <p class="parrafo_2">– Por cada obrero: 2.516 pesetas. (15,121465 euros)</p>
+          <p class="parrafo">– Por cada Kw: 1.750 pesetas. (10,517712 euros)</p>
+          <p class="parrafo_2">Epígrafe 143.2 Tratamiento de residuos radiactivos.</p>
+          <p class="parrafo_2">Cuota de:</p>
+          <p class="parrafo_2">– Por cada obrero: 1.936 pesetas. (11,635594 euros)</p>
+          <p class="parrafo">– Por cada Kw: 1.356 pesetas. (8,149724 euros)</p>
+          <p class="parrafo_2">Epígrafe 143.3 Almacenamiento de residuos radiactivos.</p>
+          <p class="parrafo_2">Cuota de: 5.175.000 pesetas. (31.102,38 euros)</p>
+          <p class="parrafo_2">Nota común a los epígrafes 143.2 y 143.3: Estos epígrafes facultan para el desmantelamiento de instalaciones nucleares y para el transporte de los residuos radiactivos.</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+            <p class="nota_pie">Se modifica el Grupo 143 por el art. 75.1.1 de la Ley 39/1992, de 29 de diciembre. <a class="refPost">Ref. BOE-A-1992-28826</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta para su aplicación el art. 75.3.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion21" tipo="precepto" titulo="Agrupación 21">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 21. Extracción y preparación de minerales metálicos.</p>
+          <p class="articulo">Grupo 211. Extracción y preparación de minerales de hierro.</p>
+          <p class="parrafo_2">Epígrafe 211.1 Extracción y preparación de minerales férreos.</p>
+          <p class="parrafo_2">Cuota de:</p>
+          <p class="parrafo_2">Por cada obrero: 432 pesetas.</p>
+          <p class="parrafo">Por cada Kw: 407 pesetas.</p>
+          <p class="parrafo_2">Nota: A este epígrafe le son de aplicación las notas 1.ª y 2.ª de los epígrafes 111.1 y 111.2.</p>
+          <p class="parrafo_2">Epígrafe 211.2 Preparación de minerales férreos en factoría independiente o fuera del perímetro de la explotación o concesión minera.</p>
+          <p class="parrafo_2">Cuota de:</p>
+          <p class="parrafo_2">Por cada obrero: 840 pesetas.</p>
+          <p class="parrafo">Por cada Kw: 860 pesetas.</p>
+          <p class="parrafo_2">Nota: Este epígrafe comprende las operaciones físicas de concentración del mineral, realizadas en bocamina o en factoría independiente, incluidas las de sinterización, pelletización y similares.</p>
+          <p class="articulo">Grupo 212. Extracción y preparación de minerales metálicos no férreos.</p>
+          <p class="parrafo_2">Epígrafe 212.1 Extracción y preparación de minerales metálicos no férreos.</p>
+          <p class="parrafo_2">Cuota de:</p>
+          <p class="parrafo_2">Por cada obrero: 510 pesetas.</p>
+          <p class="parrafo">Por cada Kw: 550 pesetas.</p>
+          <p class="parrafo_2">Nota: A este epígrafe le son de aplicación las notas 1.ª y 2.ª de los epígrafes 111.1 y 111.2.</p>
+          <p class="parrafo_2">Epígrafe 212.2 Preparación de minerales metálicos no férreos en factoría independiente o situada fuera del perímetro de la explotación o concesión minera.</p>
+          <p class="parrafo_2">Cuota de:</p>
+          <p class="parrafo_2">Por cada obrero: 980 pesetas.</p>
+          <p class="parrafo">Por cada Kw: 1.090 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 21. Extracción y preparación de minerales metálicos.</p>
+          <p class="articulo">Grupo 211. Extracción y preparación de minerales de hierro.</p>
+          <p class="parrafo_2">Epígrafe 211.1 Extracción y preparación de minerales férreos.</p>
+          <p class="parrafo_2">Cuota de:</p>
+          <p class="parrafo_2">Por cada obrero: 448 pesetas. (2,692534 euros)</p>
+          <p class="parrafo">Por cada Kw: 422 pesetas. (2,536271 euros)</p>
+          <p class="parrafo_2">Nota: A este epígrafe le son de aplicación las notas 1.ª y 2.ª de los epígrafes 111.1 y 111.2.</p>
+          <p class="parrafo_2">Epígrafe 211.2 Preparación de minerales férreos en factoría independiente o fuera del perímetro de la explotación o concesión minera.</p>
+          <p class="parrafo_2">Cuota de:</p>
+          <p class="parrafo_2">Por cada obrero: 870 pesetas. (5,228805 euros)</p>
+          <p class="parrafo">Por cada Kw: 891 pesetas. (5,355018 euros)</p>
+          <p class="parrafo_2">Nota: Este epígrafe comprende las operaciones físicas de concentración del mineral, realizadas en bocamina o en factoría independiente, incluidas las de sinterización, pelletización y similares.</p>
+          <p class="articulo">Grupo 212. Extracción y preparación de minerales metálicos no férreos.</p>
+          <p class="parrafo_2">Epígrafe 212.1 Extracción y preparación de minerales metálicos no férreos.</p>
+          <p class="parrafo_2">Cuota de:</p>
+          <p class="parrafo_2">Por cada obrero: 528 pesetas. (3,173344 euros)</p>
+          <p class="parrafo">Por cada Kw: 570 pesetas. (3,425769 euros)</p>
+          <p class="parrafo_2">Nota: A este epígrafe le son de aplicación las notas 1.ª y 2.ª de los epígrafes 111.1 y 111.2.</p>
+          <p class="parrafo_2">Epígrafe 212.2 Preparación de minerales metálicos no férreos en factoría independiente o situada fuera del perímetro de la explotación o concesión minera.</p>
+          <p class="parrafo_2">Cuota de:</p>
+          <p class="parrafo_2">Por cada obrero: 1.015 pesetas. (6,100273 euros)</p>
+          <p class="parrafo">Por cada Kw: 1.129 pesetas. (6,785427 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion33" tipo="precepto" titulo="Agrupación 33">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 33. Construcción de máquinas de oficina y ordenadores (incluida su instalación).</p>
+          <p class="articulo">Grupo 330. Construcción de máquinas de oficina y ordenadores (incluida su instalación).</p>
+          <p class="parrafo_2">Cuota de:</p>
+          <p class="parrafo_2">Por cada obrero: 1.100 pesetas.</p>
+          <p class="parrafo">Por cada Kw: 850 pesetas.</p>
+          <p class="parrafo_2">Nota: Este grupo comprende la construcción de máquinas de escribir, estenotipia y similares; calculadoras, sumadoras, máquinas contables, cajas registradoras y similares; copiadoras y reproductoras de documentos (excepto fotocopiadoras); perforadoras, verificadoras y clasificadoras de fichas; equipos para el proceso electrónico de datos, incluidas su instalación, así como la fabricación de equipo, piezas y accesorios para estas máquinas.</p>
+          <p class="parrafo">A efectos meramente informativos, el sujeto pasivo declarará las actividades concretas que ejerce según la clasificación contenida en los siguientes epígrafes:</p>
+          <p class="parrafo_2">Epígrafe 330.1 Máquinas de oficina y ordenadores.</p>
+          <p class="parrafo">Epígrafe 330.2 Instalación de máquinas de oficina y ordena­dores.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 33. Construcción de máquinas de oficina y ordenadores (incluida su instalación).</p>
+          <p class="articulo">Grupo 330. Construcción de máquinas de oficina y ordenadores (incluida su instalación).</p>
+          <p class="parrafo_2">Cuota de:</p>
+          <p class="parrafo_2">Por cada obrero: 1.139 pesetas. (6,845528 euros)</p>
+          <p class="parrafo">Por cada Kw: 880 pesetas. (5,288907 euros)</p>
+          <p class="parrafo_2">Nota: Este grupo comprende la construcción de máquinas de escribir, estenotipia y similares; calculadoras, sumadoras, máquinas contables, cajas registradoras y similares; copiadoras y reproductoras de documentos (excepto fotocopiadoras); perforadoras, verificadoras y clasificadoras de fichas; equipos para el proceso electrónico de datos, incluidas su instalación, así como la fabricación de equipo, piezas y accesorios para estas máquinas.</p>
+          <p class="parrafo">A efectos meramente informativos, el sujeto pasivo declarará las actividades concretas que ejerce según la clasificación contenida en los siguientes epígrafes:</p>
+          <p class="parrafo_2">Epígrafe 330.1 Máquinas de oficina y ordenadores.</p>
+          <p class="parrafo">Epígrafe 330.2 Instalación de máquinas de oficina y ordena­dores.</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion62" tipo="precepto" titulo="Agrupación 62">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 62. Recuperación de productos.</p>
+          <p class="articulo">Grupo 621. Comercio al por mayor de chatarra y metales de desecho férreos y no férreos.</p>
+          <p class="parrafo_2">Cuota de: 54.000 pesetas.</p>
+          <p class="parrafo_2">Notas:</p>
+          <p class="parrafo_2">1.ª Este grupo comprende el comercio al por mayor de chatarra y otros residuos y desechos de hierro, acero, cobre, latón, aluminio y otros metales, procedentes de máquinas, vehículos y otros materiales en desuso.</p>
+          <p class="parrafo">2.ª Cuando los artículos anteriores sean vendidos como maquinaria usada, el sujeto pasivo tributará por el grupo o epígrafe correspondiente a la venta de dicha maquinaria.</p>
+          <p class="parrafo">3.ª Este grupo faculta para la venta de elementos no metálicos procedentes de derribos o de desguaces de barcos, automóviles, etc., así como para el propio servicio de desguace.</p>
+          <p class="articulo">Grupo 622. Comercio al por mayor de otros productos de recuperación.</p>
+          <p class="parrafo_2">Cuota de: 30.000 pesetas.</p>
+          <p class="parrafo_2">Nota: Este grupo comprende el comercio al por mayor de productos de recuperación no especificados en el grupo anterior, tales como papeles y periódicos usados, desechos de cartón, trapos usados, residuos de vidrio y desechos diversos.</p>
+          <p class="articulo">Grupo 623. Recuperación y comercio de residuos fuera de establecimiento permanente.</p>
+          <p class="parrafo_2">Cuota de: 30.000 pesetas.</p>
+          <p class="parrafo_2">Nota: Este grupo comprende a todos aquellos comerciantes recuperadores que ejercen su actividad fuera de establecimiento permanente, vendiendo sus productos a otros recuperadores.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 62. Recuperación de productos.</p>
+          <p class="articulo">Grupo 621. Comercio al por mayor de chatarra y metales de desecho férreos y no férreos.</p>
+          <p class="parrafo_2">Cuota de: 55.890 pesetas. (335,91 euros)</p>
+          <p class="parrafo_2">Notas:</p>
+          <p class="parrafo_2">1.ª Este grupo comprende el comercio al por mayor de chatarra y otros residuos y desechos de hierro, acero, cobre, latón, aluminio y otros metales, procedentes de máquinas, vehículos y otros materiales en desuso.</p>
+          <p class="parrafo">2.ª Cuando los artículos anteriores sean vendidos como maquinaria usada, el sujeto pasivo tributará por el grupo o epígrafe correspondiente a la venta de dicha maquinaria.</p>
+          <p class="parrafo">3.ª Este grupo faculta para la venta de elementos no metálicos procedentes de derribos o de desguaces de barcos, automóviles, etc., así como para el propio servicio de desguace.</p>
+          <p class="articulo">Grupo 622. Comercio al por mayor de otros productos de recuperación.</p>
+          <p class="parrafo_2">Cuota de: 31.050 pesetas. (186,61 euros)</p>
+          <p class="parrafo_2">Nota: Este grupo comprende el comercio al por mayor de productos de recuperación no especificados en el grupo anterior, tales como papeles y periódicos usados, desechos de cartón, trapos usados, residuos de vidrio y desechos diversos.</p>
+          <p class="articulo">Grupo 623. Recuperación y comercio de residuos fuera de establecimiento permanente.</p>
+          <p class="parrafo_2">Cuota de: 31.050 pesetas. (186,61 euros)</p>
+          <p class="parrafo_2">Nota: Este grupo comprende a todos aquellos comerciantes recuperadores que ejercen su actividad fuera de establecimiento permanente, vendiendo sus productos a otros recuperadores.</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion63" tipo="precepto" titulo="Agrupación 63">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 63. Intermediarios del comercio.</p>
+          <p class="articulo">Grupo 631. Intermediarios del comercio.</p>
+          <p class="parrafo_2">Cuota mínima municipal de: 25.000 pesetas.</p>
+          <p class="parrafo">Cuota provincial de: 60.000 pesetas.</p>
+          <p class="parrafo">Cuota nacional de: 150.000 pesetas.</p>
+          <p class="parrafo_2">Nota: Este grupo comprende las actividades cuyo objeto exclusivo o principal consiste en poner en relación a comprador y vendedor o bien en realizar actos de comercio por cuenta de sus comitentes, en todas las fases de la comercialización de toda clase de productos.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 63. Intermediarios del comercio.</p>
+          <p class="articulo">Grupo 631. Intermediarios del comercio.</p>
+          <p class="parrafo_2">Cuota mínima municipal de: 25.875 pesetas. (155,51 euros)</p>
+          <p class="parrafo">Cuota provincial de: 62.100 pesetas. (373,23 euros)</p>
+          <p class="parrafo">Cuota nacional de: 155.250 pesetas. (933,07 euros)</p>
+          <p class="parrafo_2">Nota: Este grupo comprende las actividades cuyo objeto exclusivo o principal consiste en poner en relación a comprador y vendedor o bien en realizar actos de comercio por cuenta de sus comitentes, en todas las fases de la comercialización de toda clase de productos.</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion71" tipo="precepto" titulo="Agrupación 71">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 71. Transporte por ferrocarril.</p>
+          <p class="articulo">Grupo 711. Transporte ferroviario por vía normal.</p>
+          <p class="parrafo_2">Cuota nacional de:</p>
+          <p class="parrafo_2">Por cada kilómetro de vía: 2.650 pesetas.</p>
+          <p class="parrafo_2">Nota: Este grupo comprende el transporte ferroviario por vía de ancho normal (vía española de 1,674m. o europea de 1,435m.) de personas y mercancías.</p>
+          <p class="parrafo_2">A efectos meramente informativos, el Sujeto Pasivo declarará las actividades concretas que ejerce según la clasificación contenida en los siguientes epígrafes:</p>
+          <p class="parrafo_2">Epígrafe 711.1 Transporte ferroviario de viajeros por vía normal.</p>
+          <p class="parrafo">Epígrafe 711.2 Transporte ferroviario de mercancías por vía normal.</p>
+          <p class="articulo">Grupo 712. Transporte ferroviario por vía estrecha.</p>
+          <p class="parrafo_2">Cuota provincial de:</p>
+          <p class="parrafo_2">Por cada kilómetro de vía: 2.650 pesetas.</p>
+          <p class="parrafo_2">Nota: Este grupo comprende el transporte ferroviario de personas y mercancías por vía estrecha (vía distinta del ancho español de 1,674 m. o europea de 1,435m.).</p>
+          <p class="parrafo_2">A efectos meramente informativos, el Sujeto Pasivo declarará las actividades concretas que ejerce según la clasificación contenida en los siguientes epígrafes:</p>
+          <p class="parrafo_2">Epígrafe 712.1 Transporte ferroviario de viajeros por vía estrecha.</p>
+          <p class="parrafo">Epígrafe 712.2 Transporte ferroviario de mercancías por vía estrecha.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 71. Transporte por ferrocarril.</p>
+          <p class="articulo">Grupo 711. Transporte ferroviario por vía normal.</p>
+          <p class="parrafo_2">Cuota nacional de:</p>
+          <p class="parrafo_2">Por cada kilómetro de vía: 2.743 pesetas. (16,485762 euros)</p>
+          <p class="parrafo_2">Nota: Este grupo comprende el transporte ferroviario por vía de ancho normal (vía española de 1,674m. o europea de 1,435m.) de personas y mercancías.</p>
+          <p class="parrafo_2">A efectos meramente informativos, el Sujeto Pasivo declarará las actividades concretas que ejerce según la clasificación contenida en los siguientes epígrafes:</p>
+          <p class="parrafo_2">Epígrafe 711.1 Transporte ferroviario de viajeros por vía normal.</p>
+          <p class="parrafo">Epígrafe 711.2 Transporte ferroviario de mercancías por vía normal.</p>
+          <p class="articulo">Grupo 712. Transporte ferroviario por vía estrecha.</p>
+          <p class="parrafo_2">Cuota provincial de:</p>
+          <p class="parrafo_2">Por cada kilómetro de vía: 2.743 pesetas. (16,485762 euros)</p>
+          <p class="parrafo_2">Nota: Este grupo comprende el transporte ferroviario de personas y mercancías por vía estrecha (vía distinta del ancho español de 1,674 m. o europea de 1,435m.).</p>
+          <p class="parrafo_2">A efectos meramente informativos, el Sujeto Pasivo declarará las actividades concretas que ejerce según la clasificación contenida en los siguientes epígrafes:</p>
+          <p class="parrafo_2">Epígrafe 712.1 Transporte ferroviario de viajeros por vía estrecha.</p>
+          <p class="parrafo">Epígrafe 712.2 Transporte ferroviario de mercancías por vía estrecha.</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion92" tipo="precepto" titulo="Agrupación 92">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 92. Servicios de saneamiento, limpieza y similares. Servicios contra incendios y similares.</p>
+          <p class="articulo">Grupo 921. Servicios de saneamiento de vías públicas y similares.</p>
+          <p class="parrafo_2">Epígrafe 921.1 Servicios de limpieza de calles, vías públicas y jardines.</p>
+          <p class="parrafo_2">Cuota de: 35.000 pesetas.</p>
+          <p class="parrafo_2">Epígrafe 921.2 Servicios de recogida de basuras y desechos.</p>
+          <p class="parrafo_2">Cuota de: 30.300 pesetas.</p>
+          <p class="parrafo_2">Epígrafe 921.3 Exterminio de animales dañinos y desinfección de cualquier clase.</p>
+          <p class="parrafo_2">Cuota de: 6.100 pesetas.</p>
+          <p class="parrafo_2">Epígrafe 921.4 Servicios de alcantarillado, evacuación y depuración de aguas residuales.</p>
+          <p class="parrafo_2">Cuota de: 35.000 pesetas.</p>
+          <p class="parrafo_2">Epígrafe 921.5 Servicios de incineración y eliminación de basuras y desechos.</p>
+          <p class="parrafo_2">Cuota de: 7.600 pesetas.</p>
+          <p class="parrafo_2">Epígrafe 921.6 Servicios de protección y acondicionamiento ambiental: Contra ruidos, vibraciones, contaminación, etc.</p>
+          <p class="parrafo_2">Cuota de: 10.000 pesetas.</p>
+          <p class="parrafo_2">Epígrafe 921.7 Servicios de protección contra incendios y accidentes.</p>
+          <p class="parrafo_2">Cuota de: 30.300 pesetas.</p>
+          <p class="parrafo_2">Epígrafe 921.8 Servicios de administración de cementerios.</p>
+          <p class="parrafo_2">Cuota de: 12.000 pesetas.</p>
+          <p class="parrafo_2">Epígrafe 921.9 Otros servicios de saneamiento y similares n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 12.000 pesetas.</p>
+          <p class="articulo">Grupo 922. Servicios de limpieza.</p>
+          <p class="parrafo_2">Cuota de: 28.800 pesetas.</p>
+          <p class="parrafo_2">A efectos meramente informativos, el sujeto pasivo declarará las actividades concretas que ejerce, según la clasificación contenida en los siguientes epígrafes:</p>
+          <p class="parrafo_2">Epígrafe 922.1 Servicios de limpieza de interiores (edificios, oficinas, establecimientos comerciales, residencias, centros sanitarios y establecimientos industriales).</p>
+          <p class="parrafo">Epígrafe 922.2 Servicios especializados de limpiezas (cristales, chimeneas, etc.).</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 92. Servicios de saneamiento, limpieza y similares. Servicios contra incendios y similares.</p>
+          <p class="articulo">Grupo 921. Servicios de saneamiento de vías públicas y similares.</p>
+          <p class="parrafo_2">Epígrafe 921.1 Servicios de limpieza de calles, vías públicas y jardines.</p>
+          <p class="parrafo_2">Cuota de: 36.225 pesetas. (217,72 euros)</p>
+          <p class="parrafo_2">Epígrafe 921.2 Servicios de recogida de basuras y desechos.</p>
+          <p class="parrafo_2">Cuota de: 31.361 pesetas. (188,48 euros)</p>
+          <p class="parrafo_2">Epígrafe 921.3 Exterminio de animales dañinos y desinfección de cualquier clase.</p>
+          <p class="parrafo_2">Cuota de: 6.314 pesetas. (37,95 euros)</p>
+          <p class="parrafo_2">Epígrafe 921.4 Servicios de alcantarillado, evacuación y depuración de aguas residuales.</p>
+          <p class="parrafo_2">Cuota de: 36.225 pesetas. (217,72 euros)</p>
+          <p class="parrafo_2">Epígrafe 921.5 Servicios de incineración y eliminación de basuras y desechos.</p>
+          <p class="parrafo_2">Cuota de: 7.866 pesetas. (47,28 euros)</p>
+          <p class="parrafo_2">Epígrafe 921.6 Servicios de protección y acondicionamiento ambiental: Contra ruidos, vibraciones, contaminación, etc.</p>
+          <p class="parrafo_2">Cuota de: 10.350 pesetas. (62,20 euros)</p>
+          <p class="parrafo_2">Epígrafe 921.7 Servicios de protección contra incendios y accidentes.</p>
+          <p class="parrafo_2">Cuota de: 31.361 pesetas. (188,48 euros)</p>
+          <p class="parrafo_2">Epígrafe 921.8 Servicios de administración de cementerios.</p>
+          <p class="parrafo_2">Cuota de: 12.420 pesetas. (74,65 euros)</p>
+          <p class="parrafo_2">Epígrafe 921.9 Otros servicios de saneamiento y similares n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 12.420 pesetas. (74,65 euros)</p>
+          <p class="articulo">Grupo 922. Servicios de limpieza.</p>
+          <p class="parrafo_2">Cuota de: 29.808 pesetas. (179,15 euros)</p>
+          <p class="parrafo_2">A efectos meramente informativos, el sujeto pasivo declarará las actividades concretas que ejerce, según la clasificación contenida en los siguientes epígrafes:</p>
+          <p class="parrafo_2">Epígrafe 922.1 Servicios de limpieza de interiores (edificios, oficinas, establecimientos comerciales, residencias, centros sanitarios y establecimientos industriales).</p>
+          <p class="parrafo">Epígrafe 922.2 Servicios especializados de limpiezas (cristales, chimeneas, etc.).</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion94" tipo="precepto" titulo="Agrupación 94">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 94. Sanidad y servicios veterinarios.</p>
+          <p class="articulo">Grupo 941. Hospitales, clínicas y sanatorios de medicina humana.</p>
+          <p class="parrafo_2">Epígrafe 941.1 Hospitales generales.</p>
+          <p class="parrafo_2">Cuota de:</p>
+          <p class="parrafo_2">Por cada cama o instalación para un enfermo: 1.070 pesetas.</p>
+          <p class="parrafo_2">Epígrafe 941.2 Hospitales especializados (quirúrgicos, maternidades, infantiles, psiquiátricos, etc.).</p>
+          <p class="parrafo_2">Cuota de:</p>
+          <p class="parrafo_2">Por cada cama o instalación para un enfermo: 1.430 pesetas.</p>
+          <p class="articulo">Grupo 942. Otros establecimientos sanitarios, balnearios y baños de agua dulce y de mar.</p>
+          <p class="parrafo_2">Epígrafe 942.1 Consultorios médicos, centros de socorro, sanitarios y clínicos de urgencia.</p>
+          <p class="parrafo_2">Cuota de: 86.000 pesetas.</p>
+          <p class="parrafo_2">Epígrafe 942.2 Balnearios y baños.</p>
+          <p class="parrafo_2">Cuota de: 44.100 pesetas.</p>
+          <p class="parrafo_2">Nota: Este epígrafe comprende los establecimientos, estanques o piscinas donde se suministran aguas minerales o medicinales, así como baños rusos, de vapor, etc.</p>
+          <p class="parrafo_2">Epígrafe 942.9 Otros servicios sanitarios sin internado, no clasificados en este grupo.</p>
+          <p class="parrafo_2">Cuota de: 34.400 pesetas.</p>
+          <p class="articulo">Grupo 943. Consultas y clínicas de estomatología y odontología.</p>
+          <p class="parrafo_2">Cuota de: 98.520 pesetas.</p>
+          <p class="articulo">Grupo 944. Servicios de naturopatía, acupuntura y otros servicios parasanitarios.</p>
+          <p class="parrafo_2">Cuota de: 83.000 pesetas.</p>
+          <p class="articulo">Grupo 945. Consultas y clínicas veterinarias.</p>
+          <p class="parrafo_2">Cuota de: 67.440 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 94. Sanidad y servicios veterinarios.</p>
+          <p class="articulo">Grupo 941. Hospitales, clínicas y sanatorios de medicina humana.</p>
+          <p class="parrafo_2">Epígrafe 941.1 Hospitales generales.</p>
+          <p class="parrafo_2">Cuota de:</p>
+          <p class="parrafo_2">Por cada cama o instalación para un enfermo: 1.108 pesetas. (6,659214 euros)</p>
+          <p class="parrafo_2">Epígrafe 941.2 Hospitales especializados (quirúrgicos, maternidades, infantiles, psiquiátricos, etc.).</p>
+          <p class="parrafo_2">Cuota de:</p>
+          <p class="parrafo_2">Por cada cama o instalación para un enfermo: 1.481 pesetas. (8,900989 euros)</p>
+          <p class="articulo">Grupo 942. Otros establecimientos sanitarios, balnearios y baños de agua dulce y de mar.</p>
+          <p class="parrafo_2">Epígrafe 942.1 Consultorios médicos, centros de socorro, sanitarios y clínicos de urgencia.</p>
+          <p class="parrafo_2">Cuota de: 89.010 pesetas. (534,96 euros)</p>
+          <p class="parrafo_2">Epígrafe 942.2 Balnearios y baños.</p>
+          <p class="parrafo_2">Cuota de: 45.644 pesetas. (274,33 euros)</p>
+          <p class="parrafo_2">Nota: Este epígrafe comprende los establecimientos, estanques o piscinas donde se suministran aguas minerales o medicinales, así como baños rusos, de vapor, etc.</p>
+          <p class="parrafo_2">Epígrafe 942.9 Otros servicios sanitarios sin internado, no clasificados en este grupo.</p>
+          <p class="parrafo_2">Cuota de: 35.604 pesetas. (213,98 euros)</p>
+          <p class="articulo">Grupo 943. Consultas y clínicas de estomatología y odontología.</p>
+          <p class="parrafo_2">Cuota de: 101.969 pesetas. (612,85 euros)</p>
+          <p class="articulo">Grupo 944. Servicios de naturopatía, acupuntura y otros servicios parasanitarios.</p>
+          <p class="parrafo_2">Cuota de: 85.905 pesetas. (516,30 euros)</p>
+          <p class="articulo">Grupo 945. Consultas y clínicas veterinarias.</p>
+          <p class="parrafo_2">Cuota de: 69.801 pesetas. (419,51 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion95" tipo="precepto" titulo="Agrupación 95">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 95. Asistencia y servicios sociales.</p>
+          <p class="articulo">Grupo 951. Asistencia y servicios sociales para niños, jóvenes, disminuidos físicos y ancianos, en centros residenciales.</p>
+          <p class="parrafo_2">Cuota de: 14.700 pesetas.</p>
+          <p class="parrafo_2">Nota: Cuando estos establecimientos cobren por los servicios que presten a cada usuario menos de 100.000 pesetas anuales, tributarán por cuota cero.</p>
+          <p class="articulo">Grupo 952. Asistencia y servicios sociales para niños, jóvenes, disminuidos físicos y ancianos, en centros no residenciales.</p>
+          <p class="parrafo_2">Cuota de: 9.100 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 95. Asistencia y servicios sociales.</p>
+          <p class="articulo">Grupo 951. Asistencia y servicios sociales para niños, jóvenes, disminuidos físicos y ancianos, en centros residenciales.</p>
+          <p class="parrafo_2">Cuota de: 15.215 pesetas. (91,44 euros)</p>
+          <p class="parrafo_2">Nota: Cuando estos establecimientos cobren por los servicios que presten a cada usuario menos de 100.000 pesetas (601,01 euros) anuales, tributarán por cuota cero.</p>
+          <p class="articulo">Grupo 952. Asistencia y servicios sociales para niños, jóvenes, disminuidos físicos y ancianos, en centros no residenciales.</p>
+          <p class="parrafo_2">Cuota de: 9.419 pesetas. (56,61 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion99" tipo="precepto" titulo="Agrupación 99">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 99. Servicios no clasificados en otras rú­bricas.</p>
+          <p class="articulo">Grupo 991. Prestación de servicios por sociedades de desarrollo industrial regional.</p>
+          <p class="parrafo_2">Cuota provincial de: 29.400 pesetas.</p>
+          <p class="articulo">Grupo 999. Otros servicios n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 29.400 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 99. Servicios no clasificados en otras rú­bricas.</p>
+          <p class="articulo">Grupo 991. Prestación de servicios por sociedades de desarrollo industrial regional.</p>
+          <p class="parrafo_2">Cuota provincial de: 30.429 pesetas. (182,88 euros)</p>
+          <p class="articulo">Grupo 999. Otros servicios n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 30.429 pesetas. (182,88 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion01" tipo="precepto" titulo="Agrupación 01">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 01. Doctores y Licenciados en Ciencias Biológicas, Ingenieros Agrónomos y de Montes.</p>
+          <p class="articulo">Grupo 011. Doctores y Licenciados en Ciencias Bioló­gicas.</p>
+          <p class="parrafo_2">Cuota de: 21.500 pesetas.</p>
+          <p class="articulo">Grupo 012. Ingenieros Agrónomos y de Montes.</p>
+          <p class="parrafo_2">Cuota de: 32.500 pesetas.</p>
+          <p class="articulo">Grupo 013. Veterinarios.</p>
+          <p class="parrafo_2">Cuota de: 33.700 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 01. Doctores y Licenciados en Ciencias Biológicas, Ingenieros Agrónomos y de Montes.</p>
+          <p class="articulo">Grupo 011. Doctores y Licenciados en Ciencias Bioló­gicas.</p>
+          <p class="parrafo_2">Cuota de: 22.253 pesetas. (133,74 euros)</p>
+          <p class="articulo">Grupo 012. Ingenieros Agrónomos y de Montes.</p>
+          <p class="parrafo_2">Cuota de: 33.638 pesetas. (202,17 euros)</p>
+          <p class="articulo">Grupo 013. Veterinarios.</p>
+          <p class="parrafo_2">Cuota de: 34.880 pesetas. (209,63 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion02" tipo="precepto" titulo="Agrupación 02">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 02. Ingenieros Técnicos Agrícolas y Forestales, Técnicos en Biología, Agronomía y Silvicultura y otros técnicos similares.</p>
+          <p class="articulo">Grupo 021. Técnicos en Biología, Agronomía y Silvicultura.</p>
+          <p class="parrafo_2">Cuota de: 19.000 pesetas.</p>
+          <p class="articulo">Grupo 022. Ingenieros Técnicos Agrícolas e Ingenieros Técnicos Forestales.</p>
+          <p class="parrafo_2">Cuota de: 21.200 pesetas.</p>
+          <p class="articulo">Grupo 023. Ingenieros Técnicos Topógrafos.</p>
+          <p class="parrafo_2">Cuota de: 21.800 pesetas.</p>
+          <p class="articulo">Grupo 024. Auxiliares y Ayudantes en Veterinaria (Sexadores de pollos, Castradores, etc.).</p>
+          <p class="parrafo_2">Cuota de: 20.200 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 02. Ingenieros Técnicos Agrícolas y Forestales, Técnicos en Biología, Agronomía y Silvicultura y otros técnicos similares.</p>
+          <p class="articulo">Grupo 021. Técnicos en Biología, Agronomía y Silvicultura.</p>
+          <p class="parrafo_2">Cuota de: 19.665 pesetas. (118,19 euros)</p>
+          <p class="articulo">Grupo 022. Ingenieros Técnicos Agrícolas e Ingenieros Técnicos Forestales.</p>
+          <p class="parrafo_2">Cuota de: 21.942 pesetas. (131,87 euros)</p>
+          <p class="articulo">Grupo 023. Ingenieros Técnicos Topógrafos.</p>
+          <p class="parrafo_2">Cuota de: 22.563 pesetas. (135,61 euros)</p>
+          <p class="articulo">Grupo 024. Auxiliares y Ayudantes en Veterinaria (Sexadores de pollos, Castradores, etc.).</p>
+          <p class="parrafo_2">Cuota de: 20.907 pesetas. (125,65 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion09" tipo="precepto" titulo="Agrupación 09">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 09. Otros profesionales relacionados con la agricultura, ganadería, caza, silvicultura y pesca, n.c.o.p.</p>
+          <p class="articulo">Grupo 099. Otros profesionales relacionados con la agricultura, ganadería, caza, silvicultura y pesca, n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 21.000 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 09. Otros profesionales relacionados con la agricultura, ganadería, caza, silvicultura y pesca, n.c.o.p.</p>
+          <p class="articulo">Grupo 099. Otros profesionales relacionados con la agricultura, ganadería, caza, silvicultura y pesca, n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 21.735 pesetas. (130,63 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion11-2" tipo="precepto" titulo="Agrupación 11">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 11. Doctores y Licenciados en Ciencias Físicas, en Ciencias Geofísicas y en Ciencias Geológicas, Ingenieros de Minas.</p>
+          <p class="articulo">Grupo 111. Doctores y Licenciados en Ciencias Físicas, Doctores y Licenciados en Ciencias Geofísicas y Doctores y Licenciados en Ciencias Geológicas.</p>
+          <p class="parrafo_2">Cuota de: 23.400 pesetas.</p>
+          <p class="articulo">Grupo 112. Ingenieros de Minas.</p>
+          <p class="parrafo_2">Cuota de: 34.000 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 11. Doctores y Licenciados en Ciencias Físicas, en Ciencias Geofísicas y en Ciencias Geológicas, Ingenieros de Minas.</p>
+          <p class="articulo">Grupo 111. Doctores y Licenciados en Ciencias Físicas, Doctores y Licenciados en Ciencias Geofísicas y Doctores y Licenciados en Ciencias Geológicas.</p>
+          <p class="parrafo_2">Cuota de: 24.219 pesetas. (145,56 euros)</p>
+          <p class="articulo">Grupo 112. Ingenieros de Minas.</p>
+          <p class="parrafo_2">Cuota de: 35.190 pesetas. (211,50 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion12-2" tipo="precepto" titulo="Agrupación 12">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 12. Doctores y Licenciados en Ciencias Químicas.</p>
+          <p class="articulo">Grupo 121. Doctores y Licenciados en Ciencias Quí­micas.</p>
+          <p class="parrafo_2">Cuota de: 22.000 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 12. Doctores y Licenciados en Ciencias Químicas.</p>
+          <p class="articulo">Grupo 121. Doctores y Licenciados en Ciencias Quí­micas.</p>
+          <p class="parrafo_2">Cuota de: 22.770 pesetas. (136,85 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion13-2" tipo="precepto" titulo="Agrupación 13">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 13. Ingenieros Técnicos de Minas, Facultativos y Peritos.</p>
+          <p class="articulo">Grupo 131. Ingenieros Técnicos de Minas, Facultativos y Peritos.</p>
+          <p class="parrafo_2">Cuota de: 25.500 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 13. Ingenieros Técnicos de Minas, Facultativos y Peritos.</p>
+          <p class="articulo">Grupo 131. Ingenieros Técnicos de Minas, Facultativos y Peritos.</p>
+          <p class="parrafo_2">Cuota de: 26.393 pesetas. (158,63 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion19" tipo="precepto" titulo="Agrupación 19">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 19. Otros profesionales relacionados con las actividades propias de la energía, agua, minería e industria química, n.c.o.p.</p>
+          <p class="articulo">Grupo 199. Otros profesionales relacionados con las actividades propias de la energía, agua, minería e industria química, n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 25.000 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 19. Otros profesionales relacionados con las actividades propias de la energía, agua, minería e industria química, n.c.o.p.</p>
+          <p class="articulo">Grupo 199. Otros profesionales relacionados con las actividades propias de la energía, agua, minería e industria química, n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 25.875 pesetas. (155,51 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion21-2" tipo="precepto" titulo="Agrupación 21">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 21. Ingenieros Aeronáuticos y Navales, Ingenieros de Telecomunicación e Ingenieros de Armamento y Construcción y similares.</p>
+          <p class="articulo">Grupo 211. Ingenieros Aeronáuticos.</p>
+          <p class="parrafo_2">Cuota de: 42.000 pesetas.</p>
+          <p class="articulo">Grupo 212. Ingenieros Navales.</p>
+          <p class="parrafo_2">Cuota de: 35.600 pesetas.</p>
+          <p class="articulo">Grupo 213. Ingenieros de Telecomunicación.</p>
+          <p class="parrafo_2">Cuota de: 43.700 pesetas.</p>
+          <p class="articulo">Grupo 214. Ingenieros de Armamento y Construcción, de Armas Navales y Electromecánicos del ICAI.</p>
+          <p class="parrafo_2">Cuota de: 41.000 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 21. Ingenieros Aeronáuticos y Navales, Ingenieros de Telecomunicación e Ingenieros de Armamento y Construcción y similares.</p>
+          <p class="articulo">Grupo 211. Ingenieros Aeronáuticos.</p>
+          <p class="parrafo_2">Cuota de: 43.470 pesetas. (261,26 euros)</p>
+          <p class="articulo">Grupo 212. Ingenieros Navales.</p>
+          <p class="parrafo_2">Cuota de: 36.846 pesetas. (221,45 euros)</p>
+          <p class="articulo">Grupo 213. Ingenieros de Telecomunicación.</p>
+          <p class="parrafo_2">Cuota de: 45.230 pesetas. (271,84 euros)</p>
+          <p class="articulo">Grupo 214. Ingenieros de Armamento y Construcción, de Armas Navales y Electromecánicos del ICAI.</p>
+          <p class="parrafo_2">Cuota de: 42.435 pesetas. (255,04 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion22-2" tipo="precepto" titulo="Agrupación 22">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 22. Ingenieros Técnicos y Ayudantes de la Aeronáutica y Ayudantes de Ingenieros de Armamento y Construcción y similares.</p>
+          <p class="articulo">Grupo 221. Ingenieros Técnicos Aeronáuticos, Ayudantes y Peritos.</p>
+          <p class="parrafo_2">Cuota de: 23.000 pesetas.</p>
+          <p class="articulo">Grupo 222. Ingenieros Técnicos de Telecomunicación, Ayudantes y Peritos.</p>
+          <p class="parrafo_2">Cuota de: 24.700 pesetas.</p>
+          <p class="articulo">Grupo 223. Ayudantes de Ingenieros de Armamento y Construcción, de Armas Navales e Ingenieros técnicos Electromecánicos del ICAI.</p>
+          <p class="parrafo_2">Cuota de: 20.800 pesetas.</p>
+          <p class="articulo">Grupo 224. Dibujantes técnicos.</p>
+          <p class="parrafo_2">Cuota de: 20.800 pesetas.</p>
+          <p class="articulo">Grupo 225. Técnicos en Telecomunicación.</p>
+          <p class="parrafo_2">Cuota de: 21.400 pesetas.</p>
+          <p class="articulo">Grupo 226. Técnicos en Sonido.</p>
+          <p class="parrafo_2">Cuota de: 21.400 pesetas.</p>
+          <p class="articulo">Grupo 227. Técnicos en Iluminación.</p>
+          <p class="parrafo_2">Cuota de: 21.400 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1993-31087" fecha_publicacion="19931230" fecha_vigencia="19940119">
+          <p class="capitulo">Agrupación 22. Ingenieros Técnicos y Ayudantes de la Aeronáutica y Ayudantes de Ingenieros de Armamento y Construcción y similares.</p>
+          <p class="articulo">Grupo 221. Ingenieros Técnicos Aeronáuticos, Ayudantes y Peritos.</p>
+          <p class="parrafo_2">Cuota de: 23.000 pesetas.</p>
+          <p class="articulo">Grupo 222. Ingenieros Técnicos de Telecomunicación, Ayudantes y Peritos.</p>
+          <p class="parrafo_2">Cuota de: 24.700 pesetas.</p>
+          <p class="articulo">Grupo 223. Ayudantes de Ingenieros de Armamento y Construcción, de Armas Navales e Ingenieros técnicos Electromecánicos del ICAI.</p>
+          <p class="parrafo_2">Cuota de: 20.800 pesetas.</p>
+          <p class="articulo">Grupo 224. Dibujantes técnicos.</p>
+          <p class="parrafo_2">Cuota de: 20.800 pesetas.</p>
+          <p class="articulo">Grupo 225. Técnicos en Telecomunicación.</p>
+          <p class="parrafo_2">Cuota de: 21.400 pesetas.</p>
+          <p class="articulo">Grupo 226. Técnicos en Sonido.</p>
+          <p class="parrafo_2">Cuota de: 21.400 pesetas.</p>
+          <p class="articulo">Grupo 227. Técnicos en Iluminación.</p>
+          <p class="parrafo_2">Cuota de: 21.400 pesetas.</p>
+          <p class="articulo">Grupo 228. Ingenieros Técnicos Navales, Ayudantes y Peritos.</p>
+          <p class="parrafo">Cuota de: 22.000 pesetas.</p>
+          <blockquote>
+            <p class="nota_pie">Se añade el Grupo 228 por el art. 72.1. 13 de la Ley 21/1993, de 29 de diciembre. <a class="refPost">Ref. BOE-A-1993-31087</a>.</p>
+          </blockquote>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 22. Ingenieros Técnicos y Ayudantes de la Aeronáutica y Ayudantes de Ingenieros de Armamento y Construcción y similares.</p>
+          <p class="articulo">Grupo 221. Ingenieros Técnicos Aeronáuticos, Ayudantes y Peritos.</p>
+          <p class="parrafo_2">Cuota de: 23.805 pesetas. (143,07 euros)</p>
+          <p class="articulo">Grupo 222. Ingenieros Técnicos de Telecomunicación, Ayudantes y Peritos.</p>
+          <p class="parrafo_2">Cuota de: 25.565 pesetas. (153,65 euros)</p>
+          <p class="articulo">Grupo 223. Ayudantes de Ingenieros de Armamento y Construcción, de Armas Navales e Ingenieros técnicos Electromecánicos del ICAI.</p>
+          <p class="parrafo_2">Cuota de: 21.528 pesetas. (129,39 euros)</p>
+          <p class="articulo">Grupo 224. Dibujantes técnicos.</p>
+          <p class="parrafo_2">Cuota de: 21.528 pesetas. (129,39 euros)</p>
+          <p class="articulo">Grupo 225. Técnicos en Telecomunicación.</p>
+          <p class="parrafo_2">Cuota de: 22.149 pesetas. (133,12 euros)</p>
+          <p class="articulo">Grupo 226. Técnicos en Sonido.</p>
+          <p class="parrafo_2">Cuota de: 22.149 pesetas. (133,12 euros)</p>
+          <p class="articulo">Grupo 227. Técnicos en Iluminación.</p>
+          <p class="parrafo_2">Cuota de: 22.149 pesetas. (133,12 euros)</p>
+          <p class="articulo">Grupo 228. Ingenieros Técnicos Navales, Ayudantes y Peritos.</p>
+          <p class="parrafo">Cuota de: 22.770 pesetas. (136,85 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+            <p class="nota_pie">Se añade el Grupo 228 por el art. 72.1. 13 de la Ley 21/1993, de 29 de diciembre. <a class="refPost">Ref. BOE-A-1993-31087</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion29" tipo="precepto" titulo="Agrupación 29">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 29. Otros profesionales relacionados con las industrias de la aeronáutica, de la telecomunicación y de la mecánica de precisión, n.c.o.p.</p>
+          <p class="articulo">Grupo 299. Otros profesionales relacionados con las industrias de la aeronáutica, de la telecomunicación y de la mecánica de precisión, n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 21.800 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 29. Otros profesionales relacionados con las industrias de la aeronáutica, de la telecomunicación y de la mecánica de precisión, n.c.o.p.</p>
+          <p class="articulo">Grupo 299. Otros profesionales relacionados con las industrias de la aeronáutica, de la telecomunicación y de la mecánica de precisión, n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 22.563 pesetas. (135,61 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion31-2" tipo="precepto" titulo="Agrupación 31">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 31. Ingenieros Industriales y Textiles.</p>
+          <p class="articulo">Grupo 311. Ingenieros Industriales y Textiles.</p>
+          <p class="parrafo_2">Cuota de: 37.000 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 31. Ingenieros Industriales y Textiles.</p>
+          <p class="articulo">Grupo 311. Ingenieros Industriales y Textiles.</p>
+          <p class="parrafo_2">Cuota de: 38.295 pesetas. (230,16 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion32-2" tipo="precepto" titulo="Agrupación 32">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 32. Ingenieros Técnicos Industriales y Textiles y Técnicos en Artes Gráficas.</p>
+          <p class="articulo">Grupo 321. Ingenieros Técnicos Industriales y Textiles, Ayudantes y Peritos.</p>
+          <p class="parrafo_2">Cuota de: 20.000 pesetas.</p>
+          <p class="articulo">Grupo 322. Técnicos en Artes Gráficas.</p>
+          <p class="parrafo_2">Cuota de: 20.500 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 32. Ingenieros Técnicos Industriales y Textiles y Técnicos en Artes Gráficas.</p>
+          <p class="articulo">Grupo 321. Ingenieros Técnicos Industriales y Textiles, Ayudantes y Peritos.</p>
+          <p class="parrafo_2">Cuota de: 20.700 pesetas. (124,41 euros)</p>
+          <p class="articulo">Grupo 322. Técnicos en Artes Gráficas.</p>
+          <p class="parrafo_2">Cuota de: 21.218 pesetas. (127,52 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion39-2" tipo="precepto" titulo="Agrupación 39">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 39. Otros profesionales relacionados con otras industrias manufactureras, n.c.o.p.</p>
+          <p class="articulo">Grupo 399. Otros profesionales relacionados con otras industrias manufactureras, n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 21.800 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 39. Otros profesionales relacionados con otras industrias manufactureras, n.c.o.p.</p>
+          <p class="articulo">Grupo 399. Otros profesionales relacionados con otras industrias manufactureras, n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 22.563 pesetas. (135,61 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion41-2" tipo="precepto" titulo="Agrupación 41">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 41. Arquitectos e Ingenieros Superiores de Caminos, Canales y Puertos.</p>
+          <p class="articulo">Grupo 411. Arquitectos.</p>
+          <p class="parrafo_2">Cuota de: 47.000 pesetas.</p>
+          <p class="articulo">Grupo 412. Ingenieros de Caminos, Canales y Puertos.</p>
+          <p class="parrafo_2">Cuota de: 46.300 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 41. Arquitectos e Ingenieros Superiores de Caminos, Canales y Puertos.</p>
+          <p class="articulo">Grupo 411. Arquitectos.</p>
+          <p class="parrafo_2">Cuota de: 48.645 pesetas. (292,36 euros)</p>
+          <p class="articulo">Grupo 412. Ingenieros de Caminos, Canales y Puertos.</p>
+          <p class="parrafo_2">Cuota de: 47.921 pesetas. (288,01 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion42-2" tipo="precepto" titulo="Agrupación 42">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 42. Arquitectos Técnicos e Ingenieros Técnicos en la Construcción.</p>
+          <p class="articulo">Grupo 421. Arquitectos Técnicos y Aparejadores.</p>
+          <p class="parrafo_2">Cuota de: 32.000 pesetas.</p>
+          <p class="articulo">Grupo 422. Ingenieros Técnicos de Obras Públicas, Ayudantes y Peritos.</p>
+          <p class="parrafo_2">Cuota de: 22.800 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 42. Arquitectos Técnicos e Ingenieros Técnicos en la Construcción.</p>
+          <p class="articulo">Grupo 421. Arquitectos Técnicos y Aparejadores.</p>
+          <p class="parrafo_2">Cuota de: 33.120 pesetas. (199,06 euros)</p>
+          <p class="articulo">Grupo 422. Ingenieros Técnicos de Obras Públicas, Ayudantes y Peritos.</p>
+          <p class="parrafo_2">Cuota de: 23.598 pesetas. (141,83 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+          <p class="parrafo_2"> </p>
+        </version>
+      </bloque>
+<bloque id="agrupacion43-2" tipo="precepto" titulo="Agrupación 43">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 43. Delineantes y decoradores.</p>
+          <p class="articulo">Grupo 431. Delineantes.</p>
+          <p class="parrafo_2">Cuota de: 20.800 pesetas.</p>
+          <p class="articulo">Grupo 432. Decoradores-Diseñadores de interiores.</p>
+          <p class="parrafo_2">Cuota de: 20.800 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 43. Delineantes y decoradores.</p>
+          <p class="articulo">Grupo 431. Delineantes.</p>
+          <p class="parrafo_2">Cuota de: 21.528 pesetas. (129,39 euros)</p>
+          <p class="articulo">Grupo 432. Decoradores-Diseñadores de interiores.</p>
+          <p class="parrafo_2">Cuota de: 21.528 pesetas. (129,39 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion44-2" tipo="precepto" titulo="Agrupación 44">
+        <version id_norma="BOE-A-1999-24785" fecha_publicacion="19991230" fecha_vigencia="20000119">
+          <p class="capitulo">Agrupación 44. Técnicos Superiores en Desarrollo de Proyectos Urbanísticos y Operaciones Topográficas.</p>
+          <p class="articulo">Grupo 441. Técnicos Superiores en Desarrollo de Proyectos Urbanísticos y Operaciones Topográficas.</p>
+          <p class="parrafo"> Cuota de: 21.528 pesetas. (129,39 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se añade por el art. 70.1.3 de la Ley 54/1999, de 29 de diciembre. <a class="refPost">Ref. BOE-A-1999-24785</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta para su aplicación el art. 70.3.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion45-2" tipo="precepto" titulo="Agrupación 45">
+        <version id_norma="BOE-A-2000-24265" fecha_publicacion="20001229" fecha_vigencia="20010118">
+          <p class="capitulo">Agrupación 45. Ingenieros en geodesia y cartografía.</p>
+          <p class="articulo">Grupo 451. Ingenieros en geodesia y cartografía.</p>
+          <p class="parrafo">Cuota de: 21.528 pesetas. (129,39 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se añade por el art. 63.1.2 de la Ley 13/2000, de 28 de diciembre. <a class="refPost">Ref. BOE-A-2000-24265</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta para su aplicación el art. 63.3.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion49-2" tipo="precepto" titulo="Agrupación 49">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 49. Otros profesionales relacionados con la construcción, n.c.o.p.</p>
+          <p class="articulo">Grupo 499. Otros profesionales relacionados con la construcción, n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 20.800 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 49. Otros profesionales relacionados con la construcción, n.c.o.p.</p>
+          <p class="articulo">Grupo 499. Otros profesionales relacionados con la construcción, n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 21.528 pesetas. (129,39 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion51" tipo="precepto" titulo="Agrupación 51">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 51. Agentes Comerciales.</p>
+          <p class="articulo">Grupo 511. Agentes Comerciales.</p>
+          <p class="parrafo_2">Cuota de: 29.000 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 51. Agentes Comerciales.</p>
+          <p class="articulo">Grupo 511. Agentes Comerciales.</p>
+          <p class="parrafo_2">Cuota de: 30.015 pesetas. (180,39 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion52" tipo="precepto" titulo="Agrupación 52">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 52. Técnicos en hostelería.</p>
+          <p class="articulo">Grupo 521. Técnicos en hostelería.</p>
+          <p class="parrafo_2">Cuota de: 29.000 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 52. Técnicos en hostelería.</p>
+          <p class="articulo">Grupo 521. Técnicos en hostelería.</p>
+          <p class="parrafo_2">Cuota de: 30.015 pesetas. (180,39 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion59" tipo="precepto" titulo="Agrupación 59">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 59. Otros profesionales relacionados con el comercio y la hostelería, n.c.o.p.</p>
+          <p class="articulo">Grupo 599. Otros profesionales relacionados con el comercio y la hostelería, n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 18.000 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 59. Otros profesionales relacionados con el comercio y la hostelería, n.c.o.p.</p>
+          <p class="articulo">Grupo 599. Otros profesionales relacionados con el comercio y la hostelería, n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 18.630 pesetas. (111,97 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion61-2" tipo="precepto" titulo="Agrupación 61">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 61. Gestores o intermediarios en las operaciones de transporte y conductores de vehículos terrestres.</p>
+          <p class="articulo">Grupo 611. Agentes de ferrocarriles.</p>
+          <p class="parrafo_2">Cuota de: 24.600 pesetas.</p>
+          <p class="articulo">Grupo 612. Conductores de vehículos terrestres.</p>
+          <p class="parrafo_2">Cuota de: 16.200 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 61. Gestores o intermediarios en las operaciones de transporte y conductores de vehículos terrestres.</p>
+          <p class="articulo">Grupo 611. Agentes de ferrocarriles.</p>
+          <p class="parrafo_2">Cuota de: 25.461 pesetas. (153,02 euros)</p>
+          <p class="articulo">Grupo 612. Conductores de vehículos terrestres.</p>
+          <p class="parrafo_2">Cuota de: 16.767 pesetas. (100,77 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion69-2" tipo="precepto" titulo="Agrupación 69">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 69. Otros profesionales relacionados con el transporte y las comunicaciones, n.c.o.p.</p>
+          <p class="articulo">Grupo 699. Otros profesionales relacionados con el transporte y las comunicaciones, n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 34.800 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 69. Otros profesionales relacionados con el transporte y las comunicaciones, n.c.o.p.</p>
+          <p class="articulo">Grupo 699. Otros profesionales relacionados con el transporte y las comunicaciones, n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 36.018 pesetas. (216,47 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion71-2" tipo="precepto" titulo="Agrupación 71">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 71. Profesionales relacionados con los seguros.</p>
+          <p class="articulo">Grupo 711. Actuarios de seguros.</p>
+          <p class="parrafo_2">Cuota de: 38.000 pesetas.</p>
+          <p class="articulo">Grupo 712. Agentes, representantes y corredores de seguros.</p>
+          <p class="parrafo_2">Cuota de: 40.800 pesetas.</p>
+          <p class="articulo">Grupo 713. Agentes de seguros afectos no representantes.</p>
+          <p class="parrafo_2">Cuota de: 24.000 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-2000-24265" fecha_publicacion="20001229" fecha_vigencia="20010118">
+          <p class="capitulo">Agrupación 71. Profesionales relacionados con los seguros.</p>
+          <p class="articulo">Grupo 711. Actuarios de seguros.</p>
+          <p class="parrafo_2">Cuota de: 39.330 pesetas. (236,38 euros)</p>
+          <p class="articulo">Grupo 712. Agentes y corredores de seguros.</p>
+          <p class="parrafo_2">Cuota de: 24.840 pesetas. (149,29 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se modifica por el art. 63.1.3 de la Ley 13/2000, de 28 de diciembre. <a class="refPost">Ref. BOE-A-2000-24265</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta para su aplicación el art. 63.2.</p>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 71. Profesionales relacionados con los seguros.</p>
+          <p class="articulo">Grupo 711. Actuarios de seguros.</p>
+          <p class="parrafo_2">Cuota de: 39.330 pesetas.</p>
+          <p class="articulo">Grupo 712. Agentes, representantes y corredores de seguros.</p>
+          <p class="parrafo_2">Cuota de: 42.228 pesetas.</p>
+          <p class="articulo">Grupo 713. Agentes de seguros afectos no representantes.</p>
+          <p class="parrafo_2">Cuota de: 24.840 pesetas.</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion72-2" tipo="precepto" titulo="Agrupación 72">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 72. Gestores de asuntos públicos y privados.</p>
+          <p class="articulo">Grupo 721. Agentes colegiados de la propiedad industrial y de la propiedad inmobiliaria.</p>
+          <p class="parrafo_2">Cuota de: 30.700 pesetas.</p>
+          <p class="articulo">Grupo 722. Gestores administrativos.</p>
+          <p class="parrafo_2">Cuota de: 38.500 pesetas.</p>
+          <p class="parrafo_2">Nota: Los gestores administrativos podrán gestionar ex­pedientes de clases pasivas, siempre que estén autorizados para ello.</p>
+          <p class="articulo">Grupo 723. Administradores de fincas.</p>
+          <p class="parrafo_2">Cuota de: 25.000 pesetas.</p>
+          <p class="articulo">Grupo 724. Intermediarios en la promoción de edificaciones.</p>
+          <p class="parrafo_2">Cuota de: 41.800 pesetas.</p>
+          <p class="articulo">Grupo 725. Habilitados de Clases Pasivas.</p>
+          <p class="parrafo_2">Cuota de: 28.500 pesetas.</p>
+          <p class="articulo">Grupo 726. Graduados Sociales.</p>
+          <p class="parrafo_2">Cuota de: 38.300 pesetas.</p>
+          <p class="articulo">Grupo 727. Agentes o intermediarios en facilitar préstamos.</p>
+          <p class="parrafo_2">Cuota de: 25.000 pesetas.</p>
+          <p class="articulo">Grupo 728. Agentes de Aduanas.</p>
+          <p class="parrafo_2">Cuota de: 28.000 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 72. Gestores de asuntos públicos y privados.</p>
+          <p class="articulo">Grupo 721. Agentes colegiados de la propiedad industrial y de la propiedad inmobiliaria.</p>
+          <p class="parrafo_2">Cuota de: 31.775 pesetas. (190,97 euros)</p>
+          <p class="articulo">Grupo 722. Gestores administrativos.</p>
+          <p class="parrafo_2">Cuota de: 39.848 pesetas. (239,49 euros)</p>
+          <p class="parrafo_2">Nota: Los gestores administrativos podrán gestionar ex­pedientes de clases pasivas, siempre que estén autorizados para ello.</p>
+          <p class="articulo">Grupo 723. Administradores de fincas.</p>
+          <p class="parrafo_2">Cuota de: 25.875 pesetas. (155,51 euros)</p>
+          <p class="articulo">Grupo 724. Intermediarios en la promoción de edificaciones.</p>
+          <p class="parrafo_2">Cuota de: 43.263 pesetas. (260,02 euros)</p>
+          <p class="articulo">Grupo 725. Habilitados de Clases Pasivas.</p>
+          <p class="parrafo_2">Cuota de: 29.498 pesetas. (177,29 euros)</p>
+          <p class="articulo">Grupo 726. Graduados Sociales.</p>
+          <p class="parrafo_2">Cuota de: 39.641 pesetas. (238,25 euros)</p>
+          <p class="articulo">Grupo 727. Agentes o intermediarios en facilitar préstamos.</p>
+          <p class="parrafo_2">Cuota de: 25.875 pesetas. (155,51 euros)</p>
+          <p class="articulo">Grupo 728. Agentes de Aduanas.</p>
+          <p class="parrafo_2">Cuota de: 28.980 pesetas. (174,17 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion73-2" tipo="precepto" titulo="Agrupación 73">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 73. Profesionales del Derecho.</p>
+          <p class="articulo">Grupo 731. Abogados.</p>
+          <p class="parrafo_2">Cuota de: 42.900 pesetas.</p>
+          <p class="articulo">Grupo 732. Procuradores.</p>
+          <p class="parrafo_2">Cuota de: 34.300 pesetas.</p>
+          <p class="articulo">Grupo 733. Notarios.</p>
+          <p class="parrafo_2">Cuota de: 120.000 pesetas.</p>
+          <p class="articulo">Grupo 734. Registradores.</p>
+          <p class="parrafo_2">Cuota de: 120.000 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-2001-24964" fecha_publicacion="20011231" fecha_vigencia="20020120">
+          <p class="capitulo">Agrupación 73. Profesionales del Derecho.</p>
+          <p class="articulo">Grupo 731. Abogados.</p>
+          <p class="parrafo_2">Cuota de: 44.402 pesetas. (266,86 euros)</p>
+          <p class="articulo">Grupo 732. Procuradores.</p>
+          <p class="parrafo_2">Cuota de: 35.501 pesetas. (213,37 euros)</p>
+          <p class="articulo">Grupo 733. Notarios.</p>
+          <p class="parrafo_2">Cuota de: 124.200 pesetas. (746,46 euros)</p>
+          <p class="parrafo_2">Nota: Los sujetos pasivos matriculados en este Grupo podrán disponer, sin pago de cuota adicional alguna, de despachos auxiliares ubicados en los distintos Municipios de sus circunscripciones territoriales, cuando dispongan para ello de la autorización prevista en la legislación notarial.</p>
+          <p class="articulo">Grupo 734. Registradores.</p>
+          <p class="parrafo_2">Cuota de: 124.200 pesetas. (746,46 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se añade una nota al epígrafe 733 por el art. 62.1.2 de la Ley 23/2001, de 27 de diciembre. <a class="refPost">Ref. BOE-A-2001-24964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta para su aplicación el art. 62.2.</p>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 73. Profesionales del Derecho.</p>
+          <p class="articulo">Grupo 731. Abogados.</p>
+          <p class="parrafo_2">Cuota de: 44.402 pesetas. (266,86 euros)</p>
+          <p class="articulo">Grupo 732. Procuradores.</p>
+          <p class="parrafo_2">Cuota de: 35.501 pesetas. (213,37 euros)</p>
+          <p class="articulo">Grupo 733. Notarios.</p>
+          <p class="parrafo_2">Cuota de: 124.200 pesetas. (746,46 euros)</p>
+          <p class="articulo">Grupo 734. Registradores.</p>
+          <p class="parrafo_2">Cuota de: 124.200 pesetas. (746,46 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion75-2" tipo="precepto" titulo="Agrupación 75">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 75. Profesionales de la Publicidad.</p>
+          <p class="articulo">Grupo 751. Profesionales de la Publicidad, relaciones públicas y similares.</p>
+          <p class="parrafo_2">Cuota de: 23.700 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 75. Profesionales de la Publicidad.</p>
+          <p class="articulo">Grupo 751. Profesionales de la Publicidad, relaciones públicas y similares.</p>
+          <p class="parrafo_2">Cuota de: 24.530 pesetas. (147,43 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion76-2" tipo="precepto" titulo="Agrupación 76">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 76. Profesionales de la Informática y de las Ciencias Exactas.</p>
+          <p class="articulo">Grupo 761. Doctores y Licenciados en Ciencias Exactas y Estadísticas.</p>
+          <p class="parrafo_2">Cuota de: 24.700 pesetas.</p>
+          <p class="articulo">Grupo 762. Doctores y Licenciados en Informática.</p>
+          <p class="parrafo_2">Cuota de: 24.600 pesetas.</p>
+          <p class="articulo">Grupo 763. Programadores y Analistas de Informática.</p>
+          <p class="parrafo_2">Cuota de: 18.400 pesetas.</p>
+          <p class="articulo">Grupo 764. Diplomados en Informática.</p>
+          <p class="parrafo_2">Cuota de: 20.000 pesetas.</p>
+          <p class="articulo">Grupo 765. Grabadores informáticos y otros profesionales auxiliares del tratamiento electrónico de datos.</p>
+          <p class="parrafo_2">Cuota de: 24.000 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1991-30903" fecha_publicacion="19911231" fecha_vigencia="19920120">
+          <p class="capitulo">Agrupación 76. Profesionales de la Informática y de las Ciencias Exactas.</p>
+          <p class="articulo">Grupo 761. Doctores y Licenciados en Ciencias Exactas y Estadísticas.</p>
+          <p class="parrafo_2">Cuota de: 24.700 pesetas.</p>
+          <p class="articulo">Grupo 762. Doctores y Licenciados en Informática.</p>
+          <p class="parrafo_2">Cuota de: 24.600 pesetas.</p>
+          <p class="articulo">Grupo 763. Programadores y Analistas de Informática.</p>
+          <p class="parrafo_2">Cuota de: 18.400 pesetas.</p>
+          <p class="articulo">Grupo 764. Diplomados en Informática.</p>
+          <p class="parrafo_2">Cuota de: 20.000 pesetas.</p>
+          <p class="articulo">Grupo 765. Grabadores, Informáticos y otros profesionales auxiliares del tratamiento electrónico de datos.</p>
+          <p class="parrafo_2">Cuota de: 18.400 pesetas.</p>
+          <blockquote>
+            <p class="nota_pie">Se modifica el Grupo 765 por el art. 78.1.17 de la Ley 31/1991, de 30 de diciembre. <a class="refPost">Ref. BOE-A-1991-30903</a>.</p>
+          </blockquote>
+        </version>
+        <version id_norma="BOE-A-2000-24265" fecha_publicacion="20001229" fecha_vigencia="20010118">
+          <p class="capitulo">Agrupación 76. Profesionales de la Informática y de las Ciencias Exactas.</p>
+          <p class="articulo">Grupo 761. Doctores y Licenciados en Ciencias Exactas y Estadísticas.</p>
+          <p class="parrafo_2">Cuota de: 25.565 pesetas. (153,65 euros)</p>
+          <p class="articulo">Grupo 762. Doctores, licenciados e ingenieros en informática.</p>
+          <p class="parrafo_2">Cuota de: 25.461 pesetas. (153,02 euros)</p>
+          <p class="articulo">Grupo 763. Programadores y Analistas de Informática.</p>
+          <p class="parrafo_2">Cuota de: 19.044 pesetas. (114,46 euros)</p>
+          <p class="articulo">Grupo 764. Diplomados en Informática.</p>
+          <p class="parrafo_2">Cuota de: 20.700 pesetas. (124,41 euros)</p>
+          <p class="articulo">Grupo 765. Grabadores, Informáticos y otros profesionales auxiliares del tratamiento electrónico de datos.</p>
+          <p class="parrafo_2">Cuota de: 19.044 pesetas. (114,46 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se modifica el Grupo 762 por el art. 63.1.4 de la Ley 13/2000, de 28 de diciembre. <a class="refPost">Ref. BOE-A-2000-24265</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta para su aplicación el art. 63.2.</p>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+            <p class="nota_pie">Se modifica el Grupo 765 por el art. 78.1.17 de la Ley 31/1991, de 30 de diciembre. <a class="refPost">Ref. BOE-A-1991-30903</a>.</p>
+          </blockquote>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 76. Profesionales de la Informática y de las Ciencias Exactas.</p>
+          <p class="articulo">Grupo 761. Doctores y Licenciados en Ciencias Exactas y Estadísticas.</p>
+          <p class="parrafo_2">Cuota de: 25.565 pesetas.</p>
+          <p class="articulo">Grupo 762. Doctores y Licenciados en Informática.</p>
+          <p class="parrafo_2">Cuota de: 25.461 pesetas.</p>
+          <p class="articulo">Grupo 763. Programadores y Analistas de Informática.</p>
+          <p class="parrafo_2">Cuota de: 19.044 pesetas.</p>
+          <p class="articulo">Grupo 764. Diplomados en Informática.</p>
+          <p class="parrafo_2">Cuota de: 20.700 pesetas.</p>
+          <p class="articulo">Grupo 765. Grabadores, Informáticos y otros profesionales auxiliares del tratamiento electrónico de datos.</p>
+          <p class="parrafo_2">Cuota de: 19.044 pesetas.</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie">Se modifica el Grupo 765 por el art. 78.1.17 de la Ley 31/1991, de 30 de diciembre. <a class="refPost">Ref. BOE-A-1991-30903</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion77" tipo="precepto" titulo="Agrupación 77">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 77. Profesionales de actividades diversas.</p>
+          <p class="articulo">Grupo 771. Agentes cobradores de facturas, de efectos comerciales, de préstamos y derechos de todas clases.</p>
+          <p class="parrafo_2">Cuota de: 16.800 pesetas.</p>
+          <p class="articulo">Grupo 772. Estenotipistas, Mecanógrafos, Taquígrafos y otros profesionales administrativos.</p>
+          <p class="parrafo_2">Cuota de: 18.500 pesetas.</p>
+          <p class="articulo">Grupo 773. Detectives privados y profesionales que prestan servicios de vigilancia, protección y seguridad.</p>
+          <p class="parrafo_2">Cuota de: 20.800 pesetas.</p>
+          <p class="articulo">Grupo 774. Traductores e Intérpretes.</p>
+          <p class="parrafo_2">Cuota de: 19.600 pesetas.</p>
+          <p class="articulo">Grupo 775. Doctores y Licenciados en Filosofía y Letras.</p>
+          <p class="parrafo_2">Cuota de: 20.800 pesetas.</p>
+          <p class="articulo">Grupo 776. Doctores y Licenciados en Ciencias Políticas y Sociales, Psicólogos, Antropólogos, Historiadores y simi­lares.</p>
+          <p class="parrafo_2">Cuota de: 22.500 pesetas.</p>
+          <p class="articulo">Grupo 777. Especialistas en asuntos de personal y orientación y análisis profesional.</p>
+          <p class="parrafo_2">Cuota de: 27.000 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1991-30903" fecha_publicacion="19911231" fecha_vigencia="19920120">
+          <p class="capitulo">Agrupación 77. Profesionales de actividades diversas.</p>
+          <p class="articulo">Grupo 771. Agentes cobradores de facturas, de efectos comerciales, de préstamos y derechos de todas clases.</p>
+          <p class="parrafo_2">Cuota de: 16.800 pesetas.</p>
+          <p class="articulo">Grupo 772. Estenotipistas, Mecanógrafos, Taquígrafos y otros profesionales administrativos.</p>
+          <p class="parrafo_2">Cuota de: 18.500 pesetas.</p>
+          <p class="articulo">Grupo 773. Detectives privados y profesionales que prestan servicios de vigilancia, protección y seguridad.</p>
+          <p class="parrafo_2">Cuota de: 20.800 pesetas.</p>
+          <p class="articulo">Grupo 774. Traductores e Intérpretes.</p>
+          <p class="parrafo_2">Cuota de: 19.600 pesetas.</p>
+          <p class="articulo">Grupo 775. Doctores y Licenciados en Filosofía y Letras.</p>
+          <p class="parrafo_2">Cuota de: 20.800 pesetas.</p>
+          <p class="articulo">Grupo 776. Doctores y Licenciados en Ciencias Políticas y Sociales, Psicólogos, Antropólogos, Historiadores y simi­lares.</p>
+          <p class="parrafo_2">Cuota de: 22.500 pesetas.</p>
+          <p class="articulo">Grupo 777. Especialistas en asuntos de personal y orientación y análisis profesional.</p>
+          <p class="parrafo_2">Cuota de: 27.000 pesetas.</p>
+          <p class="articulo">Grupo 778. Diplomados en Biblioteconomía y Documentación</p>
+          <p class="parrafo">Cuota de 17.000 pesetas.</p>
+          <blockquote>
+            <p class="nota_pie">Se añade el Grupo 778 por el art. 78.1.18 de la Ley 31/1991, de 30 de diciembre. <a class="refPost">Ref. BOE-A-1991-30903</a>.</p>
+          </blockquote>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 77. Profesionales de actividades diversas.</p>
+          <p class="articulo">Grupo 771. Agentes cobradores de facturas, de efectos comerciales, de préstamos y derechos de todas clases.</p>
+          <p class="parrafo_2">Cuota de: 17.388 pesetas. (104,50 euros)</p>
+          <p class="articulo">Grupo 772. Estenotipistas, Mecanógrafos, Taquígrafos y otros profesionales administrativos.</p>
+          <p class="parrafo_2">Cuota de: 19.148 pesetas. (115,08 euros)</p>
+          <p class="articulo">Grupo 773. Detectives privados y profesionales que prestan servicios de vigilancia, protección y seguridad.</p>
+          <p class="parrafo_2">Cuota de: 21.528 pesetas. (129,39 euros)</p>
+          <p class="articulo">Grupo 774. Traductores e Intérpretes.</p>
+          <p class="parrafo_2">Cuota de: 20.286 pesetas. (121,92 euros)</p>
+          <p class="articulo">Grupo 775. Doctores y Licenciados en Filosofía y Letras.</p>
+          <p class="parrafo_2">Cuota de: 21.528 pesetas. (129,39 euros)</p>
+          <p class="articulo">Grupo 776. Doctores y Licenciados en Ciencias Políticas y Sociales, Psicólogos, Antropólogos, Historiadores y simi­lares.</p>
+          <p class="parrafo_2">Cuota de: 23.288 pesetas. (139,96 euros)</p>
+          <p class="articulo">Grupo 777. Especialistas en asuntos de personal y orientación y análisis profesional.</p>
+          <p class="parrafo_2">Cuota de: 27.945 pesetas. (167,95 euros)</p>
+          <p class="articulo">Grupo 778. Diplomados en Biblioteconomía y Documentación</p>
+          <p class="parrafo">Cuota de 17.595 pesetas. (105,75 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+            <p class="nota_pie">Se añade el Grupo 778 por el art. 78.1.18 de la Ley 31/1991, de 30 de diciembre. <a class="refPost">Ref. BOE-A-1991-30903</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion79" tipo="precepto" titulo="Agrupación 79">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 79. Otros profesionales relacionados con las actividades financieras, jurídicas, de seguros y de alquileres, n.c.o.p.</p>
+          <p class="articulo">Grupo 799. Otros profesionales relacionados con las actividades financieras, jurídicas, de seguros y de alquileres, n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 32.500 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 79. Otros profesionales relacionados con las actividades financieras, jurídicas, de seguros y de alquileres, n.c.o.p.</p>
+          <p class="articulo">Grupo 799. Otros profesionales relacionados con las actividades financieras, jurídicas, de seguros y de alquileres, n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 33.638 pesetas. (202,17 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion81-2" tipo="precepto" titulo="Agrupación 81">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 81. Profesionales que prestan servicios de limpieza.</p>
+          <p class="articulo">Grupo 811. Profesionales que prestan servicios de limpieza.</p>
+          <p class="parrafo_2">Cuota de: 7.000 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 81. Profesionales que prestan servicios de limpieza.</p>
+          <p class="articulo">Grupo 811. Profesionales que prestan servicios de limpieza.</p>
+          <p class="parrafo_2">Cuota de: 7.245 pesetas. (43,54 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion82-2" tipo="precepto" titulo="Agrupación 82">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 82. Profesionales de la enseñanza.</p>
+          <p class="articulo">Grupo 821. Personal docente de Enseñanza Superior.</p>
+          <p class="parrafo_2">Cuota de: 19.300 pesetas.</p>
+          <p class="articulo">Grupo 822. Personal docente de Enseñanza Media.</p>
+          <p class="parrafo_2">Cuota de: 17.400 pesetas.</p>
+          <p class="articulo">Grupo 823. Personal docente de Enseñanza General Básica y Preescolar.</p>
+          <p class="parrafo_2">Cuota de: 16.200 pesetas.</p>
+          <p class="articulo">Grupo 824. Profesores de formación y perfeccio­namiento profesional.</p>
+          <p class="parrafo_2">Cuota de: 22.000 pesetas.</p>
+          <p class="articulo">Grupo 825. Profesores de conducción de vehículos terrestres, acuáticos, aeronáuticos, etc.</p>
+          <p class="parrafo_2">Cuota de: 15.600 pesetas.</p>
+          <p class="articulo">Grupo 826. Personal docente de enseñanzas diversas, tales como Educación Física y Deportes, Idiomas, Mecanografía, preparación de exámenes y oposiciones y similares.</p>
+          <p class="parrafo_2">Cuota de: 17.400 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 82. Profesionales de la enseñanza.</p>
+          <p class="articulo">Grupo 821. Personal docente de Enseñanza Superior.</p>
+          <p class="parrafo_2">Cuota de: 19.976 pesetas. (120,06 euros)</p>
+          <p class="articulo">Grupo 822. Personal docente de Enseñanza Media.</p>
+          <p class="parrafo_2">Cuota de: 18.009 pesetas. (108,24 euros)</p>
+          <p class="articulo">Grupo 823. Personal docente de Enseñanza General Básica y Preescolar.</p>
+          <p class="parrafo_2">Cuota de: 16.767 pesetas. (100,77 euros)</p>
+          <p class="articulo">Grupo 824. Profesores de formación y perfeccio­namiento profesional.</p>
+          <p class="parrafo_2">Cuota de: 22.770 pesetas. (136,85 euros)</p>
+          <p class="articulo">Grupo 825. Profesores de conducción de vehículos terrestres, acuáticos, aeronáuticos, etc.</p>
+          <p class="parrafo_2">Cuota de: 16.146 pesetas. (97,04 euros)</p>
+          <p class="articulo">Grupo 826. Personal docente de enseñanzas diversas, tales como Educación Física y Deportes, Idiomas, Mecanografía, preparación de exámenes y oposiciones y similares.</p>
+          <p class="parrafo_2">Cuota de: 18.009 pesetas. (108,24 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion83-2" tipo="precepto" titulo="Agrupación 83">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 83. Profesionales de la Sanidad.</p>
+          <p class="articulo">Grupo 831. Médicos de Medicina General.</p>
+          <p class="parrafo_2">Cuota de: 40.000 pesetas.</p>
+          <p class="articulo">Grupo 832. Médicos Especialistas (excluidos Estomatólogos y Odontólogos).</p>
+          <p class="parrafo_2">Cuota de: 47.000 pesetas.</p>
+          <p class="articulo">Grupo 833. Estomatólogos.</p>
+          <p class="parrafo_2">Cuota de: 56.000 pesetas.</p>
+          <p class="articulo">Grupo 834. Odontólogos.</p>
+          <p class="parrafo_2">Cuota de: 45.000 pesetas.</p>
+          <p class="articulo">Grupo 835. Farmacéuticos.</p>
+          <p class="parrafo_2">Cuota de: 29.500 pesetas.</p>
+          <p class="articulo">Grupo 836. Ayudantes Técnicos Sanitarios.</p>
+          <p class="parrafo_2">Cuota de: 19.700 pesetas.</p>
+          <p class="articulo">Grupo 837. Protésicos e Higienistas dentales.</p>
+          <p class="parrafo_2">Cuota de: 24.000 pesetas.</p>
+          <p class="articulo">Grupo 838. Ópticos-Optometristas y Podólogos.</p>
+          <p class="parrafo_2">Cuota de: 18.200 pesetas.</p>
+          <p class="articulo">Grupo 839. Masajistas, Bromatólogos, Dietistas y Auxiliares de enfermería.</p>
+          <p class="parrafo_2">Cuota de: 15.000 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1992-28826" fecha_publicacion="19921230" fecha_vigencia="19930119">
+          <p class="capitulo">Agrupación 83. Profesionales de la Sanidad.</p>
+          <p class="articulo">Grupo 831. Médicos de Medicina General.</p>
+          <p class="parrafo_2">Cuota de: 40.000 pesetas.</p>
+          <p class="articulo">Grupo 832. Médicos Especialistas (excluidos Estomatólogos y Odontólogos).</p>
+          <p class="parrafo_2">Cuota de: 47.000 pesetas.</p>
+          <p class="articulo">Grupo 833. Estomatólogos.</p>
+          <p class="parrafo_2">Cuota de: 56.000 pesetas.</p>
+          <p class="articulo">Grupo 834. Odontólogos.</p>
+          <p class="parrafo_2">Cuota de: 45.000 pesetas.</p>
+          <p class="articulo">Grupo 835. Farmacéuticos.</p>
+          <p class="parrafo_2">Cuota de: 29.500 pesetas.</p>
+          <p class="articulo">Grupo 836. Ayudantes Técnicos Sanitarios y Fisoterapéutas.</p>
+          <p class="parrafo_2">Cuota de: 19.700 pesetas.</p>
+          <p class="articulo">Grupo 837. Protésicos e Higienistas dentales.</p>
+          <p class="parrafo_2">Cuota de: 24.000 pesetas.</p>
+          <p class="articulo">Grupo 838. Ópticos-Optometristas y Podólogos.</p>
+          <p class="parrafo_2">Cuota de: 18.200 pesetas.</p>
+          <p class="articulo">Grupo 839. Masajistas, Bromatólogos, Dietistas y Auxiliares de enfermería.</p>
+          <p class="parrafo_2">Cuota de: 15.000 pesetas.</p>
+          <blockquote>
+            <p class="nota_pie">Se modifica el Grupo 836 por el art. 75.1.48 de la Ley 39/1992, de 29 de diciembre. <a class="refPost">Ref. BOE-A-1992-28826</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta para su aplicación el art. 75.3.</p>
+          </blockquote>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 83. Profesionales de la Sanidad.</p>
+          <p class="articulo">Grupo 831. Médicos de Medicina General.</p>
+          <p class="parrafo_2">Cuota de: 41.400 pesetas. (248,82 euros)</p>
+          <p class="articulo">Grupo 832. Médicos Especialistas (excluidos Estomatólogos y Odontólogos).</p>
+          <p class="parrafo_2">Cuota de: 48.645 pesetas. (292,36 euros)</p>
+          <p class="articulo">Grupo 833. Estomatólogos.</p>
+          <p class="parrafo_2">Cuota de: 57.960 pesetas. (348,35 euros)</p>
+          <p class="articulo">Grupo 834. Odontólogos.</p>
+          <p class="parrafo_2">Cuota de: 46.575 pesetas. (279,92 euros)</p>
+          <p class="articulo">Grupo 835. Farmacéuticos.</p>
+          <p class="parrafo_2">Cuota de: 30.533 pesetas. (183,51 euros)</p>
+          <p class="articulo">Grupo 836. Ayudantes Técnicos Sanitarios y Fisoterapéutas.</p>
+          <p class="parrafo_2">Cuota de: 20.390 pesetas. (122,55 euros)</p>
+          <p class="articulo">Grupo 837. Protésicos e Higienistas dentales.</p>
+          <p class="parrafo_2">Cuota de: 24.840 pesetas. (149,29 euros)</p>
+          <p class="articulo">Grupo 838. Ópticos-Optometristas y Podólogos.</p>
+          <p class="parrafo_2">Cuota de: 18.837 pesetas. (113,21 euros)</p>
+          <p class="articulo">Grupo 839. Masajistas, Bromatólogos, Dietistas y Auxiliares de enfermería.</p>
+          <p class="parrafo_2">Cuota de: 15.525 pesetas. (93,31 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+            <p class="nota_pie">Se modifica el Grupo 836 por el art. 75.1.48 de la Ley 39/1992, de 29 de diciembre. <a class="refPost">Ref. BOE-A-1992-28826</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta para su aplicación el art. 75.3.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion84-2" tipo="precepto" titulo="Agrupación 84">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 84. Profesionales relacionados con actividades parasanitarias.</p>
+          <p class="articulo">Grupo 841. Naturópatas, Acupuntores y otros profesionales parasanitarios.</p>
+          <p class="parrafo_2">Cuota de: 40.000 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 84. Profesionales relacionados con actividades parasanitarias.</p>
+          <p class="articulo">Grupo 841. Naturópatas, Acupuntores y otros profesionales parasanitarios.</p>
+          <p class="parrafo_2">Cuota de: 41.400 pesetas. (248,82 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion85-2" tipo="precepto" titulo="Agrupación 85">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 85. Profesionales relacionados con el espectáculo.</p>
+          <p class="articulo">Grupo 851. Representantes técnicos del espectáculo.</p>
+          <p class="parrafo_2">Cuota de: 41.000 pesetas.</p>
+          <p class="articulo">Grupo 852. Apoderados y representantes taurinos.</p>
+          <p class="parrafo_2">Cuota de: 40.000 pesetas.</p>
+          <p class="articulo">Grupo 853. Agentes de colocación de artistas.</p>
+          <p class="parrafo_2">Cuota de: 40.000 pesetas.</p>
+          <p class="articulo">Grupo 854. Expertos en organización de congresos, asambleas y similares.</p>
+          <p class="parrafo_2">Cuota de: 24.400 pesetas.</p>
+          <p class="articulo">Grupo 855. Agentes y Corredores de apuestas en los espectáculos.</p>
+          <p class="parrafo_2">Cuota de: 23.500 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 85. Profesionales relacionados con el espectáculo.</p>
+          <p class="articulo">Grupo 851. Representantes técnicos del espectáculo.</p>
+          <p class="parrafo_2">Cuota de: 42.435 pesetas. (255,04 euros)</p>
+          <p class="articulo">Grupo 852. Apoderados y representantes taurinos.</p>
+          <p class="parrafo_2">Cuota de: 41.400 pesetas. (248,82 euros)</p>
+          <p class="articulo">Grupo 853. Agentes de colocación de artistas.</p>
+          <p class="parrafo_2">Cuota de: 41.400 pesetas. (248,82 euros)</p>
+          <p class="articulo">Grupo 854. Expertos en organización de congresos, asambleas y similares.</p>
+          <p class="parrafo_2">Cuota de: 25.254 pesetas. (151,78 euros)</p>
+          <p class="articulo">Grupo 855. Agentes y Corredores de apuestas en los espectáculos.</p>
+          <p class="parrafo_2">Cuota de: 24.323 pesetas. (146,18 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion89" tipo="precepto" titulo="Agrupación 89">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 89. Otros profesionales relacionados con los servicios a que se refiere esta división.</p>
+          <p class="articulo">Grupo 899. Otros profesionales relacionados con los servicios a que se refiere esta división.</p>
+          <p class="parrafo_2">Cuota de: 18.400 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 89. Otros profesionales relacionados con los servicios a que se refiere esta división.</p>
+          <p class="articulo">Grupo 899. Otros profesionales relacionados con los servicios a que se refiere esta división.</p>
+          <p class="parrafo_2">Cuota de: 19.044 pesetas. (114,46 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion02-2" tipo="precepto" titulo="Agrupación 02">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 02. Actividades relacionadas con el baile.</p>
+          <p class="articulo">Grupo 021. Directores coreográficos.</p>
+          <p class="parrafo_2">Cuota de: 33.500 pesetas.</p>
+          <p class="articulo">Grupo 022. Bailarines.</p>
+          <p class="parrafo_2">Cuota de: 21.000 pesetas.</p>
+          <p class="articulo">Grupo 029. Otras actividades relacionadas con el baile, n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 16.000 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 02. Actividades relacionadas con el baile.</p>
+          <p class="articulo">Grupo 021. Directores coreográficos.</p>
+          <p class="parrafo_2">Cuota de: 34.673 pesetas. (208,39 euros)</p>
+          <p class="articulo">Grupo 022. Bailarines.</p>
+          <p class="parrafo_2">Cuota de: 21.735 pesetas. (130,63 euros)</p>
+          <p class="articulo">Grupo 029. Otras actividades relacionadas con el baile, n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 16.560 pesetas. (99,53 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion03" tipo="precepto" titulo="Agrupación 03">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 03. Actividades relacionadas con la música.</p>
+          <p class="articulo">Grupo 031. Maestros y Directores de música.</p>
+          <p class="parrafo_2">Cuota de: 28.000 pesetas.</p>
+          <p class="articulo">Grupo 032. Intérpretes de instrumentos musicales.</p>
+          <p class="parrafo_2">Cuota de: 21.000 pesetas.</p>
+          <p class="articulo">Grupo 033. Cantantes.</p>
+          <p class="parrafo_2">Cuota de: 26.000 pesetas.</p>
+          <p class="articulo">Grupo 039. Otras actividades relacionadas con la música, n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 16.000 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 03. Actividades relacionadas con la música.</p>
+          <p class="articulo">Grupo 031. Maestros y Directores de música.</p>
+          <p class="parrafo_2">Cuota de: 28.980 pesetas. (174,17 euros)</p>
+          <p class="articulo">Grupo 032. Intérpretes de instrumentos musicales.</p>
+          <p class="parrafo_2">Cuota de: 21.735 pesetas. (130,63 euros)</p>
+          <p class="articulo">Grupo 033. Cantantes.</p>
+          <p class="parrafo_2">Cuota de: 26.910 pesetas. (161,73 euros)</p>
+          <p class="articulo">Grupo 039. Otras actividades relacionadas con la música, n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 16.560 pesetas. (99,53 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+        <version id_norma="BOE-A-2022-22128" fecha_publicacion="20221224" fecha_vigencia="20230101">
+          <p class="capitulo">Agrupación 03. Actividades relacionadas con la música.</p>
+          <p class="articulo">Grupo 031. Maestros y Directores de música.</p>
+          <p class="parrafo_2">Cuota de: 28.980 pesetas. (174,17 euros)</p>
+          <p class="articulo">Grupo 032. Intérpretes de instrumentos musicales.</p>
+          <p class="parrafo_2">Cuota de: 21.735 pesetas. (130,63 euros)</p>
+          <p class="articulo">Grupo 033. Cantantes.</p>
+          <p class="parrafo_2">Cuota de: 26.910 pesetas. (161,73 euros)</p>
+          <p class="articulo">Grupo 034. Compositores, letristas, arreglistas y adaptadores musicales.</p>
+          <p class="parrafo">Cuota de: 100 euros.</p>
+          <p class="articulo">Grupo 039. Otras actividades relacionadas con la música, n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 16.560 pesetas. (99,53 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se añade el Grupo 034 por el art. 70.5 de la Ley 31/2022, de 23 de diciembre. <a class="refPost">Ref. BOE-A-2022-22128#a7-2</a></p>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion04" tipo="precepto" titulo="Agrupación 04">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 04. Actividades relacionadas con el deporte.</p>
+          <p class="articulo">Grupo 041. Jugadores y entrenadores de fútbol.</p>
+          <p class="parrafo_2">Cuota de: 30.000 pesetas.</p>
+          <p class="articulo">Grupo 042. Jugadores, entrenadores y preparadores de tenis y de golf.</p>
+          <p class="parrafo_2">Cuota de: 21.000 pesetas.</p>
+          <p class="articulo">Grupo 043. Pilotos, entrenadores y preparadores de motociclismo y automovilismo.</p>
+          <p class="parrafo_2">Cuota de: 18.000 pesetas.</p>
+          <p class="articulo">Grupo 044. Boxeadores, entrenadores y preparadores de boxeo.</p>
+          <p class="parrafo_2">Cuota de: 18.000 pesetas.</p>
+          <p class="articulo">Grupo 045. Jugadores, entrenadores y preparadores de baloncesto.</p>
+          <p class="parrafo_2">Cuota de: 18.000 pesetas.</p>
+          <p class="articulo">Grupo 046. Corredores, entrenadores y preparadores de ciclismo.</p>
+          <p class="parrafo_2">Cuota de: 18.000 pesetas.</p>
+          <p class="articulo">Grupo 047. Jugadores, entrenadores y preparadores de balonmano, voleibol, pelota y otros deportistas de la hípica, lucha, etc.</p>
+          <p class="parrafo_2">Cuota de: 17.800 pesetas.</p>
+          <p class="articulo">Grupo 048. Árbitros de espectáculos deportivos.</p>
+          <p class="parrafo_2">Cuota de: 18.000 pesetas.</p>
+          <p class="articulo">Grupo 049. Otras actividades relacionadas con el deporte, n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 16.000 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 04. Actividades relacionadas con el deporte.</p>
+          <p class="articulo">Grupo 041. Jugadores y entrenadores de fútbol.</p>
+          <p class="parrafo_2">Cuota de: 31.050 pesetas. (186,61 euros)</p>
+          <p class="articulo">Grupo 042. Jugadores, entrenadores y preparadores de tenis y de golf.</p>
+          <p class="parrafo_2">Cuota de: 21.735 pesetas. (130,63 euros)</p>
+          <p class="articulo">Grupo 043. Pilotos, entrenadores y preparadores de motociclismo y automovilismo.</p>
+          <p class="parrafo_2">Cuota de: 18.630 pesetas. (111,97 euros)</p>
+          <p class="articulo">Grupo 044. Boxeadores, entrenadores y preparadores de boxeo.</p>
+          <p class="parrafo_2">Cuota de: 18.630 pesetas. (111,97 euros)</p>
+          <p class="articulo">Grupo 045. Jugadores, entrenadores y preparadores de baloncesto.</p>
+          <p class="parrafo_2">Cuota de: 18.630 pesetas. (111,97 euros)</p>
+          <p class="articulo">Grupo 046. Corredores, entrenadores y preparadores de ciclismo.</p>
+          <p class="parrafo_2">Cuota de: 18.630 pesetas. (111,97 euros)</p>
+          <p class="articulo">Grupo 047. Jugadores, entrenadores y preparadores de balonmano, voleibol, pelota y otros deportistas de la hípica, lucha, etc.</p>
+          <p class="parrafo_2">Cuota de: 18.423 pesetas. (110,72 euros)</p>
+          <p class="articulo">Grupo 048. Árbitros de espectáculos deportivos.</p>
+          <p class="parrafo_2">Cuota de: 18.630 pesetas. (111,97 euros)</p>
+          <p class="articulo">Grupo 049. Otras actividades relacionadas con el deporte, n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 16.560 pesetas. (99,53 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="agrupacion05" tipo="precepto" titulo="Agrupación 05">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="capitulo">Agrupación 05. Actividades relacionadas con espectáculos taurinos.</p>
+          <p class="articulo">Grupo 051. Matadores de toros.</p>
+          <p class="parrafo_2">Cuota de: 53.000 pesetas.</p>
+          <p class="articulo">Grupo 052. Rejoneadores.</p>
+          <p class="parrafo_2">Cuota de: 29.000 pesetas.</p>
+          <p class="articulo">Grupo 053. Subalternos.</p>
+          <p class="parrafo_2">Cuota de: 20.000 pesetas.</p>
+          <p class="articulo">Grupo 054. Jefes de cuadrillas cómicas y similares.</p>
+          <p class="parrafo_2">Cuota de: 24.000 pesetas.</p>
+          <p class="articulo">Grupo 055. Otro personal de cuadrillas cómicas y simi­lares.</p>
+          <p class="parrafo_2">Cuota de: 16.000 pesetas.</p>
+          <p class="articulo">Grupo 059. Otras actividades relacionadas con espec­táculos taurinos, n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 18.000 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="capitulo">Agrupación 05. Actividades relacionadas con espectáculos taurinos.</p>
+          <p class="articulo">Grupo 051. Matadores de toros.</p>
+          <p class="parrafo_2">Cuota de: 54.855 pesetas. (329,69 euros)</p>
+          <p class="articulo">Grupo 052. Rejoneadores.</p>
+          <p class="parrafo_2">Cuota de: 30.015 pesetas. (180,39 euros)</p>
+          <p class="articulo">Grupo 053. Subalternos.</p>
+          <p class="parrafo_2">Cuota de: 20.700 pesetas. (124,41 euros)</p>
+          <p class="articulo">Grupo 054. Jefes de cuadrillas cómicas y similares.</p>
+          <p class="parrafo_2">Cuota de: 24.840 pesetas. (149,29 euros)</p>
+          <p class="articulo">Grupo 055. Otro personal de cuadrillas cómicas y simi­lares.</p>
+          <p class="parrafo_2">Cuota de: 16.560 pesetas. (99,53 euros)</p>
+          <p class="articulo">Grupo 059. Otras actividades relacionadas con espec­táculos taurinos, n.c.o.p.</p>
+          <p class="parrafo_2">Cuota de: 18.630 pesetas. (111,97 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se incrementan en un 3,5 por 100 las cuotas, por el art. 26.1.a) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="regla1" tipo="precepto" titulo="Regla 1">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="articulo">Regla 1.ª Contenido de las Tarifas</p>
+          <p class="parrafo_2">Las Tarifas del Impuesto sobre Actividades Económicas comprenden:</p>
+          <p class="parrafo_2">a) La descripción y contenido de las distintas actividades económicas, clasificadas en actividades empresariales, profesionales y artísticas.</p>
+          <p class="parrafo">b) Las cuotas correspondientes a cada actividad, determinadas mediante la aplicación de los correspondientes elementos tributarios regulados en las Tarifas y en la presente Instrucción.</p>
+        </version>
+      </bloque>
+<bloque id="regla2" tipo="precepto" titulo="Regla 2">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="articulo">Regla 2.ª Ejercicio de las actividades gravadas</p>
+          <p class="parrafo_2">El mero ejercicio de cualquier actividad económica especificada en las tarifas, así como el mero ejercicio de cualquier otra actividad de carácter empresarial, profesional o artístico no especificada en aquéllas, dará lugar a la obligación de presentar la correspondiente declaración de alta y de contribuir por este impuesto, salvo que en la presente Instrucción se disponga otra cosa.</p>
+        </version>
+      </bloque>
+<bloque id="regla3" tipo="precepto" titulo="Regla 3">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="articulo">Regla 3.ª Concepto de las Actividades Económicas</p>
+          <p class="parrafo">1. Tienen la consideración de actividades económicas cualesquiera actividades de carácter empresarial, profesional o artístico. A estos efectos se considera que una actividad se ejerce con carácter empresarial, profesional o artístico, cuando suponga la ordenación por cuenta propia de medios de producción y de recursos humanos o de uno de ambos, con la finalidad de intervenir en la producción o distribución de bienes o servicios.</p>
+          <p class="parrafo">2. Tienen la consideración de actividades empresariales, a efectos de este Impuesto, las mineras, industriales, comerciales y de servicios, clasificadas en la sección 1.ª de las Ta­rifas.</p>
+          <p class="parrafo">3. Tienen la consideración de actividades profesionales las clasificadas en la Sección 2.ª de las Tarifas, siempre que se ejerzan por personas físicas. Cuando una persona jurídica o una Entidad de las previstas en el artículo 33 de la Ley General Tributaria ejerza una actividad clasificada en la sección 2.ª de las Tarifas, deberá matricularse y tributar por la actividad correlativa o análoga de la Sección 1.ª de aquéllas.</p>
+          <p class="parrafo">4. Tienen la consideración de actividades artísticas las clasificadas en la Sección 3.ª de las Tarifas.</p>
+          <p class="parrafo">5. No tienen la consideración de actividad económica la utilización de medios de transporte propios ni la de reparación en talleres propios, siempre que a través de unos y otros no se presten servicios a terceros.</p>
+        </version>
+      </bloque>
+<bloque id="regla7" tipo="precepto" titulo="Regla 7">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="articulo">Regla 7.ª Simultaneidad en el ejercicio de actividades de fabricación</p>
+          <p class="parrafo">Cuando se ejerzan simultáneamente por un mismo sujeto pasivo distintas actividades de fabricación gravadas, incluidas en el mismo proceso de fabricación que el producto principal, bien por tratarse de la preparación u obtención de primeras materias o bien de productos intermedios, se satisfará la cuota más elevada de las que correspondan a dichas actividades, más el 50 % de las restantes, siempre que los referidos productos intermedios no sean objeto de venta. Si los productos intermedios fuesen objeto de venta, el sujeto pasivo satisfará el importe íntegro de todas las cuotas.</p>
+          <p class="parrafo">A efectos de lo previsto en el párrafo anterior, se consideran productos intermedios, aquellos que pudiendo ser vendidos tal como se obtienen, por posibilidad del mercado, vienen a ser utilizados, sin embargo, totalmente como primera materia para una transformación ulterior en el mismo proceso.</p>
+          <p class="parrafo">Lo dispuesto en el párrafo primero de esta Regla no es aplicable:</p>
+          <p class="parrafo_2">a) Cuando se trate de producciones no incluidas en un mismo proceso de fabricación.</p>
+          <p class="parrafo">b) Cuando se fabriquen productos diversos clasificados en el mismo epígrafe.</p>
+          <p class="parrafo">c) Cuando los productos, aunque se integren en un mismo proceso, se fabriquen en locales distintos, pertenezcan o no al mismo sujeto pasivo.</p>
+        </version>
+      </bloque>
+<bloque id="regla8" tipo="precepto" titulo="Regla 8">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="articulo">Regla 8.ª Tributación de las actividades no especificadas en las Tarifas</p>
+          <p class="parrafo">Las actividades empresariales, profesionales y artísticas, no especificadas en las Tarifas, se clasificarán, provisionalmente, en el grupo o epígrafe dedicado a las actividades no clasificadas en otras partes (n.c.o.p.), a las que por su naturaleza se asemejen y tributarán por la cuota correspondiente al referido grupo o epígrafe de que se trate.</p>
+          <p class="parrafo">Si la clasificación prevista en el párrafo anterior no fuera posible, las actividades no especificadas en las Tarifas se clasificarán, provisionalmente, en el grupo o epígrafe corres­pondiente a la actividad a la que por su naturaleza más se asemejen y tributarán por la cuota asignada a ésta.</p>
+        </version>
+      </bloque>
+<bloque id="regla9" tipo="precepto" titulo="Regla 9">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="articulo">Regla 9.ª Clases de cuotas</p>
+          <p class="parrafo">Las cuotas contenidas en las Tarifas se clasifican en:</p>
+          <p class="parrafo_2">a) Cuotas mínimas municipales,</p>
+          <p class="parrafo">b) Cuotas provinciales, y</p>
+          <p class="parrafo">c) Cuotas nacionales.</p>
+        </version>
+      </bloque>
+<bloque id="regla10" tipo="precepto" titulo="Regla 10">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="articulo">Regla 10.ª Cuotas mínimas municipales</p>
+          <p class="parrafo">1. Son cuotas mínimas municipales, las que con tal denominación aparecen específicamente señaladas en las Tarifas, sumando, en su caso, el elemento superficie de los locales en los que se realicen las actividades gravadas, así como cualesquiera otras que no tengan la calificación expresa, en las referidas Tarifas, de cuotas provinciales o nacionales.</p>
+          <p class="parrafo">Igual consideración de cuotas mínimas municipales tendrán aquéllas que, por aplicación de lo dispuesto en la Regla 14.ª1.F), su importe está intagrado, exclusivamente, por el valor del elemento tributario de superficie.</p>
+          <p class="parrafo">2. El pago de las cuotas mínimas municipales faculta para el ejercicio de las actividades correspondientes en el término municipal en el que aquél tenga lugar, de conformidad con lo previsto en la Regla 5.ª de esta Instrucción.</p>
+          <p class="parrafo">3. Si una misma actividad se ejerce en varios locales, el sujeto pasivo estará obligado a satisfacer tantas cuotas mínimas municipales, incrementadas, en su caso, con los coeficientes previstos en los artículos 88 y 89 de la Ley 39/1988, cuantos locales en los que ejerza la actividad. Si en un mismo local se ejercen varias actividades, se satisfarán tantas cuotas mínimas municipales cuantas actividades se realicen, aunque el titular de éstas sea la misma persona o Entidad.</p>
+          <p class="parrafo">4. Las actuaciones que realicen los profesionales fuera del término municipal en el que radique el local en el que ejerzan su actividad, no darán lugar al pago de ninguna otra cuota, ni mínima municipal ni provincial ni nacional.</p>
+          <p class="parrafo">5. Los profesionales que no ejerzan su actividad en local determinado y los artistas satisfarán la cuota correspondiente al lugar en el que realicen sus actividades, pudiendo llevar a cabo, fuera del mismo, cuantas actuaciones sean propias de dichas actividades.</p>
+        </version>
+      </bloque>
+<bloque id="regla11" tipo="precepto" titulo="Regla 11">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="articulo">Regla 11.ª Cuotas provinciales</p>
+          <p class="parrafo">1. Son cuotas provinciales las que con tal denominación aparecen expresamente señaladas en las Tarifas.</p>
+          <p class="parrafo">2. El pago de las cuotas provinciales faculta para el ejercicio de las actividades correspondientes en el ámbito territorial de la Provincia de que se trate, sin necesidad de satisfacer cuota mínima municipal alguna.</p>
+        </version>
+        <version id_norma="BOE-A-1994-28967" fecha_publicacion="19941231" fecha_vigencia="19950120">
+          <p class="articulo">Regla 11.ª Cuotas provinciales</p>
+          <p class="parrafo">1. Son cuotas provinciales las que con tal denominación aparecen expresamente señaladas en las Tarifas.</p>
+          <p class="parrafo">2. El pago de las cuotas provinciales faculta para el ejercicio de las actividades correspondientes en el ámbito territorial de la Provincia de que se trate, sin necesidad de satisfacer cuota mínima municipal alguna.</p>
+          <p class="parrafo">3. Los sujetos pasivos que ejerzan en una isla de los archipiélagos canario o balear actividades que tengan asignada cuota provincial, y cuando tributen por dicha cuota, satisfarán únicamente el 50 por 100 del importe de la cuota provincial asignada a la actividad de que se trate.</p>
+          <blockquote>
+            <p class="nota_pie">Se añade el apartado 3 por el art. 76.2.2 de la Ley 41/1994, de 30 de diciembre. <a class="refPost">Ref. BOE-A-1994-28967</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="regla12" tipo="precepto" titulo="Regla 12">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="articulo">Regla 12.ª Cuotas nacionales</p>
+          <p class="parrafo">1. Son cuotas nacionales las que con tal denominación aparecen expresamente señaladas en las Tarifas.</p>
+          <p class="parrafo">2. El pago de las cuotas nacionales faculta para el ejercicio de las actividades correspondientes en todo el territorio nacional, sin necesidad de satisfacer cuota mínima municipal o provincial alguna.</p>
+        </version>
+      </bloque>
+<bloque id="regla13" tipo="precepto" titulo="Regla 13">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="articulo">Regla 13.ª Tributación por cuota mínima municipal provincial o nacional</p>
+          <p class="parrafo">Cuando la actividad de que se trate tenga asignada más de una de las clases de cuotas a que se refiere la Regla 9.ª, el sujeto pasivo podrá optar por el pago de cualquiera de ellas, con las facultades reseñadas en las Reglas 10.ª, 11.ª y 12.ª, respectivamente.</p>
+        </version>
+      </bloque>
+<bloque id="regla15" tipo="precepto" titulo="Regla 15">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="articulo">Regla 15.ª Tributación por cuota cero</p>
+          <p class="parrafo">1. Cuando de la aplicación de las Tarifas resulte cuota cero, los sujetos pasivos no satisfarán cantidad alguna por el impuesto ni estarán obligados a formular declaración alguna.</p>
+          <p class="parrafo">2. La Administración del Estado podrá declarar la tributación por cuota cero de aquellas actividades o modalidades de las mismas que, por su escaso rendimiento económico, no deban satisfacer cantidad alguna por el impuesto. En estos casos, los sujetos pasivos tampoco estarán obligados a formular declaración alguna.</p>
+          <p class="parrafo">3. No obstante lo dispuesto en los apartados anteriores, las agrupaciones y uniones temporales de empresas clasificadas en el Grupo 508 de la Sección 1.ª de las Tarifas deberán darse de alta en la Matrícula.</p>
+        </version>
+      </bloque>
+<bloque id="regla16" tipo="precepto" titulo="Regla 16">
+        <version id_norma="BOE-A-1990-23930" fecha_publicacion="19900929" fecha_vigencia="19901022">
+          <p class="articulo">Regla 16.ª Importe mínimo de las cuotas</p>
+          <p class="parrafo">Salvo lo previsto en la Regla anterior, el importe mínimo de las cuotas será de 6.000 pesetas.</p>
+        </version>
+        <version id_norma="BOE-A-1995-27964" fecha_publicacion="19951230" fecha_vigencia="19960101">
+          <p class="articulo">Regla 16.ª Importe mínimo de las cuotas</p>
+          <p class="parrafo">Salvo lo previsto en la Regla anterior, el importe mínimo de las cuotas será de 6.210 pesetas. (37,32 euros)</p>
+          <blockquote>
+            <p class="nota_pie">Se modifica por el art. 26.1.c) del Real Decreto Ley 12/1995, de 28 de diciembre. <a class="refPost">Ref. BOE-A-1995-27964</a>.</p>
+            <p class="nota_pie_2">Téngase en cuenta que a partir de 1 de enero de 2002, las cantidades en pesetas se han de convertir a euros.</p>
+          </blockquote>
+        </version>
+      </bloque>
+  </texto>
+</documento>

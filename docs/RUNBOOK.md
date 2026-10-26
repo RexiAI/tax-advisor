@@ -6,9 +6,24 @@ from the repository root.
 ## 1. Corpus sync
 
 The corpus is a build-time artifact committed at `corpus/corpus.json`. It is produced by the
-sync script, which fetches the BOE consolidated text for the two covered norms
-(`BOE-A-2006-20764`, `BOE-A-2007-6820`), parses `bloque` units into passages, and writes the
-artifact with a `contentHash`.
+sync script, which fetches the BOE consolidated text for each covered norm, parses `bloque`
+units into passages, and writes the artifact with a `contentHash`.
+
+The eight covered norms, in the fixed order the sync walks them:
+
+| `normId`           | Norm                                                                          |
+| ------------------ | ----------------------------------------------------------------------------- |
+| `BOE-A-2006-20764` | Ley 35/2006, del Impuesto sobre la Renta de las Personas Físicas              |
+| `BOE-A-2007-6820`  | Real Decreto 439/2007, Reglamento del IRPF                                    |
+| `BOE-A-2003-23186` | Ley 58/2003, General Tributaria                                               |
+| `BOE-A-2007-15984` | Real Decreto 1065/2007, Reglamento general de gestión e inspección tributaria |
+| `BOE-A-2015-11724` | Real Decreto Legislativo 8/2015, Ley General de la Seguridad Social           |
+| `BOE-A-1996-4447`  | Real Decreto 84/1996, inscripción de empresas y afiliación                    |
+| `BOE-A-1992-28740` | Ley 37/1992, del Impuesto sobre el Valor Añadido                              |
+| `BOE-A-1990-23930` | Real Decreto Legislativo 1175/1990, tarifas e instrucción del IAE             |
+
+The list lives in `src/domain/allowed-norms.ts`: adding or removing a norm is a change there,
+followed by a sync. A passage of a norm outside that list is refused, never indexed.
 
 ```bash
 npm run corpus:sync
@@ -25,23 +40,23 @@ npm run corpus:sync
 
 ## 2. Environment variables
 
-| Variable               | Default         | Meaning                                             |
-| ---------------------- | --------------- | --------------------------------------------------- |
-| `LLM_BASE_URL`         | none — required | Base URL of the OpenAI-compatible endpoint          |
-| `LLM_API_KEY`          | none — required | Bearer token for that endpoint                      |
-| `LLM_MODEL`            | none — required | Model id requested from that endpoint               |
-| `LLM_DISABLE_REASONING`| `false`         | `true` sends `{"thinking":{"type":"disabled"}}`; skips chain-of-thought tokens on providers that support it |
-| `CORPUS_TAX_YEAR`      | `2025`          | Tax year the corpus covers                          |
-| `MIN_RETRIEVAL_SCORE`  | `0.1`           | Minimum top retrieval score for sufficient evidence |
-| `RETRIEVAL_TOP_K`      | `5`             | Passages retrieved per query                        |
-| `MAX_MESSAGE_CHARS`    | `2000`          | Maximum accepted chat message length                |
-| `RATE_LIMIT_MAX`       | `20`            | Requests per client IP per window                   |
-| `RATE_LIMIT_WINDOW_MS` | `600000`        | Fixed window length (10 minutes)                    |
-| `LLM_TIMEOUT_MS`       | `60000`         | Upper bound on a single model call                  |
-| `AUTH_ALLOWED_EMAIL`   | none — required | The only email allowed to sign in                   |
-| `AUTH_PASSWORD`        | none — required | Login password; server-only, never committed        |
-| `AUTH_SECRET`          | none — required | 32+ random bytes for the session-cookie HMAC        |
-| `AUTH_SESSION_SECONDS` | `28800`         | Session lifetime (8 hours)                          |
+| Variable                | Default         | Meaning                                                                                                     |
+| ----------------------- | --------------- | ----------------------------------------------------------------------------------------------------------- |
+| `LLM_BASE_URL`          | none — required | Base URL of the OpenAI-compatible endpoint                                                                  |
+| `LLM_API_KEY`           | none — required | Bearer token for that endpoint                                                                              |
+| `LLM_MODEL`             | none — required | Model id requested from that endpoint                                                                       |
+| `LLM_DISABLE_REASONING` | `false`         | `true` sends `{"thinking":{"type":"disabled"}}`; skips chain-of-thought tokens on providers that support it |
+| `CORPUS_TAX_YEAR`       | `2025`          | Tax year the corpus covers                                                                                  |
+| `MIN_RETRIEVAL_SCORE`   | `0.1`           | Minimum top retrieval score for sufficient evidence                                                         |
+| `RETRIEVAL_TOP_K`       | `5`             | Passages retrieved per query                                                                                |
+| `MAX_MESSAGE_CHARS`     | `2000`          | Maximum accepted chat message length                                                                        |
+| `RATE_LIMIT_MAX`        | `20`            | Requests per client IP per window                                                                           |
+| `RATE_LIMIT_WINDOW_MS`  | `600000`        | Fixed window length (10 minutes)                                                                            |
+| `LLM_TIMEOUT_MS`        | `60000`         | Upper bound on a single model call                                                                          |
+| `AUTH_ALLOWED_EMAIL`    | none — required | The only email allowed to sign in                                                                           |
+| `AUTH_PASSWORD`         | none — required | Login password; server-only, never committed                                                                |
+| `AUTH_SECRET`           | none — required | 32+ random bytes for the session-cookie HMAC                                                                |
+| `AUTH_SESSION_SECONDS`  | `28800`         | Session lifetime (8 hours)                                                                                  |
 
 Copy `.env.example` to `.env.local` and fill it in; `.env.local` is gitignored and must never
 be committed. A missing LLM variable is a configuration error: `POST /api/chat` answers `503`
@@ -115,14 +130,23 @@ npm run corpus:sync; echo "exit=$?"
 
 - `exit=0` — corpus refreshed.
 - `exit=1` — the script printed the failing norm and the parse detail
-  (`parse_failed … unparsable`, or `… no_passages`). Nothing was written: a failed parse must
-  never ship a shrunken corpus, so the committed artifact is left exactly as it was.
+  (`parse_failed … unparsable`, or `… no_passages`). Nothing was written: a failed parse of
+  **any** of the eight norms must never ship a shrunken corpus, so the committed artifact is
+  left exactly as it was. One broken norm stops the whole sync; there is no partial refresh.
 
 How to fix it, in this order:
 
-1. Add or extend a fixture that reproduces the new shape under `test/fixtures/boe/` — start
-   with `test/fixtures/boe/ley-35-2006.xml` for `BOE-A-2006-20764` and
-   `test/fixtures/boe/rd-439-2007.xml` for `BOE-A-2007-6820`. The live vocabulary is captured
+1. Add or extend a fixture that reproduces the new shape under `test/fixtures/boe/`. There is
+   one fixture per covered norm, named after the norm, and the suite reads them through
+   `FIXTURE_META` in `test/support/harness.ts`:
+   `test/fixtures/boe/ley-35-2006.xml` (`BOE-A-2006-20764`),
+   `test/fixtures/boe/rd-439-2007.xml` (`BOE-A-2007-6820`),
+   `test/fixtures/boe/ley-58-2003.xml` (`BOE-A-2003-23186`),
+   `test/fixtures/boe/rd-1065-2007.xml` (`BOE-A-2007-15984`),
+   `test/fixtures/boe/rdleg-8-2015-lgss.xml` (`BOE-A-2015-11724`),
+   `test/fixtures/boe/rd-84-1996.xml` (`BOE-A-1996-4447`),
+   `test/fixtures/boe/ley-37-1992-iva.xml` (`BOE-A-1992-28740`) and
+   `test/fixtures/boe/rdleg-1175-1990-iae.xml` (`BOE-A-1990-23930`). The live vocabulary is captured
    in `test/fixtures/boe/live-shapes.xml` (a `nota_inicial`, a `preambulo`, an `encabezado`, a
    `precepto` with two versions and a table, and a `firma`); extend that one when BOE introduces
    another `tipo`.

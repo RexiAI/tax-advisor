@@ -12,7 +12,9 @@ import type { NoticeProps } from '@/components/Notice';
 import type { ThreadEntry } from '@/components/Thread';
 import {
   CLARIFICATION_TITLE,
+  GUIDE_FOOTER,
   HANDOFF_LABEL,
+  INSUFFICIENT_TITLE,
   OUT_OF_SCOPE_TITLE,
   RETRY_AFTER_LABEL,
   STATUS_SEARCHING,
@@ -27,6 +29,8 @@ export interface ChatTurn {
   readonly busy: boolean;
   readonly streamingText: string;
   readonly notice: NoticeProps | null;
+  /** Announced by the persistent polite region; text only, never the block. */
+  readonly announcement: string;
   readonly statusText: string;
   setDraft(value: string): void;
   handleSubmit(event: FormEvent<HTMLFormElement>): Promise<void>;
@@ -36,6 +40,7 @@ interface ThreadUpdates {
   readonly append: (added: readonly ThreadEntry[]) => void;
   readonly clearDraft: () => void;
   readonly setNotice: (notice: NoticeProps | null) => void;
+  readonly setAnnouncement: (text: string) => void;
 }
 
 let entryCounter = 0;
@@ -57,12 +62,20 @@ function noticeEntry(notice: NoticeProps): ThreadEntry {
   return { id: nextEntryId(), kind: 'notice', notice };
 }
 
-function abstentionNotice(response: ChatResponse): NoticeProps | null {
+/**
+ * The `Notice` for a thread-level non-answer. An abstention is an ordinary
+ * outcome and gets a name; a refusal gets its boundary copy and the handoff, and
+ * nothing else — no steps, no link list, no footer. A guide keeps its numbered
+ * procedure and carries the disclosure plus the boundary in one footer.
+ */
+export function abstentionNotice(response: ChatResponse): NoticeProps | null {
   if (response.kind === 'insufficient_evidence') {
     return {
       tone: 'info',
+      title: INSUFFICIENT_TITLE,
       body: response.explanation,
       action: { href: response.handoffUrl, label: HANDOFF_LABEL },
+      ...(response.yearNotice === undefined ? {} : { footer: response.yearNotice }),
     };
   }
   if (response.kind === 'out_of_scope') {
@@ -70,8 +83,6 @@ function abstentionNotice(response: ChatResponse): NoticeProps | null {
       tone: 'info',
       title: OUT_OF_SCOPE_TITLE,
       body: response.explanation,
-      ...(response.steps === undefined ? {} : { items: response.steps }),
-      ...(response.links === undefined ? {} : { links: response.links }),
       action: { href: response.handoffUrl, label: HANDOFF_LABEL },
     };
   }
@@ -82,6 +93,7 @@ function abstentionNotice(response: ChatResponse): NoticeProps | null {
       body: response.explanation,
       items: response.steps,
       links: response.links,
+      footer: GUIDE_FOOTER,
     };
   }
   return null;
@@ -112,14 +124,16 @@ function applyOutcome(outcome: SubmitOutcome, message: string, update: ThreadUpd
   }
 
   const response = outcome.response;
-  const abstention = abstentionNotice(response);
   if (response.kind === 'answer') {
     update.append([userEntry(message), answerEntry(response)]);
     update.clearDraft();
     return;
   }
+
+  const abstention = abstentionNotice(response);
   if (abstention !== null) {
     update.append([userEntry(message), noticeEntry(abstention)]);
+    update.setAnnouncement(abstention.title ?? abstention.body);
     update.clearDraft();
     return;
   }
@@ -150,6 +164,7 @@ export function useChatTurn(options: { readonly submit: Submit }): ChatTurn {
   const [busy, setBusy] = useState(false);
   const [streamingText, setStreamingText] = useState('');
   const [notice, setNotice] = useState<NoticeProps | null>(null);
+  const [announcement, setAnnouncement] = useState('');
   const [conversationId] = useState(createConversationId);
 
   const update: ThreadUpdates = {
@@ -160,6 +175,7 @@ export function useChatTurn(options: { readonly submit: Submit }): ChatTurn {
       setDraft('');
     },
     setNotice,
+    setAnnouncement,
   };
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>): Promise<void> {
@@ -169,6 +185,7 @@ export function useChatTurn(options: { readonly submit: Submit }): ChatTurn {
 
     setBusy(true);
     setNotice(null);
+    setAnnouncement('');
     setStreamingText('');
 
     try {
@@ -193,6 +210,7 @@ export function useChatTurn(options: { readonly submit: Submit }): ChatTurn {
     busy,
     streamingText,
     notice,
+    announcement,
     statusText: STATUS_SEARCHING,
     setDraft,
     handleSubmit,

@@ -2,9 +2,10 @@ import { describe, expect, it } from 'vitest';
 
 import { formatSpanishDate } from '@/content/format';
 import { runCorpusSync } from '@/corpus/sync';
+import { ALLOWED_NORMS } from '@/domain/allowed-norms';
 
 import { FakeCorpusFetcher } from '../support/fake-fetcher';
-import { readFixture } from '../support/harness';
+import { fixtureFetcher, fixtureMeta } from '../support/harness';
 
 describe('formatSpanishDate', () => {
   it('formats an ISO date in Spanish', () => {
@@ -21,16 +22,22 @@ describe('formatSpanishDate', () => {
 });
 
 function fetcherWith(xmlByNorm: Record<string, string>): FakeCorpusFetcher {
-  return new FakeCorpusFetcher({
-    'BOE-A-2006-20764': {
-      xml: xmlByNorm['BOE-A-2006-20764'] ?? readFixture('boe', 'ley-35-2006.xml'),
-      fechaActualizacion: '2026-03-17',
-    },
-    'BOE-A-2007-6820': {
-      xml: xmlByNorm['BOE-A-2007-6820'] ?? readFixture('boe', 'rd-439-2007.xml'),
-      fechaActualizacion: '2026-02-11',
-    },
-  });
+  const fetcher = fixtureFetcher();
+  for (const [normId, xml] of Object.entries(xmlByNorm)) {
+    fetcher.replaceXml(normId, xml, fixtureMetaFor(normId).boeUpdatedAt);
+  }
+  return fetcher;
+}
+
+function fixtureMetaFor(normId: string) {
+  const meta = fixtureMeta().find((candidate) => candidate.normId === normId);
+  if (meta === undefined) throw new Error(`no fixture for ${normId}`);
+  return meta;
+}
+
+/** Serves nothing: every norm fails the metadata read. */
+function emptyFetcher(): FakeCorpusFetcher {
+  return new FakeCorpusFetcher({});
 }
 
 describe('runCorpusSync guards', () => {
@@ -51,7 +58,7 @@ describe('runCorpusSync guards', () => {
   });
 
   it('fails when the fetcher cannot serve a document', async () => {
-    const fetcher = new FakeCorpusFetcher({});
+    const fetcher = emptyFetcher();
     const result = await runCorpusSync({
       fetcher,
       previous: null,
@@ -88,6 +95,6 @@ describe('runCorpusSync guards', () => {
 
     expect(second.ok).toBe(true);
     if (!second.ok) return;
-    expect(second.fetchedNormIds).toEqual(['BOE-A-2006-20764', 'BOE-A-2007-6820']);
+    expect(second.fetchedNormIds).toEqual(ALLOWED_NORMS.map((norm) => norm.normId));
   });
 });

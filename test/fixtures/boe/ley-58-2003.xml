@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Ley General Tributaria (BOE-A-2003-23186).
+  Extracto del texto consolidado del BOE (datos abiertos,
+  https://www.boe.es/datosabiertos/api/legislacion-consolidada). Los bloques se
+  copian integros, en su orden de origen: es un subconjunto para los fixtures
+  offline de la suite, no el texto completo. El corpus de produccion
+  (corpus/corpus.json) se construye con el documento entero.
+-->
+<documento>
+  <metadatos>
+    <titulo>Ley General Tributaria</titulo>
+    <fecha_actualizacion>2026-10-09</fecha_actualizacion>
+  </metadatos>
+  <texto>
+<bloque id="a4" tipo="precepto" titulo="Artículo 4">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 4. Potestad tributaria.</p>
+          <p class="parrafo">1. La potestad originaria para establecer tributos corresponde exclusivamente al Estado, mediante ley.</p>
+          <p class="parrafo">2. Las comunidades autónomas y las entidades locales podrán establecer y exigir tributos, de acuerdo con la Constitución y las leyes.</p>
+          <p class="parrafo">3. Las demás entidades de derecho público podrán exigir tributos cuando una ley así lo determine.</p>
+        </version>
+      </bloque>
+<bloque id="a6" tipo="precepto" titulo="Artículo 6">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 6. Impugnabilidad de los actos de aplicación de los tributos y de imposición de sanciones.</p>
+          <p class="parrafo">El ejercicio de la potestad reglamentaria y los actos de aplicación de los tributos y de imposición de sanciones tienen carácter reglado y son impugnables en vía administrativa y jurisdiccional en los términos establecidos en las leyes.</p>
+        </version>
+      </bloque>
+<bloque id="a10" tipo="precepto" titulo="Artículo 10">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 10. Ámbito temporal de las normas tributarias.</p>
+          <p class="parrafo">1. Las normas tributarias entrarán en vigor a los veinte días naturales de su completa publicación en el boletín oficial que corresponda, si en ellas no se dispone otra cosa, y se aplicarán por plazo indefinido, salvo que se fije un plazo determinado.</p>
+          <p class="parrafo">2. Salvo que se disponga lo contrario, las normas tributarias no tendrán efecto retroactivo y se aplicarán a los tributos sin período impositivo devengados a partir de su entrada en vigor y a los demás tributos cuyo período impositivo se inicie desde ese momento.</p>
+          <p class="parrafo">No obstante, las normas que regulen el régimen de infracciones y sanciones tributarias y el de los recargos tendrán efectos retroactivos respecto de los actos que no sean firmes cuando su aplicación resulte más favorable para el interesado.</p>
+        </version>
+      </bloque>
+<bloque id="a14" tipo="precepto" titulo="Artículo 14">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 14. Prohibición de la analogía.</p>
+          <p class="parrafo">No se admitirá la analogía para extender más allá de sus términos estrictos el ámbito del hecho imponible, de las exenciones y demás beneficios o incentivos fiscales.</p>
+        </version>
+      </bloque>
+<bloque id="a16" tipo="precepto" titulo="Artículo 16">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 16. Simulación.</p>
+          <p class="parrafo">1. En los actos o negocios en los que exista simulación, el hecho imponible gravado será el efectivamente realizado por las partes.</p>
+          <p class="parrafo">2. La existencia de simulación será declarada por la Administración tributaria en el correspondiente acto de liquidación, sin que dicha calificación produzca otros efectos que los exclusivamente tributarios.</p>
+          <p class="parrafo">3. En la regularización que proceda como consecuencia de la existencia de simulación se exigirán los intereses de demora y, en su caso, la sanción pertinente.</p>
+        </version>
+      </bloque>
+<bloque id="a19" tipo="precepto" titulo="Artículo 19">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 19. Obligación tributaria principal.</p>
+          <p class="parrafo">La obligación tributaria principal tiene por objeto el pago de la cuota tributaria.</p>
+        </version>
+      </bloque>
+<bloque id="a21" tipo="precepto" titulo="Artículo 21">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 21. Devengo y exigibilidad.</p>
+          <p class="parrafo">1. El devengo es el momento en el que se entiende realizado el hecho imponible y en el que se produce el nacimiento de la obligación tributaria principal.</p>
+          <p class="parrafo">La fecha del devengo determina las circunstancias relevantes para la configuración de la obligación tributaria, salvo que la ley de cada tributo disponga otra cosa.</p>
+          <p class="parrafo">2. La ley propia de cada tributo podrá establecer la exigibilidad de la cuota o cantidad a ingresar, o de parte de la misma, en un momento distinto al del devengo del tributo.</p>
+        </version>
+      </bloque>
+<bloque id="a22" tipo="precepto" titulo="Artículo 22">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 22. Exenciones.</p>
+          <p class="parrafo">Son supuestos de exención aquellos en que, a pesar de realizarse el hecho imponible, la ley exime del cumplimiento de la obligación tributaria principal.</p>
+        </version>
+      </bloque>
+<bloque id="a23" tipo="precepto" titulo="Artículo 23">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 23. Obligación tributaria de realizar pagos a cuenta.</p>
+          <p class="parrafo">1. La obligación tributaria de realizar pagos a cuenta de la obligación tributaria principal consiste en satisfacer un importe a la Administración tributaria por el obligado a realizar pagos fraccionados, por el retenedor o por el obligado a realizar ingresos a cuenta.</p>
+          <p class="parrafo">Esta obligación tributaria tiene carácter autónomo respecto de la obligación tributaria principal.</p>
+          <p class="parrafo">2. El contribuyente podrá deducir de la obligación tributaria principal el importe de los pagos a cuenta soportados, salvo que la ley propia de cada tributo establezca la posibilidad de deducir una cantidad distinta a dicho importe.</p>
+        </version>
+      </bloque>
+<bloque id="a24" tipo="precepto" titulo="Artículo 24">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 24. Obligaciones entre particulares resultantes del tributo.</p>
+          <p class="parrafo">1. Son obligaciones entre particulares resultantes del tributo las que tienen por objeto una prestación de naturaleza tributaria exigible entre obligados tributarios.</p>
+          <p class="parrafo">2. Entre otras, son obligaciones de este tipo las que se generan como consecuencia de actos de repercusión, de retención o de ingreso a cuenta previstos legalmente.</p>
+        </version>
+      </bloque>
+<bloque id="a25" tipo="precepto" titulo="Artículo 25">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 25. Obligaciones tributarias accesorias.</p>
+          <p class="parrafo">1. Son obligaciones tributarias accesorias aquellas distintas de las demás comprendidas en esta sección que consisten en prestaciones pecuniarias que se deben satisfacer a la Administración tributaria y cuya exigencia se impone en relación con otra obligación tributaria.</p>
+          <p class="parrafo">Tienen la naturaleza de obligaciones tributarias accesorias las obligaciones de satisfacer el interés de demora, los recargos por declaración extemporánea y los recargos del período ejecutivo, así como aquellas otras que imponga la ley.</p>
+          <p class="parrafo">2. Las sanciones tributarias no tienen la consideración de obligaciones accesorias.</p>
+        </version>
+      </bloque>
+<bloque id="a29bis" tipo="precepto" titulo="Artículo 29 bis">
+        <version id_norma="BOE-A-2011-20638" fecha_publicacion="20111231" fecha_vigencia="20120101">
+          <p class="articulo">Artículo 29 bis. Obligaciones tributarias en el marco de la asistencia mutua.</p>
+          <p class="parrafo">Son obligaciones tributarias aquellas que deriven de la normativa sobre asistencia mutua. En el caso de su incumplimiento por los obligados tributarios, podrán imponerse las sanciones tributarias establecidas en la ley.</p>
+          <blockquote>
+            <p class="nota_pie">Se añade, con efectos desde el 1 de enero de 2012, por la disposición final 1.uno.6 del Real Decreto-ley 20/2011, de 30 de diciembre. <a class="refPost">Ref. BOE-A-2011-20638</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a37" tipo="precepto" titulo="Artículo 37">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 37. Obligados a realizar pagos a cuenta.</p>
+          <p class="parrafo">1. Es obligado a realizar pagos fraccionados el contribuyente a quien la ley de cada tributo impone la obligación de ingresar cantidades a cuenta de la obligación tributaria principal con anterioridad a que ésta resulte exigible.</p>
+          <p class="parrafo">2. Es retenedor la persona o entidad a quien la ley de cada tributo impone la obligación de detraer e ingresar en la Administración tributaria, con ocasión de los pagos que deba realizar a otros obligados tributarios, una parte de su importe a cuenta del tributo que corresponda a éstos.</p>
+          <p class="parrafo">3. Es obligado a practicar ingresos a cuenta la persona o entidad que satisface rentas en especie o dinerarias y a quien la ley impone la obligación de realizar ingresos a cuenta de cualquier tributo.</p>
+        </version>
+      </bloque>
+<bloque id="a52" tipo="precepto" titulo="Artículo 52">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 52. Método de estimación objetiva.</p>
+          <p class="parrafo">El método de estimación objetiva podrá utilizarse para la determinación de la base imponible mediante la aplicación de las magnitudes, índices, módulos o datos previstos en la normativa propia de cada tributo.</p>
+        </version>
+      </bloque>
+<bloque id="a54" tipo="precepto" titulo="Artículo 54">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 54. Base liquidable.</p>
+          <p class="parrafo">La base liquidable es la magnitud resultante de practicar, en su caso, en la base imponible las reducciones establecidas en la ley.</p>
+        </version>
+      </bloque>
+<bloque id="a55" tipo="precepto" titulo="Artículo 55">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 55. Tipo de gravamen.</p>
+          <p class="parrafo">1. El tipo de gravamen es la cifra, coeficiente o porcentaje que se aplica a la base liquidable para obtener como resultado la cuota íntegra.</p>
+          <p class="parrafo">2. Los tipos de gravamen pueden ser específicos o porcentuales, y deberán aplicarse según disponga la ley propia de cada tributo a cada unidad, conjunto de unidades o tramo de la base liquidable.</p>
+          <p class="parrafo">El conjunto de tipos de gravamen aplicables a las distintas unidades o tramos de base liquidable en un tributo se denominará tarifa.</p>
+          <p class="parrafo">3. La ley podrá prever la aplicación de un tipo cero, así como de tipos reducidos o bonificados.</p>
+        </version>
+      </bloque>
+<bloque id="a58" tipo="precepto" titulo="Artículo 58">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 58. Deuda tributaria.</p>
+          <p class="parrafo">1. La deuda tributaria estará constituida por la cuota o cantidad a ingresar que resulte de la obligación tributaria principal o de las obligaciones de realizar pagos a cuenta.</p>
+          <p class="parrafo">2. Además, la deuda tributaria estará integrada, en su caso, por:</p>
+          <p class="parrafo_2">a) El interés de demora.</p>
+          <p class="parrafo">b) Los recargos por declaración extemporánea.</p>
+          <p class="parrafo">c) Los recargos del período ejecutivo.</p>
+          <p class="parrafo">d) Los recargos exigibles legalmente sobre las bases o las cuotas, a favor del Tesoro o de otros entes públicos.</p>
+          <p class="parrafo_2">3. Las sanciones tributarias que puedan imponerse de acuerdo con lo dispuesto en el título IV de esta ley no formarán parte de la deuda tributaria, pero en su recaudación se aplicarán las normas incluidas en el capítulo V del título III de esta ley.</p>
+        </version>
+      </bloque>
+<bloque id="a59" tipo="precepto" titulo="Artículo 59">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 59. Extinción de la deuda tributaria.</p>
+          <p class="parrafo">1. Las deudas tributarias podrán extinguirse por pago, prescripción, compensación o condonación, por los medios previstos en la normativa aduanera y por los demás medios previstos en las leyes.</p>
+          <p class="parrafo">2. El pago, la compensación, la deducción sobre transferencias o la condonación de la deuda tributaria tiene efectos liberatorios exclusivamente por el importe pagado, compensado, deducido o condonado.</p>
+        </version>
+      </bloque>
+<bloque id="a64" tipo="precepto" titulo="Artículo 64">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 64. Consignación del pago.</p>
+          <p class="parrafo">Los obligados tributarios podrán consignar el importe de la deuda tributaria y, en su caso, de las costas reglamentariamente devengadas en la Caja General de Depósitos u órgano equivalente de las restantes Administraciones públicas, o en alguna de sus sucursales, con los efectos liberatorios o suspensivos que las disposiciones reglamentarias determinen.</p>
+        </version>
+      </bloque>
+<bloque id="a66" tipo="precepto" titulo="Artículo 66">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 66. Plazos de prescripción.</p>
+          <p class="parrafo">Prescribirán a los cuatro años los siguientes derechos:</p>
+          <p class="parrafo_2">a) El derecho de la Administración para determinar la deuda tributaria mediante la oportuna liquidación.</p>
+          <p class="parrafo">b) El derecho de la Administración para exigir el pago de las deudas tributarias liquidadas y autoliquidadas.</p>
+          <p class="parrafo">c) El derecho a solicitar las devoluciones derivadas de la normativa de cada tributo, las devoluciones de ingresos indebidos y el reembolso del coste de las garantías.</p>
+          <p class="parrafo">d) El derecho a obtener las devoluciones derivadas de la normativa de cada tributo, las devoluciones de ingresos indebidos y el reembolso del coste de las garantías.</p>
+        </version>
+      </bloque>
+<bloque id="a71" tipo="precepto" titulo="Artículo 71">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 71. Compensación.</p>
+          <p class="parrafo">1. Las deudas tributarias de un obligado tributario podrán extinguirse total o parcialmente por compensación con créditos reconocidos por acto administrativo a favor del mismo obligado, en las condiciones que reglamentariamente se establezcan.</p>
+          <p class="parrafo">2. La compensación se acordará de oficio o a instancia del obligado tributario.</p>
+          <p class="parrafo">3. Los obligados tributarios podrán solicitar la compensación de los créditos y las deudas tributarias de las que sean titulares mediante un sistema de cuenta corriente, en los términos que reglamentariamente se determinen.</p>
+        </version>
+      </bloque>
+<bloque id="a72" tipo="precepto" titulo="Artículo 72">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 72. Compensación a instancia del obligado tributario.</p>
+          <p class="parrafo">1. El obligado tributario podrá solicitar la compensación de las deudas tributarias que se encuentren tanto en período voluntario de pago como en período ejecutivo.</p>
+          <p class="parrafo">2. La presentación de una solicitud de compensación en período voluntario impedirá el inicio del período ejecutivo de la deuda concurrente con el crédito ofrecido, pero no el devengo del interés de demora que pueda proceder, en su caso, hasta la fecha de reconocimiento del crédito.</p>
+          <p class="parrafo">3. La extinción de la deuda tributaria se producirá en el momento de la presentación de la solicitud o cuando se cumplan los requisitos exigidos para las deudas y los créditos, si este momento fuera posterior a dicha presentación. El acuerdo de compensación declarará dicha extinción.</p>
+        </version>
+      </bloque>
+<bloque id="a74" tipo="precepto" titulo="Artículo 74">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 74. Extinción de deudas de las entidades de derecho público mediante deducciones sobre transferencias.</p>
+          <p class="parrafo">1. Las deudas tributarias vencidas, líquidas y exigibles que las comunidades autónomas, entidades locales y demás entidades de derecho público tengan con el Estado podrán extinguirse con las deducciones sobre las cantidades que la Administración del Estado deba transferir a las referidas entidades.</p>
+          <p class="parrafo">La aplicación de este régimen a las comunidades autónomas y entidades de derecho público dependientes de éstas y a las entidades locales se realizará en los supuestos y conforme al procedimiento establecido en la legislación específica.</p>
+          <p class="parrafo">2. El inicio del procedimiento determinará la suspensión del cobro de las deudas a las que el mismo se refiera.</p>
+          <p class="parrafo">3. La extinción de las deudas objeto del procedimiento tendrá lugar cuando se produzca la deducción y por la cantidad concurrente.</p>
+        </version>
+      </bloque>
+<bloque id="a76" tipo="precepto" titulo="Artículo 76">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 76. Baja provisional por insolvencia.</p>
+          <p class="parrafo">1. Las deudas tributarias que no hayan podido hacerse efectivas en los respectivos procedimientos de recaudación por insolvencia probada, total o parcial, de los obligados tributarios se darán de baja en cuentas en la cuantía procedente, mediante la declaración del crédito como incobrable, total o parcial, en tanto no se rehabiliten dentro del plazo de prescripción de acuerdo con lo dispuesto en el apartado 2 del artículo 173 de esta ley.</p>
+          <p class="parrafo">2. La deuda tributaria se extinguirá si, vencido el plazo de prescripción, no se hubiera rehabilitado.</p>
+        </version>
+      </bloque>
+<bloque id="a78" tipo="precepto" titulo="Artículo 78">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 78. Hipoteca legal tácita.</p>
+          <p class="parrafo">En los tributos que graven periódicamente los bienes o derechos inscribibles en un registro público o sus productos directos, ciertos o presuntos, el Estado, las comunidades autónomas y las entidades locales tendrán preferencia sobre cualquier otro acreedor o adquirente, aunque éstos hayan inscrito sus derechos, para el cobro de las deudas devengadas y no satisfechas correspondientes al año natural en que se exija el pago y al inmediato anterior.</p>
+        </version>
+      </bloque>
+<bloque id="a84" tipo="precepto" titulo="Artículo 84">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 84. Competencia territorial en la aplicación de los tributos.</p>
+          <p class="parrafo">La competencia en el orden territorial se atribuirá al órgano que se determine por la Administración tributaria, en desarrollo de sus facultades de organización, mediante disposición que deberá ser objeto de publicación en el boletín oficial correspondiente.</p>
+          <p class="parrafo">En defecto de disposición expresa, la competencia se atribuirá al órgano funcional inferior en cuyo ámbito territorial radique el domicilio fiscal del obligado tributario.</p>
+        </version>
+      </bloque>
+<bloque id="a85" tipo="precepto" titulo="Artículo 85">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 85. Deber de información y asistencia a los obligados tributarios.</p>
+          <p class="parrafo">1. La Administración deberá prestar a los obligados tributarios la necesaria información y asistencia acerca de sus derechos y obligaciones.</p>
+          <p class="parrafo">2. La actividad a la que se refiere el apartado anterior se instrumentará, entre otras, a través de las siguientes actuaciones:</p>
+          <p class="parrafo_2">a) Publicación de textos actualizados de las normas tributarias, así como de la doctrina administrativa de mayor trascendencia.</p>
+          <p class="parrafo">b) Comunicaciones y actuaciones de información efectuadas por los servicios destinados a tal efecto en los órganos de la Administración tributaria.</p>
+          <p class="parrafo">c) Contestaciones a consultas escritas.</p>
+          <p class="parrafo">d) Actuaciones previas de valoración.</p>
+          <p class="parrafo">e) Asistencia a los obligados en la realización de declaraciones, autoliquidaciones y comunicaciones tributarias.</p>
+        </version>
+      </bloque>
+<bloque id="a87" tipo="precepto" titulo="Artículo 87">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 87. Comunicaciones y actuaciones de información.</p>
+          <p class="parrafo">1. La Administración tributaria informará a los contribuyentes de los criterios administrativos existentes para la aplicación de la normativa tributaria, facilitará la consulta a las bases informatizadas donde se contienen dichos criterios y podrá remitir comunicaciones destinadas a informar sobre la tributación de determinados sectores, actividades o fuentes de renta.</p>
+          <p class="parrafo">2. La Administración tributaria deberá suministrar, a petición de los interesados, el texto íntegro de consultas o resoluciones concretas, suprimiendo toda referencia a los datos que permitan la identificación de las personas a las que afecten.</p>
+          <p class="parrafo">3. Las actuaciones de información previstas en este artículo se podrán efectuar mediante el empleo y aplicación de técnicas y medios electrónicos, informáticos y telemáticos.</p>
+        </version>
+      </bloque>
+<bloque id="a105" tipo="precepto" titulo="Artículo 105">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 105. Carga de la prueba.</p>
+          <p class="parrafo">1. En los procedimientos de aplicación de los tributos quien haga valer su derecho deberá probar los hechos constitutivos del mismo.</p>
+          <p class="parrafo">2. Los obligados tributarios cumplirán su deber de probar si designan de modo concreto los elementos de prueba en poder de la Administración tributaria.</p>
+        </version>
+      </bloque>
+<bloque id="a107" tipo="precepto" titulo="Artículo 107">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 107. Valor probatorio de las diligencias.</p>
+          <p class="parrafo">1. Las diligencias extendidas en el curso de las actuaciones y los procedimientos tributarios tienen naturaleza de documentos públicos y hacen prueba de los hechos que motiven su formalización, salvo que se acredite lo contrario.</p>
+          <p class="parrafo">2. Los hechos contenidos en las diligencias y aceptados por el obligado tributario objeto del procedimiento, así como sus manifestaciones, se presumen ciertos y sólo podrán rectificarse por éstos mediante prueba de que incurrieron en error de hecho.</p>
+        </version>
+      </bloque>
+<bloque id="a110" tipo="precepto" titulo="Artículo 110">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 110. Lugar de práctica de las notificaciones.</p>
+          <p class="parrafo">1. En los procedimientos iniciados a solicitud del interesado, la notificación se practicará en el lugar señalado a tal efecto por el obligado tributario o su representante o, en su defecto, en el domicilio fiscal de uno u otro.</p>
+          <p class="parrafo">2. En los procedimientos iniciados de oficio, la notificación podrá practicarse en el domicilio fiscal del obligado tributario o su representante, en el centro de trabajo, en el lugar donde se desarrolle la actividad económica o en cualquier otro adecuado a tal fin.</p>
+        </version>
+      </bloque>
+<bloque id="a111" tipo="precepto" titulo="Artículo 111">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 111. Personas legitimadas para recibir las notificaciones.</p>
+          <p class="parrafo">1. Cuando la notificación se practique en el lugar señalado al efecto por el obligado tributario o por su representante, o en el domicilio fiscal de uno u otro, de no hallarse presentes en el momento de la entrega, podrá hacerse cargo de la misma cualquier persona que se encuentre en dicho lugar o domicilio y haga constar su identidad, así como los empleados de la comunidad de vecinos o de propietarios donde radique el lugar señalado a efectos de notificaciones o el domicilio fiscal del obligado o su representante.</p>
+          <p class="parrafo">2. El rechazo de la notificación realizado por el interesado o su representante implicará que se tenga por efectuada la misma.</p>
+        </version>
+      </bloque>
+<bloque id="a118" tipo="precepto" titulo="Artículo 118">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 118. Formas de iniciación de la gestión tributaria.</p>
+          <p class="parrafo">De acuerdo con lo previsto en la normativa tributaria, la gestión tributaria se iniciará:</p>
+          <p class="parrafo_2">a) Por una autoliquidación, por una comunicación de datos o por cualquier otra clase de declaración.</p>
+          <p class="parrafo">b) Por una solicitud del obligado tributario, de acuerdo con lo previsto en el artículo 98 de esta ley.</p>
+          <p class="parrafo">c) De oficio por la Administración tributaria.</p>
+        </version>
+      </bloque>
+<bloque id="a121" tipo="precepto" titulo="Artículo 121">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 121. Comunicación de datos.</p>
+          <p class="parrafo">Se considera comunicación de datos la declaración presentada por el obligado tributario ante la Administración para que ésta determine la cantidad que, en su caso, resulte a devolver. Se entenderá solicitada la devolución mediante la presentación de la citada comunicación.</p>
+        </version>
+      </bloque>
+<bloque id="a123" tipo="precepto" titulo="Artículo 123">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 123. Procedimientos de gestión tributaria.</p>
+          <p class="parrafo">1. Son procedimientos de gestión tributaria, entre otros, los siguientes:</p>
+          <p class="parrafo_2">a) El procedimiento de devolución iniciado mediante autoliquidación, solicitud o comunicación de datos.</p>
+          <p class="parrafo">b) El procedimiento iniciado mediante declaración.</p>
+          <p class="parrafo">c) El procedimiento de verificación de datos.</p>
+          <p class="parrafo">d) El procedimiento de comprobación de valores.</p>
+          <p class="parrafo">e) El procedimiento de comprobación limitada.</p>
+          <p class="parrafo_2">2. Reglamentariamente se podrán regular otros procedimientos de gestión tributaria a los que serán de aplicación, en todo caso, las normas establecidas en el capítulo II de este título.</p>
+        </version>
+      </bloque>
+<bloque id="a125" tipo="precepto" titulo="Artículo 125">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 125. Devoluciones derivadas de la presentación de autoliquidaciones.</p>
+          <p class="parrafo">1. Cuando de la presentación de una autoliquidación resulte cantidad a devolver, la Administración tributaria deberá efectuar la devolución que proceda de acuerdo con lo establecido en el artículo 31 de esta ley.</p>
+          <p class="parrafo">2. El plazo establecido para efectuar la devolución comenzará a contarse desde la finalización del plazo previsto para la presentación de la autoliquidación.</p>
+          <p class="parrafo">En los supuestos de presentación fuera de plazo de autoliquidaciones de las que resulte una cantidad a devolver, el plazo al que se refiere el artículo 31 de esta ley para devolver se contará a partir de la presentación de la autoliquidación extemporánea.</p>
+        </version>
+      </bloque>
+<bloque id="a126" tipo="precepto" titulo="Artículo 126">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 126. Devoluciones derivadas de la presentación de solicitudes o comunicaciones de datos.</p>
+          <p class="parrafo">1. Cuando así lo señale la normativa tributaria, el procedimiento de devolución se iniciará mediante la presentación de una solicitud ante la Administración tributaria o, en el caso de obligados tributarios que no tengan obligación de presentar autoliquidación, mediante la presentación de una comunicación de datos.</p>
+          <p class="parrafo">2. El plazo para practicar la devolución de acuerdo con lo dispuesto en el artículo 31 de esta ley comenzará a contarse desde la presentación de la solicitud o desde la finalización del plazo previsto para la presentación de la comunicación de datos.</p>
+          <p class="parrafo">3. El procedimiento se regulará por las normas propias de cada tributo.</p>
+        </version>
+      </bloque>
+<bloque id="a127" tipo="precepto" titulo="Artículo 127">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 127. Terminación del procedimiento de devolución.</p>
+          <p class="parrafo">El procedimiento de devolución terminará por el acuerdo en el que se reconozca la devolución solicitada, por caducidad en los términos del apartado 3 del artículo 104 de esta ley o por el inicio de un procedimiento de verificación de datos, de comprobación limitada o de inspección.</p>
+          <p class="parrafo">En todo caso se mantendrá la obligación de satisfacer el interés de demora sobre la devolución que finalmente se pueda practicar, de acuerdo con lo dispuesto en el artículo 31 de esta ley.</p>
+        </version>
+      </bloque>
+<bloque id="a128" tipo="precepto" titulo="Artículo 128">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 128. Iniciación del procedimiento de gestión tributaria mediante declaración.</p>
+          <p class="parrafo">1. Cuando la normativa del tributo así lo establezca, la gestión del mismo se iniciará mediante la presentación de una declaración por el obligado tributario en la que manifieste la realización del hecho imponible y comunique los datos necesarios para que la Administración cuantifique la obligación tributaria mediante la práctica de una liquidación provisional.</p>
+          <p class="parrafo">2. La Administración tributaria podrá iniciar de nuevo este procedimiento para la liquidación del tributo dentro del plazo de prescripción cuando el procedimiento iniciado mediante declaración hubiera terminado por caducidad.</p>
+        </version>
+      </bloque>
+<bloque id="a131" tipo="precepto" titulo="Artículo 131">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 131. Procedimiento de verificación de datos.</p>
+          <p class="parrafo">La Administración tributaria podrá iniciar el procedimiento de verificación de datos en los siguientes supuestos:</p>
+          <p class="parrafo_2">a) Cuando la declaración o autoliquidación del obligado tributario adolezca de defectos formales o incurra en errores aritméticos.</p>
+          <p class="parrafo">b) Cuando los datos declarados no coincidan con los contenidos en otras declaraciones presentadas por el mismo obligado o con los que obren en poder de la Administración tributaria.</p>
+          <p class="parrafo">c) Cuando se aprecie una aplicación indebida de la normativa que resulte patente de la propia declaración o autoliquidación presentada o de los justificantes aportados con la misma.</p>
+          <p class="parrafo">d) Cuando se requiera la aclaración o justificación de algún dato relativo a la declaración o autoliquidación presentada, siempre que no se refiera al desarrollo de actividades económicas.</p>
+        </version>
+      </bloque>
+<bloque id="a137" tipo="precepto" titulo="Artículo 137">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 137. Iniciación del procedimiento de comprobación limitada.</p>
+          <p class="parrafo">1. Las actuaciones de comprobación limitada se iniciarán de oficio por acuerdo del órgano competente.</p>
+          <p class="parrafo">2. El inicio de las actuaciones de comprobación limitada deberá notificarse a los obligados tributarios mediante comunicación que deberá expresar la naturaleza y alcance de las mismas e informará sobre sus derechos y obligaciones en el curso de tales actuaciones.</p>
+          <p class="parrafo">Cuando los datos en poder de la Administración tributaria sean suficientes para formular la propuesta de liquidación, el procedimiento podrá iniciarse mediante la notificación de dicha propuesta.</p>
+        </version>
+      </bloque>
+<bloque id="a140" tipo="precepto" titulo="Artículo 140">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 140. Efectos de la regularización practicada en el procedimiento de comprobación limitada.</p>
+          <p class="parrafo">1. Dictada resolución en un procedimiento de comprobación limitada, la Administración tributaria no podrá efectuar una nueva regularización en relación con el objeto comprobado al que se refiere el párrafo a) del apartado 2 del artículo anterior salvo que en un procedimiento de comprobación limitada o inspección posterior se descubran nuevos hechos o circunstancias que resulten de actuaciones distintas de las realizadas y especificadas en dicha resolución.</p>
+          <p class="parrafo">2. Los hechos y los elementos determinantes de la deuda tributaria respecto de los que el obligado tributario o su representante haya prestado conformidad expresa no podrán ser impugnados salvo que pruebe que incurrió en error de hecho.</p>
+        </version>
+      </bloque>
+<bloque id="a143" tipo="precepto" titulo="Artículo 143">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 143. Documentación de las actuaciones de la inspección.</p>
+          <p class="parrafo">1. Las actuaciones de la inspección de los tributos se documentarán en comunicaciones, diligencias, informes y actas.</p>
+          <p class="parrafo">2. Las actas son los documentos públicos que extiende la inspección de los tributos con el fin de recoger el resultado de las actuaciones inspectoras de comprobación e investigación, proponiendo la regularización que estime procedente de la situación tributaria del obligado o declarando correcta la misma.</p>
+        </version>
+      </bloque>
+<bloque id="a144" tipo="precepto" titulo="Artículo 144">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 144. Valor probatorio de las actas.</p>
+          <p class="parrafo">1. Las actas extendidas por la inspección de los tributos tienen naturaleza de documentos públicos y hacen prueba de los hechos que motiven su formalización, salvo que se acredite lo contrario.</p>
+          <p class="parrafo">2. Los hechos aceptados por los obligados tributarios en las actas de inspección se presumen ciertos y sólo podrán rectificarse mediante prueba de haber incurrido en error de hecho.</p>
+        </version>
+      </bloque>
+<bloque id="a145" tipo="precepto" titulo="Artículo 145">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 145. Objeto del procedimiento de inspección.</p>
+          <p class="parrafo">1. El procedimiento de inspección tendrá por objeto comprobar e investigar el adecuado cumplimiento de las obligaciones tributarias y en el mismo se procederá, en su caso, a la regularización de la situación tributaria del obligado mediante la práctica de una o varias liquidaciones.</p>
+          <p class="parrafo">2. La comprobación tendrá por objeto los actos, elementos y valoraciones consignados por los obligados tributarios en sus declaraciones.</p>
+          <p class="parrafo">3. La investigación tendrá por objeto descubrir la existencia, en su caso, de hechos con relevancia tributaria no declarados o declarados incorrectamente por los obligados tributarios.</p>
+        </version>
+      </bloque>
+<bloque id="a147" tipo="precepto" titulo="Artículo 147">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 147. Iniciación del procedimiento de inspección.</p>
+          <p class="parrafo">1. El procedimiento de inspección se iniciará:</p>
+          <p class="parrafo_2">a) De oficio.</p>
+          <p class="parrafo">b) A petición del obligado tributario, en los términos establecidos en el artículo 149 de esta ley.</p>
+          <p class="parrafo_2">2. Los obligados tributarios deben ser informados al inicio de las actuaciones del procedimiento de inspección sobre la naturaleza y alcance de las mismas, así como de sus derechos y obligaciones en el curso de tales actuaciones.</p>
+        </version>
+      </bloque>
+<bloque id="a149" tipo="precepto" titulo="Artículo 149">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 149. Solicitud del obligado tributario de una inspección de carácter general.</p>
+          <p class="parrafo">1. Todo obligado tributario que esté siendo objeto de unas actuaciones de inspección de carácter parcial podrá solicitar a la Administración tributaria que las mismas tengan carácter general respecto al tributo y, en su caso, períodos afectados, sin que tal solicitud interrumpa las actuaciones en curso.</p>
+          <p class="parrafo">2. El obligado tributario deberá formular la solicitud en el plazo de 15 días desde la notificación del inicio de las actuaciones inspectoras de carácter parcial.</p>
+          <p class="parrafo">3. La Administración tributaria deberá ampliar el alcance de las actuaciones o iniciar la inspección de carácter general en el plazo de seis meses desde la solicitud. El incumplimiento de este plazo determinará que las actuaciones inspectoras de carácter parcial no interrumpan el plazo de prescripción para comprobar e investigar el mismo tributo y período con carácter general.</p>
+        </version>
+      </bloque>
+<bloque id="a154" tipo="precepto" titulo="Artículo 154">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 154. Clases de actas según su tramitación.</p>
+          <p class="parrafo">1. A efectos de su tramitación, las actas de inspección pueden ser con acuerdo, de conformidad o de disconformidad.</p>
+          <p class="parrafo">2. Cuando el obligado tributario o su representante se niegue a recibir o suscribir el acta, ésta se tramitará como de disconformidad.</p>
+        </version>
+      </bloque>
+<bloque id="a160" tipo="precepto" titulo="Artículo 160">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 160. La recaudación tributaria.</p>
+          <p class="parrafo">1. La recaudación tributaria consiste en el ejercicio de las funciones administrativas conducentes al cobro de las deudas tributarias.</p>
+          <p class="parrafo">2. La recaudación de las deudas tributarias podrá realizarse:</p>
+          <p class="parrafo_2">a) En período voluntario, mediante el pago o cumplimiento del obligado tributario en los plazos previstos en el artículo 62 de esta ley.</p>
+          <p class="parrafo">b) En período ejecutivo, mediante el pago o cumplimiento espontáneo del obligado tributario o, en su defecto, a través del procedimiento administrativo de apremio.</p>
+        </version>
+      </bloque>
+<bloque id="a166" tipo="precepto" titulo="Artículo 166">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 166. Conservación de actuaciones.</p>
+          <p class="parrafo">1. Cuando se declare la nulidad de determinadas actuaciones del procedimiento de apremio se dispondrá la conservación de las no afectadas por la causa de la nulidad.</p>
+          <p class="parrafo">2. La anulación de los recargos u otros componentes de la deuda tributaria distintos de la cuota o de las sanciones no afectará a la validez de las actuaciones realizadas en el curso del procedimiento de apremio respecto a los componentes de la deuda tributaria o sanciones no anulados.</p>
+        </version>
+      </bloque>
+<bloque id="a168" tipo="precepto" titulo="Artículo 168">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 168. Ejecución de garantías.</p>
+          <p class="parrafo">Si la deuda tributaria estuviera garantizada se procederá en primer lugar a ejecutar la garantía a través del procedimiento administrativo de apremio.</p>
+          <p class="parrafo">No obstante, la Administración tributaria podrá optar por el embargo y enajenación de otros bienes o derechos con anterioridad a la ejecución de la garantía cuando ésta no sea proporcionada a la deuda garantizada o cuando el obligado lo solicite, señalando bienes suficientes al efecto. En estos casos, la garantía prestada quedará sin efecto en la parte asegurada por los embargos.</p>
+        </version>
+      </bloque>
+<bloque id="a173" tipo="precepto" titulo="Artículo 173">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 173. Terminación del procedimiento de apremio.</p>
+          <p class="parrafo">1. El procedimiento de apremio termina:</p>
+          <p class="parrafo_2">a) Con el pago de la cantidad debida a que se refiere el apartado 1 del artículo 169 de esta ley.</p>
+          <p class="parrafo">b) Con el acuerdo que declare el crédito total o parcialmente incobrable, una vez declarados fallidos todos los obligados al pago.</p>
+          <p class="parrafo">c) Con el acuerdo de haber quedado extinguida la deuda por cualquier otra causa.</p>
+          <p class="parrafo_2">2. En los casos en que se haya declarado el crédito incobrable, el procedimiento de apremio se reanudará, dentro del plazo de prescripción, cuando se tenga conocimiento de la solvencia de algún obligado al pago.</p>
+        </version>
+      </bloque>
+<bloque id="a177octies" tipo="precepto" titulo="Artículo 177 octies">
+        <version id_norma="BOE-A-2011-20638" fecha_publicacion="20111231" fecha_vigencia="20120101">
+          <p class="articulo">Artículo 177 octies. Procedimiento de recaudación en el ámbito de la asistencia mutua.</p>
+          <p class="parrafo">La recaudación de deudas en el ámbito de la asistencia mutua se realizará mediante el pago o cumplimiento del obligado tributario en los términos previstos en los artículos 62.6 y 65.6 de esta Ley, así como, en su caso, a través de la aplicación de las normas de la Sección 2.ª del capítulo V del Título III de esta Ley, sin perjuicio de las especialidades contenidas en el presente capítulo.</p>
+          <blockquote>
+            <p class="nota_pie">Se añade, con efectos desde el 1 de enero de 2012, por la disposición final 1.uno.16 del Real Decreto-ley 20/2011, de 30 de diciembre. <a class="refPost">Ref. BOE-A-2011-20638</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a178" tipo="precepto" titulo="Artículo 178">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 178. Principios de la potestad sancionadora.</p>
+          <p class="parrafo">La potestad sancionadora en materia tributaria se ejercerá de acuerdo con los principios reguladores de la misma en materia administrativa con las especialidades establecidas en esta ley.</p>
+          <p class="parrafo">En particular serán aplicables los principios de legalidad, tipicidad, responsabilidad, proporcionalidad y no concurrencia. El principio de irretroactividad se aplicará con carácter general, teniendo en consideración lo dispuesto en el apartado 2 del artículo 10 de esta ley.</p>
+        </version>
+      </bloque>
+<bloque id="a183" tipo="precepto" titulo="Artículo 183">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 183. Concepto y clases de infracciones tributarias.</p>
+          <p class="parrafo">1. Son infracciones tributarias las acciones u omisiones dolosas o culposas con cualquier grado de negligencia que estén tipificadas y sancionadas como tales en esta u otra ley.</p>
+          <p class="parrafo">2. Las infracciones tributarias se clasifican en leves, graves y muy graves.</p>
+          <p class="parrafo">3. Las infracciones y sanciones en materia de contrabando se regirán por su normativa específica.</p>
+        </version>
+      </bloque>
+<bloque id="a185" tipo="precepto" titulo="Artículo 185">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 185. Clases de sanciones tributarias.</p>
+          <p class="parrafo">1. Las infracciones tributarias se sancionarán mediante la imposición de sanciones pecuniarias y, cuando proceda, de sanciones no pecuniarias de carácter accesorio.</p>
+          <p class="parrafo">2. Las sanciones pecuniarias podrán consistir en multa fija o proporcional.</p>
+        </version>
+      </bloque>
+<bloque id="a204" tipo="precepto" titulo="Artículo 204">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 204. Infracción tributaria por incumplir el deber de sigilo exigido a los retenedores y a los obligados a realizar ingresos a cuenta.</p>
+          <p class="parrafo">1. Constituye infracción tributaria el incumplimiento del deber de sigilo que el artículo 95 de esta ley exige a retenedores y obligados a realizar ingresos a cuenta.</p>
+          <p class="parrafo">La infracción prevista en este artículo será grave.</p>
+          <p class="parrafo">2. La sanción consistirá en multa pecuniaria fija de 300 euros por cada dato o conjunto de datos referidos a una misma persona o entidad que hubiera sido comunicado indebidamente.</p>
+          <p class="parrafo">La sanción se graduará incrementando la cuantía anterior en el 100 por ciento si existe comisión repetida de la infracción.</p>
+        </version>
+      </bloque>
+<bloque id="a206" tipo="precepto" titulo="Artículo 206">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 206. Infracción por incumplir la obligación de entregar el certificado de retenciones o ingresos a cuenta.</p>
+          <p class="parrafo">1. Constituye infracción tributaria el incumplimiento de la obligación de entregar el certificado de retenciones o ingresos a cuenta practicados a los obligados tributarios perceptores de las rentas sujetas a retención o ingreso a cuenta.</p>
+          <p class="parrafo">La infracción prevista en este artículo será leve.</p>
+          <p class="parrafo">2. La sanción consistirá en multa pecuniaria fija de 150 euros.</p>
+        </version>
+      </bloque>
+<bloque id="a207" tipo="precepto" titulo="Artículo 207">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 207. Regulación del procedimiento sancionador en materia tributaria.</p>
+          <p class="parrafo">El procedimiento sancionador en materia tributaria se regulará:</p>
+          <p class="parrafo_2">a) Por las normas especiales establecidas en este título y la normativa reglamentaria dictada en su desarrollo.</p>
+          <p class="parrafo">b) En su defecto, por las normas reguladoras del procedimiento sancionador en materia administrativa.</p>
+        </version>
+      </bloque>
+<bloque id="a214" tipo="precepto" titulo="Artículo 214">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 214. Capacidad y representación, prueba, notificaciones y plazos de resolución.</p>
+          <p class="parrafo">1. En los procedimientos especiales de revisión, recursos y reclamaciones previstos en este título serán de aplicación las normas sobre capacidad y representación establecidas en la sección 4.ª del capítulo II del título II de esta ley, y las normas sobre prueba y notificaciones establecidas en las secciones 2.ª y 3.ª del capítulo II del título III de esta ley.</p>
+          <p class="parrafo">2. Lo dispuesto en los apartados anteriores se aplicará teniendo en consideración las especialidades reguladas en el capítulo IV de este título.</p>
+          <p class="parrafo">3. A efectos del cómputo de los plazos de resolución previstos en este título será de aplicación lo dispuesto en el apartado 2 del artículo 104 de esta ley.</p>
+        </version>
+      </bloque>
+<bloque id="a222" tipo="precepto" titulo="Artículo 222">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Artículo 222. Objeto y naturaleza del recurso de reposición.</p>
+          <p class="parrafo">1. Los actos dictados por la Administración tributaria susceptibles de reclamación económico-administrativa podrán ser objeto de recurso potestativo de reposición, con arreglo a lo dispuesto en este capítulo.</p>
+          <p class="parrafo">2. El recurso de reposición deberá interponerse, en su caso, con carácter previo a la reclamación económico-administrativa.</p>
+          <p class="parrafo">Si el interesado interpusiera el recurso de reposición no podrá promover la reclamación económico-administrativa hasta que el recurso se haya resuelto de forma expresa o hasta que pueda considerarlo desestimado por silencio administrativo.</p>
+          <p class="parrafo">Cuando en el plazo establecido para recurrir se hubieran interpuesto recurso de reposición y reclamación económico-administrativa que tuvieran como objeto el mismo acto, se tramitará el presentado en primer lugar y se declarará inadmisible el segundo.</p>
+        </version>
+      </bloque>
+<bloque id="a270" tipo="precepto" titulo="Artículo 270">
+        <version id_norma="BOE-A-2015-10143" fecha_publicacion="20150922" fecha_vigencia="20151012">
+          <p class="articulo">Artículo 270. Inicio.</p>
+          <p class="parrafo">El procedimiento de recuperación se iniciará de oficio.</p>
+          <p class="parrafo">El inicio de las actuaciones del procedimiento deberá notificarse a los obligados tributarios mediante comunicación que deberá expresar la naturaleza de las mismas e informará de sus derechos y obligaciones en el curso de aquellas.</p>
+          <p class="parrafo">La comunicación de inicio contendrá la propuesta de resolución, concediéndose un plazo de 10 días al obligado tributario para que alegue lo que convenga a su derecho.</p>
+          <blockquote>
+            <p class="nota_pie">Se añade por el art. único.60 de la Ley 34/2015, de 21 de septiembre. <a class="refPost">Ref. BOE-A-2015-10143#aunico</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="dasegunda" tipo="precepto" titulo="Disposición adicional segunda">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Disposición adicional segunda. Normativa aplicable a los recursos públicos de la Seguridad Social.</p>
+          <p class="parrafo">Esta ley no será de aplicación a los recursos públicos que correspondan a la Tesorería General de la Seguridad Social, que se regirán por su normativa específica.</p>
+        </version>
+      </bloque>
+<bloque id="datercera" tipo="precepto" titulo="Disposición adicional tercera">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Disposición adicional tercera. Ciudades con Estatuto de Autonomía de Ceuta y Melilla.</p>
+          <p class="parrafo">A efectos de lo previsto en esta ley, las referencias realizadas a las comunidades autónomas se entenderán aplicables a las Ciudades con Estatuto de Autonomía de Ceuta y Melilla, sin perjuicio de lo establecido en las leyes orgánicas que aprueban los Estatutos de Autonomía de dichas ciudades.</p>
+        </version>
+      </bloque>
+<bloque id="danovena" tipo="precepto" titulo="Disposición adicional novena">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Disposición adicional novena. Competencias en materia del deber de información.</p>
+          <p class="parrafo">A efectos del apartado 1 del artículo 8 de la Ley Orgánica 1/1982, de 5 de mayo, de Protección Civil del Derecho al Honor, a la Intimidad Personal y Familiar y a la Propia Imagen, se considerará autoridad competente el Ministro de Hacienda, el órgano equivalente de las comunidades autónomas, el órgano de gobierno de las entidades locales, los Directores de Departamento de la Agencia Estatal de Administración Tributaria y sus Delegados territoriales.</p>
+        </version>
+      </bloque>
+<bloque id="daduodecima" tipo="precepto" titulo="Disposición adicional duodécima">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Disposición adicional duodécima. Composición de los tribunales económico-administrativos.</p>
+          <p class="parrafo">El Presidente y los vocales de los tribunales económico-administrativos serán nombrados entre funcionarios del Estado y sus organismos autónomos, de las comunidades autónomas y entre funcionarios de Administración local con Habilitación de Carácter Nacional, que reúnan los requisitos y condiciones que reglamentariamente se determinen, actuando como Secretario un Abogado del Estado.</p>
+        </version>
+      </bloque>
+<bloque id="dadecimoquinta" tipo="precepto" titulo="Disposición adicional decimoquinta">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Disposición adicional decimoquinta. Normas relativas al Catastro Inmobiliario.</p>
+          <p class="parrafo">1. Las infracciones y sanciones en materia catastral, se regirán por su normativa específica.</p>
+          <p class="parrafo">2. El artículo 27 de esta ley relativo a los recargos por declaración extemporánea sin requerimiento previo no será aplicable a las declaraciones catastrales.</p>
+          <p class="parrafo">3. En materia de notificación de valores catastrales, esta ley se aplicará supletoriamente respecto a lo dispuesto en la normativa específica catastral.</p>
+        </version>
+      </bloque>
+<bloque id="dtprimera" tipo="precepto" titulo="Disposición transitoria primera">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Disposición transitoria primera. Recargos del período ejecutivo, interés de demora e interés legal y responsabilidad en contratas y subcontratas.</p>
+          <p class="parrafo">1. Lo dispuesto en el artículo 28 de esta ley se aplicará a las deudas tributarias cuyo período ejecutivo se inicie a partir de la entrada en vigor de la misma.</p>
+          <p class="parrafo">2. Lo dispuesto en los apartados 4 y 6 del artículo 26 y en el apartado 2 del artículo 33 en materia de interés de demora e interés legal será de aplicación a los procedimientos, escritos y solicitudes que se inicien o presenten a partir de la entrada en vigor de esta ley.</p>
+          <p class="parrafo">3. El supuesto de responsabilidad a que se refiere el párrafo f) del apartado 1 del artículo 43 de esta ley no se aplicará a las obras o prestaciones de servicios contratadas o subcontratadas y cuya ejecución o prestación se haya iniciado antes de la entrada en vigor de esta ley.</p>
+        </version>
+      </bloque>
+<bloque id="dfprimera" tipo="precepto" titulo="Disposición final primera">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Disposición final primera. Modificación de la Ley 8/1989, de 13 de abril, de Tasas y Precios públicos.</p>
+          <p class="parrafo">El artículo 6.º de la Ley 8/1989, de 13 de abril, de Tasas y Precios Públicos, quedará redactado de la siguiente forma:</p>
+          <p class="sangrado_articulo">"Artículo 6.º Concepto.</p>
+          <p class="sangrado">Tasas son los tributos cuyo hecho imponible consiste en la utilización privativa o el aprovechamiento especial del dominio público, la prestación de servicios o la realización de actividades en régimen de derecho público que se refieran, afecten o beneficien de modo particular al obligado tributario, cuando los servicios o actividades no sean de solicitud o recepción voluntaria para los obligados tributarios o no se presten o realicen por el sector privado."</p>
+        </version>
+      </bloque>
+<bloque id="dfseptima" tipo="precepto" titulo="Disposición final séptima">
+        <version id_norma="BOE-A-2003-23186" fecha_publicacion="20031218" fecha_vigencia="20040701">
+          <p class="articulo">Disposición final séptima. Modificación de la Ley 20/1990, de 19 de diciembre, sobre Régimen Fiscal de las Cooperativas.</p>
+          <p class="parrafo">El apartado 3 del artículo 4 de la Ley 20/1990, de 19 de diciembre, sobre Régimen Fiscal de las Cooperativas, quedará redactado de la siguiente manera:</p>
+          <p class="sangrado_2">"3. El incumplimiento de las obligaciones contenidas en los dos apartados anteriores tiene la consideración de infracción tributaria leve y se sancionará de acuerdo con lo dispuesto en la Ley General Tributaria para las declaraciones censales."</p>
+        </version>
+      </bloque>
+  </texto>
+</documento>

@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Reglamento general de gestión e inspección tributaria (BOE-A-2007-15984).
+  Extracto del texto consolidado del BOE (datos abiertos,
+  https://www.boe.es/datosabiertos/api/legislacion-consolidada). Los bloques se
+  copian integros, en su orden de origen: es un subconjunto para los fixtures
+  offline de la suite, no el texto completo. El corpus de produccion
+  (corpus/corpus.json) se construye con el documento entero.
+-->
+<documento>
+  <metadatos>
+    <titulo>Reglamento general de gestión e inspección tributaria</titulo>
+    <fecha_actualizacion>2026-10-09</fecha_actualizacion>
+  </metadatos>
+  <texto>
+<bloque id="aunico" tipo="precepto" titulo="Artículo único">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo único. Aprobación del Reglamento general de las actuaciones y los procedimientos de gestión e inspección tributaria y de desarrollo de las normas comunes de los procedimientos de aplicación de los tributos.</p>
+          <p class="parrafo">Se aprueba el Reglamento general de las actuaciones y los procedimientos de gestión e inspección tributaria y de desarrollo de las normas comunes de los procedimientos de aplicación de los tributos, cuyo texto se inserta a continuación.</p>
+        </version>
+      </bloque>
+<bloque id="dtunica" tipo="precepto" titulo="Disposición transitoria única">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Disposición transitoria única. Obligaciones de información de carácter general.</p>
+          <p class="parrafo">1. Las obligaciones de información de carácter general que deban cumplirse durante el año 2008, correspondientes a la información a suministrar del año 2007, serán exigibles conforme a la normativa vigente a 31 de diciembre de 2007.</p>
+          <p class="parrafo">2. Se mantienen en vigor los plazos de presentación de las declaraciones de información hasta que no se modifiquen, en su caso, mediante Orden del Ministro de Economía y Hacienda.</p>
+        </version>
+      </bloque>
+<bloque id="dfsegunda" tipo="precepto" titulo="Disposición final segunda">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Disposición final segunda. Modificación del Reglamento General de Recaudación, aprobado por el Real Decreto 939/2005, de 29 de julio.</p>
+          <p class="parrafo">Se modifica el apartado 2 del artículo 126 del Reglamento General de Recaudación, aprobado por el Real Decreto 939/2005, de 29 de julio, en los siguientes términos:</p>
+          <p class="sangrado_2">«2. Para la emisión del certificado regulado en este artículo se entenderá que el solicitante se encuentra al corriente de sus obligaciones tributarias cuando se verifique la concurrencia de las circunstancias que, a tales efectos, se prevén en el artículo 74.1 del Reglamento general de las actuaciones y los procedimientos de gestión e inspección tributaria y de desarrollo de las normas comunes de los procedimientos de aplicación de los tributos, aprobado por el Real Decreto 1065/2007, de 27 de julio.»</p>
+        </version>
+      </bloque>
+<bloque id="a1" tipo="precepto" titulo="Artículo 1">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 1. Ámbito de aplicación.</p>
+          <p class="parrafo">1. Este reglamento regula la aplicación de los tributos en desarrollo de la Ley 58/2003, de 17 de diciembre, General Tributaria.</p>
+          <p class="parrafo">Este reglamento será de aplicación a la gestión recaudatoria en lo no previsto en el Reglamento General de Recaudación, aprobado por el Real Decreto 939/2005, de 29 de julio.</p>
+          <p class="parrafo">Lo dispuesto en este reglamento se entenderá sin perjuicio de lo previsto en la normativa propia de cada tributo.</p>
+          <p class="parrafo">2. Este reglamento será de aplicación en los términos previstos en el artículo 1 de la Ley 58/2003, de 17 de diciembre, General Tributaria.</p>
+          <p class="parrafo">3. Este reglamento se aplicará al procedimiento sancionador en materia tributaria en lo no previsto por sus normas específicas de desarrollo y por las normas reguladoras del procedimiento sancionador en materia administrativa.</p>
+        </version>
+      </bloque>
+<bloque id="a6" tipo="precepto" titulo="Artículo 6">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 6. Información censal complementaria respecto de las personas físicas residentes en España incluidas en el Censo de Empresarios, Profesionales y Retenedores.</p>
+          <p class="parrafo">Respecto de las personas físicas residentes en España, constarán en el Censo de Empresarios, Profesionales y Retenedores, además de su domicilio fiscal, el lugar donde tengan efectivamente centralizada la gestión administrativa y la dirección de sus negocios en territorio español, cuando sea distinto del domicilio fiscal.</p>
+        </version>
+      </bloque>
+<bloque id="a1-7" tipo="precepto" titulo="Artículo 10 bis">
+        <version id_norma="BOE-A-2024-1771" fecha_publicacion="20240131" fecha_vigencia="20240201">
+          <p class="articulo">Artículo 10 bis. Declaración de modificación en el Registro de operadores de plataforma extranjeros no cualificados.</p>
+          <p class="parrafo">1. Cuando se modifique cualquiera de los datos recogidos en la declaración de alta o en cualquier otra declaración de modificación posterior, el «operador de plataforma obligado a comunicar información» a que se refiere el artículo 54 ter.3.b), primer párrafo, de este reglamento que, en su caso, haya optado por registrarse en España, deberá comunicar a la Administración tributaria, mediante la correspondiente declaración, dicha modificación.</p>
+          <p class="parrafo">2. La declaración deberá presentase en el plazo de un mes desde que se hayan producido los hechos que determinan su presentación.</p>
+          <blockquote>
+            <p class="nota_pie">Se añade por la disposición final 1.6 del Real Decreto 117/2024, de 30 de enero. <a class="refPost">Ref. BOE-A-2024-1771#df</a></p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a1-8" tipo="precepto" titulo="Artículo 10 ter">
+        <version id_norma="BOE-A-2024-1771" fecha_publicacion="20240131" fecha_vigencia="20240201">
+          <p class="articulo">Artículo 10 ter. Declaración de modificación en el Registro de otros operadores de plataforma obligados a comunicar información.</p>
+          <p class="parrafo">1. Cuando se modifique cualquiera de los datos recogidos en la declaración de alta o en cualquier otra declaración de modificación posterior, el “operador de plataforma obligado a comunicar información” a que se refiere el artículo 54 ter.3.a) de este reglamento deberá comunicar a la Administración tributaria, mediante la correspondiente declaración, dicha modificación.</p>
+          <p class="parrafo">2. La declaración deberá presentase en el plazo de un mes desde que se hayan producido los hechos que determinan su presentación.</p>
+          <blockquote>
+            <p class="nota_pie">Se añade por la disposición final 1.7 del Real Decreto 117/2024, de 30 de enero. <a class="refPost">Ref. BOE-A-2024-1771#df</a></p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a1-9" tipo="precepto" titulo="Artículo 11 bis">
+        <version id_norma="BOE-A-2024-1771" fecha_publicacion="20240131" fecha_vigencia="20240201">
+          <p class="articulo">Artículo 11 bis. Declaración de baja en el Registro de operadores de plataforma extranjeros no cualificados.</p>
+          <p class="parrafo">1. El “operador de plataforma obligado a comunicar información” a que se refiere el artículo 54 ter.3.b), primer párrafo, de este reglamento que, en su caso, haya optado por registrarse en España y que deje de realizar cualquier tipo de actividad como «operador de plataforma» o que ya no cumpla las condiciones a que se refiere el artículo 54 ter.3.b), primer párrafo, de este reglamento deberá presentar la correspondiente declaración mediante la que comunique a la Administración tributaria tal circunstancia, a efectos de su baja en el Registro de operadores de plataforma extranjeros no cualificados.</p>
+          <p class="parrafo">2. La declaración de baja deberá presentarse en el plazo de un mes desde que se cumplan las condiciones previstas en el apartado anterior.</p>
+          <blockquote>
+            <p class="nota_pie">Se añade por la disposición final 1.8 del Real Decreto 117/2024, de 30 de enero. <a class="refPost">Ref. BOE-A-2024-1771#df</a></p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a1-10" tipo="precepto" titulo="Artículo 11 ter">
+        <version id_norma="BOE-A-2024-1771" fecha_publicacion="20240131" fecha_vigencia="20240201">
+          <p class="articulo">Artículo 11 ter. Declaración de baja en el Registro de otros operadores de plataforma obligados a comunicar información.</p>
+          <p class="parrafo">1. El “operador de plataforma obligado a comunicar información” a que se refiere el artículo 54 ter.3.a) de este reglamento que deje de realizar cualquier tipo de actividad como “operador de plataforma” o que ya no cumpla las condiciones a que se refiere dicho precepto deberá presentar la correspondiente declaración mediante la que comunique a la Administración tributaria tal circunstancia, a efectos de su baja en el Registro de otros operadores de plataforma obligados a comunicar información.</p>
+          <p class="parrafo">2. La declaración de baja deberá presentarse en el plazo de un mes desde que se cumplan las condiciones previstas en el apartado anterior.</p>
+          <blockquote>
+            <p class="nota_pie">Se añade por la disposición final 1.9 del Real Decreto 117/2024, de 30 de enero. <a class="refPost">Ref. BOE-A-2024-1771#df</a></p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="a13" tipo="precepto" titulo="Artículo 13">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 13. Modelo de declaración, plazo y lugar de presentación.</p>
+          <p class="parrafo">Las declaraciones censales de alta, modificación y baja, previstas en los artículos 9, 10 y 11, se presentarán en el lugar, forma y plazos que establezca el Ministro de Economía y Hacienda, salvo que el plazo esté establecido en este reglamento.</p>
+        </version>
+      </bloque>
+<bloque id="a16" tipo="precepto" titulo="Artículo 16">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 16. Gestión de las declaraciones censales.</p>
+          <p class="parrafo">1. Corresponde a la Agencia Estatal de Administración Tributaria la formación y el mantenimiento de los censos y registros definidos en el artículo 3. A tal efecto, podrá realizar las altas, bajas y modificaciones correspondientes de acuerdo con lo dispuesto en los artículos 144 a 146, ambos inclusive.</p>
+          <p class="parrafo">2. Para facilitar la gestión de los censos regulados en esta sección, la Administración pública competente para asignar el número que constituya el número de identificación fiscal comunicará con periodicidad, al menos, trimestral a la Agencia Estatal de Administración Tributaria el nombre y apellidos, sexo, fecha y lugar de nacimiento, número de identificación fiscal y, en su caso, domicilio en España de las personas a las que asigne dicho número y el número de pasaporte.</p>
+        </version>
+      </bloque>
+<bloque id="a18" tipo="precepto" titulo="Artículo 18">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 18. Obligación de disponer de un número de identificación fiscal y forma de acreditación.</p>
+          <p class="parrafo">1. Las personas físicas y jurídicas, así como los obligados tributarios a que se refiere el artículo 35.4 de la Ley 58/2003, de 17 de diciembre, General Tributaria, tendrán un número de identificación fiscal para sus relaciones de naturaleza o con trascendencia tributaria.</p>
+          <p class="parrafo">2. El número de identificación fiscal podrá acreditarse por su titular mediante la exhibición del documento expedido para su constancia por la Administración tributaria, del documento nacional de identidad o del documento oficial en que se asigne el número personal de identificación de extranjero.</p>
+          <p class="parrafo">3. El cumplimiento de lo dispuesto en los apartados anteriores no exime de la obligación de disponer de otros códigos o claves de identificación adicionales según lo que establezca la normativa propia de cada tributo.</p>
+        </version>
+      </bloque>
+<bloque id="a19" tipo="precepto" titulo="Artículo 19">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 19. El número de identificación fiscal de las personas físicas de nacionalidad española.</p>
+          <p class="parrafo">1. Para las personas físicas de nacionalidad española, el número de identificación fiscal será el número de su documento nacional de identidad seguido del correspondiente código o carácter de verificación, constituido por una letra mayúscula que habrá de constar en el propio documento nacional de identidad, de acuerdo con sus disposiciones reguladoras.</p>
+          <p class="parrafo">2. Los españoles que realicen o participen en operaciones de naturaleza o con trascendencia tributaria y no estén obligados a obtener el documento nacional de identidad por residir en el extranjero o por ser menores de 14 años, deberán obtener un número de identificación fiscal propio. Para ello, podrán solicitar el documento nacional de identidad con carácter voluntario o solicitar de la Administración tributaria la asignación de un número de identificación fiscal. Este último estará integrado por nueve caracteres con la siguiente composición: una letra inicial destinada a indicar la naturaleza de este número, que será la L para los españoles residentes en el extranjero y la K para los españoles que, residiendo en España, sean menores de 14 años; siete caracteres alfanuméricos y un carácter de verificación alfabético.</p>
+          <p class="parrafo">En el caso de que no lo soliciten, la Administración tributaria podrá proceder de oficio a darles de alta en el Censo de Obligados Tributarios y a asignarles el número de identificación fiscal que corresponda.</p>
+          <p class="parrafo">3. Para la identificación de los menores de 14 años en sus relaciones de naturaleza o con trascendencia tributaria habrán de figurar tanto los datos de la persona menor de 14 años, incluido su número de identificación fiscal, como los de su representante legal.</p>
+        </version>
+      </bloque>
+<bloque id="a20" tipo="precepto" titulo="Artículo 20">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 20. El número de identificación fiscal de las personas físicas de nacionalidad extranjera.</p>
+          <p class="parrafo">1. Para las personas físicas que carezcan de la nacionalidad española, el número de identificación fiscal será el número de identidad de extranjero que se les asigne o se les facilite de acuerdo con la Ley Orgánica 4/2000, de 11 de enero, sobre derechos y libertades de los extranjeros en España y su integración social, y su normativa de desarrollo.</p>
+          <p class="parrafo">2. Las personas físicas que carezcan de la nacionalidad española y no dispongan del número de identidad de extranjero, bien de forma transitoria por estar obligados a tenerlo o bien de forma definitiva al no estar obligados a ello, deberán solicitar a la Administración tributaria la asignación de un número de identificación fiscal cuando vayan a realizar operaciones de naturaleza o con trascendencia tributaria. Dicho número estará integrado por nueve caracteres con la siguiente composición: una letra inicial, que será la M, destinada a indicar la naturaleza de este número, siete caracteres alfanuméricos y un carácter de verificación alfabético.</p>
+          <p class="parrafo">En el caso de que no lo soliciten, la Administración tributaria podrá proceder de oficio a darles de alta en el Censo de Obligados Tributarios y a asignarles el número de identificación fiscal que corresponda.</p>
+        </version>
+      </bloque>
+<bloque id="a40" tipo="precepto" titulo="Artículo 40">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 40. Obligación de informar sobre los titulares de cuentas u otras operaciones que no hayan facilitado el número de identificación fiscal.</p>
+          <p class="parrafo">1. De acuerdo con lo previsto en el artículo 28.3, las entidades de crédito deberán comunicar trimestralmente a la Administración tributaria las cuentas u operaciones, aunque tales cuentas u operaciones hayan sido canceladas, cuyo titular no haya facilitado su número de identificación fiscal o lo haya comunicado transcurrido el plazo establecido en dicho artículo.</p>
+          <p class="parrafo">2. La declaración contendrá, al menos, los siguientes datos:</p>
+          <p class="parrafo_2">a) Nombre y apellidos o razón social o denominación completa y domicilio y, en su caso, número de identificación fiscal de cada una de las personas o entidades relacionadas en la declaración.</p>
+          <p class="parrafo">b) Naturaleza o clase y número de cuenta u operación, así como su saldo o importe.</p>
+        </version>
+      </bloque>
+<bloque id="a43" tipo="precepto" titulo="Artículo 43">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 43. Obligación de información.</p>
+          <p class="parrafo">1. Los obligados a suministrar información a la Administración tributaria a que se refiere el artículo 42 de este reglamento deberán informar en relación con las operaciones relativas a las participaciones preferentes y otros instrumentos de deuda cuyo régimen se establece en la disposición adicional segunda de la Ley 13/1985, de 25 de mayo, de coeficientes de inversión, recursos propios y obligaciones de información de los intermediarios financieros. La información a suministrar será la contenida en el artículo 42.4 de este reglamento referida a las operaciones con dichas participaciones preferentes y otros instrumentos de deuda realizadas con la intermediación de dichos obligados.</p>
+          <p class="parrafo">2. A efectos del cumplimiento de la obligación de información a que se refiere este artículo resultará de aplicación lo previsto en el artículo 42.5 de este reglamento.</p>
+        </version>
+      </bloque>
+<bloque id="a52" tipo="precepto" titulo="Artículo 52">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 52. Obligación de informar sobre las subvenciones o indemnizaciones derivadas del ejercicio de actividades agrícolas, ganaderas o forestales.</p>
+          <p class="parrafo">1. Las entidades públicas o privadas que concedan o reconozcan subvenciones, indemnizaciones o ayudas derivadas del ejercicio de actividades agrícolas, ganaderas o forestales estarán obligadas a presentar ante el órgano competente de la Administración tributaria una declaración anual de las satisfechas o abonadas durante el año anterior.</p>
+          <p class="parrafo">Cuando la entidad concedente no tenga su residencia en España, la obligación a que se refiere el párrafo anterior deberá ser cumplida por la entidad residente que tenga encomendada la gestión de las subvenciones, indemnizaciones o ayudas por cuenta de aquella.</p>
+          <p class="parrafo">2. En la declaración deberán figurar, además de los datos de identificación del declarante y del carácter con el que interviene en relación con las subvenciones, indemnizaciones o ayudas incluidas en la declaración, una relación nominativa de los perceptores con los siguientes datos:</p>
+          <p class="parrafo_2">a) Nombre, apellidos o razón social o denominación completa y número de identificación fiscal.</p>
+          <p class="parrafo">b) Importe, tipo y concepto de la subvención, indemnización o ayuda satisfecha o abonada.</p>
+          <p class="parrafo_2">3. A los efectos de su inclusión en la correspondiente declaración, estas subvenciones, indemnizaciones o ayudas se entenderán satisfechas el día que se expida la correspondiente orden de pago. De no existir orden de pago, se entenderán satisfechas cuando se efectúe el pago.</p>
+        </version>
+      </bloque>
+<bloque id="a55" tipo="precepto" titulo="Artículo 55">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 55. Disposiciones generales.</p>
+          <p class="parrafo">1. Los requerimientos individualizados de información que realice la Administración tributaria deberán ser notificados al obligado tributario requerido e incluirán:</p>
+          <p class="parrafo_2">a) El nombre y apellidos o razón social o denominación completa y número de identificación fiscal del obligado tributario que debe suministrar la información.</p>
+          <p class="parrafo">b) El periodo de tiempo a que se refiere la información requerida.</p>
+          <p class="parrafo">c) Los datos relativos a los hechos respecto de los que se requiere la información.</p>
+          <p class="parrafo_2">2. En los requerimientos de información se concederá un plazo no inferior a 10 días, contados a partir del día siguiente al de la notificación del requerimiento, para aportar la información solicitada.</p>
+          <p class="parrafo">No obstante, cuando las actuaciones de obtención de información se realicen por los órganos de inspección o de recaudación podrán iniciarse inmediatamente, incluso sin previo requerimiento escrito, en caso de que lo justifique la naturaleza de los datos a obtener o de las actuaciones a realizar y el órgano actuante se limite a examinar documentos, elementos o justificantes que deban estar a su disposición. Cuando se trate de documentos, elementos o justificantes que no deban estar a disposición de dichos órganos, se concederá a las personas o entidades requeridas un plazo no inferior a 10 días, contados a partir del día siguiente al de la notificación del requerimiento, para aportar la información solicitada o dar las facilidades necesarias a los órganos de inspección o de recaudación actuantes para que puedan obtenerla directamente.</p>
+        </version>
+      </bloque>
+<bloque id="a62" tipo="precepto" titulo="Artículo 62">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 62. La información y asistencia tributaria.</p>
+          <p class="parrafo">La Administración tributaria promoverá y facilitará a los obligados tributarios el cumplimiento de sus obligaciones y el ejercicio de sus derechos, poniendo a su disposición servicios de información y asistencia tributaria.</p>
+        </version>
+      </bloque>
+<bloque id="a64" tipo="precepto" titulo="Artículo 64">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 64. Tramitación de las solicitudes de información.</p>
+          <p class="parrafo">1. Las solicitudes de información tributaria formuladas por escrito que puedan ser objeto de contestación a partir de la documentación o de los antecedentes existentes en el órgano competente se contestarán en el plazo máximo de tres meses y en la contestación se hará referencia, en todo caso, a la normativa aplicable al objeto de la solicitud.</p>
+          <p class="parrafo">2. Cuando las solicitudes de información tributaria escritas sean recibidas por una Administración tributaria que no sea competente por razón de la materia, será remitida a la Administración competente y se comunicará esta circunstancia al interesado.</p>
+        </version>
+      </bloque>
+<bloque id="a67" tipo="precepto" titulo="Artículo 67">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 67. Tramitación del procedimiento para la contestación de las consultas tributarias escritas.</p>
+          <p class="parrafo">1. Durante la tramitación del procedimiento se podrá requerir al obligado tributario la documentación o información que se estime necesaria para efectuar la contestación.</p>
+          <p class="parrafo">2. Asimismo, se podrá solicitar de otros centros directivos y organismos los informes que se estimen pertinentes para la formación del criterio aplicable al caso planteado.</p>
+        </version>
+      </bloque>
+<bloque id="a70" tipo="precepto" titulo="Artículo 70">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 70. Los certificados tributarios.</p>
+          <p class="parrafo">1. Se entenderá por certificado tributario el documento expedido por la Administración tributaria que acredite hechos relativos a la situación tributaria de un obligado tributario.</p>
+          <p class="parrafo">2. Los certificados podrán acreditar, entre otras circunstancias, la presentación de declaraciones, autoliquidaciones y comunicaciones de datos o extremos concretos contenidos en ellas, la situación censal, el cumplimiento de obligaciones tributarias y la existencia o inexistencia de deudas o sanciones pendientes de pago que consten en las bases de datos de la Administración tributaria.</p>
+          <p class="parrafo">3. Los hechos o datos que se certifiquen se referirán exclusivamente al obligado tributario al que se refiere el certificado, sin que puedan incluir ni referirse a datos relativos a terceros salvo que la finalidad del certificado exija dicha inclusión.</p>
+          <p class="parrafo">4. No podrán certificarse datos referidos a obligaciones tributarias respecto de las cuales haya prescrito el derecho de la Administración para determinar la deuda tributaria mediante la oportuna liquidación.</p>
+          <p class="parrafo">5. En tanto no haya vencido el plazo para el cumplimiento de las obligaciones tributarias no podrá expedirse certificado sobre el cumplimiento de estas.</p>
+        </version>
+      </bloque>
+<bloque id="a71" tipo="precepto" titulo="Artículo 71">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 71. Solicitud de los certificados tributarios.</p>
+          <p class="parrafo">1. Los certificados tributarios se expedirán:</p>
+          <p class="parrafo_2">a) A instancia del obligado tributario al que el certificado se refiera.</p>
+          <p class="parrafo">b) A petición de un órgano administrativo o de cualquier otra persona o entidad interesada que requiera el certificado, siempre que dicha petición esté prevista en una ley o cuente con el previo consentimiento del obligado tributario.</p>
+          <p class="parrafo_2">2. Cuando el certificado se solicite mediante representante se deberá acreditar dicha representación.</p>
+          <p class="parrafo">3. Cuando para la tramitación de un procedimiento o actuación administrativa sea necesario la obtención de un certificado tributario de la Agencia Estatal de Administración Tributaria, la Administración pública que lo requiera deberá solicitarlo directamente y hará constar la ley que habilita a efectuar dicha solicitud o que cuenta con el previo consentimiento del obligado tributario. En estos casos, la Administración pública solicitante no podrá exigir la aportación del certificado al obligado tributario. La Agencia Estatal de Administración Tributaria no expedirá el certificado a solicitud del obligado cuando tenga constancia de que ha sido remitido a la Administración pública correspondiente.</p>
+        </version>
+      </bloque>
+<bloque id="a72" tipo="precepto" titulo="Artículo 72">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 72. Contenido de los certificados tributarios.</p>
+          <p class="parrafo">1. Los certificados tributarios contendrán, al menos, los siguientes datos y circunstancias:</p>
+          <p class="parrafo_2">a) Nombre y apellidos o razón social o denominación completa, número de identificación fiscal y domicilio fiscal del obligado tributario.</p>
+          <p class="parrafo">b) Las circunstancias, obligaciones o requisitos que deban ser certificados. Cuando mediante un certificado deba acreditarse el cumplimiento de determinadas circunstancias de carácter tributario exigidas por la norma reguladora del certificado, se harán constar expresamente dichas circunstancias.</p>
+          <p class="parrafo">Las certificaciones serán positivas cuando consten cumplidas la totalidad de las circunstancias, obligaciones o requisitos exigidos al efecto por la normativa reguladora del certificado. A estos efectos, bastará una mención genérica de los mismos.</p>
+          <p class="parrafo">Cuando las certificaciones sean negativas deberán indicarse las circunstancias, obligaciones o requisitos que no consten cumplidos.</p>
+          <p class="parrafo">Cuando los datos declarados o comunicados por el obligado tributario no coincidan con los comprobados por la Administración, se certificarán estos últimos.</p>
+          <p class="parrafo">c) La inexistencia de la información que se solicita en las bases de datos de la Administración tributaria o la improcedencia de suministrar dicha información, cuando no se pueda certificar la información contenida en el párrafo b).</p>
+          <p class="parrafo">d) Lugar, fecha y firma del órgano competente para su expedición y el código seguro de verificación.</p>
+        </version>
+      </bloque>
+<bloque id="a75" tipo="precepto" titulo="Artículo 75">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 75. Efectos de los certificados tributarios.</p>
+          <p class="parrafo">1. Los certificados tributarios tendrán carácter informativo y no se podrá interponer recurso alguno contra ellos, sin perjuicio de poder manifestar su disconformidad de acuerdo con lo previsto en el artículo 73.4, y de los recursos que puedan interponerse contra los actos administrativos que se dicten posteriormente en relación con dicha información.</p>
+          <p class="parrafo">Los certificados tributarios producirán los efectos que en ellos se hagan constar y los que se establezcan en la normativa que regule su exigencia.</p>
+          <p class="parrafo">2. Salvo que la normativa específica del certificado establezca otra cosa, los certificados tributarios tendrán validez durante 12 meses a partir de la fecha de su expedición mientras no se produzcan modificaciones de las circunstancias determinantes de su contenido, cuando se refiera a obligaciones periódicas, o durante tres meses, cuando se refiera a obligaciones no periódicas.</p>
+          <p class="parrafo">3. Los certificados expedidos por medios telemáticos producirán idénticos efectos a los expedidos en papel. La firma manuscrita será sustituida por un código de verificación generado electrónicamente que permita contrastar su contenido, autenticidad y validez mediante el acceso por medios telemáticos a los archivos del órgano u organismo expedidor. Los mismos efectos surtirán las copias de los certificados cuando las comprobaciones anteriores puedan efectuarse mediante el código de verificación.</p>
+        </version>
+      </bloque>
+<bloque id="a78" tipo="precepto" titulo="Artículo 78">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 78. Programas informáticos y uso de medios telemáticos en la asistencia a los obligados tributarios.</p>
+          <p class="parrafo">1. La Administración tributaria podrá facilitar a los obligados tributarios programas informáticos de asistencia para la confección y presentación de declaraciones, autoliquidaciones y comunicaciones de datos. En el ámbito de competencias del Estado dichos programas se ajustarán a lo establecido en la Orden del Ministro de Economía y Hacienda por la que se apruebe el correspondiente modelo.</p>
+          <p class="parrafo">Asimismo, podrá facilitar otros programas de ayuda y asistencia, en el marco del deber y asistencia a los obligados tributarios, para facilitarles el cumplimiento de sus obligaciones fiscales.</p>
+          <p class="parrafo">2. La asistencia para el cumplimiento de las obligaciones tributarias se podrá ofrecer también por vía telemática. La Administración tributaria determinará para cada caso, en función de los medios disponibles y del estado de la tecnología aplicable, el alcance de esa asistencia y la forma y requisitos para su prestación, así como los supuestos en que dicha asistencia por vía telemática se preste de forma automatizada de acuerdo con lo previsto en el artículo 84.</p>
+          <p class="parrafo">3. El uso de estos medios deberá procurar alcanzar al mayor número de obligados tributarios. Para ello, los programas de ayuda y los servicios ofrecidos por vía telemática, en su caso, se ofrecerán también por otros medios a quienes no tuvieran acceso a los previstos en este artículo siempre que sea posible de acuerdo con los medios técnicos disponibles.</p>
+        </version>
+      </bloque>
+<bloque id="a84" tipo="precepto" titulo="Artículo 84">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 84. Actuación automatizada.</p>
+          <p class="parrafo">1. En caso de actuación automatizada deberá establecerse previamente el órgano u órganos competentes según los casos, para la definición de especificaciones, programación, mantenimiento, supervisión y control de calidad del sistema de información. Asimismo, se indicará el órgano que debe ser considerado responsable a efectos de impugnación.</p>
+          <p class="parrafo">2. En caso de actuación automatizada, la Administración tributaria deberá identificarse y garantizar la autenticidad del ejercicio de su competencia, con alguno de los siguientes sistemas de firma electrónica:</p>
+          <p class="parrafo_2">a) Sello electrónico de Administración pública, órgano o entidad de derecho público basado en certificado electrónico que reúna los requisitos exigidos por la legislación de firma electrónica.</p>
+          <p class="parrafo">b) Código seguro de verificación vinculado a la Administración pública, órgano o entidad permitiéndose en todo caso la comprobación de la autenticidad e integridad del documento accediendo por medios electrónicos a los archivos del órgano u organismo emisor.</p>
+          <p class="parrafo_2">Cada Administración tributaria determinará los supuestos de utilización de uno y otro sistema de firma electrónica.</p>
+          <p class="parrafo">3. Para el desarrollo de las actividades de asistencia a los obligados tributarios, la Administración tributaria podrá establecer servicios automatizados, tales como la identificación telemática ante las entidades colaboradoras en la recaudación, la participación en procedimientos de enajenación forzosa o la puesta a su disposición de registros electrónicos de apoderamiento o representación.</p>
+        </version>
+      </bloque>
+<bloque id="a89" tipo="precepto" titulo="Artículo 89">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 89. Subsanación.</p>
+          <p class="parrafo">1. Si el documento de iniciación no reúne los requisitos que se señalan en los apartados 2 y 3 del artículo anterior y los exigidos, en su caso, por la normativa específica aplicable, se requerirá al interesado para que en un plazo de 10 días, contados a partir del día siguiente al de la notificación del requerimiento, subsane la falta o acompañe los documentos preceptivos, con indicación de que si así no lo hiciera, se le tendrá por desistido y se procederá al archivo sin más trámite.</p>
+          <p class="parrafo">2. Todas las recepciones por medios y técnicas electrónicos, informáticos y telemáticos serán provisionales a resultas de su procesamiento. Cuando no se ajusten al diseño y demás especificaciones establecidas por la normativa aplicable, se requerirá al declarante para que en el plazo de 10 días, contados a partir del día siguiente al de la notificación del requerimiento, subsane los defectos de que adolezca. Transcurrido dicho plazo sin haber atendido el requerimiento, de persistir anomalías que impidan a la Administración tributaria el conocimiento de los datos, se le tendrá, en su caso, por desistido de su petición o por no cumplida la obligación correspondiente y se procederá al archivo sin más trámite.</p>
+          <p class="parrafo">3. Cuando los requerimientos de subsanación a que se refieren los apartados anteriores hayan sido atendidos en plazo pero no se entiendan subsanados los defectos observados, deberá notificarse el archivo.</p>
+        </version>
+      </bloque>
+<bloque id="a90" tipo="precepto" titulo="Artículo 90">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 90. Lugar y horario de las actuaciones de aplicación de los tributos.</p>
+          <p class="parrafo">1. Las actuaciones que se desarrollen en las oficinas públicas se realizarán dentro del horario oficial de apertura al público y, en todo caso, dentro de la jornada de trabajo.</p>
+          <p class="parrafo">2. Si las actuaciones se desarrollan en los locales del obligado tributario, se respetará la jornada laboral de oficina o de la actividad que se realice en ellos. Cuando medie el consentimiento del obligado tributario, las actuaciones podrán realizarse fuera de la jornada laboral de oficina o de la actividad.</p>
+          <p class="parrafo">3. Cuando se disponga de autorización judicial para la entrada en el domicilio del obligado tributario constitucionalmente protegido, las actuaciones se ajustarán a lo que disponga la autorización en relación con la jornada y el horario para realizarlas.</p>
+          <p class="parrafo">4. Cuando el obligado tributario fuese una persona con discapacidad o con movilidad reducida, las actuaciones y procedimientos de aplicación de los tributos se desarrollarán en el lugar que resulte más apropiado de entre los previstos en los apartados 1 y 2 de este artículo.</p>
+        </version>
+      </bloque>
+<bloque id="a92" tipo="precepto" titulo="Artículo 92">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 92. Aportación de documentación y ratificación de datos de terceros.</p>
+          <p class="parrafo">1. Cuando se realicen requerimientos de datos, informes, antecedentes y justificantes al obligado tributario que esté siendo objeto del procedimiento de aplicación de los tributos, de acuerdo con las facultades establecidas en la normativa reguladora del procedimiento, dichos requerimientos no podrán ser impugnados mediante recurso o reclamación económico-administrativa independiente, sin perjuicio de los recursos que procedan contra el acto administrativo dictado como consecuencia del correspondiente procedimiento.</p>
+          <p class="parrafo">2. Cuando en un procedimiento de aplicación de los tributos el obligado tributario alegue la inexactitud o falsedad de los datos incluidos en declaraciones o contestaciones a requerimientos efectuados en cumplimiento de la obligación de suministro de información recogida en los artículos 93 y 94 de la Ley 58/2003, de 17 de diciembre, General Tributaria, deberá efectuar dicha alegación en el plazo de 15 días, contados a partir del día siguiente a aquel en que dichos datos le sean puestos de manifiesto por la Administración tributaria mediante comunicación o diligencia.</p>
+        </version>
+      </bloque>
+<bloque id="a93" tipo="precepto" titulo="Artículo 93">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 93. Conocimiento por los obligados tributarios del estado de tramitación de los procedimientos.</p>
+          <p class="parrafo">1. Los obligados tributarios que estén siendo objeto de un procedimiento podrán solicitar en cualquier momento información del estado en que se encuentra la tramitación de dicho procedimiento.</p>
+          <p class="parrafo">2. La información deberá solicitarse de forma que quede constancia del nombre y apellidos o razón social o denominación completa y número de identificación fiscal de la persona o entidad que la solicita, así como la firma del obligado tributario o la acreditación de la autenticidad de su voluntad expresada por cualquier otro medio.</p>
+          <p class="parrafo">La información se facilitará preferentemente por el mismo medio utilizado por el interesado e indicará la fase en que se encuentra el procedimiento, el último trámite realizado y la fecha en que se cumplimentó.</p>
+        </version>
+      </bloque>
+<bloque id="a94" tipo="precepto" titulo="Artículo 94">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 94. Acceso a archivos y registros administrativos.</p>
+          <p class="parrafo">1. Los obligados tributarios que hayan sido parte en el procedimiento podrán acceder a los registros y documentos que formen parte de un expediente concluido en los términos y con las condiciones establecidos en el artículo 99.5 de la Ley 58/2003, de 17 de diciembre, General Tributaria.</p>
+          <p class="parrafo">2. El órgano que tramitó el expediente resolverá sobre la petición de acceso en el plazo máximo de un mes. Transcurrido este plazo sin que de forma expresa se responda a la petición de acceso, esta podrá entenderse desestimada.</p>
+          <p class="parrafo">Si la resolución fuera estimatoria se dejará constancia en el expediente de dicho acceso.</p>
+          <p class="parrafo">3. El derecho de acceso llevará consigo el de obtener copia de los documentos cuyo examen sea autorizado en los términos previstos en el artículo siguiente.</p>
+          <p class="parrafo">4. Cuando los documentos que formen el expediente estén almacenados por medios electrónicos, informáticos o telemáticos, se facilitará el acceso al interesado por dichos medios siempre que las disponibilidades técnicas lo permitan, de acuerdo con las especificaciones y garantías que se determinen y con lo dispuesto en la Ley Orgánica 15/1999, de 13 de diciembre, de protección de datos de carácter personal.</p>
+        </version>
+      </bloque>
+<bloque id="a95" tipo="precepto" titulo="Artículo 95">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 95. Obtención de copias.</p>
+          <p class="parrafo">1. El obligado tributario podrá obtener a su costa, previa solicitud, copia de los documentos que figuren en el expediente, en los términos establecidos en el artículo 99 de la Ley 58/2003, de 17 de diciembre, General Tributaria, durante la puesta de manifiesto del expediente, cuando se realice el acceso a archivos y registros administrativos de expedientes concluidos o en cualquier momento en el procedimiento de apremio. Se podrán hacer extractos de los justificantes o documentos o utilizar otros métodos que permitan mantener la confidencialidad de aquellos datos que no afecten al obligado tributario.</p>
+          <p class="parrafo">2. El órgano competente entregará las copias en sus oficinas y recogerá en diligencia la relación de los documentos cuya copia se entrega, el número de folios y la recepción por el obligado tributario.</p>
+          <p class="parrafo">3. Cuando conste la concurrencia de alguna de las circunstancias señaladas en el artículo 99.4 de la Ley 58/2003, de 17 de diciembre, General Tributaria, se denegará la obtención de copias mediante resolución motivada.</p>
+          <p class="parrafo">4. En aquellos casos en los que los documentos que consten en el archivo o expediente correspondiente estén almacenados por medios electrónicos, informáticos o telemáticos, las copias se facilitarán preferentemente por dichos medios o en los soportes adecuados a tales medios, siempre que las disponibilidades técnicas lo permitan.</p>
+        </version>
+      </bloque>
+<bloque id="a100" tipo="precepto" titulo="Artículo 100">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 100. Informes.</p>
+          <p class="parrafo">1. De acuerdo con lo dispuesto en el artículo 99.7 de la Ley 58/2003, de 17 de diciembre, General Tributaria, los órganos de la Administración tributaria emitirán los informes que sean preceptivos, los que resulten necesarios para la aplicación de los tributos y los que les sean solicitados, siempre que en este último caso se fundamente la conveniencia de solicitarlos.</p>
+          <p class="parrafo">2. En particular, los órganos de aplicación de los tributos deberán emitir informe en los siguientes supuestos:</p>
+          <p class="parrafo_2">a) Cuando se complementen las diligencias que recojan hechos o conductas que pudieran ser constitutivos de infracciones tributarias y no corresponda al mismo órgano la tramitación del procedimiento sancionador.</p>
+          <p class="parrafo">b) Cuando se aprecien indicios de delito contra la Hacienda pública y se remita el expediente al órgano judicial competente o al Ministerio Fiscal.</p>
+        </version>
+      </bloque>
+<bloque id="a105" tipo="precepto" titulo="Artículo 105">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 105. Actuaciones relativas a obligados tributarios del artículo 35.4 de la Ley 58/2003, de 17 de diciembre, General Tributaria, y a entidades sometidas a un régimen de imputación de rentas.</p>
+          <p class="parrafo">1. Tratándose de entidades del artículo 35.4 de la Ley 58/2003, de 17 de diciembre, General Tributaria, las actuaciones de comprobación o investigación que tengan por objeto examinar el adecuado cumplimiento de sus obligaciones tributarias, incluidas las de carácter formal, se desarrollarán con quien tenga su representación de acuerdo con lo establecido en el artículo 45.3 de dicha ley.</p>
+          <p class="parrafo">Las liquidaciones que, en su caso, procedan se practicarán a nombre de la entidad, sin perjuicio de la responsabilidad solidaria de los partícipes, miembros o cotitulares de dichas entidades.</p>
+          <p class="parrafo">El examen del adecuado cumplimiento de las obligaciones relativas al tributo que grave las rentas obtenidas por las entidades en régimen de atribución de rentas se realizará en el curso de los procedimientos de comprobación o investigación que puedan instruirse frente a cada socio, heredero, comunero o partícipe como obligado tributario por dicho tributo. En esos procedimientos podrán utilizarse los datos, informes o antecedentes obtenidos en el desarrollo de las actuaciones de comprobación o investigación de las obligaciones propias de la entidad.</p>
+          <p class="parrafo">2. La comprobación de la situación tributaria de las Uniones Temporales de Empresas, Agrupaciones de Interés Económico y demás entidades obligadas a imputar rentas se desarrollará con estas, sin perjuicio del derecho de sus socios o miembros a oponer todos los motivos de impugnación que estimen convenientes durante la tramitación del procedimiento de comprobación o investigación que se instruya frente a cada uno de ellos en el que se tenga en cuenta los resultados de las actuaciones desarrolladas con la entidad.</p>
+        </version>
+      </bloque>
+<bloque id="a110" tipo="precepto" titulo="Artículo 110">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 110. La representación legal.</p>
+          <p class="parrafo">1. Las personas físicas que carezcan de capacidad de obrar en el orden tributario actuarán ante la Administración tributaria mediante sus representantes legales. No obstante, una vez adquirida o recuperada la capacidad de obrar por las personas que carecían de ella, estas actuarán por sí mismas ante la Administración tributaria, incluso para la comprobación de la situación tributaria en que carecían de ella.</p>
+          <p class="parrafo">Quienes tuvieron su representación legal deberán comparecer asimismo a requerimiento de la Administración tributaria, en su propio nombre sin vincular a quien representaron.</p>
+          <p class="parrafo">2. Por las personas jurídicas y entidades a que se refiere el artículo 35.4 de la Ley 58/2003, de 17 de diciembre, General Tributaria, deberán actuar las personas a quienes corresponda la representación en el momento de la actuación administrativa.</p>
+          <p class="parrafo">Quienes tuvieron dicha representación cuando se devengaron o debieron haberse cumplido las correspondientes obligaciones o deberes deberán comparecer a requerimiento de la Administración tributaria, en su propio nombre sin vincular a la persona jurídica o entidad.</p>
+          <p class="parrafo">3. El representante legal deberá acreditar su condición ante la Administración tributaria. No obstante, se podrán considerar representantes a aquellas personas que figuren inscritas como tales en los correspondientes registros públicos.</p>
+          <p class="parrafo">4. Cuando en el curso de un procedimiento de aplicación de los tributos se modifique o se extinga la representación legal, las actuaciones realizadas se reputarán válidas y eficaces, en tanto no se comunique tal circunstancia al órgano de la Administración tributaria que lleve a cabo las actuaciones.</p>
+        </version>
+      </bloque>
+<bloque id="a113" tipo="precepto" titulo="Artículo 113">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 113. El domicilio fiscal de las personas físicas.</p>
+          <p class="parrafo">De acuerdo con lo previsto en el artículo 48.2.a) de la Ley 58/2003, de 17 de diciembre, General Tributaria, se podrá considerar que las personas físicas desarrollan principalmente actividades económicas cuando más de la mitad de la base imponible general del Impuesto sobre la Renta de las Personas Físicas del año anterior proceda de rendimientos netos de actividades económicas o cuando, no habiéndose alcanzado ese porcentaje en dicho año, se haya alcanzado durante cada uno de los tres años anteriores.</p>
+          <p class="parrafo">A efectos de lo previsto en este artículo, se entenderá por actividades económicas las realizadas por los empresarios y profesionales en los términos previstos en la Ley 37/1992, de 28 de diciembre, del Impuesto sobre el Valor Añadido.</p>
+        </version>
+      </bloque>
+<bloque id="a115" tipo="precepto" titulo="Artículo 115">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 115. Notificación por comparecencia.</p>
+          <p class="parrafo">1. En el supuesto previsto en el artículo 112 de la Ley 58/2003, de 17 de diciembre, General Tributaria, si el obligado tributario o su representante comparecieran dentro del plazo de los 15 días naturales siguientes a la publicación del anuncio, se practicará la notificación correspondiente y se dejará constancia de la misma en la correspondiente diligencia en la que, además, constará la firma del compareciente.</p>
+          <p class="parrafo">2. En el supuesto de que el obligado tributario o su representante comparezcan pero rehúsen recibir la documentación que se pretende notificar, se documentará esta circunstancia en la correspondiente diligencia a efectos de que quede constancia del rechazo de la notificación, y se entenderá practicada la misma de acuerdo con lo dispuesto en el artículo 111.2 de la Ley 58/2003, de 17 de diciembre, General Tributaria.</p>
+          <p class="parrafo">3. En todo caso, se incorporará al expediente la referencia al boletín oficial donde se publicó el anuncio.</p>
+        </version>
+      </bloque>
+<bloque id="a117" tipo="precepto" titulo="Artículo 117">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 117. Presentación de declaraciones, autoliquidaciones, comunicaciones de datos y solicitudes de devolución.</p>
+          <p class="parrafo">1. A efectos de lo previsto en el artículo 98.3 de la Ley 58/2003, de 17 de diciembre, General Tributaria, en el ámbito de competencias del Estado, los modelos de declaración, autoliquidación y comunicación de datos se aprobarán por el Ministro de Economía y Hacienda, que establecerá la forma, lugar y plazos de su presentación y, en su caso, del ingreso de la deuda tributaria, así como los supuestos y condiciones de presentación por medios electrónicos, informáticos y telemáticos.</p>
+          <p class="parrafo">Asimismo, podrá aprobar la utilización de modalidades simplificadas o especiales de declaración, autoliquidación o comunicación de datos y los supuestos en los que los datos consignados se entenderán subsistentes para periodos sucesivos, si el contribuyente no comunica variación en los mismos.</p>
+          <p class="parrafo">2. Cada Administración tributaria podrá aprobar modelos de solicitud de devolución. En las solicitudes de devolución para las que no exista un modelo o formulario específicamente aprobado al efecto, el obligado tributario hará constar los datos necesarios de la devolución que se solicita mediante escrito que deberá presentarse en el lugar y plazos establecidos en la normativa del tributo o por medios electrónicos, informáticos o telemáticos cuando estos estén disponibles.</p>
+          <p class="parrafo">3. La declaración en aduana se regirá por su normativa específica.</p>
+        </version>
+      </bloque>
+<bloque id="a118" tipo="precepto" titulo="Artículo 118">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 118. Declaraciones complementarias y sustitutivas.</p>
+          <p class="parrafo">1. Tendrán la consideración de declaraciones complementarias las que se refieran a la misma obligación tributaria y periodo que otras presentadas con anterioridad, en las que se incluyan nuevos datos no declarados o se modifique parcialmente el contenido de las anteriormente presentadas, que subsistirán en la parte no afectada.</p>
+          <p class="parrafo">Tendrán la consideración de declaraciones sustitutivas las que se refieran a la misma obligación tributaria y periodo que otras presentadas con anterioridad y que las reemplacen en su contenido.</p>
+          <p class="parrafo">2. En los supuestos previstos en el artículo 128 de la Ley 58/2003, de 17 de diciembre, General Tributaria, sólo se podrán presentar declaraciones complementarias o sustitutivas con anterioridad a la liquidación correspondiente a la declaración inicial. En este caso, la liquidación que se practique tomará en consideración los datos completados o sustituidos.</p>
+          <p class="parrafo">Con posterioridad a la liquidación, el obligado tributario que pretenda modificar el contenido de una declaración anteriormente presentada deberá solicitar la rectificación de la misma conforme a lo establecido en el artículo 130 de este reglamento. De la cuota tributaria resultante de la rectificación se deducirá el importe de la liquidación inicial.</p>
+          <p class="parrafo">3. Podrán presentarse declaraciones complementarias o sustitutivas de otras presentadas con anterioridad en cumplimiento de una obligación formal.</p>
+          <p class="parrafo">4. En las declaraciones complementarias y sustitutivas se hará constar expresamente si se trata de una u otra modalidad, la obligación tributaria y el periodo a que se refieren.</p>
+        </version>
+      </bloque>
+<bloque id="a120" tipo="precepto" titulo="Artículo 120">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 120. Comunicaciones de datos complementarias y sustitutivas.</p>
+          <p class="parrafo">1. Tendrán la consideración de comunicaciones de datos complementarias las que se refieran a la misma obligación tributaria y periodo que otras presentadas con anterioridad en las que se modifiquen o se incluyan nuevos datos de carácter personal, familiar o económico. Las comunicaciones de datos presentadas con anterioridad subsistirán en la parte no afectada.</p>
+          <p class="parrafo">Tendrán la consideración de comunicaciones de datos sustitutivas las que se refieran a la misma obligación tributaria y periodo que otras presentadas con anterioridad y que las reemplacen en su contenido.</p>
+          <p class="parrafo">2. Sólo se podrán presentar comunicaciones de datos complementarias o sustitutivas antes de que la Administración tributaria, de acuerdo con la normativa propia de cada tributo, haya acordado la devolución correspondiente o dictado la resolución en la que comunique que no procede efectuar devolución alguna. En este caso, la devolución o resolución administrativa que se acuerde tomará en consideración los datos completados o sustituidos.</p>
+          <p class="parrafo">3. Una vez acordada la devolución o dictada la resolución administrativa a que se refiere el apartado anterior, el obligado tributario podrá solicitar la rectificación de su comunicación de datos conforme a lo establecido en el artículo 130.</p>
+        </version>
+      </bloque>
+<bloque id="a121" tipo="precepto" titulo="Artículo 121">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 121. Solicitudes de devolución complementarias y sustitutivas.</p>
+          <p class="parrafo">1. Tendrán la consideración de solicitudes de devolución complementarias las que se refieran a la misma obligación tributaria y periodo que otras presentadas con anterioridad, en las que se incluyan nuevos datos no declarados o se modifique parcialmente el contenido de las anteriormente presentadas, que subsistirán en la parte no afectada.</p>
+          <p class="parrafo">Tendrán la consideración de solicitudes de devolución sustitutivas aquellas referidas a la misma obligación tributaria y periodo que otras presentadas con anterioridad que reemplacen su contenido.</p>
+          <p class="parrafo">2. La presentación de una solicitud de devolución complementaria o sustitutiva podrá hacerse antes de que la Administración tributaria, de acuerdo con la normativa propia de cada tributo, haya acordado la devolución correspondiente o dictado la resolución en la que comunique que no procede efectuar devolución alguna. En este caso, la devolución o resolución administrativa que se acuerde tomará en consideración los datos completados o sustituidos.</p>
+          <p class="parrafo">3. Una vez acordada la devolución o dictada la resolución administrativa a que se refiere el apartado anterior, el obligado tributario podrá instar la rectificación de su solicitud de devolución conforme a lo establecido en el artículo 130.</p>
+        </version>
+      </bloque>
+<bloque id="a122" tipo="precepto" titulo="Artículo 122">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 122. Devoluciones derivadas de la normativa de cada tributo.</p>
+          <p class="parrafo">Son devoluciones derivadas de la normativa de cada tributo las previstas en el artículo 31 de la Ley 58/2003, de 17 de diciembre, General Tributaria. También tienen esta consideración los abonos a cuenta que deba efectuar la Administración tributaria como anticipos de deducciones a practicar sobre cualquier tributo.</p>
+        </version>
+      </bloque>
+<bloque id="a123" tipo="precepto" titulo="Artículo 123">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 123. Iniciación del procedimiento de devolución.</p>
+          <p class="parrafo">El procedimiento para la práctica de devoluciones derivadas de la normativa de cada tributo se iniciará a instancia del obligado tributario mediante la presentación de una autoliquidación de la que resulte una cantidad a devolver, mediante la presentación de una solicitud o mediante la presentación de una comunicación de datos, de acuerdo con lo dispuesto en la normativa reguladora de cada tributo.</p>
+        </version>
+      </bloque>
+<bloque id="a124" tipo="precepto" titulo="Artículo 124">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 124. Tramitación del procedimiento de devolución.</p>
+          <p class="parrafo">1. Una vez recibida la autoliquidación, solicitud o comunicación de datos, la Administración examinará la documentación presentada y la contrastará con los datos y antecedentes que obren en su poder.</p>
+          <p class="parrafo">Si la autoliquidación, solicitud o comunicación de datos fuese formalmente correcta, se procederá sin más trámite y, en su caso, de manera automatizada, al reconocimiento de la devolución solicitada.</p>
+          <p class="parrafo">2. Cuando se aprecie algún defecto formal en la autoliquidación, solicitud o comunicación de datos, error aritmético o posible discrepancia en los datos o en su calificación, o cuando se aprecien circunstancias que lo justifiquen, se podrá iniciar un procedimiento de verificación de datos, de comprobación limitada o de inspección.</p>
+        </version>
+      </bloque>
+<bloque id="a133" tipo="precepto" titulo="Artículo 133">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 133. Procedimiento iniciado mediante declaración.</p>
+          <p class="parrafo">1. En los procedimientos iniciados mediante declaración del obligado tributario, el órgano competente de la Administración tributaria podrá realizar las actuaciones necesarias para practicar la liquidación de acuerdo con lo dispuesto en el artículo 129.2 de la Ley 58/2003, de 17 de diciembre, General Tributaria. Cuando se requieran datos o documentos al obligado tributario se le otorgará un plazo de 10 días, contados a partir del día siguiente al de la notificación del requerimiento, para su aportación, salvo que la normativa específica establezca otro plazo. Asimismo, la Administración tributaria podrá hacer requerimientos a terceros.</p>
+          <p class="parrafo">2. Cuando la Administración tributaria vaya a tener en cuenta datos distintos a los declarados por el obligado tributario, deberá notificar previamente la propuesta de liquidación de acuerdo con lo dispuesto en el artículo 129.3 de la Ley 58/2003, de 17 de diciembre, General Tributaria.</p>
+          <p class="parrafo">3. La liquidación que se dicte tendrá carácter provisional. La Administración tributaria no podrá efectuar una nueva regularización en relación con el objeto comprobado, salvo que en un procedimiento de comprobación o investigación posterior se descubran nuevos hechos o circunstancias que resulten de actuaciones distintas de las realizadas y especificadas en la resolución.</p>
+        </version>
+      </bloque>
+<bloque id="a135" tipo="precepto" titulo="Artículo 135">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 135. Caducidad del procedimiento iniciado mediante declaración.</p>
+          <p class="parrafo">1. Cuando se produzca la caducidad del procedimiento por incumplimiento del plazo máximo de duración del mismo, la Administración tributaria, dentro del plazo de prescripción, podrá iniciar un nuevo procedimiento de liquidación de acuerdo con lo dispuesto en el artículo 128.2 de la Ley 58/2003, de 17 de diciembre, General Tributaria.</p>
+          <p class="parrafo">En este caso, se notificará una comunicación al obligado tributario con el contenido previsto en el artículo 87 de este reglamento.</p>
+          <p class="parrafo">2. En las liquidaciones que se dicten, cuando el procedimiento se inicie mediante la notificación de la comunicación a que se refiere el apartado 1 anterior, no se exigirán intereses de demora desde la presentación de la declaración hasta la finalización del plazo para el pago en periodo voluntario abierto con la notificación de la liquidación.</p>
+        </version>
+      </bloque>
+<bloque id="a136" tipo="precepto" titulo="Artículo 136">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 136. Procedimiento para el reconocimiento por la Administración tributaria de beneficios fiscales de carácter rogado.</p>
+          <p class="parrafo">1. El procedimiento para el reconocimiento de beneficios fiscales se iniciará a instancia del obligado tributario mediante solicitud dirigida al órgano competente para su concesión y se acompañará de los documentos y justificantes exigibles y de los que el obligado tributario considere convenientes.</p>
+          <p class="parrafo">2. La comprobación de los requisitos para la concesión de un beneficio fiscal se realizará de acuerdo con los datos y documentos que se exijan en la normativa reguladora del beneficio fiscal y los datos que declaren o suministren terceras personas o que pueda obtener la Administración tributaria mediante requerimiento al propio obligado y a terceros.</p>
+          <p class="parrafo">3. Con carácter previo a la notificación de la resolución se deberá notificar al obligado tributario la propuesta de resolución cuando vaya a ser denegatoria para que, en un plazo de 10 días contados a partir del día siguiente al de la notificación de dicha propuesta, alegue lo que convenga a su derecho.</p>
+          <p class="parrafo">4. El procedimiento para el reconocimiento de beneficios fiscales terminará por resolución en la que se reconozca o se deniegue la aplicación del beneficio fiscal.</p>
+          <p class="parrafo">El plazo máximo para notificar la resolución del procedimiento será el que establezca la normativa reguladora del beneficio fiscal y, en su defecto, será de seis meses. Transcurrido el plazo para resolver sin que se haya notificado la resolución expresa, la solicitud podrá entenderse desestimada, salvo que la normativa aplicable establezca otra cosa.</p>
+        </version>
+      </bloque>
+<bloque id="a141" tipo="precepto" titulo="Artículo 141">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 141. Efectos sobre los créditos y débitos tributarios.</p>
+          <p class="parrafo">1. La aplicación del sistema de cuenta corriente en materia tributaria determinará que la totalidad de los créditos y débitos tributarios que deban acogerse al mismo se computen para la liquidación de la cuenta, con efectos desde el día en que tenga lugar el vencimiento del plazo de autoliquidación e ingreso de la deuda tributaria o en el que se acuerde la correspondiente devolución derivada de la normativa del tributo.</p>
+          <p class="parrafo">2. Los créditos y débitos que deban ser objeto de anotación no serán exigibles individualizadamente durante la vigencia de la cuenta corriente tributaria, sino únicamente por el saldo resultante de la misma tras la liquidación.</p>
+        </version>
+      </bloque>
+<bloque id="a148" tipo="precepto" titulo="Artículo 148">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 148. Comprobación del domicilio fiscal.</p>
+          <p class="parrafo">Corresponde a la Agencia Estatal de Administración Tributaria la comprobación del domicilio fiscal en el ámbito de los tributos del Estado, incluidos los cedidos.</p>
+        </version>
+      </bloque>
+<bloque id="a150" tipo="precepto" titulo="Artículo 150">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 150. Terminación del procedimiento de comprobación del domicilio fiscal.</p>
+          <p class="parrafo">1. La resolución que ponga fin al procedimiento será motivada. El plazo para notificar la resolución será de seis meses.</p>
+          <p class="parrafo">2. Será competente para resolver el procedimiento de comprobación del domicilio fiscal el órgano competente de acuerdo con la norma de organización específica.</p>
+          <p class="parrafo">3. La resolución adoptada en el procedimiento de comprobación del domicilio fiscal confirmará o rectificará el declarado y será comunicada a los órganos implicados de la Agencia Estatal de Administración Tributaria y notificada a las Administraciones tributarias afectadas y al obligado tributario.</p>
+          <p class="parrafo">4. El procedimiento podrá finalizar asimismo por caducidad, de acuerdo con lo dispuesto en el artículo 104 de la Ley 58/2003, de 17 de diciembre, General Tributaria.</p>
+        </version>
+      </bloque>
+<bloque id="a151" tipo="precepto" titulo="Artículo 151">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 151. Efectos de la comprobación del domicilio fiscal.</p>
+          <p class="parrafo">1. El inicio de un procedimiento de comprobación del domicilio fiscal no impedirá la continuación de los procedimientos de aplicación de los tributos iniciados de oficio o a instancia del interesado que se estuviesen tramitando.</p>
+          <p class="parrafo">2. Durante los tres años siguientes a la fecha de la notificación de la resolución del procedimiento de comprobación del domicilio fiscal en la que se haya rectificado el declarado, las comunicaciones de cambio de domicilio fiscal que realice el obligado tributario, cuando supongan el traslado a una comunidad autónoma distinta, tendrán el carácter de mera solicitud y deberán acompañarse de medios de prueba que acrediten la alteración de las circunstancias que motivaron la resolución.</p>
+          <p class="parrafo">En el plazo de un mes desde la presentación de la comunicación del cambio de domicilio fiscal, la Administración tributaria deberá notificar al obligado tributario un acuerdo por el que se confirme el domicilio fiscal comprobado previamente, por el que se inicie un nuevo procedimiento de comprobación del domicilio fiscal o por el que se admita el cambio de domicilio fiscal. En este último caso, el cambio de domicilio tendrá efectos a partir del día siguiente al de la notificación de dicho acuerdo. Transcurrido un mes desde la presentación de la comunicación del cambio de domicilio sin que se haya notificado el acuerdo que proceda, dicha comunicación tendrá efectos frente a la Administración tributaria a partir del día siguiente al de finalización de dicho plazo.</p>
+        </version>
+      </bloque>
+<bloque id="a155" tipo="precepto" titulo="Artículo 155">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 155. Iniciación y tramitación del procedimiento de verificación de datos.</p>
+          <p class="parrafo">1. La Administración podrá iniciar un procedimiento de verificación de datos en los supuestos previstos en el artículo 131 de la Ley 58/2003, de 17 de diciembre, General Tributaria.</p>
+          <p class="parrafo">2. Con carácter previo a la apertura, en su caso, del plazo de alegaciones, la Administración tributaria podrá acordar de forma motivada la ampliación o reducción del alcance de las actuaciones. Dicho acuerdo deberá notificarse al obligado tributario.</p>
+          <p class="parrafo">3. Con carácter previo a la resolución en la que se corrijan los defectos advertidos o a la práctica de la liquidación provisional, la Administración deberá notificar al obligado tributario la propuesta de resolución o de liquidación para que en un plazo de 10 días, contados a partir del día siguiente al de la notificación de la propuesta, alegue lo que convenga a su derecho.</p>
+        </version>
+      </bloque>
+<bloque id="a156" tipo="precepto" titulo="Artículo 156">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 156. Terminación del procedimiento de verificación de datos.</p>
+          <p class="parrafo">1. Cuando el procedimiento termine por la subsanación, aclaración o justificación de la discrepancia o del dato objeto del requerimiento por parte del obligado tributario, se hará constar en diligencia esta circunstancia y no será necesario dictar resolución expresa.</p>
+          <p class="parrafo">2. Cuando la liquidación resultante del procedimiento de verificación de datos sea una cantidad a devolver, la liquidación de intereses de demora deberá efectuarse de la siguiente forma:</p>
+          <p class="parrafo_2">a) Cuando se trate de una devolución de ingresos indebidos, se liquidarán a favor del obligado tributario intereses de demora en los términos del artículo 32.2 de la Ley 58/2003, de 17 de diciembre, General Tributaria.</p>
+          <p class="parrafo">b) Cuando se trate de una devolución derivada de la normativa de un tributo, se liquidarán intereses de demora a favor del obligado tributario de acuerdo con lo previsto el artículo 31 de la Ley 58/2003, de 17 de diciembre, General Tributaria, y en el artículo 125 de este reglamento.</p>
+        </version>
+      </bloque>
+<bloque id="a157" tipo="precepto" titulo="Artículo 157">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 157. Comprobación de valores.</p>
+          <p class="parrafo">1. La Administración tributaria podrá comprobar el valor de las rentas, productos, bienes y demás elementos determinantes de la obligación tributaria de acuerdo con lo dispuesto en el artículo 57 de la Ley 58/2003, de 17 de diciembre, General Tributaria, salvo que el obligado tributario haya declarado de acuerdo con:</p>
+          <p class="parrafo_2">a) El valor que le haya sido comunicado al efecto por la Administración tributaria en los términos previstos en el artículo 90 de la Ley 58/2003, de 17 de diciembre, General Tributaria, y en el artículo 69 de este reglamento.</p>
+          <p class="parrafo">b) Los valores publicados por la propia Administración actuante en aplicación de alguno de los medios previstos en el artículo 57.1 de la Ley 58/2003, de 17 de diciembre, General Tributaria.</p>
+          <p class="parrafo_2">2. Lo dispuesto en esta sección se entenderá sin perjuicio de lo establecido en la normativa de cada tributo.</p>
+        </version>
+      </bloque>
+<bloque id="a163" tipo="precepto" titulo="Artículo 163">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 163. Iniciación del procedimiento de comprobación limitada.</p>
+          <p class="parrafo">Se podrá iniciar el procedimiento de comprobación limitada, entre otros, en los siguientes supuestos:</p>
+          <p class="parrafo_2">a) Cuando en relación con las autoliquidaciones, declaraciones, comunicaciones de datos o solicitudes presentadas por el obligado tributario, se adviertan errores en su contenido o discrepancias entre los datos declarados o justificantes aportados y los elementos de prueba que obren en poder de la Administración tributaria.</p>
+          <p class="parrafo">b) Cuando en relación con las autoliquidaciones, declaraciones, comunicaciones de datos o solicitudes presentadas por el obligado tributario proceda comprobar todos o algún elemento de la obligación tributaria.</p>
+          <p class="parrafo">c) Cuando de acuerdo con los antecedentes que obren en poder de la Administración, se ponga de manifiesto la obligación de declarar o la realización del hecho imponible o del presupuesto de hecho de una obligación tributaria sin que conste la presentación de la autoliquidación o declaración tributaria.</p>
+        </version>
+      </bloque>
+<bloque id="a165" tipo="precepto" titulo="Artículo 165">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 165. Terminación del procedimiento de comprobación limitada.</p>
+          <p class="parrafo">Cuando la liquidación resultante del procedimiento de comprobación limitada sea una cantidad a devolver, la liquidación de intereses de demora deberá efectuarse de la siguiente forma:</p>
+          <p class="parrafo_2">a) Cuando se trate de una devolución de ingresos indebidos, se liquidarán a favor del obligado tributario intereses de demora en los términos del artículo 32.2 de la Ley 58/2003, de 17 de diciembre, General Tributaria.</p>
+          <p class="parrafo">b) Cuando se trate de una devolución derivada de la normativa de un tributo, se liquidarán intereses de demora a favor del obligado tributario de acuerdo con lo previsto el artículo 31 de la Ley 58/2003, de 17 de diciembre, General Tributaria, y en el artículo 125 de este reglamento.</p>
+        </version>
+      </bloque>
+<bloque id="a169" tipo="precepto" titulo="Artículo 169">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 169. Personal inspector.</p>
+          <p class="parrafo">1. Las actuaciones inspectoras se realizarán por los funcionarios y demás personal al servicio de la Administración tributaria que desempeñen los correspondientes puestos de trabajo integrados en los órganos con funciones de inspección tributaria y, en su caso, por aquellos a que se refiere el artículo 61.2.</p>
+          <p class="parrafo">Corresponde a cada Administración tributaria, de acuerdo con la normativa que le sea aplicable, determinar en los distintos órganos con funciones inspectoras los puestos de trabajo que tengan a su cargo el desempeño de tales funciones y concretar sus características y atribuciones específicas.</p>
+          <p class="parrafo">2. Las actuaciones preparatorias y las de comprobación o prueba de hechos o circunstancias con trascendencia tributaria podrán encomendarse al personal al servicio de la Administración tributaria que no tenga la condición de funcionario.</p>
+        </version>
+      </bloque>
+<bloque id="a177" tipo="precepto" titulo="Artículo 177">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 177. Iniciación de oficio del procedimiento de inspección.</p>
+          <p class="parrafo">1. El procedimiento de inspección podrá iniciarse mediante comunicación notificada al obligado tributario para que se persone en el lugar, día y hora que se le señale y tenga a disposición de los órganos de inspección o aporte la documentación y demás elementos que se estimen necesarios, en los términos del artículo 87.</p>
+          <p class="parrafo">2. Cuando se estime conveniente para la adecuada práctica de las actuaciones, de acuerdo con lo previsto en el artículo 172 de este reglamento, y sin perjuicio de lo dispuesto en el artículo 147.2 de la Ley 58/2003, de 17 de diciembre, General Tributaria, el procedimiento de inspección podrá iniciarse sin previa comunicación mediante personación en la empresa, oficinas, dependencias, instalaciones, centros de trabajo o almacenes del obligado tributario o donde exista alguna prueba de la obligación tributaria, aunque sea parcial. En este caso, las actuaciones se entenderán con el obligado tributario si estuviese presente y, de no estarlo, con los encargados o responsables de tales lugares.</p>
+        </version>
+      </bloque>
+<bloque id="a179" tipo="precepto" titulo="Artículo 179">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 179. Solicitud del obligado tributario de una inspección de alcance general.</p>
+          <p class="parrafo">1. La solicitud a que se refiere el artículo 149 de la Ley 58/2003, de 17 de diciembre, General Tributaria, deberá formularse mediante escrito dirigido al órgano competente para liquidar o comunicarse expresamente al actuario, quien deberá recoger esta manifestación en diligencia y dará traslado de la solicitud al órgano competente para liquidar. Esta solicitud incluirá el contenido previsto en el artículo 88.2 de este reglamento.</p>
+          <p class="parrafo">2. Recibida la solicitud, el órgano competente para liquidar acordará si la inspección de carácter general se va a realizar como ampliación del alcance del procedimiento ya iniciado o mediante el inicio de otro procedimiento.</p>
+          <p class="parrafo">3. La inadmisión de la solicitud por no cumplir los requisitos establecidos en el artículo 149 de la Ley 58/2003, de 17 de diciembre, General Tributaria, deberá estar motivada y será notificada al obligado tributario. Contra el acuerdo de inadmisión no podrá interponerse recurso de reposición ni reclamación económico-administrativa, sin perjuicio de que pueda reclamarse contra el acto o actos administrativos que pongan fin al procedimiento de inspección.</p>
+        </version>
+      </bloque>
+<bloque id="a182" tipo="precepto" titulo="Artículo 182">
+        <version id_norma="BOE-A-2007-15984" fpub="" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 182. Horario de las actuaciones del procedimiento inspector.</p>
+          <p class="parrafo">1. Las actuaciones inspectoras que se desarrollen en las oficinas públicas podrán realizarse fuera del horario oficial de apertura al público de dichas oficinas o de la jornada de trabajo vigente cuando lo requieran las circunstancias de dichas actuaciones o medie el consentimiento del obligado tributario.</p>
+          <p class="parrafo">2. Cuando las actuaciones inspectoras se desarrollen en los locales del obligado tributario, podrán realizarse fuera de la jornada laboral de oficina o de la actividad en los siguientes supuestos:</p>
+          <p class="parrafo_2">a) Cuando medie el consentimiento del obligado tributario.</p>
+          <p class="parrafo">b) Cuando sin el consentimiento del obligado tributario se considere necesario para que no desaparezcan, se destruyan o alteren elementos de pruebas o las circunstancias del caso requieran que las actuaciones de inspección se efectúen con una especial celeridad que exija su desarrollo fuera de la jornada laboral y se obtenga, en ambos supuestos, la previa autorización del órgano competente de la Administración tributaria.</p>
+          <p class="parrafo_2">En el ámbito de la Agencia Estatal de Administración Tributaria, la autorización a que se refiere el párrafo anterior corresponderá al delegado o al director de departamento del que dependa el órgano actuante.</p>
+          <p class="parrafo">En el ámbito de la Dirección General del Catastro la autorización a que se refiere el párrafo anterior corresponderá al Director General.</p>
+          <p class="parrafo">El obligado tributario podrá exigir que se le entregue copia de la autorización.</p>
+        </version>
+      </bloque>
+<bloque id="a183" tipo="precepto" titulo="Artículo 183">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 183. Trámite de audiencia previo a las actas de inspección.</p>
+          <p class="parrafo">Cuando el órgano de inspección considere que se han obtenido los datos y las pruebas necesarios para fundamentar la propuesta de regularización o para considerar correcta la situación tributaria del obligado, se notificará el inicio del trámite de audiencia previo a la formalización de las actas de conformidad o de disconformidad, que se regirá por lo dispuesto en el artículo 96.</p>
+          <p class="parrafo">En la misma notificación de apertura del trámite de audiencia podrá fijarse el lugar, fecha y hora para la formalización de las actas a que se refiere el artículo 185.</p>
+        </version>
+      </bloque>
+<bloque id="a192" tipo="precepto" titulo="Artículo 192">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Artículo 192. Comprobación de obligaciones formales.</p>
+          <p class="parrafo">1. Cuando el objeto del procedimiento de inspección sea comprobar e investigar el cumplimiento de obligaciones tributarias formales, se dará audiencia al obligado tributario por un plazo de 15 días, contados a partir del siguiente al de la notificación de la apertura de dicho plazo, una vez concluidas las actuaciones de comprobación e investigación.</p>
+          <p class="parrafo">2. Finalizado el trámite de audiencia, se procederá a documentar el resultado de las actuaciones de comprobación e investigación en diligencia o informe.</p>
+          <p class="parrafo">Cuando el procedimiento finalice mediante diligencia o informe, esta se incorporará al expediente sancionador que, en su caso, se inicie como consecuencia del procedimiento de inspección, sin perjuicio de la remisión que deba efectuarse cuando resulte necesario para la iniciación de otro procedimiento de aplicación de los tributos.</p>
+        </version>
+      </bloque>
+<bloque id="a199" tipo="precepto" titulo="Artículo 199">
+        <version id_norma="BOE-A-2012-14452" fecha_publicacion="20121124" fecha_vigencia="20130101">
+          <p class="articulo">Artículo 199. Funciones derivadas de la asistencia mutua.</p>
+          <p class="parrafo">Entre las funciones administrativas a las que se refiere el artículo 141.k) de la Ley 58/2003, de 17 de diciembre, General Tributaria, atribuidas a los órganos de inspección a través del artículo 166 de este reglamento, se encuentran aquéllas que deriven de la normativa sobre asistencia mutua, sin perjuicio de las competencias que, en relación con dicha asistencia mutua, puedan atribuirse a otros órganos de la Administración tributaria.</p>
+          <blockquote>
+            <p class="nota_pie">Se añade por el art. 2.9 del Real Decreto 1558/2012, de 15 de noviembre. <a class="refPost">Ref. BOE-A-2012-14452</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+<bloque id="dasegunda-2" tipo="precepto" titulo="Disposición adicional segunda">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Disposición adicional segunda. Órganos competentes de las comunidades autónomas, de las ciudades de Ceuta y Melilla o de las entidades locales.</p>
+          <p class="parrafo">1. Los órganos competentes de las comunidades autónomas, de las ciudades con Estatuto de Autonomía de Ceuta y Melilla o de las entidades locales en materia de procedimientos de aplicación de los tributos se determinarán conforme a lo que establezca su normativa específica.</p>
+          <p class="parrafo">2. Las referencias realizadas a órganos de la Administración tributaria del Estado se entenderán aplicables, cuando sean competentes por razón de la materia, a los órganos equivalentes de las comunidades autónomas, de las ciudades con Estatuto de Autonomía de Ceuta y Melilla o de las entidades locales.</p>
+        </version>
+      </bloque>
+<bloque id="datercera" tipo="precepto" titulo="Disposición adicional tercera">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Disposición adicional tercera. Órganos competentes en el ámbito de la Dirección General del Catastro.</p>
+          <p class="parrafo">En el ámbito de la Dirección General del Catastro, las menciones de este reglamento al órgano competente para liquidar se entenderán realizadas al órgano competente para dictar el acto con el que finalice el procedimiento de comprobación o investigación en materia catastral.</p>
+        </version>
+      </bloque>
+<bloque id="dacuarta" tipo="precepto" titulo="Disposición adicional cuarta">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Disposición adicional cuarta. Aplicación de las normas sobre declaraciones censales en los Territorios Históricos del País Vasco y en la Comunidad Foral de Navarra.</p>
+          <p class="parrafo">1. Los empresarios, profesionales y retenedores que tengan su domicilio fiscal en territorio común deberán presentar las declaraciones censales reguladas en este reglamento ante el órgano competente de la Administración tributaria del Estado, sin perjuicio de las obligaciones que les sean exigibles por las Administraciones tributarias de los Territorios Históricos del País Vasco o de la Comunidad Foral de Navarra.</p>
+          <p class="parrafo">2. Los empresarios, profesionales y retenedores que tengan su domicilio fiscal en territorio vasco o navarro deberán presentar las declaraciones censales reguladas en este reglamento ante el órgano competente de la Administración tributaria del Estado cuando hayan de presentar ante esta autoliquidaciones periódicas y sus correspondientes resúmenes anuales, o declaraciones anuales que incluyan rendimientos de actividades económicas, así como cuando se trate de sujetos pasivos del Impuesto sobre Actividades Económicas que desarrollen actividades económicas en territorio común.</p>
+        </version>
+      </bloque>
+<bloque id="daquinta" tipo="precepto" titulo="Disposición adicional quinta">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Disposición adicional quinta. Obligaciones censales relativas al Impuesto sobre las Ventas Minoristas de Determinados Hidrocarburos.</p>
+          <p class="parrafo">1. La obligación de inscribir en el registro territorial los establecimientos de venta al público al por menor definidos en el artículo 9.cuatro.2 de la Ley 24/2001, de 27 de diciembre, de medidas fiscales, administrativas y del orden social, tendrá la consideración de obligación censal y se regirá por lo dispuesto en los apartados octavo y noveno de la Orden de 17 de junio por la que se aprueban las normas de gestión del Impuesto sobre las Ventas Minoristas de Determinados Hidrocarburos y, en lo no previsto en dicha norma, por las disposiciones de este reglamento relativas a las obligaciones de carácter censal.</p>
+          <p class="parrafo">2. La presentación de la solicitud de baja en el Censo de Empresarios, Profesionales y Retenedores, para los obligados tributarios incluidos en el registro territorial de establecimientos de venta al público al por menor definidos en el artículo 9.cuatro.2 de la Ley 24/2001, de 27 de diciembre, de medidas fiscales, administrativas y del orden social, producirá los efectos propios de la solicitud de baja en el citado registro respecto de los establecimientos de que sean titulares dichos obligados tributarios.</p>
+        </version>
+      </bloque>
+<bloque id="dasexta" tipo="precepto" titulo="Disposición adicional sexta">
+        <version id_norma="BOE-A-2007-15984" fecha_publicacion="20070905" fecha_vigencia="20080101">
+          <p class="articulo">Disposición adicional sexta. Declaración anual de operaciones con terceras personas realizadas en Canarias, Ceuta y Melilla.</p>
+          <p class="parrafo">Las operaciones que se entiendan realizadas en Canarias, Ceuta y Melilla, según lo dispuesto en los artículos 68, 69 y 70 de la Ley 37/1992, de 28 de diciembre, del Impuesto sobre el Valor Añadido, se relacionarán en la declaración anual de operaciones con terceras personas según lo dispuesto en este reglamento. No será de aplicación lo dispuesto en el artículo 34.2.c) de este reglamento a este tipo de operaciones. A estos efectos, se entenderá por importe total de la contraprestación el que resulte de las normas vigentes de determinación de la base imponible del Impuesto General Indirecto Canario o del Impuesto sobre la Producción, los Servicios y la Importación en las Ciudades de Ceuta y Melilla, respectivamente.</p>
+          <p class="parrafo">A los efectos de la exclusión del deber de presentación de la declaración anual de operaciones, no será aplicable para las operaciones realizadas en Canarias, Ceuta y Melilla el requisito de inclusión en uno de los regímenes especiales del Impuesto sobre el Valor Añadido previstos en el artículo 32.1.b) de este reglamento.</p>
+        </version>
+      </bloque>
+<bloque id="dadecimosexta" tipo="precepto" titulo="Disposición adicional decimosexta">
+        <version id_norma="BOE-A-2011-13115" fecha_publicacion="20110730" fecha_vigencia="20110731">
+          <p class="articulo">Disposición adicional decimosexta. Habilitaciones sobre el procedimiento de pago de rendimientos de Deuda Pública del Estado.</p>
+          <p class="parrafo">1. Se habilita al Banco de España para que, de acuerdo con el procedimiento previsto en el apartado 7 del artículo 44 de este Reglamento, abone a las Entidades Gestoras las cantidades retenidas en exceso por la Dirección General del Tesoro y Política Financiera a los titulares de Deuda Pública del Estado.</p>
+          <p class="parrafo">2. El Ministro de Economía y Hacienda determinará la forma y plazos en que el Banco de España enviará la información pertinente a la Dirección General del Tesoro y Política Financiera y a la Administración tributaria para su comprobación por los procedimientos de intercambio de información previstos en el ordenamiento vigente.</p>
+          <p class="parrafo">3. El Ministro de Economía y Hacienda y el Banco de España adoptarán las disposiciones necesarias para el desarrollo del procedimiento previsto en el artículo 44 de este Reglamento.</p>
+          <blockquote>
+            <p class="nota_pie">Se añade por el art. único.5 del Real Decreto 1145/2011, de 29 de julio. <a class="refPost">Ref. BOE-A-2011-13115</a>.</p>
+          </blockquote>
+        </version>
+      </bloque>
+  </texto>
+</documento>

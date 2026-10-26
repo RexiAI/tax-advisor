@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 
 import { describe, expect, it } from 'vitest';
 
+import { search } from '@/retrieval/index';
 import { answerQuestion } from '@/service/answer-question';
 import { createConversationStore } from '@/service/conversation-store';
 import { createTurnTelemetry } from '@/service/types';
@@ -25,17 +26,25 @@ async function ask(message: string, adapter = new FakeLlmAdapter({ deltas: [] })
   return { response, adapter };
 }
 
-describe('AC-001-55 a VAT question is answered with the IVA guide', () => {
-  it('AC-001-55: IVA returns a guide and never calls the model', async () => {
-    const { response, adapter } = await ask('¿Cuánto IVA tengo que pagar por mi factura?');
+describe('AC-001-55 a VAT question is answered from the corpus, not from a guide', () => {
+  // Spec 002 moved VAT into scope: the corpus covers it, so the question reaches
+  // retrieval and comes back cited. Asserting a canned guide here would fix the
+  // behaviour this spec corrects.
+  it('AC-001-55: IVA reaches retrieval and never renders a fixed guide', async () => {
+    const message = '¿Cuánto IVA tengo que pagar por mi factura?';
+    const [top] = search(fixtureCorpus().index, message);
+    if (top === undefined) throw new Error('fixture corpus has no match for the VAT question');
 
-    expect(response.kind).toBe('guide');
-    if (response.kind !== 'guide') return;
-    expect(response.title).toContain('IVA');
-    expect(response.steps.length).toBeGreaterThan(0);
-    expect(response.links.length).toBeGreaterThan(0);
-    expect(adapter.callCount).toBe(0);
-    expect('citations' in response).toBe(false);
+    const { response, adapter } = await ask(
+      message,
+      new FakeLlmAdapter({ deltas: [`La norma lo regula [^p:${top.passage.passageId}].`] })
+    );
+
+    expect(response.kind).not.toBe('guide');
+    expect(response.kind).not.toBe('out_of_scope');
+    expect(adapter.callCount).toBe(1);
+    if (response.kind !== 'answer') return;
+    expect(response.citations.length).toBeGreaterThan(0);
   });
 });
 
@@ -59,17 +68,27 @@ describe('AC-001-56 regional taxes get guides or regional routing', () => {
   });
 });
 
-describe('AC-001-57 Social Security is routed; non-residents and company tax get guides', () => {
-  it('AC-001-57: the remaining out-of-scope case names its body', async () => {
-    const { response } = await ask('¿Cuánto pago a la Seguridad Social como autónomo?');
-    expect(response.kind).toBe('out_of_scope');
-    if (response.kind !== 'out_of_scope') return;
-    expect(response.officialBody).toBe('Tesorería General de la Seguridad Social');
-    expect('citations' in response).toBe(false);
+describe('AC-001-57 Social Security is in scope; non-residents and company tax get guides', () => {
+  // Spec 002 moved the contribution quota (RETA) into scope: the LGSS is in the
+  // corpus, so the question is answered with a citation instead of a refusal.
+  it('AC-001-57: the contribution question reaches retrieval', async () => {
+    const message = '¿Cuánto pago a la Seguridad Social como autónomo?';
+    const [top] = search(fixtureCorpus().index, message);
+    if (top === undefined) throw new Error('fixture corpus has no match for the quota question');
+
+    const { response, adapter } = await ask(
+      message,
+      new FakeLlmAdapter({ deltas: [`La norma lo regula [^p:${top.passage.passageId}].`] })
+    );
+
+    expect(response.kind).not.toBe('out_of_scope');
+    expect(adapter.callCount).toBe(1);
   });
 
   it('AC-001-57: non-residents and company tax return guides', async () => {
-    const nonResident = await ask('Soy no residente y tengo una casa en España, ¿qué impuesto pago?');
+    const nonResident = await ask(
+      'Soy no residente y tengo una casa en España, ¿qué impuesto pago?'
+    );
     expect(nonResident.response.kind).toBe('guide');
     if (nonResident.response.kind === 'guide') {
       expect(nonResident.response.title).toContain('No residentes');
@@ -95,60 +114,82 @@ describe('autónomo expense questions get a deduction checklist', () => {
   });
 });
 
-describe('RETA questions get a guide, not a bare refusal', () => {
-  it('returns the quota guide with official links', async () => {
-    const { response, adapter } = await ask('¿Cuánto es la cuota de autónomos este año?');
+describe('RETA questions reach retrieval, not a fixed guide', () => {
+  it('answers the quota question from the corpus', async () => {
+    const message = '¿Cuánto es la cuota de autónomos este año?';
+    const [top] = search(fixtureCorpus().index, message);
+    if (top === undefined) throw new Error('fixture corpus has no match for the quota question');
 
-    expect(response.kind).toBe('guide');
-    if (response.kind !== 'guide') return;
-    expect(response.title).toContain('Cuota de autónomos');
-    expect(response.steps.length).toBeGreaterThan(0);
-    expect(adapter.callCount).toBe(0);
-  });
-});
-
-describe('gestor models are answered with a guide, without the model', () => {
-  it('returns the 303 card and never calls the LLM', async () => {
-    const { response, adapter } = await ask('¿Cómo se presenta el modelo 303?');
-
-    expect(response.kind).toBe('guide');
-    if (response.kind !== 'guide') return;
-    expect(response.title).toContain('303');
-    expect(response.steps.length).toBeGreaterThan(0);
-    expect(response.links.length).toBeGreaterThan(0);
-    expect(adapter.callCount).toBe(0);
-  });
-});
-
-describe('autónomo registration is routed with a checklist, not an IRPF abstention', () => {
-  it('returns steps and official links without calling the model', async () => {
-    const { response, adapter } = await ask('Me quiero dar de alta como autónomo en España. Dime pasos');
-
-    expect(response.kind).toBe('out_of_scope');
-    if (response.kind !== 'out_of_scope') return;
-    expect(response.reasonCode).toBe('autonomo_registration');
-    expect(response.steps?.length).toBeGreaterThanOrEqual(5);
-    expect(response.links?.map((link) => link.href)).toEqual(
-      expect.arrayContaining([expect.stringContaining('sede.agenciatributaria.gob.es')])
+    const { response, adapter } = await ask(
+      message,
+      new FakeLlmAdapter({ deltas: [`La norma lo regula [^p:${top.passage.passageId}].`] })
     );
-    expect(adapter.callCount).toBe(0);
-    expect('citations' in response).toBe(false);
+
+    expect(response.kind).not.toBe('guide');
+    expect(adapter.callCount).toBe(1);
   });
 });
 
-describe('AC-001-58 a filing request is out of scope, and IVA gets its own guide', () => {
-  it('AC-001-58: filing is refused and a mixed IRPF/IVA message is answered by the IVA guide', async () => {
+describe('the censal and VAT models are answered from the corpus', () => {
+  it('sends the 303 question to retrieval instead of a model card', async () => {
+    const message = '¿Cómo se presenta el modelo 303?';
+    const [top] = search(fixtureCorpus().index, message);
+    if (top === undefined) throw new Error('fixture corpus has no match for the 303 question');
+
+    const { response, adapter } = await ask(
+      message,
+      new FakeLlmAdapter({ deltas: [`La norma lo regula [^p:${top.passage.passageId}].`] })
+    );
+
+    expect(response.kind).not.toBe('guide');
+    expect(adapter.callCount).toBe(1);
+  });
+});
+
+describe('autónomo registration is answered from the corpus, not from a constant', () => {
+  it('reaches retrieval and cites a retrieved passage', async () => {
+    const message = 'Me quiero dar de alta como autónomo en España. Dime pasos';
+    const [top] = search(fixtureCorpus().index, message);
+    if (top === undefined)
+      throw new Error('fixture corpus has no match for the registration question');
+
+    const { response, adapter } = await ask(
+      message,
+      new FakeLlmAdapter({ deltas: [`La norma lo exige [^p:${top.passage.passageId}].`] })
+    );
+
+    expect(response.kind).not.toBe('out_of_scope');
+    expect(adapter.callCount).toBe(1);
+    if (response.kind !== 'answer') return;
+    expect(response.citations.length).toBeGreaterThan(0);
+  });
+});
+
+describe('AC-001-58 a filing request is out of scope, and IVA is answered from the corpus', () => {
+  it('AC-001-58: filing is refused and a mixed IRPF/IVA message reaches retrieval', async () => {
     const filing = await ask('Hazme la declaración de la renta de 2024');
     expect(filing.response.kind).toBe('out_of_scope');
     if (filing.response.kind !== 'out_of_scope') return;
     expect(filing.response.reasonCode).toBe('filing_request');
     expect(filing.adapter.callCount).toBe(0);
-    expect(JSON.stringify(filing.response)).not.toMatch(/presentar|firmar|representar por/i);
+    // The old regex (/presentar|firmar/) was written for copy that never used
+    // those words at all; the corrected refusal explains where to file ("Para
+    // presentar, la administración competente es..."), so the assertion now
+    // checks the claim it was actually making: no promise to file on the user's
+    // behalf.
+    expect(filing.response.explanation).toMatch(/No presento declaraciones/i);
+    expect(filing.response.explanation).not.toMatch(/puedo presentar|voy a presentar|te presento/i);
+    expect(filing.response.explanation.toLowerCase()).not.toContain('explico el irpf');
 
-    const mixed = await ask('¿Puedo deducir el alquiler y cuánto IVA pago?');
-    expect(mixed.response.kind).toBe('guide');
-    if (mixed.response.kind !== 'guide') return;
-    expect(mixed.response.title).toContain('IVA');
+    const message = '¿Puedo deducir el alquiler y cuánto IVA pago?';
+    const [top] = search(fixtureCorpus().index, message);
+    if (top === undefined) throw new Error('fixture corpus has no match for the mixed message');
+    const mixed = await ask(
+      message,
+      new FakeLlmAdapter({ deltas: [`La norma lo regula [^p:${top.passage.passageId}].`] })
+    );
+    expect(mixed.response.kind).not.toBe('guide');
+    expect(mixed.adapter.callCount).toBe(1);
   });
 
   it('AC-001-58: the guard imports the classification map instead of inlining strings', () => {

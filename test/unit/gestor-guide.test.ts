@@ -3,39 +3,36 @@ import { describe, expect, it } from 'vitest';
 import { gestorGuide, MODEL_GUIDES } from '@/content/gestor-guides';
 
 describe('gestorGuide', () => {
-  it('returns a model card for a known model', () => {
-    const guide = gestorGuide('¿Cómo se presenta el modelo 303?');
-    expect(guide?.title).toContain('303');
+  // Spec 002: the procedural IRPF models stay procedural; the censal and VAT
+  // models are answered from the corpus, so their matchers were withdrawn.
+  it('returns a procedural card for a kept IRPF model', () => {
+    const guide = gestorGuide('¿Cómo se presenta el modelo 130?');
+    expect(guide?.title).toContain('130');
     expect(guide?.steps.length).toBeGreaterThanOrEqual(4);
-    expect(guide?.links.some((link) => link.href.includes('G414'))).toBe(true);
+    expect(guide?.links.some((link) => link.href.includes('G601'))).toBe(true);
   });
 
-  it('knows the common autónomo models', () => {
-    for (const code of ['303', '390', '130', '131', '100', '036']) {
+  it('keeps only the procedural IRPF models in the model map', () => {
+    expect(Object.keys(MODEL_GUIDES).sort()).toEqual(['100', '130', '131']);
+    for (const code of ['130', '131', '100']) {
       expect(MODEL_GUIDES[code]?.title).toContain(code);
     }
   });
 
-  it('returns IVA guidance without needing a model number', () => {
-    const guide = gestorGuide('¿Puedo deducir el IVA de la gasolina?');
-    expect(guide?.title).toContain('IVA');
-    expect(guide?.steps.length).toBeGreaterThan(3);
+  it('leaves VAT questions to retrieval', () => {
+    expect(gestorGuide('¿Puedo deducir el IVA de la gasolina?')).toBeNull();
   });
 
-  it('returns invoice guidance when the question is about a factura con IVA', () => {
-    expect(gestorGuide('¿Cómo se hace una factura con IVA?')?.title).toContain('Factura');
+  it('leaves invoice and VAT questions to retrieval', () => {
+    expect(gestorGuide('¿Cómo se hace una factura con IVA?')).toBeNull();
   });
 
-  it('returns RETA guidance for a quota question', () => {
-    const guide = gestorGuide('¿Cuánto es la cuota de autónomos este año?');
-    expect(guide?.title).toContain('Cuota de autónomos');
-    expect(guide?.links.some((link) => link.href.includes('seg-social.es'))).toBe(true);
+  it('leaves the quota question to retrieval', () => {
+    expect(gestorGuide('¿Cuánto es la cuota de autónomos este año?')).toBeNull();
   });
 
-  it('returns the models overview for an autónomo asking what to file', () => {
-    const guide = gestorGuide('¿Qué modelos tiene que presentar un autónomo?');
-    expect(guide?.title).toContain('Modelos habituales');
-    expect(guide?.steps.join(' ')).toContain('303');
+  it('leaves what an autónomo files to retrieval', () => {
+    expect(gestorGuide('¿Qué modelos tiene que presentar un autónomo?')).toBeNull();
   });
 
   it('returns deduction guidance for a general expenses question', () => {

@@ -22,6 +22,45 @@ const PHRASE_SYNONYMS: readonly (readonly [RegExp, readonly string[]])[] = [
     /\b(gastos? deducibles?|deducir.*gastos?|gastos?.*deducir|que gastos?)\b/,
     ['gasto', 'deducible', 'estimacion', 'directa', 'rendimiento', 'neto'],
   ],
+  // The registration procedure is named after the census, not after the
+  // taxpayer: BOE says "declaración de alta en el Censo de Empresarios,
+  // Profesionales y Retenedores" and the taxpayer says "darme de alta de
+  // autónomo". Without these terms "autónomo" only meets LGSS 333/336 (cese),
+  // which outranks the article that governs the trámite.
+  [
+    /\b(darme de alta|darse de alta|dar de alta|me doy de alta|alta como autonomo|alta de autonomo|quiero ser autonomo|empezar como autonomo|iniciar actividad|inicio de actividad)\b/,
+    ['censo', 'censal', 'empresarios', 'profesionales', 'retenedores', 'declaracion', 'alta', '036', '037'],
+  ],
+  // The VAT filing obligation is drafted as "sujetos pasivos", "devengo" and
+  // "declaraciones-liquidaciones"; the taxpayer asks when they "start filing
+  // VAT". Both plural and singular forms are listed because the index has no
+  // stemming: BOE says "sujetos pasivos" and the singular would miss it.
+  // Gated on the filing verbs *and* on VAT so other questions that merely name
+  // the tax ("¿cuánto IVA pago?") keep their existing ranking.
+  [
+    /(?=.*\biva\b)(?=.*\b(empezar a presentar|empiezo|empieza|presentar|presento|obligacion|obligado|declaracion|liquidacion)\b)/,
+    [
+      'devengo',
+      'sujeto',
+      'sujetos',
+      'pasivo',
+      'pasivos',
+      'autoliquidacion',
+      'autoliquidaciones',
+      'liquidacion',
+      'liquidaciones',
+      'declaracion',
+      'declaraciones',
+      'obligaciones',
+      'comienzo',
+      'actividades',
+      'plazos',
+      'impresos',
+      'ingresar',
+      'periodicamente',
+      '303',
+    ],
+  ],
 ];
 
 const TERM_SYNONYMS: Readonly<Record<string, readonly string[]>> = {

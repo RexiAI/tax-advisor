@@ -57,6 +57,21 @@ below 70% while the same set shows the correct passage is present in the corpus,
 embeddings against that baseline. Revisit earlier only if the corpus grows past roughly
 50,000 passages, where an in-memory index stops being cheap.
 
+### Volume note (spec 002)
+
+The corpus grew from 2 to 8 norms and from 396 to several thousand passages when the product
+widened its scope from the IRPF to the autónomo's fiscal cycle; the scope decision itself is
+`docs/adr/0003-advisor-scope-expansion.md`. The revisit threshold above is unchanged: several
+thousand passages are still far from 50,000, so the argument for an in-memory lexical index
+over embeddings still holds, and nothing here obliges anyone to measure recall.
+
+The risk of that wider corpus is accepted, not measured: lexical retrieval may fail to
+discriminate between norms that share vocabulary (a question about the contribution base and a
+question about the IRPF base), so a question can retrieve the wrong norm's passages. The honest
+output in that case is `insufficient_evidence`, and spec 002 sets no recall-measurement gate on
+top of that. Re-opening recall measurement is a separate decision, taken with the labelled set
+the section above describes — not a gate this repository runs.
+
 ## Sources
 
 - BOE consolidated text of Ley 35/2006: <https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764>

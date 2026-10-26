@@ -9,6 +9,7 @@ import userEvent from '@testing-library/user-event';
 import type { ReactElement } from 'react';
 
 import { ChatScreen, type ChatScreenProps } from '@/components/ChatScreen';
+import { Notice, type NoticeProps } from '@/components/Notice';
 import type { AnswerResponse, ChatResponse } from '@/service/types';
 
 export const CORPUS = { taxYear: 2025, generatedAt: '2026-03-18T08:00:00Z' };
@@ -63,6 +64,14 @@ export function renderScreen(overrides: Partial<ChatScreenProps> = {}): ScreenVi
       view.rerender(element({ ...props, ...next }));
     },
   };
+}
+
+/**
+ * Renders one `Notice` in isolation. JSX stays here so the acceptance test stays
+ * plain TypeScript (the traceability gate scans `*.test.ts`).
+ */
+export function renderNotice(props: NoticeProps): HTMLElement {
+  return render(<Notice {...props} />).container;
 }
 
 export async function askAndWait(text = '¿Puedo deducir el alquiler?'): Promise<void> {

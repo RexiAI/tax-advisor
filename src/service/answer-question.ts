@@ -6,16 +6,12 @@
 
 import { stripCitationMarkers } from '../citations/extract';
 import { validateCitations } from '../citations/validate';
-import { AUTONOMO_EXPLANATION, AUTONOMO_LINKS, AUTONOMO_STEPS } from '../content/autonomo';
 import { toPlainText } from '../content/format';
-import { gestorGuide, type GuideContent } from '../content/gestor-guides';
-import {
-  AI_DISCLOSURE,
-  HANDOFF_URL,
-  PRIVACY_CATEGORY_LABELS,
-  PRIVACY_WARNING_MESSAGE,
-} from '../content/strings';
+import { gestorGuide } from '../content/gestor-guides';
+import { AI_DISCLOSURE, REINFORCED_SCOPE_DISCLAIMER } from '../content/strings';
+import { isNonIrpfNorm } from '../domain/allowed-norms';
 import type { Citation } from '../domain/citation';
+import { normIdOfPassageId } from '../domain/passage';
 import type { EvidenceBundle } from '../evidence/build-evidence';
 import { buildEvidence } from '../evidence/build-evidence';
 import type { LlmAdapter, LlmCallOptions, LlmErrorCode } from '../llm/types';
@@ -23,9 +19,15 @@ import { assembleRequest } from '../prompts/assemble';
 import type { CorpusIndex } from '../retrieval/types';
 
 import type { ConversationStore } from './conversation-store';
-import { detectSensitiveData } from './privacy';
-import { errorResponseFor, firstQuestion, insufficientResponse, yearNoticeFor } from './responses';
-import { classifyScope } from './scope-guard';
+import {
+  errorResponseFor,
+  firstQuestion,
+  guideResponse,
+  insufficientResponse,
+  privacyResponse,
+  scopeResponse,
+  yearNoticeFor,
+} from './responses';
 import type { AnswerResponse, ChatRequest, ChatResponse, TurnFrame, TurnTelemetry } from './types';
 
 export interface AnswerConfig {
@@ -58,48 +60,6 @@ function workedExampleOf(paragraphs: readonly string[]): string | undefined {
   if (paragraph === undefined) return undefined;
   const stripped = paragraph.replace(WORKED_EXAMPLE_PREFIX, '').trim();
   return stripped === '' ? paragraph : stripped;
-}
-
-function privacyResponse(message: string): ChatResponse | null {
-  const [category] = detectSensitiveData(message);
-  if (category === undefined) return null;
-  const label = PRIVACY_CATEGORY_LABELS[category];
-  return {
-    kind: 'privacy_warning',
-    category,
-    categoryLabel: label,
-    message: PRIVACY_WARNING_MESSAGE.replace('{category}', label),
-    disclaimer: AI_DISCLOSURE,
-  };
-}
-
-function scopeResponse(message: string): ChatResponse | null {
-  const match = classifyScope(message);
-  if (match === null) return null;
-  const registration = match.reasonCode === 'autonomo_registration';
-  return {
-    kind: 'out_of_scope',
-    reasonCode: match.reasonCode,
-    topicLabel: match.label,
-    officialBody: match.officialBody,
-    explanation: registration
-      ? AUTONOMO_EXPLANATION
-      : `Las preguntas sobre ${match.label} quedan fuera del alcance de esta herramienta: aquí solo explico el IRPF. Para ${match.label}, la administración competente es ${match.officialBody}.`,
-    ...(registration ? { steps: AUTONOMO_STEPS, links: AUTONOMO_LINKS } : {}),
-    handoffUrl: HANDOFF_URL,
-    disclaimer: AI_DISCLOSURE,
-  };
-}
-
-function guideResponse(guide: GuideContent): ChatResponse {
-  return {
-    kind: 'guide',
-    title: guide.title,
-    explanation: guide.summary,
-    steps: guide.steps,
-    links: guide.links,
-    disclaimer: AI_DISCLOSURE,
-  };
 }
 
 function callOptions(deps: AnswerDeps): LlmCallOptions {
@@ -135,6 +95,18 @@ function preModel(input: ChatRequest, deps: AnswerDeps): PreModel {
   return { bundle };
 }
 
+/**
+ * The reinforced disclaimer is derived from the norms that actually answered:
+ * a validated citation of a non-IRPF norm turns it on, and only then. Deriving
+ * it from the message would classify risk by vocabulary the spec deletes.
+ */
+function scopeDisclaimerFor(citations: readonly Citation[]): string | undefined {
+  const nonIrpf = citations.some((citation) =>
+    isNonIrpfNorm(normIdOfPassageId(citation.passageId))
+  );
+  return nonIrpf ? REINFORCED_SCOPE_DISCLAIMER : undefined;
+}
+
 function answerResponse(
   input: ChatRequest,
   citations: readonly Citation[],
@@ -147,6 +119,7 @@ function answerResponse(
   const explanation = body[0] ?? answerText.trim();
   const rule = body.slice(1).join('\n\n') || explanation;
   const yearNotice = yearNoticeFor(input.message, deps.config.corpusTaxYear);
+  const scopeDisclaimer = scopeDisclaimerFor(citations);
 
   const response: AnswerResponse = {
     kind: 'answer',
@@ -154,6 +127,7 @@ function answerResponse(
     rule,
     citations,
     disclaimer: AI_DISCLOSURE,
+    ...(scopeDisclaimer === undefined ? {} : { scopeDisclaimer }),
     ...(workedExample === undefined ? {} : { workedExample }),
     ...(yearNotice === undefined ? {} : { yearNotice }),
   };
