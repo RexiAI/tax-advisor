@@ -19,7 +19,7 @@ import {
   RETRY_AFTER_LABEL,
   STATUS_SEARCHING,
 } from '@/content/strings';
-import type { AnswerResponse, ChatResponse } from '@/service/types';
+import type { AnswerResponse, ChatResponse, InsufficientEvidenceResponse } from '@/service/types';
 
 import type { ClientError, Submit, SubmitOutcome } from './chat-submit';
 
@@ -63,6 +63,19 @@ function noticeEntry(notice: NoticeProps): ThreadEntry {
 }
 
 /**
+ * The abstention's body. Both strings are payload fields, so this is a mapping,
+ * not copy: the boundary note joins the explanation after a blank line, which
+ * `.body` renders as a paragraph break under `white-space: pre-line`. When there
+ * is no note the body stays exactly the explanation — no trailing separator and
+ * no empty second paragraph.
+ */
+function abstentionBody(response: InsufficientEvidenceResponse): string {
+  return response.boundaryNote === undefined
+    ? response.explanation
+    : `${response.explanation}\n\n${response.boundaryNote}`;
+}
+
+/**
  * The `Notice` for a thread-level non-answer. An abstention is an ordinary
  * outcome and gets a name; a refusal gets its boundary copy and the handoff, and
  * nothing else — no steps, no link list, no footer. A guide keeps its numbered
@@ -73,7 +86,7 @@ export function abstentionNotice(response: ChatResponse): NoticeProps | null {
     return {
       tone: 'info',
       title: INSUFFICIENT_TITLE,
-      body: response.explanation,
+      body: abstentionBody(response),
       action: { href: response.handoffUrl, label: HANDOFF_LABEL },
       ...(response.yearNotice === undefined ? {} : { footer: response.yearNotice }),
     };

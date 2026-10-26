@@ -6,6 +6,7 @@ import {
   ANSWER_EXAMPLE_HEADING,
   ANSWER_RULE_HEADING,
   ANSWER_SUMMARY_HEADING,
+  IBI_BOUNDARY_TITLE,
   YEAR_NOTICE_TITLE,
 } from '@/content/strings';
 import type { AnswerResponse } from '@/service/types';
@@ -52,14 +53,20 @@ function AnswerDisclaimers({ response }: AnswerBlockProps) {
 
 /**
  * The answer is a document, not a message bubble: summary, rule, optional worked
- * example, the year notice next to the evidence it qualifies, then the sources
- * block and the footer (AI disclosure, the reinforced scope line when the answer
- * leans on a non-IRPF norm).
+ * example, then the qualifiers — the boundary note when the question mentioned a
+ * tax the corpus cannot ground, then the year notice next to the evidence it
+ * explains — then the sources block and the footer (AI disclosure, the reinforced
+ * scope line when the answer leans on a non-IRPF norm). Both qualifiers are
+ * siblings: neither replaces nor absorbs the other.
  */
 export function AnswerBlock({ response }: AnswerBlockProps) {
   return (
     <article className={styles.answer}>
       <AnswerBody response={response} />
+
+      {response.boundaryNote === undefined ? null : (
+        <Notice tone="info" title={IBI_BOUNDARY_TITLE} body={response.boundaryNote} />
+      )}
 
       {response.yearNotice === undefined ? null : (
         <Notice tone="info" title={YEAR_NOTICE_TITLE} body={response.yearNotice} />

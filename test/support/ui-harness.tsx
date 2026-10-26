@@ -8,9 +8,10 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import type { ReactElement } from 'react';
 
+import { AnswerBlock } from '@/components/AnswerBlock';
 import { ChatScreen, type ChatScreenProps } from '@/components/ChatScreen';
 import { Notice, type NoticeProps } from '@/components/Notice';
-import type { AnswerResponse, ChatResponse } from '@/service/types';
+import type { AnswerResponse, ChatResponse, InsufficientEvidenceResponse } from '@/service/types';
 
 export const CORPUS = { taxYear: 2025, generatedAt: '2026-03-18T08:00:00Z' };
 
@@ -72,6 +73,23 @@ export function renderScreen(overrides: Partial<ChatScreenProps> = {}): ScreenVi
  */
 export function renderNotice(props: NoticeProps): HTMLElement {
   return render(<Notice {...props} />).container;
+}
+
+export function insufficientResponse(
+  overrides: Partial<InsufficientEvidenceResponse> = {}
+): InsufficientEvidenceResponse {
+  return {
+    kind: 'insufficient_evidence',
+    explanation: 'No he encontrado suficiente información',
+    handoffUrl: 'mailto:asesoria@example.com',
+    disclaimer: DEFAULT_DISCLAIMER,
+    ...overrides,
+  };
+}
+
+/** Renders one `AnswerBlock` in isolation — the component the note lives in. */
+export function renderAnswerBlock(response: AnswerResponse): HTMLElement {
+  return render(<AnswerBlock response={response} />).container;
 }
 
 export async function askAndWait(text = '¿Puedo deducir el alquiler?'): Promise<void> {
