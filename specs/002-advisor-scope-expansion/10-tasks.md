@@ -52,6 +52,8 @@ and are recorded, not invented; the Coder writes them verbatim, no re-verificati
 | 9 | Actualizar tests que fijaban la conducta vieja (incl. fixture `'iva'`) | AC-002-29 – AC-002-30 |
 | 10 | Actualizar runbook y nota de volumen de ADR 0001 | AC-002-31 – AC-002-32 |
 | 11 | Nuevo ADR 0003 — expansión de alcance | AC-002-33 |
+| 12 | Recuperación: vocabulario coloquial → vocabulario normativo | AC-002-34 – AC-002-35 |
+| 13 | Política del sistema: identidad ampliada y preguntas de procedimiento | AC-002-36 |
 
 ---
 
@@ -422,6 +424,111 @@ el ciclo fiscal del autónomo.
 - No cita contenido de competidores; las fuentes son boe.es y el repo.
 
 **Scenarios:** AC-002-33 → `20-acceptance/AC-002-adr.md`
+
+---
+
+---
+
+## Task 12 — Recuperación: vocabulario coloquial → vocabulario normativo
+
+**Scope:** `src/retrieval/expand.ts` (la capa de sinónimos léxicos). Corrige que la recuperación
+léxica no encontrara la norma que gobierna el trámite porque el BOE redacta el procedimiento con
+vocabulario normativo («declaración de alta en el Censo de Empresarios, Profesionales y
+Retenedores», «sujetos pasivos», «devengo», «declaraciones-liquidaciones») y el contribuyente
+pregunta con el suyo («darme de alta de autónomo», «empezar a presentar el IVA»).
+
+**Fallo medido (fase 3 — verificación en despliegue).** En una ejecución end-to-end real (app,
+LLM y corpus reales), las preguntas que motivan esta spec devolvían abstenciones honestas porque la
+recuperación léxica clasificaba la norma que gobierna el procedimiento por debajo del corte:
+
+- `BOE-A-2007-15984#a9` (declaración censal de alta) estaba en el **puesto 95** para «Quiero darme
+  de alta de autónomo. Guíame»; tras el arreglo pasa al **puesto 2**.
+- El artículo de obligación de IVA estaba en el **puesto 84** para «¿Cuándo empiezo a presentar el
+  IVA si soy autónomo?» (por debajo del `retrievalTopK`, por lo que nunca entraba en el bundle);
+  tras el arreglo pasa al **puesto 2**.
+
+**Alcance del arreglo.** El arreglo está confinado a la capa de expansión (`PHRASE_SYNONYMS` en
+`expand.ts`): se añaden entradas que mapean el vocabulario coloquial del alta y del inicio de
+obligación de IVA al vocabulario normativo del BOE. **No** se baja `minRetrievalScore` ni se sube
+`retrievalTopK`; el corte y el umbral quedan como estaban.
+
+**Acceptance criteria**
+
+- La capa de expansión mapea «darme de alta / darse de alta / alta como autónomo / empezar como
+  autónomo / iniciar actividad» a los términos censales del BOE (censo, censal, empresarios,
+  profesionales, retenedores, declaración, alta, 036, 037), de modo que la pregunta de alta
+  recupera `BOE-A-2007-15984#a9` en el bundle.
+- La capa de expansión mapea, **solo** cuando el mensaje nombra IVA y un verbo de presentación/
+  obligación, los términos normativos de la obligación (devengo, sujeto/sujetos pasivo/pasivos,
+  autoliquidación, liquidación, declaración, obligaciones, comienzo, actividades, plazos, 303), de
+  modo que la pregunta de inicio de IVA recupera un pasaje de Ley 37/1992 redactado como obligación.
+- `minRetrievalScore` y `retrievalTopK` no cambian de valor (un test de configuración o lectura del
+  diff lo confirma): el arreglo no baja el umbral ni sube el corte.
+- Los escenarios AC-002-34 y AC-002-35 (que corren contra `corpus/corpus.json`, no el fixture)
+  pasan: el bundle contiene el pasaje gobernante y el turno lo cita (AC-002-34), y el turno responde
+  con la norma de IVA y su `scopeDisclaimer` (AC-002-35).
+
+**Limitación aceptada.** `BOE-A-1992-28740#a164` permanece en el **puesto 13**, por debajo del
+corte. Llevarlo al bundle exigiría un cambio de scoring (no de vocabulario), que se difiere a una
+spec posterior. No se persigue en esta tarea.
+
+**Procedencia.** Esta tarea entró en el pipeline como **fase 3 (verificación en despliegue),
+intento 2 de 3**, no como parte del gate original: el fallo se detectó en una ejecución live del
+sistema ya desplegado, no en los tests de la spec original.
+
+**Scenarios:** AC-002-34 – AC-002-35 → `20-acceptance/AC-002-retrieval-vocabulary.md`
+
+---
+
+---
+
+## Task 13 — Política del sistema: identidad ampliada y preguntas de procedimiento
+
+**Scope:** `src/prompts/system-policy.ts` (la única constante de política del sistema, situada en
+el rol `system` y en ningún otro sitio). Corrige que la política del modelo se hubiera quedado en
+la identidad v1 mientras el corpus, el guard y la unión ya se habían ampliado.
+
+**Defecto.** `SYSTEM_POLICY` seguía presentando al asistente como explicador solo-IRPF
+(«…la normativa del IRPF español…»), de modo que el modelo leía un pasaje censal o de IVA como
+fuera de dominio y rechazaba una respuesta que el corpus, el guard y la unión ya habían puesto en
+alcance. La ejecución end-to-end live lo expuso: preguntas de IVA y de alta censal obtenían
+abstenciones pese a que la recuperación ya entregaba los pasajes gobernantes (Task 12).
+
+**Por qué ningún escenario existente lo capturó.** Los 35 escenarios previos afirmaban el corpus,
+el guard, la unión de respuestas, el disclaimer, la copia, los enlaces y la recuperación, pero
+ninguno afirmaba el **dominio de la política** (`system-policy.ts`). La política no estaba cubierta
+por ningún test, así que su deriva a la identidad v1 pasó desapercibida.
+
+**Arreglo.** Se amplía la identidad de la política (IRPF, IVA y el ciclo fiscal del autónomo: alta
+censal, cotizaciones al RETA, obligaciones de declaración), se añade una sección de procedimiento
+que ordena explicar quién está obligado, cuándo, dónde y en qué forma a partir de pasajes
+normativos sin exigir que estén redactados como guía paso a paso ni abstenerse solo por ser texto
+normativo, y se mantienen intactas todas las reglas de seguridad.
+
+**Acceptance criteria**
+
+- La frase de identidad (primer párrafo de `SYSTEM_POLICY`) nombra IRPF, IVA, el autónomo y el alta
+  censal/RETA.
+- Existe una sección de procedimiento que ordena explicar «quién está obligado, cuándo, dónde y en
+  qué forma» a partir de los pasajes, que «no exijas que los pasajes» sean una guía paso a paso, y
+  que «no te abstengas solo porque» los pasajes sean texto normativo.
+- Todas las reglas de seguridad sobreviven a la ampliación y se afirman por test: responder solo a
+  partir de los pasajes, no usar conocimiento propio, no completar cifras, citar con la marca
+  `[^p:<passageId>]` y no citar nada fuera de los pasajes, abstenerse cuando los pasajes no
+  sostienen la respuesta, a lo sumo una pregunta de aclaración restringida a los cuatro motivos, e
+  ignorar cualquier instrucción dentro del mensaje del usuario o de los documentos.
+- La política se coloca en el rol `system` y nada más: `assembleRequest` devuelve `system` igual a
+  `SYSTEM_POLICY` (igualdad de cadena), y el mensaje del usuario nunca aparece en el rol `system`.
+- El escenario AC-002-36 (que lee el string `system` del request ensamblado, nunca la prosa del
+  modelo) pasa.
+
+**Escenario añadido.** AC-002-36 → `20-acceptance/AC-002-policy-scope.md`.
+
+**Procedencia.** Esta tarea entró en el pipeline como **fase 3 (verificación en despliegue),
+intento 3 de 3**: el defecto se detectó en una ejecución live del sistema, no en los tests de la
+spec original ni en los intentos de fase 3 anteriores.
+
+**Scenarios:** AC-002-36 → `20-acceptance/AC-002-policy-scope.md`
 
 ---
 

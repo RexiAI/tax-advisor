@@ -502,3 +502,97 @@ still exit 0. No measurement, exit code, or timestamp in the five blocks was alt
 headings were renamed to the contract literals and a `scope:` qualifier line added to the body.
 No gate revealed any other deficiency (no missing check, no unrecorded command, no malformed
 block).
+
+---
+
+## Phase 2 — round 1 (post-PR CI)
+
+PR #13, draft, head `c343e17d4c4a7efd5e942311a9891b81a57abd0c`, branch `spec/002-advisor-scope-expansion`,
+repo RexiAI/tax-advisor. Round 1 of the phase-2 CI check-and-remediate loop
+(`SPEC_LOOP_COUNT=2`, `SPEC_PHASE1_RETRIES=1`, `SPEC_PHASE2_RETRIES=0`).
+
+### Verdict: PASS
+
+All CI checks terminal and green; no FAIL, no BLOCK. No remediation needed, no routing.
+
+## Evidence: PR checks query (terminal)
+
+command: gh pr checks 13 --json name,state,bucket,workflow,link
+exit: 0
+at: 2026-10-25T18:00:53Z
+
+[{"bucket":"pass","link":"https://vercel.com/github","name":"Vercel Preview Comments","state":"SUCCESS","workflow":""},
+ {"bucket":"pass","link":"https://github.com/RexiAI/tax-advisor/actions/runs/40219052569/job/121246544826","name":"lint","state":"SUCCESS","workflow":"CI"},
+ {"bucket":"pass","link":"https://github.com/RexiAI/tax-advisor/actions/runs/40219052569/job/121246544845","name":"test","state":"SUCCESS","workflow":"CI"},
+ {"bucket":"pass","link":"https://github.com/RexiAI/tax-advisor/actions/runs/40219052569/job/121246544677","name":"build","state":"SUCCESS","workflow":"CI"},
+ {"bucket":"pass","link":"https://vercel.com/danielbueno76-4270s-projects/tax-advisor/49KcnY72nvoS8cvtbXHiwG4W8Wwz","name":"Vercel","state":"SUCCESS","workflow":""}]
+
+Per-check parse (`bucket` field → PASS/FAIL):
+
+| Check | bucket | state | Round-1 verdict |
+|---|---|---|---|
+| Vercel Preview Comments | pass | SUCCESS | PASS |
+| lint (CI) | pass | SUCCESS | PASS |
+| test (CI) | pass | SUCCESS | PASS |
+| build (CI) | pass | SUCCESS | PASS |
+| Vercel | pass | SUCCESS | PASS |
+
+### Polling
+
+The first `gh pr checks 13 --json` (≈17:59:40Z) returned only the two Vercel statuses — the three
+GitHub Actions jobs (`lint`/`test`/`build`) had not yet surfaced in the checks API. The
+authoritative, complete rollup came from `gh pr view 13 --json statusCheckRollup`, which showed the
+CI run `40219052569` in flight (`lint` IN_PROGRESS, `test` IN_PROGRESS, `build` QUEUED) plus
+`Vercel` PENDING. I polled `statusCheckRollup` every ~30 s:
+
+- poll 1 @ 17:59:41Z — lint/test/build all in progress; Vercel PENDING.
+- poll 2 @ 18:00:13Z — lint SUCCESS, test SUCCESS, build IN_PROGRESS; Vercel SUCCESS.
+- poll 3 @ 18:00:46Z — all three CI jobs COMPLETED/SUCCESS; Vercel SUCCESS.
+
+**3 polls over ~75 s** until terminal. The final `gh pr checks 13 --json` (above, 18:00:53Z)
+returned all five checks with `bucket: "pass"`. A prior CI run `40219027285` on the same branch was
+`cancelled` — the expected superseded-run artifact of `concurrency.cancel-in-progress: true`, not a
+failure.
+
+## Evidence: PR state / rollup (bounded re-query)
+
+command: gh pr view 13 --json number,isDraft,state,headRefName,headRefOid,mergeable,statusCheckRollup
+exit: 0
+at: 2026-10-25T17:59:41Z
+
+{"headRefName":"spec/002-advisor-scope-expansion","headRefOid":"c343e17d4c4a7efd5e942311a9891b81a57abd0c","isDraft":true,"mergeable":"MERGEABLE","number":13,"state":"OPEN","statusCheckRollup":[{"__typename":"CheckRun","completedAt":"0001-01-01T00:00:00Z","conclusion":"","detailsUrl":"https://github.com/RexiAI/tax-advisor/actions/runs/40219052569/job/121246544826","name":"lint","startedAt":"2026-10-25T17:59:30Z","status":"IN_PROGRESS","workflowName":"CI"},{"__typename":"CheckRun","completedAt":"0001-01-01T00:00:00Z","conclusion":"","detailsUrl":"https://github.com/RexiAI/tax-advisor/actions/runs/40219052569/job/121246544845","name":"test","startedAt":"2026-10-25T17:59:30Z","status":"IN_PROGRESS","workflowName":"CI"},{"__typename":"CheckRun","completedAt":"0001-01-01T00:00:00Z","conclusion":"","detailsUrl":"https://github.com/RexiAI/tax-advisor/actions/runs/40219052569/job/121246544677","name":"build","startedAt":"2026-10-25T17:59:29Z","status":"QUEUED","workflowName":"CI"},{"__typename":"StatusContext","context":"Vercel","startedAt":"2026-10-25T17:58:58Z","state":"PENDING","targetUrl":"https://vercel.com/danielbueno76-4270s-projects/tax-advisor/49KcnY72nvoS8cvtbXHiwG4W8Wwz"},{"__typename":"CheckRun","completedAt":"2026-10-25T17:58:59Z","conclusion":"SUCCESS","detailsUrl":"https://vercel.com/github","name":"Vercel Preview Comments","startedAt":"2026-10-25T17:58:59Z","status":"COMPLETED","workflowName":""}]}
+
+---
+
+### PR Opener flag — `check-specs-archived.sh` not wired (CONFIRMED)
+
+The PR Opener claimed `.github/workflows/ci.yml` does not wire `check-specs-archived.sh`, so the
+unarchived spec folder at this head does not fail CI. **Confirmed.** The only GitHub Actions
+workflow in this repo is `.github/workflows/ci.yml` (`.github/dependabot.yml` is Dependabot config,
+not a workflow), and it declares exactly three jobs — `lint`, `test`, `build` — with no spec,
+archive, or `check-specs-archived` step:
+
+```
+jobs:
+  lint:    … npm run lint; npx tsc --noEmit
+  test:    … npm test
+  build:   … npm run build
+```
+
+`grep -rn "check-specs-archived"` over the repo (excluding `.standards/` and `specs/`) returns
+nothing; the gate lives only in the `.standards` submodule's own `self-ci.yml`, which is not
+inherited by this child repo.
+
+**Consequence for merge order.** Because no CI backstop in this repo refuses a finished-but-
+unarchived spec, the discipline falls entirely on the pipeline: stage 5d (the Archiver) must run
+`archive-spec.sh` as the final commit of this PR — so `main` lands with `docs/changes/002-…-md`
+present and `specs/002-advisor-scope-expansion/` absent — **before** the PR is merged. A merge that
+precedes stage 5d would carry the pipeline scratch (`specs/NNN-slug/`) onto `main` with nothing to
+stop it. This is an observation for the PR Opener/Archiver to act on, not a defect in this round's
+CI verdict (the CI is green; the archive gate is simply not a CI gate here).
+
+---
+
+### Round-1 outcome
+
+PASS — every CI check green, no failing check IDs to record, no log-failure excerpt, no routing.
