@@ -1099,3 +1099,9 @@ component and by rendering it.
   - No dark theme, no theme toggle, no responsive breakpoint, no animation.
   - No new notice anywhere else in the product: this spec adds exactly one qualifier block, in one
     place, and one appended statement, in one place.
+
+## PR (stage 5b)
+
+PR: https://github.com/RexiAI/tax-advisor/pull/14
+Commits: 7 (6 at PR open: spec artifacts, three task commits, telemetry, archive; plus this record commit)
+Branch: spec/003-household-expenses (draft PR against main)
