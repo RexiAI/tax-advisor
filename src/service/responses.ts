@@ -10,11 +10,13 @@
  */
 
 import type { GuideContent } from '../content/gestor-guides';
+import { mentionsIbi } from '../content/scope-topics';
 import {
   AI_DISCLOSURE,
   ERROR_MESSAGES,
   FILING_REQUEST_EXPLANATION,
   HANDOFF_URL,
+  IBI_BOUNDARY_NOTE,
   INSUFFICIENT_BOUNDARY,
   INSUFFICIENT_EXPLANATIONS,
   OUT_OF_SCOPE_EXPLANATION,
@@ -23,6 +25,7 @@ import {
   YEAR_NOTICE_BODY,
 } from '../content/strings';
 import type { LlmErrorCode } from '../llm/types';
+import { normalizeText } from '../retrieval/normalize';
 
 import { detectSensitiveData } from './privacy';
 import { classifyScope } from './scope-guard';
@@ -53,18 +56,37 @@ export function errorResponseFor(error: LlmErrorCode): ErrorResponse {
   return { kind: 'error', errorCode, message: ERROR_MESSAGES[errorCode] };
 }
 
+/**
+ * The two deterministic notes a turn may carry. Both are derived from the message
+ * and stay separate payload fields; neither is ever merged into the prose.
+ */
+export interface TurnNotes {
+  readonly yearNotice?: string;
+  readonly boundaryNote?: string;
+}
+
+/**
+ * Spreads only the notes a turn actually has, so an absent note leaves no key in
+ * the payload instead of an `undefined` value or an empty field.
+ */
+export function noteFields(notes: TurnNotes): TurnNotes {
+  const fields: { yearNotice?: string; boundaryNote?: string } = {};
+  if (notes.yearNotice !== undefined) fields.yearNotice = notes.yearNotice;
+  if (notes.boundaryNote !== undefined) fields.boundaryNote = notes.boundaryNote;
+  return fields;
+}
+
 export function insufficientResponse(
   reason: InsufficientReason,
-  yearNotice?: string
+  notes: TurnNotes = {}
 ): InsufficientEvidenceResponse {
-  const explanation = `${INSUFFICIENT_EXPLANATIONS[reason]} ${INSUFFICIENT_BOUNDARY}`;
-  const response: InsufficientEvidenceResponse = {
+  return {
     kind: 'insufficient_evidence',
-    explanation,
+    explanation: `${INSUFFICIENT_EXPLANATIONS[reason]} ${INSUFFICIENT_BOUNDARY}`,
     handoffUrl: HANDOFF_URL,
     disclaimer: AI_DISCLOSURE,
+    ...noteFields(notes),
   };
-  return yearNotice === undefined ? response : { ...response, yearNotice };
 }
 
 export function privacyResponse(message: string): PrivacyWarningResponse | null {
@@ -117,6 +139,16 @@ export function yearNoticeFor(message: string, corpusTaxYear: number): string | 
     '{askedYear}',
     String(otherYear)
   );
+}
+
+/**
+ * The IBI boundary note (spec 003). Like `yearNoticeFor`, it is called only after
+ * the scope guard has passed, so "the message mentioned IBI but that was not the
+ * question" is guaranteed by call ordering rather than re-derived here. The value
+ * is the committed constant: no model output reaches it.
+ */
+export function ibiBoundaryNoteFor(message: string): string | undefined {
+  return mentionsIbi(normalizeText(message)) ? IBI_BOUNDARY_NOTE : undefined;
 }
 
 export function firstQuestion(text: string): string | null {

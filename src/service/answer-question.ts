@@ -23,10 +23,13 @@ import {
   errorResponseFor,
   firstQuestion,
   guideResponse,
+  ibiBoundaryNoteFor,
   insufficientResponse,
+  noteFields,
   privacyResponse,
   scopeResponse,
   yearNoticeFor,
+  type TurnNotes,
 } from './responses';
 import type { AnswerResponse, ChatRequest, ChatResponse, TurnFrame, TurnTelemetry } from './types';
 
@@ -68,6 +71,18 @@ function callOptions(deps: AnswerDeps): LlmCallOptions {
 
 type PreModel = { readonly response: ChatResponse } | { readonly bundle: EvidenceBundle };
 
+/**
+ * The two deterministic notes a turn may carry. Both are derived from the message
+ * alone and both are read only after the guard has passed, so a refusal never
+ * carries either.
+ */
+function turnNotes(input: ChatRequest, deps: AnswerDeps): TurnNotes {
+  return {
+    yearNotice: yearNoticeFor(input.message, deps.config.corpusTaxYear),
+    boundaryNote: ibiBoundaryNoteFor(input.message),
+  };
+}
+
 function preModel(input: ChatRequest, deps: AnswerDeps): PreModel {
   const guide = gestorGuide(input.message);
   const blocked =
@@ -84,12 +99,7 @@ function preModel(input: ChatRequest, deps: AnswerDeps): PreModel {
 
   if (bundle.status === 'insufficient') {
     deps.telemetry.citationValidation = 'not_applicable';
-    return {
-      response: insufficientResponse(
-        bundle.reason,
-        yearNoticeFor(input.message, deps.config.corpusTaxYear)
-      ),
-    };
+    return { response: insufficientResponse(bundle.reason, turnNotes(input, deps)) };
   }
 
   return { bundle };
@@ -118,7 +128,6 @@ function answerResponse(
   const body = paragraphs.filter((paragraph) => !WORKED_EXAMPLE_PREFIX.test(paragraph));
   const explanation = body[0] ?? answerText.trim();
   const rule = body.slice(1).join('\n\n') || explanation;
-  const yearNotice = yearNoticeFor(input.message, deps.config.corpusTaxYear);
   const scopeDisclaimer = scopeDisclaimerFor(citations);
 
   const response: AnswerResponse = {
@@ -129,7 +138,7 @@ function answerResponse(
     disclaimer: AI_DISCLOSURE,
     ...(scopeDisclaimer === undefined ? {} : { scopeDisclaimer }),
     ...(workedExample === undefined ? {} : { workedExample }),
-    ...(yearNotice === undefined ? {} : { yearNotice }),
+    ...noteFields(turnNotes(input, deps)),
   };
   return response;
 }
@@ -141,14 +150,13 @@ function clarificationOrAbstain(
 ): ChatResponse {
   const question = firstQuestion(answerText);
   const conversationId = input.conversationId;
-  const yearNotice = yearNoticeFor(input.message, deps.config.corpusTaxYear);
+  const abstain = (): ChatResponse =>
+    insufficientResponse('no_citations', turnNotes(input, deps));
 
-  if (question === null) return insufficientResponse('no_citations', yearNotice);
+  if (question === null) return abstain();
   if (conversationId === undefined)
     return { kind: 'clarification', question, disclaimer: AI_DISCLOSURE };
-  if (deps.conversations.hasClarified(conversationId)) {
-    return insufficientResponse('no_citations', yearNotice);
-  }
+  if (deps.conversations.hasClarified(conversationId)) return abstain();
   deps.conversations.markClarified(conversationId);
   return { kind: 'clarification', question, disclaimer: AI_DISCLOSURE };
 }
@@ -163,10 +171,7 @@ function resolveOutcome(
 
   if (validation.status === 'fail') {
     deps.telemetry.citationValidation = 'fail';
-    return insufficientResponse(
-      'unverified_citation',
-      yearNoticeFor(input.message, deps.config.corpusTaxYear)
-    );
+    return insufficientResponse('unverified_citation', turnNotes(input, deps));
   }
 
   if (validation.status === 'insufficient') {

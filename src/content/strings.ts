@@ -143,3 +143,14 @@ export const RETRY_AFTER_LABEL = 'Puedes volver a preguntar en {seconds} segundo
  */
 export const YEAR_NOTICE_BODY =
   'El texto del BOE que cito corresponde al año {corpusYear}. Si tu caso se rige por {askedYear}, la norma puede haber cambiado y el criterio no tiene por qué ser el mismo.';
+
+/**
+ * Spec 003: a turn whose message mentions the IBI but was not refused carries this
+ * deterministic note. It is a server-side field, not a prompt instruction, and it
+ * is pinned verbatim by AC-003-05 — the wording is not editable in the component
+ * that renders it. It names the tax and claims nothing about it: the corpus has no
+ * IBI passage, so any figure, article or citation here would be invented.
+ */
+export const IBI_BOUNDARY_TITLE = 'Sobre el IBI de tu pregunta';
+export const IBI_BOUNDARY_NOTE =
+  'Tu pregunta menciona el IBI. Sus normas propias no están cubiertas por el corpus que este asesor cita, así que no puedo confirmar nada sobre él.';
