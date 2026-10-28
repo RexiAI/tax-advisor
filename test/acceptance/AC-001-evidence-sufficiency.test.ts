@@ -35,7 +35,7 @@ describe('AC-001-27 a supported question yields a sufficient bundle with display
       expect(passage.normTitle).not.toBe('');
       expect(passage.articleLabel).not.toBe('');
       expect(passage.sourceUrl).toContain('https://www.boe.es/');
-      expect(passage.boeUpdatedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(passage.updatedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
     }
   });
 });

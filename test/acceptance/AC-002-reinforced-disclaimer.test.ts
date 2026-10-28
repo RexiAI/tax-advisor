@@ -98,7 +98,10 @@ describe('AC-002-26 the disclaimer renders adjacent to the AI one and swallows n
         normTitle: 'Ley 37/1992, de 28 de diciembre, del Impuesto sobre el Valor Añadido.',
         articleLabel: 'Artículo 4',
         sourceUrl: 'https://www.boe.es/buscar/act.php?id=BOE-A-1992-28740',
-        boeUpdatedAt: '2026-10-07',
+        publisher: 'boe',
+        jurisdiction: 'state',
+        authorityUsed: 'boe',
+        updatedAt: '2026-10-07',
       },
     ],
   });
