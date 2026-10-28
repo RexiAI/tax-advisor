@@ -65,8 +65,8 @@ describe('AC-001-74 health never leaks a secret and never calls out', () => {
     const createAdapter = vi.fn();
     const fetcher = new FakeCorpusFetcher({
       'BOE-A-2006-20764': {
-        xml: readFixture('boe', 'ley-35-2006.xml'),
-        fechaActualizacion: '2026-03-17',
+        document: readFixture('boe', 'ley-35-2006.xml'),
+        updatedAt: '2026-03-17',
       },
     });
     const corpus = fixtureCorpusProvider();
