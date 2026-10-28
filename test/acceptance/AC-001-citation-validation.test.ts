@@ -17,7 +17,10 @@ function passage(passageId: string, articleLabel: string): EvidencePassage {
     normTitle: normId === 'BOE-A-2006-20764' ? 'Ley 35/2006' : 'Real Decreto 439/2007',
     articleLabel,
     sourceUrl: `https://www.boe.es/buscar/act.php?id=${normId}`,
-    boeUpdatedAt: '2026-03-17',
+    publisher: 'boe',
+    jurisdiction: 'state',
+    authorityUsed: 'boe',
+    updatedAt: '2026-03-17',
     text: `Texto de ${articleLabel}.`,
   };
 }
@@ -50,7 +53,10 @@ describe('AC-001-42 valid markers produce ordered, de-duplicated citations', () 
       normTitle: 'Ley 35/2006',
       articleLabel: 'Artículo 63',
       sourceUrl: 'https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764',
-      boeUpdatedAt: '2026-03-17',
+      publisher: 'boe',
+      jurisdiction: 'state',
+      authorityUsed: 'boe',
+      updatedAt: '2026-03-17',
     });
     expect(validation.text).not.toContain('[^p:');
     expect(extractCitations(answer).ids).toEqual(['BOE-A-2006-20764#a63', 'BOE-A-2007-6820#a1']);

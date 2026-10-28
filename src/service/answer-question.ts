@@ -9,7 +9,8 @@ import { validateCitations } from '../citations/validate';
 import { toPlainText } from '../content/format';
 import { gestorGuide } from '../content/gestor-guides';
 import { AI_DISCLOSURE, REINFORCED_SCOPE_DISCLAIMER } from '../content/strings';
-import { isNonIrpfNorm } from '../domain/allowed-norms';
+import { isNonIrpfNorm, REGISTRY_COVERAGE } from '../domain/allowed-norms';
+import type { CoveragePair } from '../domain/coverage';
 import type { Citation } from '../domain/citation';
 import { normIdOfPassageId } from '../domain/passage';
 import type { EvidenceBundle } from '../evidence/build-evidence';
@@ -25,12 +26,14 @@ import {
   guideResponse,
   ibiBoundaryNoteFor,
   insufficientResponse,
+  jurisdictionClarification,
   noteFields,
   privacyResponse,
   scopeResponse,
   yearNoticeFor,
   type TurnNotes,
 } from './responses';
+import { resolveJurisdiction } from './scope-guard';
 import type { AnswerResponse, ChatRequest, ChatResponse, TurnFrame, TurnTelemetry } from './types';
 
 export interface AnswerConfig {
@@ -47,6 +50,8 @@ export interface AnswerDeps {
   readonly telemetry: TurnTelemetry;
   readonly now: () => number;
   readonly signal?: AbortSignal;
+  /** The artifact's declared coverage; defaults to the registry's derivation. */
+  readonly coverage?: readonly CoveragePair[];
 }
 
 const WORKED_EXAMPLE_PREFIX = /^ejemplo\s*:\s*/i;
@@ -83,17 +88,35 @@ function turnNotes(input: ChatRequest, deps: AnswerDeps): TurnNotes {
   };
 }
 
-function preModel(input: ChatRequest, deps: AnswerDeps): PreModel {
-  const guide = gestorGuide(input.message);
-  const blocked =
+function guideResponseFor(message: string): ChatResponse | null {
+  const guide = gestorGuide(message);
+  return guide === null ? null : guideResponse(guide);
+}
+
+function blockedResponse(
+  input: ChatRequest,
+  deps: AnswerDeps,
+  resolution: ReturnType<typeof resolveJurisdiction>
+): ChatResponse | null {
+  return (
     privacyResponse(input.message) ??
-    (guide === null ? null : guideResponse(guide)) ??
-    scopeResponse(input.message);
+    guideResponseFor(input.message) ??
+    scopeResponse(input.message, deps.coverage ?? REGISTRY_COVERAGE, resolution) ??
+    jurisdictionClarification(resolution)
+  );
+}
+
+function preModel(input: ChatRequest, deps: AnswerDeps): PreModel {
+  const resolution = resolveJurisdiction(input.message);
+  const blocked = blockedResponse(input, deps, resolution);
   if (blocked !== null) return { response: blocked };
 
   const bundle = buildEvidence(input.message, deps.index, {
     minRetrievalScore: deps.config.minRetrievalScore,
     topK: deps.config.retrievalTopK,
+    // A regional question is answered only from that region's passages; a state
+    // question only from the state corpus. An unresolvable one was clarified above.
+    jurisdiction: resolution.kind === 'resolved' ? resolution.jurisdiction : 'state',
   });
   deps.telemetry.retrievalHitCount = bundle.passages.length;
 

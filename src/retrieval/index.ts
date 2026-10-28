@@ -102,15 +102,24 @@ function compareResults(left: SearchResult, right: SearchResult): number {
 /**
  * Returns at most `k` scored passages, best first. `k` defaults to the
  * configured `retrievalTopK`. An empty or stopword-only query returns `[]`.
+ * `accept` scopes the eligible passages (spec 004, Task 9): a regional question
+ * must not be answered from another jurisdiction's text.
  */
-export function search(index: CorpusIndex, query: string, k?: number): SearchResult[] {
+export function search(
+  index: CorpusIndex,
+  query: string,
+  k?: number,
+  accept?: (passage: Passage) => boolean
+): SearchResult[] {
   const terms = [...new Set([...normalizeTerms(query), ...expandTerms(query)])];
   if (terms.length === 0) return [];
 
   const limit = k ?? readBounds().retrievalTopK;
   const results: SearchResult[] = [];
+  const eligible = (passage: Passage): boolean => accept === undefined || accept(passage);
 
   index.passages.forEach((passage, position) => {
+    if (!eligible(passage)) return;
     const counts = index.termFrequency[position];
     if (counts === undefined) return;
     const score = scorePassage(

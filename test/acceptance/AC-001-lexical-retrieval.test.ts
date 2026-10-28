@@ -15,7 +15,7 @@ function passage(blockId: string, text: string): Passage {
     articleLabel: `Artículo ${blockId}`,
     text,
     sourceUrl: 'https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764',
-    boeUpdatedAt: '2026-03-17',
+    updatedAt: '2026-03-17',
     fetchedAt: '2026-03-18T08:00:00Z',
   });
   if (!result.ok) throw new Error(`passage ${blockId} did not build: ${result.error}`);
