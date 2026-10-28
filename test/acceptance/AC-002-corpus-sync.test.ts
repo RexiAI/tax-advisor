@@ -11,6 +11,7 @@ import { ALLOWED_NORMS } from '@/domain/allowed-norms';
 
 import { FakeCorpusFetcher } from '../support/fake-fetcher';
 import {
+  fixtureAdapters,
   fixtureCorpus,
   fixtureFetcher,
   fixtureMeta,
@@ -37,7 +38,12 @@ async function sync(
   fetcher: FakeCorpusFetcher,
   previous: CorpusArtifact | null = null
 ): Promise<Awaited<ReturnType<typeof runCorpusSync>>> {
-  return runCorpusSync({ fetcher, previous, generatedAt: GENERATED_AT, taxYear: 2025 });
+  return runCorpusSync({
+    adapters: fixtureAdapters(fetcher),
+    previous,
+    generatedAt: GENERATED_AT,
+    taxYear: 2025,
+  });
 }
 
 async function firstArtifact(): Promise<CorpusArtifact> {
@@ -52,7 +58,7 @@ async function runCli(
 ): Promise<{ exitCode: number; stderr: string[] }> {
   const stderr: string[] = [];
   const exitCode = await runCorpusSyncCli({
-    fetcher,
+    adapters: fixtureAdapters(fetcher),
     artifactPath,
     taxYear: 2025,
     now: () => new Date(GENERATED_AT),
@@ -69,7 +75,7 @@ describe('AC-002-04 the sync walks exactly the allowed norms', () => {
     const fetcher = fixtureFetcher();
     const result = await sync(fetcher);
 
-    expect(ALLOWED_NORMS).toHaveLength(8);
+    expect(ALLOWED_NORMS).toHaveLength(10);
     expect(fetcher.metadataCount).toBe(ALLOWED_NORMS.length);
     expect(fetcher.fetchedNormIds).toEqual(ALLOWED_NORMS.map((norm) => norm.normId));
 
@@ -84,13 +90,13 @@ describe('AC-002-04 the sync walks exactly the allowed norms', () => {
 });
 
 describe('AC-002-05 an unchanged norm is reused and only the changed one is re-fetched', () => {
-  it('AC-002-05: one fetched norm, seven reused, the reused fetchedAt untouched', async () => {
+  it('AC-002-05: one fetched norm, nine reused, the reused fetchedAt untouched', async () => {
     const previous = await firstArtifact();
     const changed = NEW_NORM_IDS[0] as string;
     const stale: CorpusArtifact = {
       ...previous,
       norms: previous.norms.map((norm) =>
-        norm.normId === changed ? { ...norm, boeUpdatedAt: '2025-01-01' } : norm
+        norm.normId === changed ? { ...norm, updatedAt: '2025-01-01' } : norm
       ),
     };
 
@@ -116,7 +122,7 @@ describe('AC-002-05 an unchanged norm is reused and only the changed one is re-f
 
     expect(JSON.stringify(second.artifact.passages)).toBe(JSON.stringify(first.passages));
     expect(second.artifact.contentHash).toBe(first.contentHash);
-    expect(second.artifact.contentHash).toBe(contentHashOf(fixturePassages()));
+    expect(second.artifact.contentHash).toBe(contentHashOf(fixtureCorpus().artifact));
   });
 });
 
@@ -132,7 +138,7 @@ describe('AC-002-06 a broken parse of a new norm stops the sync and writes nothi
       const brokenNorm = NEW_NORM_IDS[2] as string;
       const broken = fixtureFetcher();
       // A newer BOE update date is what makes the sync re-fetch instead of reuse.
-      broken.replaceXml(brokenNorm, readFixture('boe', 'malformed-truncated.xml'), '2026-11-01');
+      broken.replaceDocument(brokenNorm, readFixture('boe', 'malformed-truncated.xml'), '2026-11-01');
 
       const failed = await runCli(path, broken);
       expect(failed.exitCode).toBe(1);
@@ -154,7 +160,7 @@ describe('AC-002-06 a broken parse of a new norm stops the sync and writes nothi
   it('AC-002-06: a norm that parses to zero passages fails instead of shrinking the corpus', async () => {
     const brokenNorm = NEW_NORM_IDS[1] as string;
     const broken = fixtureFetcher();
-    broken.replaceXml(brokenNorm, PREAMBLE_ONLY, '2026-11-01');
+    broken.replaceDocument(brokenNorm, PREAMBLE_ONLY, '2026-11-01');
 
     const result = await sync(broken);
     expect(result.ok).toBe(false);
@@ -203,7 +209,10 @@ describe('AC-002-07 adding a norm changes the content hash', () => {
         passage.normId.startsWith('BOE-A-2007-6820')
     );
 
+    const hashOfPassages = (passages: readonly (typeof all)[number][]) =>
+      contentHashOf({ coverage: [], norms: [], passages });
+
     expect(irpfOnly.length).toBeLessThan(all.length);
-    expect(contentHashOf(irpfOnly)).not.toBe(contentHashOf(all));
+    expect(hashOfPassages(irpfOnly)).not.toBe(hashOfPassages(all));
   });
 });

@@ -5,7 +5,7 @@ import { runCorpusSync } from '@/corpus/sync';
 import { ALLOWED_NORMS } from '@/domain/allowed-norms';
 
 import { FakeCorpusFetcher } from '../support/fake-fetcher';
-import { fixtureFetcher, fixtureMeta } from '../support/harness';
+import { fixtureAdapters, fixtureFetcher, fixtureMeta } from '../support/harness';
 
 describe('formatSpanishDate', () => {
   it('formats an ISO date in Spanish', () => {
@@ -24,7 +24,7 @@ describe('formatSpanishDate', () => {
 function fetcherWith(xmlByNorm: Record<string, string>): FakeCorpusFetcher {
   const fetcher = fixtureFetcher();
   for (const [normId, xml] of Object.entries(xmlByNorm)) {
-    fetcher.replaceXml(normId, xml, fixtureMetaFor(normId).boeUpdatedAt);
+    fetcher.replaceDocument(normId, xml, fixtureMetaFor(normId).updatedAt);
   }
   return fetcher;
 }
@@ -45,7 +45,7 @@ describe('runCorpusSync guards', () => {
     const empty =
       '<documento><texto><bloque id="x" tipo="preambulo" titulo="Preámbulo"><version><p>T</p></version></bloque></texto></documento>';
     const result = await runCorpusSync({
-      fetcher: fetcherWith({ 'BOE-A-2006-20764': empty }),
+      adapters: fixtureAdapters(fetcherWith({ 'BOE-A-2006-20764': empty })),
       previous: null,
       generatedAt: '2026-03-18T08:00:00Z',
       taxYear: 2025,
@@ -60,7 +60,7 @@ describe('runCorpusSync guards', () => {
   it('fails when the fetcher cannot serve a document', async () => {
     const fetcher = emptyFetcher();
     const result = await runCorpusSync({
-      fetcher,
+      adapters: fixtureAdapters(fetcher),
       previous: null,
       generatedAt: '2026-03-18T08:00:00Z',
       taxYear: 2025,
@@ -75,7 +75,7 @@ describe('runCorpusSync guards', () => {
   it('refuses to reuse an artifact whose recorded update date is not the BOE date', async () => {
     const fetcher = fetcherWith({});
     const first = await runCorpusSync({
-      fetcher,
+      adapters: fixtureAdapters(fetcher),
       previous: null,
       generatedAt: '2026-03-18T08:00:00Z',
       taxYear: 2025,
@@ -84,10 +84,10 @@ describe('runCorpusSync guards', () => {
 
     const stale = {
       ...first.artifact,
-      norms: first.artifact.norms.map((norm) => ({ ...norm, boeUpdatedAt: '2025-01-01' })),
+      norms: first.artifact.norms.map((norm) => ({ ...norm, updatedAt: '2025-01-01' })),
     };
     const second = await runCorpusSync({
-      fetcher,
+      adapters: fixtureAdapters(fetcher),
       previous: stale,
       generatedAt: '2026-03-19T08:00:00Z',
       taxYear: 2025,

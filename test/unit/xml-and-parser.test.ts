@@ -8,7 +8,7 @@ import { readFixture } from '../support/harness';
 const META = {
   normId: 'BOE-A-2006-20764',
   normTitle: 'Ley 35/2006',
-  boeUpdatedAt: '2026-03-17',
+  updatedAt: '2026-03-17',
   fetchedAt: '2026-03-18T08:00:00Z',
 } as const;
 

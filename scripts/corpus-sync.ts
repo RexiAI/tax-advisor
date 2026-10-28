@@ -10,14 +10,17 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 
 import { CORPUS_ARTIFACT_PATH } from '../src/corpus/artifact';
-import { createBoeFetcher } from '../src/corpus/boe-fetcher';
+import { createBoeAdapter } from '../src/corpus/boe-adapter';
+import { createBocmAdapter } from '../src/corpus/bocm-adapter';
 import { runCorpusSyncCli } from '../src/corpus/sync-cli';
 import { readBounds } from '../src/config/env';
 
 const artifactPath = join(process.cwd(), CORPUS_ARTIFACT_PATH);
 
 process.exitCode = await runCorpusSyncCli({
-  fetcher: createBoeFetcher(),
+  // Adapters are keyed by the publisher that supplies the text. The pilot
+  // regional norms are consolidated by the BOE, so the BOE adapter serves them.
+  adapters: [createBoeAdapter(), createBocmAdapter()],
   artifactPath,
   taxYear: readBounds().corpusTaxYear,
   now: () => new Date(),

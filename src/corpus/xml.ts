@@ -87,6 +87,20 @@ export function findElements(nodes: readonly XmlNode[], tag: string): XmlNode[] 
   return found;
 }
 
+/**
+ * The text of the first element with the given tag, or `undefined` when the
+ * document does not parse, carries no such element, or the element is empty. Both
+ * publisher adapters read their own update date this way.
+ */
+export function textOfFirstElement(xml: string, tag: string): string | undefined {
+  const parsed = parseXml(xml);
+  if (!parsed.ok) return undefined;
+  const [node] = findElements(parsed.nodes, tag);
+  if (node === undefined) return undefined;
+  const text = reduceElementTreeToText(childrenOf(node));
+  return text === '' ? undefined : text;
+}
+
 export function decodeEntities(value: string): string {
   let decoded = value
     .replace(/&#x([0-9a-fA-F]+);/g, (_, hex: string) => String.fromCodePoint(parseInt(hex, 16)))
