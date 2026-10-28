@@ -1,0 +1,202 @@
+<documento>
+  <metadatos>
+    <identificador>BOCM-20101025-1</identificador>
+    <origen_legislativo>Comunidad de Madrid</origen_legislativo>
+    <departamento>Consejería de Economía y Hacienda</departamento>
+    <rango>DECRETO LEGISLATIVO</rango>
+    <fecha_publicacion>2010/10/25</fecha_publicacion>
+    <fecha_disposicion>2010/10/21</fecha_disposicion>
+    <titulo>Decreto legislativo
+– Decreto Legislativo 1/2010, de 21 de octubre, del Consejo de Gobierno, por el que se aprueba el Texto Refundido de las Disposiciones Legales de la Comunidad de Madrid en materia de tributos cedidos por el Estado</titulo>
+    <diario codigo="BOCM">Boletín Oficial de la Comunidad de Madrid</diario>
+    <pagina_inicial>1</pagina_inicial>
+    <pagina_final>1</pagina_final>
+    <diario_numero>255</diario_numero>
+    <seccion/>
+    <url_html>https://www.bocm.es/2010-10-25221020100030</url_html>
+    <url_xml>https://www.bocm.es/boletin/CM_Orden_BOCM/2010/10/25/BOCM-20101025-1.xml</url_xml>
+    <url_json_ld>https://www.bocm.es/boletin/CM_Orden_BOCM/2010/10/25/BOCM-20101025-1.json</url_json_ld>
+    <url_pdf>https://www.bocm.es/boletin/CM_Orden_BOCM/2010/10/25/BOCM-20101025-1.PDF</url_pdf>
+    <consolidada_por>https://gestiona.comunidad.madrid/wleg_pub/servlet/Servidor?opcion=VerHtml&amp;nmnorma=6797</consolidada_por>
+    <correcciones>
+      <disposicion>https://www.bocm.es/eli/es-md/dlg/2010/10/21/1/corrigendum/20101122/dof/spa/html</disposicion>
+    </correcciones>
+  </metadatos>
+  <metadatos_eli>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:eli="http://data.europa.eu/eli/ontology#">
+      <eli:LegalResource rdf:about="https://www.bocm.es/eli/es-md/dlg/2010/10/21/1">
+        <eli:jurisdiction rdf:resource="http://www.elidata.es/mdr/authority/jurisdiction/1/es-md"/>
+        <eli:type_document rdf:resource="http://www.elidata.es/mdr/authority/resource-type/1/dlg"/>
+        <eli:id_local rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BOCM-20101025-1</eli:id_local>
+        <eli:date_document rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-10-21</eli:date_document>
+        <eli:number rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</eli:number>
+        <eli:has_member>
+          <eli:LegalResource rdf:about="https://www.bocm.es/eli/es-md/dlg/2010/10/21/1/dof">
+            <eli:jurisdiction rdf:resource="http://www.elidata.es/mdr/authority/jurisdiction/1/es-md"/>
+            <eli:type_document rdf:resource="http://www.elidata.es/mdr/authority/resource-type/1/dlg"/>
+            <eli:id_local rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BOCM-20101025-1</eli:id_local>
+            <eli:date_document rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-10-21</eli:date_document>
+            <eli:number rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</eli:number>
+            <eli:version rdf:resource="http://www.elidata.es/mdr/authority/version/dof"/>
+            <eli:is_member_of rdf:resource="https://www.bocm.es/eli/es-md/dlg/2010/10/21/1"/>
+            <eli:is_realized_by>
+              <eli:LegalExpression rdf:about="https://www.bocm.es/eli/es-md/dlg/2010/10/21/1/dof/spa">
+                <eli:language rdf:resource="http://www.elidata.es/mdr/authority/language/spa"/>
+                <eli:title>Decreto Legislativo 1/2010, de 21 de octubre, del Consejo de Gobierno, por el que se aprueba el Texto Refundido de las Disposiciones Legales de la Comunidad de Madrid en materia de tributos cedidos por el Estado&lt;/p&gt;</eli:title>
+                <eli:publisher rdf:resource="www.bocm.es"/>
+                <eli:date_publication rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-10-25</eli:date_publication>
+                <eli:realizes rdf:resource="https://www.bocm.es/eli/es-md/dlg/2010/10/21/1/dof"/>
+                <eli:is_embodied_by>
+                  <eli:Format rdf:about="https://www.bocm.es/eli/es-md/dlg/2010/10/21/1/dof/spa/html">
+                    <eli:format rdf:resource="http://www.iana.org/assignments/media-types/text/html"/>
+                    <eli:embodies rdf:resource="https://www.bocm.es/eli/es-md/dlg/2010/10/21/1/dof/spa"/>
+                  </eli:Format>
+                </eli:is_embodied_by>
+                <eli:is_embodied_by>
+                  <eli:Format rdf:about="https://www.bocm.es/eli/es-md/dlg/2010/10/21/1/dof/spa/pdf">
+                    <eli:format rdf:resource="http://www.iana.org/assignments/media-types/application/pdf"/>
+                    <eli:embodies rdf:resource="https://www.bocm.es/eli/es-md/dlg/2010/10/21/1/dof/spa"/>
+                  </eli:Format>
+                </eli:is_embodied_by>
+              </eli:LegalExpression>
+            </eli:is_realized_by>
+            <eli:corrected_by rdf:resource="https://www.bocm.es/eli/es-md/dlg/2010/10/21/1/corrigendum/20101122"/>
+            <eli:consolidated_by rdf:resource="https://www.bocm.es/eli/es-md/dlg/2010/10/21/1/con"/>
+          </eli:LegalResource>
+          <eli:LegalResource rdf:about="https://www.bocm.es/eli/es-md/dlg/2010/10/21/1/con">
+            <eli:jurisdiction rdf:resource="http://www.elidata.es/mdr/authority/jurisdiction/1/es-md"/>
+            <eli:type_document rdf:resource="http://www.elidata.es/mdr/authority/resource-type/1/dlg"/>
+            <eli:id_local rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BOCM-20101025-1</eli:id_local>
+            <eli:date_document rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-10-21</eli:date_document>
+            <eli:number rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1</eli:number>
+            <eli:version rdf:resource="http://www.elidata.es/mdr/authority/version/con"/>
+            <eli:is_member_of rdf:resource="https://www.bocm.es/eli/es-md/dlg/2010/10/21/1"/>
+            <eli:is_realized_by>
+              <eli:LegalExpression rdf:about="https://www.bocm.es/eli/es-md/dlg/2010/10/21/1/con/spa">
+                <eli:language rdf:resource="http://www.elidata.es/mdr/authority/language/spa"/>
+                <eli:title>Decreto Legislativo 1/2010, de 21 de octubre, del Consejo de Gobierno, por el que se aprueba el Texto Refundido de las Disposiciones Legales de la Comunidad de Madrid en materia de tributos cedidos por el Estado&lt;/p&gt;</eli:title>
+                <eli:publisher rdf:resource="www.bocm.es"/>
+                <eli:realizes rdf:resource="https://www.bocm.es/eli/es-md/dlg/2010/10/21/1/con"/>
+                <eli:is_embodied_by>
+                  <eli:Format rdf:about="https://www.bocm.es/eli/es-md/dlg/2010/10/21/1/con/spa/html">
+                    <eli:format rdf:resource="http://www.iana.org/assignments/media-types/text/html"/>
+                    <eli:embodies rdf:resource="https://www.bocm.es/eli/es-md/dlg/2010/10/21/1/con/spa"/>
+                  </eli:Format>
+                </eli:is_embodied_by>
+              </eli:LegalExpression>
+            </eli:is_realized_by>
+            <eli:consolidates rdf:resource="https://www.bocm.es/eli/es-md/dlg/2010/10/21/1/dof"/>
+          </eli:LegalResource>
+        </eli:has_member>
+      </eli:LegalResource>
+    </rdf:RDF>
+  </metadatos_eli>
+  <analisis>
+    <seccion>I. COMUNIDAD DE MADRID</seccion>
+    <apartado>A) Disposiciones Generales</apartado>
+    <organismo>Consejería de Economía y Hacienda</organismo>
+    <tipo_disposicion>DECRETO LEGISLATIVO</tipo_disposicion>
+  </analisis>
+  <texto>I. COMUNIDAD DE MADRID
+A) Disposiciones Generales
+CONSEJERÍA DE ECONOMÍA Y HACIENDA
+
+1
+Decreto Legislativo 1/2010, de 21 de octubre, del Consejo de Gobierno, por el que se aprueba el Texto Refundido de las Disposiciones Legales de la Comunidad de Madrid en materia de tributos cedidos por el Estado.
+
+La Presidenta de la Comunidad de Madrid.
+Hago saber: Que el Gobierno de la Comunidad de Madrid ha aprobado el siguiente Decreto Legislativo, que yo, en nombre del Rey,
+PROMULGO
+I
+La Ley 10/2009, de 23 de diciembre, de Medidas Fiscales y Administrativas, en su disposición final primera, autoriza al Gobierno de la Comunidad de Madrid para que, en el plazo de diez meses desde la entrada en vigor de la misma, elabore un texto refundido que contenga la normativa que, con rango de Ley, haya aprobado la Comunidad de Madrid en materia de tributos cedidos por el Estado y que se halle vigente a 1 de enero de 2010. La delegación legislativa autoriza la formulación de un texto único que recopile, ordene y transcriba las disposiciones vigentes a la fecha indicada.
+La autorización ha sido ampliada, por la disposición final tercera de la Ley 5/2010, de 12 de julio, de Medidas Fiscales para el Fomento de la Actividad Económica, a las disposiciones relativas a tributos cedidos por el Estado contenidas en la mencionada Ley.
+La aprobación de un texto único tiene como finalidad principal dotar de mayor claridad a la normativa autonómica en materia de tributos cedidos por el Estado mediante la integración en un único cuerpo normativo de las disposiciones que afectan a dicha materia, contribuyendo con ello a aumentar la seguridad jurídica de los contribuyentes y de la Administración Tributaria de la Comunidad de Madrid.
+II
+En el ejercicio de la citada autorización se aprueba este Decreto Legislativo por el que se aprueba el Texto Refundido de la Ley que contiene las disposiciones legales dictadas por la Comunidad en materia de tributos cedidos por el Estado, y que se encontraban incluidas en las siguientes Leyes:
+. Ley 7/2002, de 25 de julio, por la que se regula el tipo de gravamen autonómico del Impuesto sobre Ventas Minoristas de Determinados Hidrocarburos.
+. Ley 13/2002, de 20 de diciembre, de Medidas Fiscales y Administrativas.
+. Ley 5/2004, de 28 de diciembre, de Medidas Fiscales y Administrativas.
+. Ley 7/2005, de 23 de diciembre, de Medidas Fiscales y Administrativas.
+. Ley 7/2007, de 21 de diciembre, de Medidas Fiscales y Administrativas.
+. Ley 4/2009, de 20 de julio, de Medidas Fiscales contra la Crisis Económica.
+. Ley 10/2009, de 23 de diciembre, de Medidas Fiscales y Administrativas.
+. Ley 5/2010, de 12 de julio, de Medidas Fiscales para el Fomento de la Actividad Económica.
+III
+El Texto Refundido se estructura en: un título I dedicado a los impuestos en particular sobre los que la Comunidad de Madrid ha ejercido sus competencias normativas; un título II que contiene diversas obligaciones formales establecidas en la aplicación de los tributos cedidos por el Estado; una disposición adicional relativa al Impuesto sobre las Ventas Minoristas de determinados Hidrocarburos; cuatro disposiciones transitorias dedicadas al Impuesto sobre Sucesiones y Donaciones; al Impuesto sobre Transmisiones Patrimoniales y Actos Jurídicos documentados, en la modalidad de Transmisiones Patrimoniales Onerosas; y a la Tasa Fiscal sobre los Juegos de Suerte, Envite o Azar aplicable, por un lado, al juego del bingo, y, por otro, a los casinos de juego en caso de nuevas autorizaciones; y cuatro disposiciones finales que recogen la entrada en vigor de diversas deducciones y de los mínimos por descendientes en el Impuesto sobre la Renta de las Personas Físicas.
+El título I se compone de seis capítulos dedicados a los seis tributos sobre los que la Comunidad de Madrid ha ejercido competencias normativas: el Impuesto sobre la Renta de las Personas Físicas, el Impuesto sobre el Patrimonio, el Impuesto sobre Sucesiones y Donaciones, el Impuesto sobre Transmisiones Patrimoniales y Actos Jurídicos Documentados, los Tributos sobre el Juego y el Impuesto sobre las Ventas Minoristas de Determinados Hidrocarburos.
+El título II se compone de tres capítulos dedicados a las obligaciones formales en relación con los Impuestos sobre Sucesiones y Donaciones y sobre Transmisiones Patrimoniales y Actos Jurídicos Documentados, el Impuesto sobre las Ventas Minoristas de Determinados Hidrocarburos y uno final sobre habilitaciones y presentaciones telemáticas de declaraciones.
+Se incluye un índice del contenido, cuyo objeto es facilitar la utilización de la norma por sus destinatarios mediante una rápida localización y ubicación sistemática de sus preceptos.
+En su virtud, a propuesta del Consejero de Economía y Hacienda, de acuerdo con el dictamen del Consejo Consultivo de la Comunidad de Madrid y previa deliberación del Consejo de Gobierno en su reunión de 21 de octubre de 2010,
+DISPONE
+Artículo único
+Aprobación del Texto Refundido de las disposiciones legales de la Comunidad de Madrid en materia de tributos cedidos por el Estado
+Se aprueba el Texto Refundido de las disposiciones legales de la Comunidad de Madrid en materia de tributos cedidos por el Estado, que se incluye a continuación.
+DISPOSICIONES DEROGATORIAS
+Disposición derogatoria única
+Derogación normativa
+Quedan derogadas las siguientes disposiciones:
+1. La Ley 7/2002, de 25 de julio, por la que se regula el tipo de gravamen autonómico del Impuesto sobre Ventas Minoristas de Determinados Hidrocarburos en la Comunidad de Madrid.
+2. Los artículos 6 y 7 de la Ley 13/2002, de 20 de diciembre, de Medidas Fiscales y Administrativas.
+3. El artículo 5, apartado uno.2, y los artículos 7 y 8 de la Ley 5/2004, de 28 de diciembre, de Medidas Fiscales y Administrativas.
+4. La disposición transitoria segunda de la Ley 7/2005, de 23 de diciembre, de Medidas Fiscales y Administrativas.
+5. La disposición transitoria segunda de la Ley 7/2007, de 21 de diciembre, de Medidas Fiscales y Administrativas.
+6. Los artículos 1 y 2 y la disposición final segunda, apartado dos, de la Ley 4/2009, 20 de julio, de Medidas Fiscales contra la Crisis Económica.
+7. Los artículos 1, 2, 3, 4 y 5 la disposición adicional primera, las disposiciones transitorias primera y segunda, la disposición final segunda, apartado 2, y la disposición final tercera de la Ley 10/2009, de 23 de diciembre, de Medidas Fiscales y Administrativas.
+8. Los artículos 1 y 2, la disposición adicional única y la disposición final cuarta, apartados 2, 3 y 4, de la Ley 5/2010, de 12 de julio, de Medidas Fiscales para el Fomento de la Actividad Económica.
+DISPOSICIONES FINALES
+Disposición final única
+Entrada en vigor
+Este Decreto Legislativo entrará en vigor el día siguiente al de su publicación en el BOLETÍN OFICIAL DE LA COMUNIDAD DE MADRID.
+Dado en Madrid, a 21 de octubre de 2010.
+ El Consejero de Economía y Hacienda, La Presidenta, ANTONIO BETETA BARREDA ESPERANZA AGUIRRE GIL DE BIEDMA
+TEXTO REFUNDIDO DE LAS DISPOSICINES LEGALES DE LA COMUNIDAD DE MADRID EN MATERIA DE TRIBUTOS CEDIDOS POR EL ESTADO
+TÍTULO I
+Disposiciones sustantivas aplicables a los tributos cedidos
+Capítulo I
+Impuesto sobre la Renta de las Personas Físicas
+SECCIÓN PRIMERA
+Escala autonómica
+Artículo 1
+Escala autonómica
+ La escala autonómica en el Impuesto sobre la Renta de las Personas Físicas es la siguiente:
+Ver en documento PDF 
+SECCIÓN SEGUNDA
+Mínimos personales y familiares
+Artículo 2
+Mínimos por descendientes
+Para el cálculo del gravamen autonómico de la Comunidad de Madrid se aplicarán los siguientes importes de mínimos por descendientes en sustitución de los establecidos en el artículo 58 de la Ley 35/2006, de 28 de noviembre, del Impuesto sobre la Renta de las Personas Físicas, y de modificación parcial de las Leyes de los Impuestos sobre Sociedades, sobre la Renta de No Residentes y sobre el Patrimonio:
+. 1.836 euros anuales por el primer descendiente que genere derecho a la aplicación del mínimo por descendientes.
+. 2.040 euros anuales por el segundo.
+. 4.039,20 euros anuales por el tercero.
+. 4.600,20 euros anuales por el cuarto y siguientes.
+Cuando el descendiente sea menor de tres años, la cuantía que corresponda al mínimo por descendientes, de las indicadas en este artículo, se aumentará en 2.244 euros anuales.
+SECCIÓN TERCERA
+Deducciones autonómicas
+Artículo 3
+Deducciones sobre la cuota íntegra autonómica
+Se establecen las siguientes deducciones en la cuota íntegra autonómica:
+1. Por nacimiento o adopción de hijos.
+2. Por adopción internacional de niños.
+3. Por acogimiento familiar de menores.
+4. Por acogimiento no remunerado de mayores de sesenta y cinco años y/o discapacitados.
+5. Por arrendamiento de vivienda habitual por menores de treinta y cinco años.
+6. Por donativos a fundaciones.
+7. Por el incremento de los costes de la financiación ajena para la inversión en vivienda habitual derivado del alza de los tipos de interés.
+8. Por gastos educativos.
+9. Por inversión en vivienda habitual de nueva construcción.
+10. Deducción complementaria al tramo autonómico de la deducción por inversión en vivienda habitual.
+11. Para familias con dos o más descendientes e ingresos reducidos.
+12. Por inversión en la adquisición de acciones y participaciones sociales de nuevas entidades o de reciente creación.
+13. Para el fomento del autoempleo de jóvenes menores de treinta y cinco años.
+14. Por inversiones realizadas en entidades cotizadas en el Mercado Alternativo Bursátil.
+Artículo 4
+Deducción por nacimiento o adopción de hijos
+ 1. Los contribuyentes podrán deducir las siguientes cantidades por cada hijo nacido o adoptado en el período impositivo:
+a) 600 euros si se trata del primer hijo.
+b) 750 euros si se trata del segundo hijo.
+c) 900 euros si se trata del tercer hijo o sucesivos.
+2. En el caso de partos o adopciones múltiples las cuantías anteriormente citadas se incrementarán en 600 euros por cada hijo.
+3. Solo tendrán derecho a practicar la deducción los padres que convivan con los hijos nacidos o adoptados. Cuando los hijos nacidos o adoptados convivan con ambos progenitores el importe de la deducción se prorrateará por partes iguales en la declaración de cada uno de ellos si optaran por tributación individual.
+4. Para determinar el número de orden del hijo nacido o adoptado se atenderá a los hijos que convivan con el contribuyente a la fecha de devengo del impuesto, computándose a dichos efectos tanto los hijos naturales como los adoptivos.
+</texto>
+</documento>
