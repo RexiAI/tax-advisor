@@ -1,7 +1,14 @@
 /**
  * Every user-facing string (Task 15). Spanish only; name and handoff destination
  * are single constants.
+ *
+ * Spec 004 made the source-agnostic strings say exactly that: the product cites
+ * the official sources it used, not the BOE by default. A citation still names a
+ * real host through the link label, which is a function of the authority that
+ * serves the consolidated text rather than a constant.
  */
+
+import type { AuthorityUsed } from '../domain/source';
 
 export const APP_NAME = 'Renta Clara';
 
@@ -12,7 +19,7 @@ export const AI_DISCLOSURE =
   'Esto es información general elaborada con IA, no asesoramiento fiscal personalizado.';
 
 export const CONSOLIDATED_TEXT_NOTICE =
-  'El texto consolidado del BOE es informativo y no tiene valor legal. Este producto no es una publicación oficial del BOE ni cuenta con su respaldo.';
+  'El texto consolidado de las fuentes oficiales citadas es informativo y no tiene valor legal. Este producto no es una publicación oficial ni cuenta con el respaldo de los organismos citados.';
 
 export const PRIVACY_WARNING = 'No escribas tu DNI, NIE, IBAN ni documentos personales.';
 
@@ -20,9 +27,33 @@ export const CORPUS_FRESHNESS_LABEL = 'Corpus';
 export const TAX_YEAR_LABEL = 'Año fiscal';
 
 export const SOURCES_TITLE = 'Fuentes';
-export const SOURCE_LINK_LABEL = 'Ver en el BOE';
-export const SOURCE_LINK_ARIA_PREFIX = 'Ver en el BOE';
 export const SOURCE_UPDATED_LABEL = 'Actualizado';
+
+/**
+ * The link label names the host that actually serves the consolidated text
+ * (`authorityUsed`), never the issuing publisher: a Madrid norm whose text the BOE
+ * publishes reads "Ver en el BOE" while the metadata row still names the BOCM.
+ * An exhaustive record means adding an authority is a compile error, not a silent
+ * BOE label; the generic fallback never names a host, because a wrong acronym is
+ * the defect this spec removes.
+ */
+const SOURCE_LINK_LABELS: Readonly<Record<AuthorityUsed, string>> = {
+  boe: 'Ver en el BOE',
+  bocm: 'Ver en el BOCM',
+  borm: 'Ver en el BORM',
+};
+
+const SOURCE_LINK_FALLBACK = 'Ver en la fuente oficial';
+
+export function sourceLinkLabel(authorityUsed: AuthorityUsed): string {
+  return SOURCE_LINK_LABELS[authorityUsed] ?? SOURCE_LINK_FALLBACK;
+}
+
+/**
+ * The accessible label is the visible label, read from the same map entry, so the
+ * two cannot name different hosts.
+ */
+export const sourceLinkAriaLabel = sourceLinkLabel;
 
 export const ANSWER_SUMMARY_HEADING = 'En resumen';
 export const ANSWER_RULE_HEADING = 'La norma dice';
@@ -39,7 +70,14 @@ export const EMPTY_STATE_EXAMPLES: readonly string[] = [
 
 export const OUT_OF_SCOPE_TITLE = 'Fuera del alcance de esta herramienta';
 export const CLARIFICATION_TITLE = 'Necesito un dato más';
-export const INSUFFICIENT_TITLE = 'No puedo confirmarlo con el BOE';
+
+/**
+ * The deterministic question for a message that depends on the community but
+ * names none (spec 004, Task 8). It is server-side copy rather than model prose so
+ * the clarification cannot answer from the state corpus or guess Madrid.
+ */
+export const JURISDICTION_CLARIFICATION_QUESTION = '¿En qué comunidad autónoma resides?';
+export const INSUFFICIENT_TITLE = 'No puedo confirmarlo con las fuentes oficiales';
 export const YEAR_NOTICE_TITLE = 'Sobre el año de la pregunta';
 
 /**
@@ -47,7 +85,17 @@ export const YEAR_NOTICE_TITLE = 'Sobre el año de la pregunta';
  * field, so a refusal never reads as a dead end and needs no extra payload.
  */
 export const OUT_OF_SCOPE_EXPLANATION =
-  'Las preguntas sobre {topic} quedan fuera de mi alcance: la administración competente es {body}. Lo que sí cubro, con la norma del BOE citada, es el IRPF, el IVA y el ciclo fiscal del autónomo.';
+  'Las preguntas sobre {topic} quedan fuera de mi alcance: la administración competente es {body}. Lo que sí cubro, con la norma oficial citada, es el IRPF, el IVA y el ciclo fiscal del autónomo.';
+
+/**
+ * Spec 004, decision 4: a message that names a community the coverage matrix does
+ * not contain is refused, not looped back into a clarification. `{community}` is
+ * the locative form ("Galicia", "la Comunidad de Castilla y León") and `{body}` is
+ * the determiner-led prepositional phrase ("la autoridad tributaria de Galicia").
+ * Both are interpolated server-side; the component renders the finished string.
+ */
+export const UNCOVERED_COMMUNITY_EXPLANATION =
+  'Esta herramienta no cubre la normativa que aplica en {community}: la administración competente es {body}. No puedo confirmar ningún dato sobre ella porque el corpus que este asesor cita no incluye normas de esa comunidad.';
 
 /**
  * A filing request names no topic: the ordered guard may have matched a message
@@ -57,7 +105,7 @@ export const OUT_OF_SCOPE_EXPLANATION =
 export const FILING_REQUEST_EXPLANATION =
   'No presento declaraciones ni tramito modelos en tu nombre. Para presentar, la administración competente es {body}. Lo que sí hago es explicarte la norma en la que se basa el trámite, con la cita del BOE.';
 
-export const STATUS_SEARCHING = 'Buscando en el BOE';
+export const STATUS_SEARCHING = 'Buscando en las fuentes oficiales';
 
 export const COMPOSER_LABEL = 'Escribe tu pregunta';
 export const COMPOSER_PLACEHOLDER = 'Pregunta sobre IRPF, IVA o autónomos';
@@ -76,19 +124,19 @@ export const PRIVACY_CATEGORY_LABELS = {
 
 export const INSUFFICIENT_EXPLANATIONS = {
   no_results:
-    'No he encontrado en el texto del BOE pasajes que respondan a esta pregunta, así que no puedo confirmar ningún dato sobre ella.',
+    'No he encontrado en el texto oficial pasajes que respondan a esta pregunta, así que no puedo confirmar ningún dato sobre ella.',
   below_threshold:
-    'Lo que he encontrado en el BOE no se ajusta lo suficiente a esta pregunta, así que no puedo confirmar la respuesta.',
+    'Lo que he encontrado en las fuentes oficiales no se ajusta lo suficiente a esta pregunta, así que no puedo confirmar la respuesta.',
   no_citations:
-    'La respuesta no se apoya en ningún pasaje del BOE que haya recuperado para esta pregunta, así que no puedo confirmarla.',
+    'La respuesta no se apoya en ningún pasaje oficial que haya recuperado para esta pregunta, así que no puedo confirmarla.',
   unverified_citation:
     'La respuesta citaba normas que no forman parte de los pasajes recuperados para esta pregunta, así que no puedo confirmarla.',
   corpus_unavailable:
-    'No puedo consultar el texto del BOE en este momento, así que no puedo confirmar la respuesta.',
+    'No puedo consultar el texto oficial en este momento, así que no puedo confirmar la respuesta.',
 } as const;
 
 export const INSUFFICIENT_BOUNDARY =
-  'Puedo explicar el texto consolidado del BOE, pero no sustituyo a un asesor fiscal ni presento nada en tu nombre.';
+  'Puedo explicar el texto consolidado de las fuentes oficiales, pero no sustituyo a un asesor fiscal ni presento nada en tu nombre.';
 
 /**
  * The product boundary, rendered only on a guide footer: it names the acts the
@@ -142,7 +190,7 @@ export const RETRY_AFTER_LABEL = 'Puedes volver a preguntar en {seconds} segundo
  * norm changed *because of* that year.
  */
 export const YEAR_NOTICE_BODY =
-  'El texto del BOE que cito corresponde al año {corpusYear}. Si tu caso se rige por {askedYear}, la norma puede haber cambiado y el criterio no tiene por qué ser el mismo.';
+  'El texto oficial que cito corresponde al año {corpusYear}. Si tu caso se rige por {askedYear}, la norma puede haber cambiado y el criterio no tiene por qué ser el mismo.';
 
 /**
  * Spec 003: a turn whose message mentions the IBI but was not refused carries this

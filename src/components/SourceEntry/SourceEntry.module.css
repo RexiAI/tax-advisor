@@ -45,7 +45,7 @@
   outline-offset: var(--focus-ring-offset);
 }
 
-.date {
+.metaItem {
   font-family: var(--font-mono);
   font-size: var(--font-size-citation-date);
   line-height: var(--line-metadata);
