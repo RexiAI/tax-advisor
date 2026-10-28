@@ -16,7 +16,7 @@ import { runCorpusSyncCli } from '@/corpus/sync-cli';
 import { ALLOWED_NORMS } from '@/domain/allowed-norms';
 
 import type { FakeCorpusFetcher } from '../support/fake-fetcher';
-import { fixtureFetcher, fixturePassages, readFixture } from '../support/harness';
+import { fixtureAdapters, fixtureCorpus, fixtureFetcher, readFixture } from '../support/harness';
 
 const GENERATED_AT = '2026-03-18T08:00:00Z';
 
@@ -35,7 +35,7 @@ async function runCli(
   const stdout: string[] = [];
   const stderr: string[] = [];
   const exitCode = await runCorpusSyncCli({
-    fetcher: fakeFetcher,
+    adapters: fixtureAdapters(fakeFetcher),
     artifactPath,
     taxYear: 2025,
     now: () => new Date('2026-03-18T08:00:00Z'),
@@ -52,7 +52,7 @@ async function sync(
 ): Promise<{ artifact: CorpusArtifact; fetcher: FakeCorpusFetcher }> {
   const fakeFetcher = fetcher();
   const result = await runCorpusSync({
-    fetcher: fakeFetcher,
+    adapters: fixtureAdapters(fakeFetcher),
     previous: options.previous ?? null,
     generatedAt: options.generatedAt ?? GENERATED_AT,
     taxYear: 2025,
@@ -78,10 +78,10 @@ describe('AC-001-15 the artifact carries provenance for every norm and passage',
       expect(written.passages.length).toBeGreaterThan(0);
 
       for (const norm of written.norms) {
-        expect(norm.normId).toMatch(/^BOE-A-/);
+        expect(norm.normId).toMatch(/^(BOE-A-|BOCM-m-)/);
         expect(norm.normTitle).not.toBe('');
         expect(norm.sourceUrl).toContain('https://www.boe.es/');
-        expect(norm.boeUpdatedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+        expect(norm.updatedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
         expect(norm.fetchedAt).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/);
         expect(norm.licenseNote).toContain('BOE');
       }
@@ -92,11 +92,13 @@ describe('AC-001-15 the artifact carries provenance for every norm and passage',
             'articleLabel',
             'blockId',
             'blockTitle',
-            'boeUpdatedAt',
+            'updatedAt',
             'fetchedAt',
+            'jurisdiction',
             'normId',
             'normTitle',
             'passageId',
+            'publisher',
             'sourceUrl',
             'text',
           ].sort()
@@ -129,13 +131,13 @@ describe('AC-001-17 only changed norms are re-fetched', () => {
     const stale: CorpusArtifact = {
       ...first.artifact,
       norms: first.artifact.norms.map((norm) =>
-        norm.normId === 'BOE-A-2007-6820' ? { ...norm, boeUpdatedAt: '2025-01-01' } : norm
+        norm.normId === 'BOE-A-2007-6820' ? { ...norm, updatedAt: '2025-01-01' } : norm
       ),
     };
 
     const fakeFetcher = fetcher();
     const result = await runCorpusSync({
-      fetcher: fakeFetcher,
+      adapters: fixtureAdapters(fakeFetcher),
       previous: stale,
       generatedAt: '2026-04-01T10:00:00Z',
       taxYear: 2025,
@@ -165,9 +167,9 @@ describe('AC-001-18 re-running sync is byte-identical', () => {
     expect(new Set(ids).size).toBe(ids.length);
 
     // The hash covers the passages only: `generatedAt` cannot influence it.
-    expect(contentHashOf(first.artifact.passages)).toBe(first.artifact.contentHash);
+    expect(contentHashOf(first.artifact)).toBe(first.artifact.contentHash);
     expect(canonicalJson(first.artifact.passages)).not.toContain('generatedAt');
-    expect(contentHashOf(fixturePassages())).toBe(first.artifact.contentHash);
+    expect(contentHashOf(fixtureCorpus().artifact)).toBe(first.artifact.contentHash);
   });
 });
 
@@ -181,7 +183,7 @@ describe('AC-001-19 a broken parse never ships a shrunken corpus', () => {
       const before = readFileSync(path, 'utf8');
 
       const broken = fixtureFetcher();
-      broken.replaceXml(
+      broken.replaceDocument(
         'BOE-A-2006-20764',
         readFixture('boe', 'malformed-truncated.xml'),
         '2026-05-01'
@@ -194,7 +196,7 @@ describe('AC-001-19 a broken parse never ships a shrunken corpus', () => {
       expect(failed.stderr.join('\n')).toContain('unparsable');
 
       const result = await runCorpusSync({
-        fetcher: broken,
+        adapters: fixtureAdapters(broken),
         previous: null,
         generatedAt: GENERATED_AT,
         taxYear: 2025,

@@ -17,7 +17,7 @@ const BASE: PassageInput = {
   articleLabel: 'Artículo 63',
   text: 'Escala general del impuesto.',
   sourceUrl: 'https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764',
-  boeUpdatedAt: '2026-03-17',
+  updatedAt: '2026-03-17',
   fetchedAt: '2026-03-18T08:00:00Z',
 };
 
@@ -45,11 +45,13 @@ describe('AC-001-06 passage identity is derived from norm and block only', () =>
         'articleLabel',
         'blockId',
         'blockTitle',
-        'boeUpdatedAt',
+        'updatedAt',
         'fetchedAt',
+        'jurisdiction',
         'normId',
         'normTitle',
         'passageId',
+        'publisher',
         'sourceUrl',
         'text',
       ].sort()
@@ -59,8 +61,8 @@ describe('AC-001-06 passage identity is derived from norm and block only', () =>
 
 describe('AC-001-07 invalid timestamps are rejected, not coerced', () => {
   it('AC-001-07: a non-ISO date, a non-UTC timestamp and a valid UTC timestamp behave as specified', () => {
-    const badDate = createPassage({ ...BASE, boeUpdatedAt: '17/03/2026' });
-    expect(badDate).toEqual({ ok: false, error: 'invalid_boe_updated_at' });
+    const badDate = createPassage({ ...BASE, updatedAt: '17/03/2026' });
+    expect(badDate).toEqual({ ok: false, error: 'invalid_updated_at' });
 
     const offsetTimestamp = createPassage({ ...BASE, fetchedAt: '2026-03-17T10:00:00+02:00' });
     expect(offsetTimestamp).toEqual({ ok: false, error: 'invalid_fetched_at' });
@@ -98,6 +100,8 @@ describe('AC-001-09 the in-scope norms are accepted, duplicates refused', () => 
         'BOE-A-1996-4447',
         'BOE-A-1992-28740',
         'BOE-A-1990-23930',
+        'BOCM-m-2010-90068',
+        'BOE-A-2011-10542',
       ].sort()
     );
   });

@@ -67,9 +67,9 @@ describe('createPassage', () => {
       ok: false,
       error: 'invalid_fetched_at',
     });
-    expect(createPassage({ ...PASSAGE_DEFAULTS, boeUpdatedAt: '2026-3-7' })).toEqual({
+    expect(createPassage({ ...PASSAGE_DEFAULTS, updatedAt: '2026-3-7' })).toEqual({
       ok: false,
-      error: 'invalid_boe_updated_at',
+      error: 'invalid_updated_at',
     });
   });
 
