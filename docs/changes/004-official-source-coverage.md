@@ -1902,3 +1902,6 @@ IBI boundary note is untouched and byte-identical (`AC-004-47`, `scopeDisclaimer
 `REINFORCED_SCOPE_DISCLAIMER`). The rest of Task 7's string table, `unverified_citation` in
 particular, is byte-identical; `Fuentes (N)`, the notice's slot and position, the `passageId`
 de-duplication, the heading levels and the block order are unchanged.
+
+PR: https://github.com/RexiAI/tax-advisor/pull/17
+Commits: 12 (10 task commits + telemetry + archive; 13 including this record commit)
