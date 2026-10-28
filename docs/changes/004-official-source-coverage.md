@@ -1,3 +1,1060 @@
+# 004-official-source-coverage
+
+> Spec pipeline archive. Original source: `specs/004-official-source-coverage/` (deleted by this script).
+> Archived: 2026-10-28
+
+## Original ask
+
+# 00-informal — Official-source coverage for autónomo and business deductions
+
+## Why this spec exists
+
+Spec 003 ("household utilities + IBI") is a guard fix, not coverage: it lets a
+deductibility question through and states that the IBI's own rules are not in the
+corpus. That is honest, but the user's actual ask was wider:
+
+> "no solo añadas esto, añade deducciones de autónomos, empresas aunque dependan
+> del boe de la comunidad autónoma o de donde sea mientras sea fuente oficial"
+
+So: deductions available to autónomos and to companies, including those set by
+each autonomous community or by any other administration, **provided the source
+is official**. This spec builds the part that makes that possible — the source
+model, jurisdiction, declared coverage, and the first regional deductions — for
+two communities. Rollout to the rest and the company tax are separate specs
+(005, 006) by explicit decision on 2026-10-26.
+
+## What exists today (facts, checked)
+
+- `ALLOWED_NORMS` (`src/domain/allowed-norms.ts`) lists **8 state norms**, all
+  with `BOE-A-*` identifiers. `corpus/corpus.json` (schema v1) is 1,961 passages
+  from those 8, each with `normId`, `normTitle`, `sourceUrl`, `boeUpdatedAt`,
+  `fetchedAt`.
+- `scripts/corpus-sync.ts` walks `ALLOWED_NORMS` through **one** fetcher
+  (`src/corpus/boe-fetcher.ts`) that talks only to the BOE consolidated-legislation
+  API and only recognises BOE identifiers and BOE update dates.
+- The scope guard refuses ITP, ISD, IBI, non-residents and company tax
+  **wholesale**, because they belong to another administration. There is no notion
+  of "which community's rules do we actually hold".
+- There is no jurisdiction field anywhere: not on a norm, not on a passage, not on
+  a citation, and not in the prompt or the UI.
+- BOE's consolidated-legislation collection advertises state **and** regional
+  norms ("normas estatales y autonómicas más relevantes … estén o no publicadas en
+  el BOE"). That is a lead, not a guarantee: coverage must be verified norm by
+  norm, and consolidated regional text is not uniform across communities.
+- Every community has its own official bulletin with its own formats; there is no
+  single API across the 17. An adapter per source family is unavoidable.
+
+## Desired behaviour
+
+1. **A source registry, not a list of BOE ids.** Every norm carries its official
+   publisher (BOE, a community bulletin, another official body), its jurisdiction
+   (state / each community / municipal), its official identifier, a stable
+   official URL, the date of the consolidated version being used, and the
+   publisher's reuse conditions. A norm missing any of these is not admitted.
+2. **Declared coverage, enforced.** The product knows and states which
+   (jurisdiction, tax) pairs it covers. Coverage is machine-readable in the corpus
+   artifact, not prose in a README. A question whose jurisdiction or tax is not
+   covered gets the honest refusal/abstention naming the competent body — never a
+   state-level answer dressed up as a regional one.
+3. **First regional deductions, answerable and cited.** For the two pilot
+   communities, a question about the autónomo's regional deductions is answered
+   from the regional norm and cites it, showing the publisher, the jurisdiction and
+   the consolidated-version date. The answer must never borrow a state citation to
+   stand in for a regional rule it does not have.
+4. **Citations and UI name the source.** A regional norm is not labelled "BOE".
+   Source entry shows publisher + jurisdiction + date + link. The product's
+   existing "cite what you retrieved, validate server-side" contract is unchanged;
+   only the source metadata gets richer.
+5. **Jurisdiction comes from the user, not from a guess — and an unsupported
+   community is refused, not re-asked.** When a message names no community at all
+   and the answer genuinely depends on one, the product asks (the existing
+   clarification reason "comunidad autónoma" exists for exactly this) — once. When
+   the message names a community the product does not cover, the turn is refused
+   with a coverage statement naming that community's competent body; it does not
+   ask "¿en qué comunidad?" again after the user already answered. It never assumes
+   Madrid, never assumes the state rule applies regionally, and never silently
+   drops the regional part. Everything else — state-level questions, covered
+   communities — keeps the default answering path unchanged.
+6. **Ingestion stays reproducible and offline-testable.** A source adapter per
+   family, incremental by the source's own update date, fixtures committed for
+   tests, artifact content hash covering the new provenance fields, and a sync that
+   fails closed — an unreadable or undated source is reported, never guessed.
+7. **The existing state surface does not regress.** IRPF/IVA/RETA questions keep
+   their answers and citations; the six refusals keep working where coverage is
+   genuinely absent; spec 003's IBI boundary note stays accurate as coverage
+   changes.
+
+## Explicit non-goals
+
+- The remaining communities. Two pilots here; 005 rolls out the rest.
+- **Impuesto sobre Sociedades and company-level deductions.** 006. This spec must
+  not half-open `company_tax`.
+- **Municipal taxes (IBI and friends).** There are 8,000+ municipalities; coverage
+  can never be exhaustive. They stay out unless a later spec picks specific
+  municipalities and says so. The honest note from 003 remains the answer.
+- DGT binding consultations, AEAT manuals and similar official-but-not-normative
+  material, unless a later spec declares them with a stable identifier scheme.
+- Embeddings, a database, or any request-time network call. Lexical retrieval over
+  a committed artifact stays (ADR 0001); if the corpus grows past its stated
+  threshold, that is a separate decision.
+- Scraping unofficial mirrors, aggregators, or any source without a stable official
+  identifier and URL.
+
+## Constraints
+
+- **ADR required** (next number: `docs/adr/0004-*.md`): new data dependency,
+  change of provenance model, and a jurisdiction concept. Security/legal note:
+  each publisher's reuse terms must be recorded, and the product must not imply the
+  publisher endorses it.
+- **Schema migration**: `corpus.json` v1 → v2 with jurisdiction/publisher/updated
+  fields; the parser must reject an artifact whose declared coverage is missing or
+  malformed, and the tests must cover both the old-shape rejection and the new
+  shape.
+- **Pilot pair (decided 2026-10-26): Comunidad de Madrid + Región de Murcia.**
+  Both publish in Castilian — the product cites verbatim in Spanish, so a
+  Catalan/Galician/Basque-only text would force a translation and break the
+  verbatim-citation contract. Two different publishers (BOCM and BORM), two
+  different-sized administrations, so the source model is exercised on more than
+  one shape. Viability is verified per norm during the spec: an official
+  consolidated text with a stable identifier and update date, or the norm is not
+  admitted. If either fails that check, the ordered fallback list is Castilla y
+  León (BOCYL), Aragón (BOA), Extremadura (DOE); record which and why. Never
+  substitute an unofficial copy.
+- Spanish copy, same voice. No new runtime dependency. Tests offline (fixtures).
+- The pipeline's normal gates apply; the mutation-testing tier follows the repo's
+  existing configuration.
+
+## Decisions taken at the human gate (2026-10-26)
+
+1. **Pilot pair:** Madrid + Región de Murcia (see Constraints). Alternative to the
+   first proposal, at the user's request. Viability is a task-level verification,
+   not an open question.
+2. **Authority for a regional norm: its own publisher.** The community bulletin is
+   the source of record; BOE's consolidated text is used only when the publisher
+   offers no stable, versioned consolidated text. Every ingested norm records
+   `authorityUsed` (which publisher was used) and, when both exist, both URLs and
+   both dates. A norm does not switch authority between syncs without an explicit
+   migration note. Rationale: competence follows the publisher, and BOE's regional
+   collection is explicitly "the most relevant" norms, not an exhaustive one — so
+   BOE-first would silently narrow coverage.
+3. **Coverage granularity: per (jurisdiction, tax) pair.** Partial coverage must be
+   expressible and user-visible (e.g. "Madrid · IRPF deductions: covered; Madrid ·
+   ITP: not covered"), because that is the only honest way to ship a roll-out.
+4. **An unsupported community is refused, not looped back into a clarification.**
+   If the message names a community outside the coverage matrix, the turn ends with
+   a refusal that names that community's competent body and says the coverage does
+   not extend to it. The "comunidad autónoma" clarification is reserved for a
+   message that names no community at all. No second ask after the user has already
+   given the community. Everything else keeps the default answering path.
+
+## Tasks
+
+# 10-tasks — Official-source coverage for autónomo and business deductions
+
+Stage-1 formalization of `00-informal.md` (spec 004). Decisions taken at the human
+gate (2026-10-26) are fixed: pilot pair **Comunidad de Madrid (BOCM) + Región de
+Murcia (BORM)**, **publisher-is-authoritative** (`authorityUsed` records which
+publisher supplied the text), coverage granularity **per (jurisdiction, tax)
+pair**, and **an unsupported community is refused, not looped back into a
+clarification** (a named community outside the coverage matrix ends the turn with
+a refusal naming its competent body; the "comunidad autónoma" clarification is
+reserved for a message that names no community).
+
+Decisions taken at the human gate (2026-10-28) are fixed: the source link label
+names the **real host of the consolidated text** (`authorityUsed`), not the issuing
+publisher; `publisher` and `jurisdiction` stay visible in the metadata row. The two
+pilots' consolidated text is served by BOE (`authorityUsed: 'boe'`, `publisher:
+'bocm'` / `'borm'`), so their link reads "Ver en el BOE" while the row shows
+"Comunidad de Madrid" / "Región de Murcia" and records the publisher. This resolves
+the `publisher`-vs-`authorityUsed` label risk (was `15-design.md` flagged
+uncertainty #2).
+
+Grounding (read, not assumed): schema v1 lives in `src/corpus/artifact.ts`
+(`CorpusNorm.normId/normTitle/sourceUrl/boeUpdatedAt/fetchedAt/licenseNote`),
+`src/domain/passage.ts` (`Passage.boeUpdatedAt`), and `src/domain/citation.ts`
+(`Citation.boeUpdatedAt`). The sync (`src/corpus/sync.ts`) walks `ALLOWED_NORMS`
+through one `CorpusFetcher` (`src/corpus/boe-fetcher.ts`) and one BOE XML parser
+(`src/corpus/parse-consolidated-xml.ts`). The scope guard
+(`src/content/scope-topics.ts` + `src/service/scope-guard.ts`) refuses ITP, ISD,
+IBI, non-residents and company tax wholesale, and there is no jurisdiction field
+anywhere. The user-facing copy names the BOE in a dozen places
+(`src/content/strings.ts`, `src/prompts/system-policy.ts`).
+
+The tasks are ordered so that each one leaves `npm test` green. Task 2 is the one
+"big-bang" coordinated migration (rename + new provenance fields + schema bump);
+everything after it builds on the v2 shape. Task 1 is docs-only.
+
+---
+
+## Task 1 — ADR: official-source coverage, provenance model and jurisdiction (AC-004-adr.md)
+
+Write `docs/adr/0004-official-source-coverage.md`. The Specifier only defines the
+task; the Coder writes the ADR.
+
+Acceptance criteria:
+
+- The file exists at `docs/adr/0004-official-source-coverage.md` with the repository
+  ADR sections `## Context`, `## Decision`, `## Alternatives considered`,
+  `## Consequences`, and `## Sources`.
+- It records the **source-registry data model**: every covered norm carries
+  `publisher`, `jurisdiction`, `authorityUsed`, `officialId`, `sourceUrl`,
+  `updatedAt`, and `licenseNote`, and a norm missing any of them is not admitted.
+- It records the **jurisdiction concept**: `state` plus a closed set of communities
+  (the two pilots first), municipal named only as an honest-refusal string, not as
+  a jurisdiction value (municipal taxes stay out).
+- It records the **publisher-authority rule**: the community bulletin is the source
+  of record for a regional norm; BOE's consolidated text is used only when the
+  publisher offers no stable, versioned consolidated text; `authorityUsed` records
+  which was used; when both exist both URLs and both dates are recorded; a norm
+  does not switch authority between syncs without an explicit migration note.
+- It records the **license-per-publisher** model: each publisher's reuse terms are
+  recorded per norm, and the product does not imply any publisher endorses it.
+- It records the **coverage matrix** decision: coverage is declared per
+  (jurisdiction, tax) pair, machine-readable in the artifact, with a single lookup
+  and no second list that can disagree.
+- It records the **pilot pair** and the **ordered fallback** (Castilla y León /
+  BOCYL, Aragón / BOA, Extremadura / DOE).
+- It records the **incremental-sync-keyed-on-source-date** and **fail-closed**
+  decisions, and what **stays out** (specs 005 and 006, municipal taxes, DGT
+  consultations / AEAT manuals).
+- Its `## Sources` section cites only official hosts (BOCM / BORM bulletin hosts
+  and `boe.es`), consistent with the repository convention that no ADR cites a
+  competitor or a commercial mirror.
+
+Acceptance scenarios: `AC-004-01`–`AC-004-05` (the ADR records the data model,
+the jurisdiction concept, the publisher-authority rule, license-per-publisher,
+the coverage matrix, the pilot pair and the fallback order).
+
+---
+
+## Task 2 — Provenance & jurisdiction domain model; corpus schema v2 (AC-004-schema-v2.md)
+
+Introduce the source/provenance model and migrate the artifact, the passages and
+the citations to schema v2. This is the one coordinated change that must land in a
+single task: renaming a field and adding required provenance are inseparable from
+regenerating the committed artifact.
+
+Acceptance criteria:
+
+- A new domain module (e.g. `src/domain/source.ts` or `src/domain/jurisdiction.ts`)
+  defines a `Jurisdiction` type (`'state' | 'madrid' | 'murcia'`), a `Publisher`
+  type (a closed set including `'boe' | 'bocm' | 'borm'` with a display name, an
+  official host, and a license note per publisher), an `AuthorityUsed` type (a
+  publisher id), and a `Tax` type covering the axes the guard and the coverage
+  matrix need: `'irpf' | 'iva' | 'autonomo' | 'iae' | 'itp' | 'isd' | 'ibi' |
+  'non_residents' | 'company_tax'`.
+- The norm registry (`src/domain/allowed-norms.ts`) entry grows the provenance
+  fields `publisher`, `jurisdiction`, `authorityUsed`, `officialId`, `sourceUrl`,
+  `updatedAt` (renamed from `boeUpdatedAt`), `licenseNote`, plus a `tax` tag used
+  only to derive the coverage matrix (Task 3) — no second list. The 8 existing
+  norms are migrated to `publisher: 'boe'`, `jurisdiction: 'state'`,
+  `authorityUsed: 'boe'`, `officialId: <the BOE-A-* id>`, `tax` mapped from their
+  current role (IRPF pair → `irpf`; IVA → `iva`; LGSS + afiliación + LGT +
+  reglamento gestión → `autonomo`; IAE → `iae`).
+- `Passage` (`src/domain/passage.ts`) renames `boeUpdatedAt` → `updatedAt` and adds
+  `publisher` and `jurisdiction`. `Citation` (`src/domain/citation.ts`) renames
+  `boeUpdatedAt` → `updatedAt` and adds `publisher` and `jurisdiction`.
+  `citationOf` carries them. `officialId` and `authorityUsed` stay norm-level only
+  (a citation shows publisher + jurisdiction + date + link, not the internal id).
+- `CORPUS_SCHEMA_VERSION` becomes `2`. `CorpusNorm` gains `publisher`,
+  `jurisdiction`, `authorityUsed`, `officialId` and renames `boeUpdatedAt` →
+  `updatedAt`. `CorpusArtifact` gains a `coverage` field (filled by Task 3; the
+  parser already validates it here).
+- `parseCorpusArtifact` (`src/corpus/artifact.ts`) rejects: a v1 artifact
+  (`schemaVersion !== 2`), and a v2 artifact whose coverage is missing/malformed or
+  whose norm/passage provenance (`publisher`, `jurisdiction`, `authorityUsed`,
+  `officialId`, `updatedAt`) is missing or malformed. Rejection is
+  `unparsable`/`empty`, matching the existing error surface.
+- The content hash covers the new provenance fields: changing any of `publisher`,
+  `jurisdiction`, `authorityUsed`, `officialId`, `sourceUrl`, `updatedAt` or
+  `licenseNote` changes `contentHash`; changing `generatedAt` does not. (The hash
+  function's domain may widen to norms + coverage + passages; the invariant is what
+  the tests assert.)
+- The committed `corpus/corpus.json` is migrated to v2 (offline, deterministic:
+  the 8 norms' v1 fields map 1:1 onto v2 with `boe`/`state`/`boe`/the BOE id).
+  This is a one-time transform committed with the task; the parser permanently
+  rejects v1 afterwards.
+- The test support surface is updated to v2 in the same task: `test/support/
+  factories.ts` (`makePassage`), `test/support/harness.ts` (`FIXTURE_META` and
+  `fixtureCorpus`), and the assertions in `AC-001-corpus-sync.test.ts` that pin the
+  exact passage key list. No test keeps a v1 key.
+
+Acceptance scenarios: `AC-004-06–AC-004-11` (new shape accepted; v1 shape rejected;
+malformed provenance rejected; provenance change flips the hash; the 8 migrated
+norms carry `boe`/`state`).
+
+---
+
+## Task 3 — Declared coverage matrix: machine-readable, single lookup (AC-004-coverage-matrix.md)
+
+Make coverage a first-class value in the artifact with exactly one runtime lookup.
+
+Acceptance criteria:
+
+- `CorpusArtifact.coverage` is a canonical list of `{ jurisdiction, tax }` pairs,
+  derived by the sync from the registry's `(jurisdiction, tax)` tags — the sync is
+  the only producer; nothing else lists coverage.
+- A single lookup — `isCovered(coverage, jurisdiction, tax)` — answers "is
+  (jurisdiction, tax) covered?". It returns `true` only for a pair present in the
+  artifact's `coverage`; an unknown jurisdiction, an unknown tax, or an
+  un-declared pair returns `false`.
+- The committed artifact declares exactly the pairs the pilot covers:
+  `(state, irpf)`, `(state, iva)`, `(state, autonomo)`, `(state, iae)`,
+  `(madrid, irpf)`, `(murcia, irpf)`.
+- The parser (Task 2) rejects an artifact with a missing or malformed `coverage`
+  field, so a coverage change can never ship silently.
+- The scope guard (Task 8) reads coverage from the artifact via this lookup; there
+  is no hardcoded covered/uncovered list anywhere else.
+
+Acceptance scenarios: `AC-004-12–AC-004-16` (lookup semantics; derivation from the
+registry; the six pilot pairs; malformed coverage rejected; no second list).
+
+---
+
+## Task 4 — Source-adapter interface; BOE adapter refactored onto it (AC-004-source-adapter.md)
+
+Turn the single BOE fetcher into one adapter behind a per-publisher-family
+interface, so the sync dispatches by publisher.
+
+Acceptance criteria:
+
+- A `SourceAdapter` interface exists (e.g. `src/corpus/source-adapter.ts`) exposing
+  per-norm: the source's own last-updated date, the consolidated-text document,
+  the official source URL for the norm, and a parse of the document into passages.
+  The existing `CorpusFetcher` shape (`getLastUpdated` / `fetchNormXml`) is
+  generalized, not thrown away: the adapter owns its update date and its document
+  shape.
+- The BOE adapter (`src/corpus/boe-fetcher.ts` + `parse-consolidated-xml.ts`)
+  implements the interface; `boeSourceUrl` and the BOE parser stay the BOE
+  adapter's own shape handling, unchanged in behaviour.
+- The sync (`src/corpus/sync.ts`) stops iterating `ALLOWED_NORMS` against one hard
+  fetcher and instead dispatches each registry entry to the adapter for its
+  `publisher`. The incremental-reuse and idempotency behaviour is unchanged.
+- Every existing sync acceptance test (`AC-001-corpus-sync`, `AC-002-corpus-sync`)
+  still passes against the adapter-driven sync, updated only for the v2 shape.
+
+Acceptance scenarios: `AC-004-17–AC-004-20` (interface contract; BOE adapter satisfies it;
+sync dispatches by publisher; behaviour unchanged).
+
+---
+
+## Task 5 — Regional-bulletin adapter; fail-closed incremental sync (AC-004-regional-adapter.md)
+
+Add at least one regional-bulletin adapter and make the sync fail closed on any
+source it cannot read or date.
+
+Acceptance criteria:
+
+- At least one regional adapter (BOCM or BORM) exists, keyed to its publisher,
+  reading the bulletin's own document shape from a committed fixture — no network
+  in tests. It extracts the source's **own** update date (the bulletin's update
+  date, not a BOE date) and the text.
+- Incremental sync is keyed on the source's own update date: a regional norm whose
+  recorded `updatedAt` matches the source's current date is reused, not re-fetched,
+  exactly like the BOE norms today.
+- Fail-closed: an adapter that returns an unreadable document or no/undated update
+  date fails the whole sync (`fetch_failed` / `parse_failed`), names the norm, and
+  writes nothing — an undated source is never guessed and never shipped.
+- The regional adapter's parse reports skipped blocks with a reason, mirroring the
+  BOE parser, so a regional document can never silently shrink the corpus.
+
+Acceptance scenarios: `AC-004-21–AC-004-25` (regional adapter reads a fixture; reuse on
+unchanged date; unreadable source fails closed; undated source fails closed).
+
+---
+
+## Task 6 — Pilot ingestion: Madrid (BOCM) + Región de Murcia (BORM) (AC-004-pilot-ingestion.md)
+
+Ingest the two pilot communities' IRPF autónomo deductions and record the
+per-norm verification evidence.
+
+Acceptance criteria:
+
+- The registry gains one Madrid (BOCM) and one Murcia (BORM) entry for the IRPF
+  autónomo deductions, each with non-empty `publisher`, `jurisdiction`,
+  `authorityUsed`, `officialId`, `sourceUrl`, `updatedAt`, `licenseNote`, and
+  `tax: 'irpf'`.
+- A per-norm verification record (a comment in the registry, a fixture-metadata
+  entry, or a short `docs/` note the task names) states, for each pilot norm, that
+  an official consolidated text with a stable identifier and an update date was
+  found, and records `authorityUsed` and the reuse conditions. The spec asserts
+  the mechanism and the evidence to record — it asserts **no fact** about the
+  content of either community's rules.
+- If a pilot norm cannot be verified (no stable consolidated text / identifier /
+  date from its publisher), the **fallback order** — Castilla y León (BOCYL),
+  Aragón (BOA), Extremadura (DOE) — is applied and the choice recorded with the
+  reason. Never an unofficial copy.
+- Fixtures for the pilot norms are committed under `test/fixtures/`; the sync and
+  the suite stay offline. The harness `FIXTURE_META` and `fixtureCorpus` include
+  the pilot norms.
+- The corpus is re-synced and the committed artifact now declares the pilot pairs
+  in `coverage` (Task 3) and carries the regional passages.
+
+Acceptance scenarios: `AC-004-26–AC-004-30` (registry entries complete; verification
+evidence recorded; fallback recorded when verification fails; fixtures offline;
+coverage reflects the pilots).
+
+---
+
+## Task 7 — Citations & UI: publisher + jurisdiction + date + link; source-agnostic copy (AC-004-citation-ui.md)
+
+A citation and its UI render the official source; the link label names the host
+that serves the consolidated text (`authorityUsed`), never a different host; the
+publisher and jurisdiction render as metadata; the identity copy stops saying
+"del BOE".
+
+Acceptance criteria:
+
+- `SourceEntry` (`src/components/SourceEntry/SourceEntry.tsx`) renders the
+  citation's `publisher` and `jurisdiction` alongside the existing article label,
+  norm title, link and date. The date shown is `updatedAt`, formatted with the
+  existing `formatSpanishDate`.
+- The source link label is a function of the citation's `authorityUsed` (the host
+  that actually serves the consolidated text), not the issuing `publisher`: a
+  citation whose `authorityUsed` is `boe` reads "Ver en el BOE" (including the two
+  pilots, whose consolidated text BOE serves while their `publisher` is `bocm` /
+  `borm`), `authorityUsed: 'bocm'` reads "Ver en el BOCM", `authorityUsed: 'borm'`
+  reads "Ver en el BORM". `publisher` and `jurisdiction` render in the metadata
+  row, separate from the link label, and are never used to build the link label.
+  The accessible label (`SOURCE_LINK_ARIA_PREFIX`) matches the visible label.
+- The following user-facing strings are made source-agnostic (they must not assert
+  the source is the BOE): `CONSOLIDATED_TEXT_NOTICE`, `INSUFFICIENT_TITLE`,
+  `OUT_OF_SCOPE_EXPLANATION` ("con la norma del BOE citada" → "con la norma
+  oficial citada"), `STATUS_SEARCHING`, `INSUFFICIENT_EXPLANATIONS.{no_results,
+  below_threshold, no_citations, corpus_unavailable}`, `INSUFFICIENT_BOUNDARY`,
+  `YEAR_NOTICE_BODY`, and the identity sentence in `SYSTEM_POLICY`
+  (`src/prompts/system-policy.ts`, "del Boletín Oficial del Estado" → the official
+  sources).
+- `SOURCE_LINK_LABEL` / `SOURCE_LINK_ARIA_PREFIX` move from constants to a
+  per-`authorityUsed` function (or equivalent), so there is no single "BOE" label
+  and no publisher-derived label that could name a host different from where the
+  link goes.
+
+Acceptance scenarios: `AC-004-31–AC-004-35` (publisher + jurisdiction render as metadata; the link label is `authorityUsed`-aware, never mislabelled; the named
+strings no longer hardcode "BOE" where the
+source must be generic; date is `updatedAt`) plus `AC-004-53` (the label's host
+token matches `sourceUrl`'s host for every citation).
+
+---
+
+## Task 8 — Scope guard, region-aware (AC-004-scope-guard.md)
+
+The guard consults coverage for the resolved jurisdiction instead of refusing
+wholesale. The refusal-vs-clarification split (decision 4) is: a named community
+outside the coverage matrix is **refused** deterministically; only a message that
+names **no** community while the answer depends on one is **clarified**.
+
+Acceptance criteria:
+
+- The guard resolves a jurisdiction from the message deterministically
+  (accent-stripped): a named pilot community → that community; a named community
+  outside the coverage matrix → `uncovered_community`; no community and no
+  regional implication → `state`; a regional implication (e.g. "deducciones
+  autonómicas", "mi comunidad") with no named community → unknown.
+- An out-of-scope tax is refused **only when** `isCovered(jurisdiction, tax)` is
+  `false` for the resolved jurisdiction. Because ITP/ISD/IBI/non-residents/company
+  tax are not covered for any jurisdiction in this spec, they keep refusing — but
+  the decision now comes from the coverage lookup, not a hardcoded list.
+- A covered (madrid/murcia, `irpf`) question is **not** refused; it reaches
+  retrieval. A (jurisdiction, tax) that is uncovered is refused/abstained honestly
+  naming the competent body.
+- An unknown jurisdiction (regional implication, no community) routes to the
+  existing "comunidad autónoma" clarification — it never guesses Madrid, never
+  assumes the state rule applies regionally, and never drops the regional part.
+  The clarification fires only for a nameless message; a message that names any
+  community is resolved (refused or answered), never clarified.
+- A named community outside the coverage matrix is **refused**, not clarified. The
+  refusal reuses the `out_of_scope` response shape with a new reason code
+  `'uncovered_community'` added to `OutOfScopeReasonCode` — the smallest change to
+  the closed union: no new response `kind`, and not `insufficient_evidence` (which
+  means "I could not ground it", not "coverage does not extend"). The turn ends
+  deterministically from the coverage lookup alone, with no model call: `officialBody`
+  names that community's competent body, and the explanation (a new template selected
+  by reason code, mirroring `filing_request`) states that coverage does not extend to
+  it.
+- Spec 003's IBI boundary note is preserved: `classifyScope('¿Cuánto es el IBI de
+  mi vivienda?')` still returns `reasonCode: 'ibi'` with
+  `officialBody: 'la autoridad tributaria de tu comunidad autónoma'`.
+- The guard reads coverage from the artifact (single source of truth); the
+  coverage lookup is injected so a test can flip a pair and observe the refusal
+  disappear.
+
+Acceptance scenarios: `AC-004-36–AC-004-40` (covered pair reaches retrieval; uncovered
+pair refused naming the body; unknown jurisdiction clarifies; IBI note preserved;
+the refusal is coverage-driven, not hardcoded) plus `AC-004-50–AC-004-52` (a named
+uncovered community is refused — not clarified — naming its competent body; the
+refusal is deterministic with no model call; the explanation states coverage does
+not extend to the named community).
+
+---
+
+## Task 9 — Jurisdiction-aware answering: never borrow a state citation (AC-004-jurisdiction-answering.md)
+
+When the resolved jurisdiction is a covered community, the evidence and the
+citation validation are scoped to that jurisdiction.
+
+Acceptance criteria:
+
+- The turn carries the resolved jurisdiction from Task 8. Task 8 refuses an
+  uncovered community before this task runs, so the jurisdiction reaching Task 9
+  is always `state`, `madrid`, or `murcia` — an uncovered community is never
+  answered from the state corpus. When it is `state`, all state passages are
+  eligible (behaviour unchanged).
+- When it is a specific community (madrid/murcia), only passages whose
+  `jurisdiction` matches are eligible: a citation to a passage of another
+  jurisdiction fails validation (the turn abstains with `insufficient_evidence` /
+  `unverified_citation`), so a state passage is never cited to stand in for a
+  regional rule the corpus does not hold.
+- If the resolved community's norm has no matching passages, the turn abstains
+  (`insufficient_evidence`) rather than answering from the state corpus.
+
+Acceptance scenarios: `AC-004-41–AC-004-44` (regional question cites regional passages;
+state citation for a regional question fails; no regional passages → abstain;
+state jurisdiction unaffected).
+
+---
+
+## Task 10 — State-surface non-regression (AC-004-non-regression.md)
+
+Pin that the existing surface keeps working and the honest refusals stay honest
+where coverage is genuinely absent.
+
+Acceptance criteria:
+
+- The 8 state norms still load, retrieve, and answer with a citation (IRPF, IVA,
+  RETA/autónomo, IAE) — the existing `AC-001`/`AC-002` answer paths stay green
+  after the schema rename.
+- ITP, ISD, IBI, non-residents and company tax still classify to their existing
+  `reasonCode` + `officialBody` (`AC-002-scope-guard.test.ts`), because coverage
+  is genuinely absent for those (jurisdiction, tax) pairs.
+- The IBI note text is byte-identical to spec 003's.
+- `AC-001-corpus-sync` "official hosts only" is updated to admit the pilot
+  bulletin hosts (`www.boe.es` plus the BOCM/BORM official hosts) and still
+  rejects any unofficial mirror; the fixture corpus (now including the pilots)
+  still has more than 396 passages and no duplicate ids.
+
+Acceptance scenarios: `AC-004-45–AC-004-49` (state answers preserved; refusals preserved;
+IBI note preserved; official hosts only; corpus intact).
+
+---
+
+## Open questions / risks
+
+Flagged for a human, not silently decided:
+
+1. **Regional bulletin formats (feasibility).** BOCM and BORM have their own
+   document shapes (HTML/PDF, no common API across the 17 communities — stated in
+   `00-informal.md`). Task 5's adapter must be written against the *actual*
+   BOCM/BORM shape, which cannot be pinned here without a live check. If a
+   stable, machine-readable consolidated text with an update date does not exist
+   for a pilot norm, Task 6's fallback order applies and the reason must be
+   recorded — the spec's mechanism works either way, but the *adapter's* parse is
+   the genuine unknown.
+2. **Whether a stable consolidated text exists for the pilot norms.** This is a
+   Task 6 verification, not a spec-time fact. The spec must not assert any
+   community's deduction content; it asserts the evidence to record.
+3. **Licence terms per publisher.** Each publisher's reuse terms must be recorded;
+   whether BOCM/BORM publish under an open licence equivalent to the BOE's is not
+   verifiable here. The license note is recorded verbatim from the publisher; the
+   spec must not invent a licence.
+4. **Multi-turn jurisdiction carryover — resolved by decision 4.** The loop is
+   gone by rule, not by memory: the guard refuses a named community and clarifies
+   only a nameless message, so there is no "re-ask after the user answered" path.
+   A turn sees only its own message (ADR 0002, no persistence), so the rule is
+   per-turn: "only clarify when the message names no community". A follow-up that
+   names a community is resolved (refused or answered); a follow-up that again
+   names none re-asks, which is the no-persistence boundary, not a new defect.
+5. **`tax` tag taxonomy.** The informal field list (publisher, jurisdiction,
+   authorityUsed, officialId, sourceUrl, updatedAt, licenseNote) does not include
+   `tax`, but the (jurisdiction, tax) coverage matrix requires each norm to declare
+   its tax. Tasks 2–3 introduce a `tax` tag on the registry entry and derive
+   coverage from it (no second list). The exact tax labels
+   (`irpf`/`iva`/`autonomo`/`iae` plus the out-of-scope labels) are a taxonomy the
+   Coder finalizes; the acceptance criteria pin the *resulting* six covered pairs,
+   not the spelling.
+6. **Coverage semantics of "IRPF deductions".** The pilot covers the communities'
+   IRPF *deductions* for autónomos, not the whole IRPF. The matrix represents this
+   as `(madrid, irpf)` / `(murcia, irpf)`. If finer granularity (deductions vs the
+   whole tax) is ever needed, that is a later spec, not this one.
+7. **Community-name recognition and canonical competent-body phrasing.** Decision 4
+   requires the guard to deterministically detect "a community outside the coverage
+   matrix" and to name that community's competent body — but the matrix only knows
+   Madrid and Murcia. The guard therefore needs a closed, deterministic recognizer
+   for community names (the Spanish autonomous communities and their common aliases,
+   accent-stripped) used **only** to refuse and to produce a determiner-led
+   `officialBody` ("la Comunidad Autónoma de Galicia") — never to ingest a norm or
+   declare coverage. The exact alias set and the canonical determiner-led form per
+   community are a taxonomy the Coder finalizes (like risk 5's `tax` labels); an
+   unrecognized community name falls through to the nameless clarification path,
+   which is a lesser failure than a loop but a real coverage hole to confirm. This
+   recognizer is a refusal aid, not the 005 rollout — 005 owns the full community
+   data.
+8. **Design addendum required (human gate).** The unsupported-community refusal adds
+   user-visible copy `15-design.md` does not cover: a new `UNCOVERED_COMMUNITY_EXPLANATION`
+   template and the `uncovered_community` reason code, plus a canonical determiner-led
+   `officialBody` form for a named community. `15-design.md`'s Task 8 section covers
+   only the *existing* refusal copy (the `OUT_OF_SCOPE_EXPLANATION` BOE→"norma oficial"
+   edit), and its flagged uncertainty #5 is now resolved by decision 4 in the "refuse"
+   direction. The refusal wording and the reason-code addition are a design addendum
+   the human gate must approve; this spec does not edit `15-design.md`.
+9. **Link label vs host — resolved by the 2026-10-28 decision.** The label names
+   `authorityUsed` (the host serving the consolidated text), not the publisher, so
+   a `bocm`/`borm` publisher whose text `boe` serves reads "Ver en el BOE" and the
+   publisher stays recorded in the metadata row. Host coherence is a test
+   (`AC-004-53`, `HOST_BY_AUTHORITY`), not a runtime branch. This closes the
+   `publisher`-vs-`authorityUsed` mislabel risk (`15-design.md` flagged uncertainty
+   #2). Not open.
+
+## Acceptance scenarios
+
+## AC-004-01 — The ADR exists with the repository structure
+## AC-004-02 — It records the source-registry data model and the jurisdiction concept
+## AC-004-03 — It records the publisher-authority rule and the license-per-publisher model
+## AC-004-04 — It records the coverage matrix, the pilot pair and the fallback order
+## AC-004-05 — Its sources cite only official hosts
+## AC-004-06 — A v2 artifact with full provenance is accepted
+## AC-004-07 — A v1 artifact is rejected
+## AC-004-08 — A v2 artifact with missing or malformed provenance is rejected
+## AC-004-09 — Provenance is part of the content hash
+## AC-004-10 — The 8 existing norms migrate to `boe` / `state`
+## AC-004-11 — The citation and passage projection carry publisher and jurisdiction
+## AC-004-12 — The lookup answers true for a declared pair
+## AC-004-13 — The lookup answers false for an undeclared pair, unknown jurisdiction, or unknown tax
+## AC-004-14 — The committed coverage declares exactly the six pilot pairs
+## AC-004-15 — Coverage is derived from the registry, not a second list
+## AC-004-16 — A missing or malformed coverage field is rejected at parse time
+## AC-004-17 — The adapter interface exposes the source's own update date and document
+## AC-004-18 — The BOE adapter satisfies the interface with unchanged behaviour
+## AC-004-19 — The sync dispatches each norm to its publisher's adapter
+## AC-004-20 — The adapter-driven sync keeps incremental and idempotent behaviour
+## AC-004-21 — A regional adapter reads its bulletin fixture offline
+## AC-004-22 — Incremental sync is keyed on the source's own update date
+## AC-004-23 — An unreadable regional source fails closed
+## AC-004-24 — An undated regional source fails closed, never guessed
+## AC-004-25 — A regional document that parses to zero passages fails instead of shrinking the corpus
+## AC-004-26 — The pilot norms enter the registry with complete provenance
+## AC-004-27 — Per-norm verification evidence is recorded
+## AC-004-28 — The fallback order is applied and recorded when a pilot norm cannot be verified
+## AC-004-29 — The pilot fixtures are committed and offline
+## AC-004-30 — The committed artifact reflects the pilots
+## AC-004-31 — A source entry renders publisher and jurisdiction
+## AC-004-32 — The link label names the text's real host, not the issuing publisher
+## AC-004-33 — The link label follows authorityUsed and never contradicts sourceUrl
+## AC-004-34 — The named identity and refusal copy no longer hardcodes "del BOE"
+## AC-004-35 — A regional citation shows the consolidated-version date, not a BOE date
+## AC-004-36 — A covered (jurisdiction, tax) question reaches retrieval
+## AC-004-37 — An uncovered (jurisdiction, tax) is refused naming the competent body
+## AC-004-38 — An unknown jurisdiction asks the existing clarification, never guesses
+## AC-004-39 — The IBI boundary note from spec 003 is preserved
+## AC-004-40 — The refusal is coverage-driven, not a hardcoded list
+## AC-004-41 — A regional question cites only that jurisdiction's passages
+## AC-004-42 — A state citation for a regional question fails validation
+## AC-004-43 — No matching regional passage means abstention, not a state answer
+## AC-004-44 — State jurisdiction is unchanged
+## AC-004-45 — The 8 state norms still answer with a citation
+## AC-004-46 — The five refusals keep their reason codes and bodies
+## AC-004-47 — The IBI note text is unchanged
+## AC-004-48 — Every source URL still points at an official host
+## AC-004-49 — The corpus remains intact and de-duplicated
+## AC-004-50 — A named community outside the coverage matrix is refused, not clarified
+## AC-004-51 — The uncovered-community refusal is deterministic, no model call
+## AC-004-52 — The refusal states that coverage does not extend to the named community
+## AC-004-53 — The link label's host token matches the sourceUrl host for every citation
+
+## Verification
+
+# 25-verification — spec 004 (official-source-coverage)
+
+attempt 1, phase 1
+
+Independent re-check of the Coder and Refactorer claims, run on branch
+`spec/004-official-source-coverage` (stacked on `spec/003-household-expenses`).
+Nothing was fixed; nothing outside this file was edited. Working tree carries
+the spec's own uncommitted stage-2/3 output, which is the normal pre-stage-5b
+state.
+
+## Evidence: scenario traceability
+
+command: .standards/scripts/check-scenario-traceability.sh --json
+exit: 0
+at: 2026-10-28T16:39:35Z
+
+{
+  "checks": [1, 2],
+  "passes": ["AC-004-01 — traced to a test", "AC-004-02 — traced to a test", "AC-004-03 — traced to a test", "AC-004-04 — traced to a test", "AC-004-05 — traced to a test", "AC-004-06 — traced to a test", "AC-004-07 — traced to a test", "AC-004-08 — traced to a test", "AC-004-09 — traced to a test", "AC-004-10 — traced to a test", "AC-004-11 — traced to a test", "AC-004-12 — traced to a test", "AC-004-13 — traced to a test", "AC-004-14 — traced to a test", "AC-004-15 — traced to a test", "AC-004-16 — traced to a test", "AC-004-17 — traced to a test", "AC-004-18 — traced to a test", "AC-004-19 — traced to a test", "AC-004-20 — traced to a test", "AC-004-21 — traced to a test", "AC-004-22 — traced to a test", "AC-004-23 — traced to a test", "AC-004-24 — traced to a test", "AC-004-25 — traced to a test", "AC-004-26 — traced to a test", "AC-004-27 — traced to a test", "AC-004-28 — traced to a test", "AC-004-29 — traced to a test", "AC-004-30 — traced to a test", "AC-004-31 — traced to a test", "AC-004-32 — traced to a test", "AC-004-33 — traced to a test", "AC-004-34 — traced to a test", "AC-004-35 — traced to a test", "AC-004-36 — traced to a test", "AC-004-37 — traced to a test", "AC-004-38 — traced to a test", "AC-004-39 — traced to a test", "AC-004-40 — traced to a test", "AC-004-41 — traced to a test", "AC-004-42 — traced to a test", "AC-004-43 — traced to a test", "AC-004-44 — traced to a test", "AC-004-45 — traced to a test", "AC-004-46 — traced to a test", "AC-004-47 — traced to a test", "AC-004-48 — traced to a test", "AC-004-49 — traced to a test", "AC-004-50 — traced to a test", "AC-004-51 — traced to a test", "AC-004-52 — traced to a test", "AC-004-53 — traced to a test"],
+  "fails": []
+}
+
+## Evidence: full test suite
+
+command: npm test
+exit: 0
+at: 2026-10-28T16:39:39Z
+
+> renta-clara@0.1.0 test
+> vitest run
+
+ RUN  v3.2.7 /home/dbueno/projects/tax-advisor
+
+ ✓ test/acceptance/AC-004-scope-guard.test.ts (12 tests)
+ ✓ test/acceptance/AC-004-citation-ui.test.ts (11 tests)
+ ✓ test/acceptance/AC-004-coverage-matrix.test.ts (6 tests)
+ ✓ test/acceptance/AC-004-schema-v2.test.ts (9 tests)
+ ✓ test/acceptance/AC-004-source-adapter.test.ts (4 tests)
+ ✓ test/acceptance/AC-004-regional-adapter.test.ts (8 tests)
+ ✓ test/acceptance/AC-004-pilot-ingestion.test.ts (6 tests)
+ ✓ test/acceptance/AC-004-jurisdiction-answering.test.ts (4 tests)
+ ✓ test/acceptance/AC-004-non-regression.test.ts (5 tests)
+ ✓ test/acceptance/AC-004-adr.test.ts (7 tests)
+ ✓ test/unit/provenance.test.ts (7 tests)
+ ... (full run of all 63 files green)
+
+ Test Files  63 passed (63)
+      Tests  571 passed (571)
+   Start at  17:39:40
+   Duration  20.86s
+
+## Evidence: complexity gate
+
+command: npm run lint
+exit: 0
+at: 2026-10-28T16:40:05Z
+
+> renta-clara@0.1.0 lint
+> eslint .
+
+(no output — ESLint clean; the `complexity` ≤6 rule is enforced by this run.
+The type check `npx tsc --noEmit` also exited 0 in the same pass — see the
+type-check evidence block below.)
+
+## Evidence: type check (tsc)
+
+command: npx tsc --noEmit
+exit: 0
+at: 2026-10-28T16:40:05Z
+
+(no output — type check clean)
+
+## Evidence: design-principles gate
+
+command: .standards/scripts/check-code-principles.sh . --tier mvp -BaseRef main --json
+exit: 0
+at: 2026-10-28T16:40:14Z
+
+{
+  "tier": "mvp",
+  "gates": ["complexity", "dry", "yagni", "solid", "component-per-file", "property-tests"],
+  "fails": [],
+  "warns": [{ "message": "YAGNI: interface CorpusFetcher has exactly one implementation (premature abstraction) — ./src/corpus/fetcher.ts:17", "file": "./src/corpus/fetcher.ts", "line": "17" }]
+}
+
+The script exited 0 on the first attempt with clean JSON on stdout — no SIGPIPE
+(exit 141) flake was observed, so no retry was required. The single WARN is the
+pre-existing `YAGNI: CorpusFetcher single implementation` reported by the
+Refactorer; it is a review hint, not a FAIL, and does not block.
+
+## Evidence: production build
+
+command: npm run build
+exit: 0
+at: 2026-10-28T16:40:31Z
+
+> renta-clara@0.1.0 build
+> next build
+
+   ▲ Next.js 15.5.28
+ ✓ Compiled successfully in 8.4s
+ ✓ Generating static pages (7/7)
+Route (app)  /  /_not-found  /api/auth/login  /api/auth/logout  /api/chat  /health  /login
+
+(compiled and typed clean; `next build` runs its own lint + type validation)
+
+## Evidence: scenario-to-behavior spot check
+
+command: manual spot check of two acceptance scenarios against their tests
+exit: 0
+at: 2026-10-28T16:41:10Z
+
+Checked two scenarios (and their tests) by reading the markdown and the test
+source, confirming the assertions match the Given/When/Then — not just that the
+ID exists.
+
+1. AC-004-citation-ui.md — AC-004-53 (label/host coherence):
+   Scenario requires "the link label's host token matches the sourceUrl host for
+   every citation" and "boe.es → BOE, bocm.es → BOCM, borm.es → BORM".
+   test/acceptance/AC-004-citation-ui.test.ts `AC-004-53` builds the citation
+   set from the committed corpus + fixtures + 4 constants, asserts
+   `new URL(citation.sourceUrl).hostname` equals `HOST_BY_AUTHORITY[authorityUsed]`
+   for each, and asserts `hostToken(sourceLinkLabel(authorityUsed))` equals the
+   host's token uppercased; the second test pins BOE/BOCM/BORM specifically.
+   Assertions match the scenario exactly. Also confirmed AC-004-32/-33 (link
+   label names the real host, not the issuing publisher; metadata row keeps the
+   publisher/jurisdiction).
+
+2. AC-004-scope-guard.md — AC-004-50 (uncovered-community refusal):
+   Scenario requires a named community outside the matrix be refused with
+   `kind: out_of_scope`, `reasonCode: uncovered_community`, an `officialBody`
+   naming that community's competent body (not the generic placeholder), and no
+   clarification.
+   test/acceptance/AC-004-scope-guard.test.ts `AC-004-50` asserts exactly those:
+   `response.kind === 'out_of_scope'`, `reasonCode === 'uncovered_community'`,
+   `officialBody === 'la autoridad tributaria de Galicia'`, no 'tu comunidad
+   autónoma' placeholder, and `adapter.callCount === 0`. AC-004-51 additionally
+   pins determinism (first === second) and no model call. Assertions match.
+
+No scenario was found asserting the wrong thing; both are true positives.
+
+## No unaccounted behavior (skim, not a runnable check)
+
+Skimmed the full diff (schema v2 migration, source-adapter interface + BOE/BOCM
+adapters, coverage matrix + isCovered lookup, region-aware scope guard, the
+community recognizer, citation UI, regenerated `corpus/corpus.json`, and ADR
+0004). Every new module traces to a task/scenario:
+
+- `src/domain/source.ts` → Task 2 (Jurisdiction/Publisher/AuthorityUsed/Tax types).
+- `src/domain/coverage.ts` → Task 3 (`CoveragePair`, `isCovered`, `coverageOf`).
+- `src/domain/pilot-ingestion.ts` → Task 6 (ordered pilot fallback).
+- `src/content/communities.ts` → Task 8 risk 7 (community recognizer, refusal-only).
+- `src/domain/allowed-norms.ts` → Task 2 provenance + Task 6 pilot entries + evidence.
+- `src/corpus/source-adapter.ts` / `boe-adapter.ts` / `bocm-adapter.ts` → Tasks 4–5.
+- `src/service/scope-guard.ts` → Task 8 (`isCovered` with `REGISTRY_COVERAGE` default, injected for tests).
+- `docs/adr/0004-official-source-coverage.md` → Task 1.
+
+No logic found that traces to no task or scenario.
+
+Committed-artifact provenance/coverage check (no second list):
+
+- `corpus/corpus.json` is `schemaVersion: 2`; `boeUpdatedAt` is gone from
+  production source and the artifact (only the migration tests still cite it).
+- `coverage` in the artifact is exactly the six pilot pairs:
+  `(state,irpf) (state,iva) (state,autonomo) (state,iae) (madrid,irpf) (murcia,irpf)`
+  — matching `REGISTRY_COVERAGE = coverageOf(ALLOWED_NORMS)` (the sync's only
+  producer, `src/corpus/sync.ts:202`). No second list.
+- The 10 artifact norms' `publisher`/`jurisdiction`/`authorityUsed`/`officialId`
+  match the registry exactly (8× boe/state/boe, plus bocm/madrid/boe and
+  borm/murcia/boe for the pilots).
+
+## Verdict
+
+Verdict: PASS
+
+All five contract checks ran and produced no findings: traceability (53
+scenarios, 0 fails), full test suite (63 files / 571 tests), complexity/type
+gates (ESLint + tsc clean), design-principles gate (0 FAIL, 1 pre-existing WARN),
+and the scenario-to-behavior spot check (both scenarios' assertions match their
+Given/When/Then). No unaccounted behavior; the committed artifact's coverage and
+provenance match the registry with no second list.
+
+WARN (recorded, not blocking): `YAGNI: interface CorpusFetcher has exactly one
+implementation (premature abstraction) — ./src/corpus/fetcher.ts:17`.
+
+## Quality gates
+
+# 30-report — spec 004 (official-source-coverage)
+
+Stage 5a (Mutation Runner). Branch `spec/004-official-source-coverage`.
+No source, test, or `25-verification.md` file was modified by this stage; nothing
+was committed and nothing was pushed.
+
+Precondition satisfied: `25-verification.md` exists and carries `Verdict: PASS`
+(attempt 1, phase 1). Read before any work here. `00-informal.md` was not read.
+
+## Summary rows
+
+| Row | Value |
+|---|---|
+| Verifier verdict (carried forward) | **PASS** — attempt 1, phase 1 |
+| Conformance tier | **`mvp`** |
+| Mutation score | **skipped — `mvp` tier** |
+| Equivalent mutants | **none — mutation testing not run at `mvp` tier** |
+| Complexity (carried from Refactorer) | ESLint `complexity` ≤6 clean; design gate 0 FAIL, 1 WARN; 8 duplication sites removed across 6 clusters |
+| Final test status | **PASS** — 63 files / 571 tests, exit 0 |
+| Remediation record | **none** — no BLOCK in phase 1; phase 2 not yet run |
+
+## Verifier verdict carried forward
+
+`25-verification.md` — attempt 1, phase 1 — `Verdict: PASS`. All five contract
+checks ran and produced no findings. Gate exit codes transcribed from that file
+(not re-derived, not paraphrased):
+
+| # | Check | Command | Exit | At (UTC) |
+|---|---|---|---|---|
+| 1 | Scenario traceability | `.standards/scripts/check-scenario-traceability.sh --json` | `0` | 2026-10-28T16:39:35Z |
+| 2 | Full test suite | `npm test` | `0` | 2026-10-28T16:39:39Z |
+| 3 | Complexity gate | `npm run lint` | `0` | 2026-10-28T16:40:05Z |
+| 4 | Design-principles gate | `.standards/scripts/check-code-principles.sh . --tier mvp -BaseRef main --json` | `0` | 2026-10-28T16:40:14Z |
+| 5 | Scenario-to-behavior spot check | manual spot check of two scenarios against their tests | `0` | 2026-10-28T16:41:10Z |
+
+Supporting evidence the Verifier also recorded: `npx tsc --noEmit` exit `0`
+(2026-10-28T16:40:05Z) and `npm run build` exit `0` (2026-10-28T16:40:31Z).
+
+Traceability detail: 53 scenarios (`AC-004-01`–`AC-004-53`) traced, `fails: []`.
+
+## Mutation score — skipped
+
+Per `docs/SPEC_PIPELINE.md §Conformance tiers`, mutation testing is a
+`production`-tier gate ("Architect — mutation testing: `mvp` skip"). This spec
+runs at `mvp`, so the mutation gate does not apply and no mutant population was
+generated, scored, or killed.
+
+Tier determination (recorded rather than assumed): `10-tasks.md` and
+`15-design.md` carry no literal tier declaration, and the repo has no
+tier-config file. The Verifier independently invoked the design-principles gate
+with `--tier mvp` (exit 0), and `docs/SPEC_PIPELINE.md §Stop-and-Ask decision
+matrix` pins the harness default to `mvp` when the tier is not explicitly
+declared. Both signals agree: `mvp`.
+
+No mutation tooling is wired into this project regardless of tier —
+`package.json` has no Stryker dependency or script, no `stryker.conf.*` exists,
+and `node_modules/.bin/stryker` is absent. Stryker was therefore not installed
+and not run. (Installing it would be a new dependency and a new CI surface for a
+gate this tier does not carry.)
+
+### Evidence: mutation score
+
+command: grep -q '"stryker' package.json || echo "stryker not configured in package.json"; ls node_modules/.bin/stryker 2>/dev/null || echo "binary: absent"; ls stryker.conf.* 2>/dev/null || echo "no stryker config file"
+exit: 0
+at: 2026-10-28T16:45:06Z
+
+stryker not configured in package.json
+binary: absent
+no stryker config file
+
+Mutation score: not applicable — `mvp` tier (mutation testing skipped by
+`docs/SPEC_PIPELINE.md §Conformance tiers`), and no mutation runner is configured
+in the project.
+
+## Equivalent mutants
+
+**None — mutation testing was not run at `mvp` tier.** Zero surviving mutants
+exist because zero mutants were generated. This is a recorded skip, not a claim
+that the suite is mutation-clean; the mutation gate remains unexercised for this
+spec and would be the first thing a `production`-tier promotion would owe.
+
+## Complexity summary (carried from the Refactorer)
+
+Carried forward from the Refactorer's stage-3 output as relayed by the
+orchestrator. The two rows that the Verifier independently re-ran are marked as
+such; the duplication counts are the Refactorer's own measurement and were not
+independently re-derived here.
+
+| Measure | Result | Source |
+|---|---|---|
+| Cyclomatic complexity ≤6 | Clean — `npm run lint` (ESLint `complexity` rule) exit 0, no findings | Re-run by the Verifier (`25-verification.md`, 2026-10-28T16:40:05Z) |
+| Design-principles gate | 0 FAIL, 1 WARN | Re-run by the Verifier (`25-verification.md`, 2026-10-28T16:40:14Z) |
+| Duplication | 8 duplication sites removed across 6 clusters | Refactorer measurement, carried forward |
+| Property tests | n/a — skipped at `mvp` tier | `docs/SPEC_PIPELINE.md §Conformance tiers` |
+
+The single WARN is pre-existing and non-blocking, kept verbatim:
+
+```
+YAGNI: interface CorpusFetcher has exactly one implementation (premature abstraction) — ./src/corpus/fetcher.ts:17
+```
+
+Per the decision matrix a design-gate WARN is recorded and flagged, not treated
+as a stop. It is the Refactorer's carried WARN, not a regression introduced by
+this spec's work.
+
+## Final test status (full suite, re-run after the mutation-kill pass)
+
+Re-run in this stage because the Verifier's green was recorded before stage 5a.
+(At `mvp` tier no mutation-killing tests were added, so the suite is unchanged
+from the Verifier's run — re-confirmed all the same rather than assumed.)
+
+### Evidence: final test status
+
+command: npm test
+exit: 0
+at: 2026-10-28T16:44:09Z
+
+> renta-clara@0.1.0 test
+> vitest run
+
+All 10 `AC-004` acceptance files green (72 tests):
+
+```
+ ✓ test/acceptance/AC-004-non-regression.test.ts (5 tests) 2689ms
+ ✓ test/acceptance/AC-004-regional-adapter.test.ts (8 tests) 1628ms
+ ✓ test/acceptance/AC-004-citation-ui.test.ts (11 tests) 4578ms
+ ✓ test/acceptance/AC-004-scope-guard.test.ts (12 tests) 3505ms
+ ✓ test/acceptance/AC-004-jurisdiction-answering.test.ts (4 tests) 2050ms
+ ✓ test/acceptance/AC-004-coverage-matrix.test.ts (6 tests) 2633ms
+ ✓ test/acceptance/AC-004-pilot-ingestion.test.ts (6 tests) 1514ms
+ ✓ test/acceptance/AC-004-schema-v2.test.ts (9 tests) 1170ms
+ ✓ test/acceptance/AC-004-source-adapter.test.ts (4 tests) 1819ms
+ ✓ test/acceptance/AC-004-adr.test.ts (7 tests) 102ms
+```
+
+Full-run totals, verbatim from the tail:
+
+```
+ Test Files  63 passed (63)
+      Tests  571 passed (571)
+   Start at  17:44:11
+   Duration  33.11s (transform 8.72s, setup 3.29s, collect 143.25s, tests 112.83s, environment 11.59s, prepare 21.89s)
+```
+
+Breakdown: 43 acceptance files + 20 unit files = 63; 0 failures, 0 skips. Run
+started 2026-10-28T16:44:09Z and completed 2026-10-28T16:44:44Z (UTC). The
+counts match the Verifier's independent run exactly (63 / 571), so the suite is
+stable across two runs.
+
+## Remediation record
+
+**none** — no BLOCK occurred during this run.
+
+- **Phase 1 (pre-PR loop):** no BLOCK. The Verifier's `25-verification.md` is
+  attempt 1 and records every gate passing on its first execution — no failing
+  gate, so no fix-and-re-verify attempt was consumed. Budget used: 0 of 3.
+- **Phase 2 (post-PR CI loop):** not yet started — it begins after stage 5b opens
+  the draft PR. Budget used: 0 of 3.
+
+`25-verification.md` carries no attempt/failure entries to carry forward beyond
+the "attempt 1, phase 1" header, and no orchestrator loop summary reported a
+BLOCK. Nothing is invented here to fill that gap.
+
+One human-gate decision was implemented **before** verification and is not
+remediation: the 2026-10-28 decision that the source-link label names the real
+host of the consolidated text (`authorityUsed`), not the issuing `publisher`
+(`10-tasks.md`, decisions at the human gate; risk 9 marked "Not open"). It landed
+in Task 7 (label is `authorityUsed`-aware; publisher/jurisdiction render in the
+metadata row) and is pinned by `AC-004-32`, `AC-004-33` and `AC-004-53`, all
+green. Because it preceded the Verifier's run it appears in no attempt counter —
+it is a gate input, not a gate failure.
+
+## Working-tree condition (noted, not a stop)
+
+The working tree is dirty with 69 entries (46 modified, 23 untracked — the new
+`src/domain/source.ts`, `src/domain/coverage.ts`, `src/domain/pilot-ingestion.ts`,
+`src/content/communities.ts`, the four `src/corpus/*adapter*` files,
+`docs/adr/0004-official-source-coverage.md`, the ten `AC-004-*` test files,
+`test/unit/provenance.test.ts`, the BOCM/BOE fixtures, and `specs/004-*/`).
+
+This is the spec's own uncommitted stage-2/3 output — the normal pre-stage-5b
+state, exactly as the Verifier recorded it in `25-verification.md`. It is the
+deliverable that stage 5b commits, not an unaccounted change, so the
+dirty-tree STOP condition does not apply. Nothing was stashed, committed, or
+reverted by this stage.
+
+## Gates not run by this stage
+
+| Gate | Status |
+|---|---|
+| Mutation testing (PiTest/Gremlins/Stryker) | skipped — `mvp` tier, and no runner configured |
+| Property tests | skipped — `mvp` tier |
+| Everything else (traceability, tests, complexity, design principles, spot check) | re-run by the Verifier; exit codes transcribed above |
+
+## Handoff
+
+Stage 5a is green for an `mvp`-tier spec: Verifier PASS carried forward, mutation
+gate recorded as skipped with the tier justification, full suite re-confirmed
+green (63 files / 571 tests, exit 0), no equivalent mutants to name, no
+remediation consumed. Stage 5b (PR Opener) is cleared to read this file, commit
+one conventional commit per task from `10-tasks.md`, push `spec/004-official-source-coverage`,
+and open the draft PR.
+
+## 15-design.md
+
 # Design Spec: 004-official-source-coverage
 
 Mixed surface. Three tasks change what the screen renders: **Task 7** (citation entry, publisher-aware
