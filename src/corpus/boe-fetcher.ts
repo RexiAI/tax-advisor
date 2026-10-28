@@ -12,9 +12,10 @@
  * see `docs/RUNBOOK.md` §BOE changed / parsing broke.
  */
 
-import { childrenOf, findElements, parseXml, reduceElementTreeToText } from './xml';
+import { textOfFirstElement } from './xml';
 
-import type { CorpusFetcher, FetchedUpdate, FetchedXml } from './fetcher';
+import type { CorpusFetcher, FetchedDocument, FetchedUpdate } from './fetcher';
+import { fetchXmlDocument } from './fetcher';
 
 export const BOE_CONSOLIDATED_API =
   'https://www.boe.es/datosabiertos/api/legislacion-consolidada';
@@ -29,12 +30,7 @@ export function textoUrl(normId: string): string {
 
 /** Reads `<fecha_actualizacion>` out of the metadata document. */
 export function readFechaActualizacion(xml: string): string | undefined {
-  const parsed = parseXml(xml);
-  if (!parsed.ok) return undefined;
-  const [node] = findElements(parsed.nodes, 'fecha_actualizacion');
-  if (node === undefined) return undefined;
-  const text = reduceElementTreeToText(childrenOf(node));
-  return text === '' ? undefined : text;
+  return textOfFirstElement(xml, 'fecha_actualizacion');
 }
 
 const DASHED_DATE = /^(\d{4})-(\d{2})-(\d{2})(?:$|[T\s])/;
@@ -78,28 +74,21 @@ export interface BoeFetcherOptions {
 export function createBoeFetcher(options: BoeFetcherOptions = {}): CorpusFetcher {
   const fetchImpl = options.fetchImpl ?? ((input, init) => globalThis.fetch(input, init));
 
-  async function fetchDocument(normId: string, url: string): Promise<FetchedXml> {
-    try {
-      const response = await fetchImpl(url, { headers: { accept: 'application/xml' } });
-      if (!response.ok) return { ok: false, error: `HTTP ${response.status} for ${normId}` };
-      return { ok: true, xml: await response.text() };
-    } catch (error) {
-      return { ok: false, error: error instanceof Error ? error.message : 'fetch failed' };
-    }
-  }
+  const fetchDocument = (normId: string, url: string): Promise<FetchedDocument> =>
+    fetchXmlDocument(url, normId, fetchImpl);
 
   return {
     async getLastUpdated(normId: string): Promise<FetchedUpdate> {
       const document = await fetchDocument(normId, metadatosUrl(normId));
       if (!document.ok) return document;
 
-      const raw = readFechaActualizacion(document.xml);
-      const fechaActualizacion = raw === undefined ? undefined : normalizeBoeDate(raw);
-      if (fechaActualizacion === undefined) {
+      const raw = readFechaActualizacion(document.document);
+      const updatedAt = raw === undefined ? undefined : normalizeBoeDate(raw);
+      if (updatedAt === undefined) {
         return { ok: false, error: `fecha_actualizacion missing for ${normId}` };
       }
-      return { ok: true, fechaActualizacion };
+      return { ok: true, updatedAt };
     },
-    fetchNormXml: (normId: string) => fetchDocument(normId, textoUrl(normId)),
+    fetchDocument: (normId: string) => fetchDocument(normId, textoUrl(normId)),
   };
 }

@@ -10,23 +10,31 @@
  */
 
 import type { GuideContent } from '../content/gestor-guides';
+import { mentionsIbi } from '../content/scope-topics';
 import {
   AI_DISCLOSURE,
   ERROR_MESSAGES,
   FILING_REQUEST_EXPLANATION,
   HANDOFF_URL,
+  IBI_BOUNDARY_NOTE,
   INSUFFICIENT_BOUNDARY,
   INSUFFICIENT_EXPLANATIONS,
+  JURISDICTION_CLARIFICATION_QUESTION,
   OUT_OF_SCOPE_EXPLANATION,
   PRIVACY_CATEGORY_LABELS,
   PRIVACY_WARNING_MESSAGE,
+  UNCOVERED_COMMUNITY_EXPLANATION,
   YEAR_NOTICE_BODY,
 } from '../content/strings';
+import { REGISTRY_COVERAGE } from '../domain/allowed-norms';
+import type { CoveragePair } from '../domain/coverage';
 import type { LlmErrorCode } from '../llm/types';
+import { normalizeText } from '../retrieval/normalize';
 
 import { detectSensitiveData } from './privacy';
-import { classifyScope } from './scope-guard';
+import { classifyScope, resolveJurisdiction, type JurisdictionResolution, type ScopeMatch } from './scope-guard';
 import type {
+  ClarificationResponse,
   ErrorResponse,
   GuideResponse,
   InsufficientEvidenceResponse,
@@ -53,18 +61,37 @@ export function errorResponseFor(error: LlmErrorCode): ErrorResponse {
   return { kind: 'error', errorCode, message: ERROR_MESSAGES[errorCode] };
 }
 
+/**
+ * The two deterministic notes a turn may carry. Both are derived from the message
+ * and stay separate payload fields; neither is ever merged into the prose.
+ */
+export interface TurnNotes {
+  readonly yearNotice?: string;
+  readonly boundaryNote?: string;
+}
+
+/**
+ * Spreads only the notes a turn actually has, so an absent note leaves no key in
+ * the payload instead of an `undefined` value or an empty field.
+ */
+export function noteFields(notes: TurnNotes): TurnNotes {
+  const fields: { yearNotice?: string; boundaryNote?: string } = {};
+  if (notes.yearNotice !== undefined) fields.yearNotice = notes.yearNotice;
+  if (notes.boundaryNote !== undefined) fields.boundaryNote = notes.boundaryNote;
+  return fields;
+}
+
 export function insufficientResponse(
   reason: InsufficientReason,
-  yearNotice?: string
+  notes: TurnNotes = {}
 ): InsufficientEvidenceResponse {
-  const explanation = `${INSUFFICIENT_EXPLANATIONS[reason]} ${INSUFFICIENT_BOUNDARY}`;
-  const response: InsufficientEvidenceResponse = {
+  return {
     kind: 'insufficient_evidence',
-    explanation,
+    explanation: `${INSUFFICIENT_EXPLANATIONS[reason]} ${INSUFFICIENT_BOUNDARY}`,
     handoffUrl: HANDOFF_URL,
     disclaimer: AI_DISCLOSURE,
+    ...noteFields(notes),
   };
-  return yearNotice === undefined ? response : { ...response, yearNotice };
 }
 
 export function privacyResponse(message: string): PrivacyWarningResponse | null {
@@ -80,20 +107,57 @@ export function privacyResponse(message: string): PrivacyWarningResponse | null 
   };
 }
 
-export function scopeResponse(message: string): OutOfScopeResponse | null {
-  const match = classifyScope(message);
+/**
+ * One template per reason code, no nesting: a filing request must not read as if
+ * the user had asked about the tax its message happened to mention, and an
+ * uncovered community is about the community, not the tax.
+ */
+function refusalExplanation(match: ScopeMatch): string {
+  if (match.reasonCode === 'filing_request') {
+    return FILING_REQUEST_EXPLANATION.replace('{body}', match.officialBody);
+  }
+  if (match.reasonCode === 'uncovered_community') {
+    return UNCOVERED_COMMUNITY_EXPLANATION.replace('{community}', match.label).replace(
+      '{body}',
+      match.officialBody
+    );
+  }
+  return OUT_OF_SCOPE_EXPLANATION.replace('{topic}', match.label).replace(
+    '{body}',
+    match.officialBody
+  );
+}
+
+export function scopeResponse(
+  message: string,
+  coverage: readonly CoveragePair[] = REGISTRY_COVERAGE,
+  resolution: JurisdictionResolution = resolveJurisdiction(message)
+): OutOfScopeResponse | null {
+  const match = classifyScope(message, coverage, resolution);
   if (match === null) return null;
-  // Two templates, no nesting: a filing request must not read as if the user had
-  // asked about the tax its message happened to mention.
-  const template =
-    match.reasonCode === 'filing_request' ? FILING_REQUEST_EXPLANATION : OUT_OF_SCOPE_EXPLANATION;
   return {
     kind: 'out_of_scope',
     reasonCode: match.reasonCode,
     topicLabel: match.label,
     officialBody: match.officialBody,
-    explanation: template.replace('{topic}', match.label).replace('{body}', match.officialBody),
+    explanation: refusalExplanation(match),
     handoffUrl: HANDOFF_URL,
+    disclaimer: AI_DISCLOSURE,
+  };
+}
+
+/**
+ * The clarification for a message that depends on the community but names none.
+ * The decision is the guard's, before any model call, so a state passage can never
+ * stand in for a regional rule (spec 004, AC-004-38).
+ */
+export function jurisdictionClarification(
+  resolution: JurisdictionResolution
+): ClarificationResponse | null {
+  if (resolution.kind !== 'unknown') return null;
+  return {
+    kind: 'clarification',
+    question: JURISDICTION_CLARIFICATION_QUESTION,
     disclaimer: AI_DISCLOSURE,
   };
 }
@@ -117,6 +181,16 @@ export function yearNoticeFor(message: string, corpusTaxYear: number): string | 
     '{askedYear}',
     String(otherYear)
   );
+}
+
+/**
+ * The IBI boundary note (spec 003). Like `yearNoticeFor`, it is called only after
+ * the scope guard has passed, so "the message mentioned IBI but that was not the
+ * question" is guaranteed by call ordering rather than re-derived here. The value
+ * is the committed constant: no model output reaches it.
+ */
+export function ibiBoundaryNoteFor(message: string): string | undefined {
+  return mentionsIbi(normalizeText(message)) ? IBI_BOUNDARY_NOTE : undefined;
 }
 
 export function firstQuestion(text: string): string | null {

@@ -116,12 +116,12 @@ describe('createBoeFetcher', () => {
     const fetcher = createBoeFetcher({ fetchImpl });
 
     const update = await fetcher.getLastUpdated('BOE-A-2006-20764');
-    expect(update).toEqual({ ok: true, fechaActualizacion: '2026-03-17' });
+    expect(update).toEqual({ ok: true, updatedAt: '2026-03-17' });
 
-    const document = await fetcher.fetchNormXml('BOE-A-2006-20764');
+    const document = await fetcher.fetchDocument('BOE-A-2006-20764');
     expect(document.ok).toBe(true);
     if (!document.ok) return;
-    expect(document.xml).toContain('<bloque');
+    expect(document.document).toContain('<bloque');
 
     expect(urls).toEqual([metadatosUrl('BOE-A-2006-20764'), textoUrl('BOE-A-2006-20764')]);
   });
@@ -132,7 +132,7 @@ describe('createBoeFetcher', () => {
     });
 
     const update = await createBoeFetcher({ fetchImpl }).getLastUpdated('BOE-A-2006-20764');
-    expect(update).toEqual({ ok: true, fechaActualizacion: '2026-10-07' });
+    expect(update).toEqual({ ok: true, updatedAt: '2026-10-07' });
   });
 
   it('maps a non-2xx answer to an error value naming the norm', async () => {
@@ -144,7 +144,7 @@ describe('createBoeFetcher', () => {
       ok: false,
       error: 'HTTP 404 for BOE-A-2006-20764',
     });
-    expect(await fetcher.fetchNormXml('BOE-A-2006-20764')).toEqual({
+    expect(await fetcher.fetchDocument('BOE-A-2006-20764')).toEqual({
       ok: false,
       error: 'HTTP 404 for BOE-A-2006-20764',
     });

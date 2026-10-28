@@ -10,7 +10,7 @@ import { repoPath } from '../support/harness';
 const META: ParserMeta = {
   normId: 'BOE-A-2006-20764',
   normTitle: 'Ley 35/2006 del Impuesto sobre la Renta',
-  boeUpdatedAt: '2026-03-17',
+  updatedAt: '2026-03-17',
   fetchedAt: '2026-03-18T08:00:00Z',
 };
 
@@ -30,7 +30,7 @@ describe('AC-001-10 each bloque becomes one passage built from its last version'
     expect(passage.text).toContain('Escala general del impuesto vigente');
     expect(passage.text).not.toContain('Versión anterior');
     expect(passage.sourceUrl).toBe('https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764');
-    expect(passage.boeUpdatedAt).toBe('2026-03-17');
+    expect(passage.updatedAt).toBe('2026-03-17');
   });
 });
 

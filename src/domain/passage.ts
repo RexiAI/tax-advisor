@@ -4,9 +4,15 @@
  * `passageId` is a pure function of the norm and the block, so a passage keeps
  * the same identity across runs, processes and re-syncs. Construction returns an
  * error value for every rejection: nothing here throws for bad input.
+ *
+ * Spec 004: a passage carries the provenance a citation renders — publisher,
+ * jurisdiction and the source's own update date. Publisher and jurisdiction are
+ * read from the registry entry for the norm, never passed in by a parser, so a
+ * passage cannot disagree with the norm it belongs to.
  */
 
-import { isAllowedNorm } from './allowed-norms';
+import { findAllowedNorm, isAllowedNorm } from './allowed-norms';
+import type { Jurisdiction, Publisher } from './source';
 
 export interface Passage {
   readonly normId: string;
@@ -16,7 +22,9 @@ export interface Passage {
   readonly articleLabel: string;
   readonly text: string;
   readonly sourceUrl: string;
-  readonly boeUpdatedAt: string;
+  readonly publisher: Publisher;
+  readonly jurisdiction: Jurisdiction;
+  readonly updatedAt: string;
   readonly fetchedAt: string;
   readonly passageId: string;
 }
@@ -26,7 +34,7 @@ export type PassageError =
   | 'empty_block_id'
   | 'unsupported_norm'
   | 'invalid_source_url'
-  | 'invalid_boe_updated_at'
+  | 'invalid_updated_at'
   | 'invalid_fetched_at';
 
 export type PassageResult =
@@ -45,12 +53,13 @@ export interface PassageInput {
   readonly articleLabel?: string;
   readonly text: string;
   readonly sourceUrl: string;
-  readonly boeUpdatedAt: string;
+  readonly updatedAt: string;
   readonly fetchedAt: string;
 }
 
-const DATE_ONLY = /^\d{4}-\d{2}-\d{2}$/;
-const UTC_TIMESTAMP = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/;
+/** The corpus's two date encodings, shared with the artifact validator. */
+export const DATE_ONLY = /^\d{4}-\d{2}-\d{2}$/;
+export const UTC_TIMESTAMP = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/;
 
 export function passageIdOf(normId: string, blockId: string): string {
   return `${normId}#${blockId}`;
@@ -87,7 +96,7 @@ const RULES: readonly Rule[] = [
   (input) => (input.blockId.trim() === '' ? 'empty_block_id' : null),
   (input) => (isAllowedNorm(input.normId) ? null : 'unsupported_norm'),
   (input) => (isHttpsUrl(input.sourceUrl) ? null : 'invalid_source_url'),
-  (input) => (DATE_ONLY.test(input.boeUpdatedAt) ? null : 'invalid_boe_updated_at'),
+  (input) => (DATE_ONLY.test(input.updatedAt) ? null : 'invalid_updated_at'),
   (input) => (UTC_TIMESTAMP.test(input.fetchedAt) ? null : 'invalid_fetched_at'),
 ];
 
@@ -108,6 +117,9 @@ export function createPassage(input: PassageInput): PassageResult {
   const error = firstError(input);
   if (error !== null) return { ok: false, error };
 
+  const norm = findAllowedNorm(input.normId);
+  if (norm === undefined) return { ok: false, error: 'unsupported_norm' };
+
   return {
     ok: true,
     passage: {
@@ -118,7 +130,9 @@ export function createPassage(input: PassageInput): PassageResult {
       articleLabel: articleLabelOf(input),
       text: input.text.trim(),
       sourceUrl: input.sourceUrl,
-      boeUpdatedAt: input.boeUpdatedAt,
+      publisher: norm.publisher,
+      jurisdiction: norm.jurisdiction,
+      updatedAt: input.updatedAt,
       fetchedAt: input.fetchedAt,
       passageId: passageIdOf(input.normId, input.blockId),
     },

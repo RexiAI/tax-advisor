@@ -7,7 +7,12 @@ import {
   NON_IRPF_NORM_IDS,
 } from '@/domain/allowed-norms';
 
-const IRPF_IDS = ['BOE-A-2006-20764', 'BOE-A-2007-6820'];
+const IRPF_IDS = [
+  'BOE-A-2006-20764',
+  'BOE-A-2007-6820',
+  'BOCM-m-2010-90068',
+  'BOE-A-2011-10542',
+];
 
 describe('allowed-norms registry', () => {
   it('keeps a stable order and unique non-empty identifiers', () => {

@@ -6,10 +6,11 @@ from the repository root.
 ## 1. Corpus sync
 
 The corpus is a build-time artifact committed at `corpus/corpus.json`. It is produced by the
-sync script, which fetches the BOE consolidated text for each covered norm, parses `bloque`
-units into passages, and writes the artifact with a `contentHash`.
+sync script: each covered norm is dispatched to the adapter of the publisher that supplied its
+consolidated text (`authorityUsed`), the document is parsed into passages, and the artifact is
+written with its provenance, its declared coverage and a `contentHash`.
 
-The eight covered norms, in the fixed order the sync walks them:
+The ten covered norms, in the fixed order the sync walks them:
 
 | `normId`           | Norm                                                                          |
 | ------------------ | ----------------------------------------------------------------------------- |
@@ -21,6 +22,8 @@ The eight covered norms, in the fixed order the sync walks them:
 | `BOE-A-1996-4447`  | Real Decreto 84/1996, inscripción de empresas y afiliación                    |
 | `BOE-A-1992-28740` | Ley 37/1992, del Impuesto sobre el Valor Añadido                              |
 | `BOE-A-1990-23930` | Real Decreto Legislativo 1175/1990, tarifas e instrucción del IAE             |
+| `BOCM-m-2010-90068` | Comunidad de Madrid, Decreto Legislativo 1/2010, tributos cedidos (BOCM)     |
+| `BOE-A-2011-10542` | Región de Murcia, Decreto Legislativo 1/2010, tributos cedidos (BORM)        |
 
 The list lives in `src/domain/allowed-norms.ts`: adding or removing a norm is a change there,
 followed by a sync. A passage of a norm outside that list is refused, never indexed.
@@ -33,8 +36,12 @@ npm run corpus:sync
   exits `0`.
 - Failure prints `corpus:sync failed: <error> for <normId> (<detail>)` on stderr and exits `1`.
   The committed artifact is **not** modified.
-- The sync is incremental: a norm whose BOE `fecha_actualizacion` matches the artifact's
-  `boeUpdatedAt` is not re-fetched, and its `fetchedAt` is left untouched.
+- The sync is incremental on the source's own update date: a norm whose adapter reports the same
+  `updatedAt` as the artifact is not re-fetched, and its `fetchedAt` is left untouched. Each
+  registry entry also declares a `publisher`, a `jurisdiction`, an `officialId` and a
+  `licenseNote`; a norm missing any of them is not admitted.
+- The artifact's `coverage` is the canonical list of `(jurisdiction, tax)` pairs derived from
+  the registry's tags. It is the only coverage list; the scope guard answers from it.
 - The sync is idempotent: re-running it against unchanged data produces the same `passages`
   array and the same `contentHash`. Only `generatedAt` may differ.
 

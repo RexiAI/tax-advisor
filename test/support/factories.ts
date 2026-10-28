@@ -13,7 +13,7 @@ export const PASSAGE_DEFAULTS: PassageInput = {
   articleLabel: 'Artículo 63',
   text: 'Escala general del impuesto aplicable a la base liquidable.',
   sourceUrl: 'https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764',
-  boeUpdatedAt: '2026-03-17',
+  updatedAt: '2026-03-17',
   fetchedAt: '2026-03-18T08:00:00Z',
 };
 

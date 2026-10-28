@@ -29,7 +29,7 @@ const USER_FACING_COPY = [
   'Escribe tu pregunta',
   'Preguntar',
   'No escribas tu DNI, NIE, IBAN ni documentos personales.',
-  'El texto consolidado del BOE es informativo',
+  'El texto consolidado de las fuentes oficiales citadas es informativo',
   '¿Qué quieres saber sobre tu IRPF?',
   'En resumen',
   'La norma dice',
@@ -121,11 +121,15 @@ describe('AC-001-77 the consolidated-text notice is rendered and claims nothing'
     renderScreen();
     await askAndWait();
 
+    const notice = await screen.findByText(
+      /El texto consolidado de las fuentes oficiales citadas es informativo y no tiene valor legal/
+    );
+    expect(notice).toBeVisible();
     expect(
-      await screen.findByText(/El texto consolidado del BOE es informativo y no tiene valor legal/)
+      screen.getByText(/no es una publicación oficial ni cuenta con el respaldo de los organismos citados/)
     ).toBeVisible();
-    expect(screen.getByText(/no es una publicación oficial del BOE/)).toBeVisible();
-    expect(screen.getByText(/ni cuenta con su respaldo/)).toBeVisible();
+    // The notice no longer claims the source is the BOE (spec 004).
+    expect(notice.textContent).not.toContain('BOE');
   });
 });
 

@@ -1,6 +1,6 @@
 /**
- * Shared test harness: a fixture corpus built from the committed BOE XML
- * fixtures, environment helpers, and the wiring used by the route tests.
+ * Shared test harness: a fixture corpus built from the committed fixture
+ * documents, environment helpers, and the wiring used by the route tests.
  *
  * Everything here is offline: the fixture corpus is parsed from `test/fixtures/`
  * and the model is a fake.
@@ -10,14 +10,16 @@ import { readFileSync } from 'node:fs';
 
 import type { Config } from '@/config/env';
 import { ALLOWED_NORMS } from '@/domain/allowed-norms';
+import { coverageOf } from '@/domain/coverage';
 import type { Passage } from '@/domain/passage';
-import { BOE_LICENSE_NOTE, CORPUS_SCHEMA_VERSION, contentHashOf } from '@/corpus/artifact';
+import { CORPUS_SCHEMA_VERSION, contentHashOf } from '@/corpus/artifact';
 import { parseConsolidatedXml } from '@/corpus/parse-consolidated-xml';
+import type { SourceAdapter } from '@/corpus/source-adapter';
 import { createDefaultDeps, type AppDeps } from '@/server/deps';
 import type { LoadedCorpus, CorpusProviderResult } from '@/server/corpus-loader';
 import { buildIndex } from '@/retrieval/index';
 
-import { FakeCorpusFetcher } from './fake-fetcher';
+import { FakeCorpusFetcher, fakeBoeAdapter } from './fake-fetcher';
 import { FakeLlmAdapter } from './fake-llm-adapter';
 import { repoPath } from './paths';
 
@@ -31,49 +33,61 @@ const FIXTURE_META = [
   {
     file: ['boe', 'ley-35-2006.xml'],
     normId: 'BOE-A-2006-20764',
-    boeUpdatedAt: '2026-10-07',
+    updatedAt: '2026-10-07',
     fetchedAt: '2026-03-18T08:00:00Z',
   },
   {
     file: ['boe', 'rd-439-2007.xml'],
     normId: 'BOE-A-2007-6820',
-    boeUpdatedAt: '2026-10-07',
+    updatedAt: '2026-10-07',
     fetchedAt: '2026-03-18T08:00:00Z',
   },
   {
     file: ['boe', 'ley-58-2003.xml'],
     normId: 'BOE-A-2003-23186',
-    boeUpdatedAt: '2026-10-09',
+    updatedAt: '2026-10-09',
     fetchedAt: '2026-03-18T08:00:00Z',
   },
   {
     file: ['boe', 'rd-1065-2007.xml'],
     normId: 'BOE-A-2007-15984',
-    boeUpdatedAt: '2026-10-09',
+    updatedAt: '2026-10-09',
     fetchedAt: '2026-03-18T08:00:00Z',
   },
   {
     file: ['boe', 'rdleg-8-2015-lgss.xml'],
     normId: 'BOE-A-2015-11724',
-    boeUpdatedAt: '2026-10-23',
+    updatedAt: '2026-10-23',
     fetchedAt: '2026-03-18T08:00:00Z',
   },
   {
     file: ['boe', 'rd-84-1996.xml'],
     normId: 'BOE-A-1996-4447',
-    boeUpdatedAt: '2026-07-30',
+    updatedAt: '2026-07-30',
     fetchedAt: '2026-03-18T08:00:00Z',
   },
   {
     file: ['boe', 'ley-37-1992-iva.xml'],
     normId: 'BOE-A-1992-28740',
-    boeUpdatedAt: '2026-10-07',
+    updatedAt: '2026-10-07',
     fetchedAt: '2026-03-18T08:00:00Z',
   },
   {
     file: ['boe', 'rdleg-1175-1990-iae.xml'],
     normId: 'BOE-A-1990-23930',
-    boeUpdatedAt: '2026-06-04',
+    updatedAt: '2026-06-04',
+    fetchedAt: '2026-03-18T08:00:00Z',
+  },
+  {
+    file: ['boe', 'bocm-m-2010-90068.xml'],
+    normId: 'BOCM-m-2010-90068',
+    updatedAt: '2026-08-31',
+    fetchedAt: '2026-03-18T08:00:00Z',
+  },
+  {
+    file: ['boe', 'boe-a-2011-10542.xml'],
+    normId: 'BOE-A-2011-10542',
+    updatedAt: '2026-03-17',
     fetchedAt: '2026-03-18T08:00:00Z',
   },
 ] as const;
@@ -96,7 +110,7 @@ export function fixturePassages(): readonly Passage[] {
     const parsed = parseConsolidatedXml(readFixture(...meta.file), {
       normId: meta.normId,
       normTitle: norm?.normTitle ?? meta.normId,
-      boeUpdatedAt: meta.boeUpdatedAt,
+      updatedAt: meta.updatedAt,
       fetchedAt: meta.fetchedAt,
     });
     if (!parsed.ok) throw new Error(`fixture ${meta.file.join('/')} did not parse`);
@@ -111,20 +125,29 @@ export function fixtureCorpus(): LoadedCorpus {
   const passages = fixturePassages();
   const built = buildIndex(passages);
   if (!built.ok) throw new Error('fixture corpus has duplicate passage ids');
+
+  const norms = ALLOWED_NORMS.map((norm) => ({
+    normId: norm.normId,
+    normTitle: norm.normTitle,
+    publisher: norm.publisher,
+    jurisdiction: norm.jurisdiction,
+    authorityUsed: norm.authorityUsed,
+    officialId: norm.officialId,
+    sourceUrl: norm.sourceUrl,
+    updatedAt: FIXTURE_META.find((meta) => meta.normId === norm.normId)?.updatedAt ?? norm.updatedAt,
+    fetchedAt: '2026-03-18T08:00:00Z',
+    licenseNote: norm.licenseNote,
+  }));
+  const coverage = coverageOf(ALLOWED_NORMS);
+
   return {
     artifact: {
       schemaVersion: CORPUS_SCHEMA_VERSION,
       taxYear: 2025,
       generatedAt: '2026-03-18T08:00:00Z',
-      contentHash: contentHashOf(passages),
-      norms: ALLOWED_NORMS.map((norm) => ({
-        normId: norm.normId,
-        normTitle: norm.normTitle,
-        sourceUrl: `https://www.boe.es/buscar/act.php?id=${norm.normId}`,
-        boeUpdatedAt: FIXTURE_META.find((meta) => meta.normId === norm.normId)?.boeUpdatedAt ?? '',
-        fetchedAt: '2026-03-18T08:00:00Z',
-        licenseNote: BOE_LICENSE_NOTE,
-      })),
+      contentHash: contentHashOf({ coverage, norms, passages }),
+      coverage,
+      norms,
       passages,
     },
     index: built.index,
@@ -138,18 +161,22 @@ export function fixtureCorpusProvider(): CorpusProviderResult {
 /**
  * A fake BOE fetcher serving every committed fixture, keyed by its declared
  * metadata. `sync` tests use it so a sync over the whole registry never leaves
- * the fixtures — and so `contentHashOf(fixturePassages())` equals the hash of a
- * freshly synced artifact.
+ * the fixtures.
  */
 export function fixtureFetcher(): FakeCorpusFetcher {
   return new FakeCorpusFetcher(
     Object.fromEntries(
       FIXTURE_META.map((meta) => [
         meta.normId,
-        { xml: readFixture(...meta.file), fechaActualizacion: meta.boeUpdatedAt },
+        { document: readFixture(...meta.file), updatedAt: meta.updatedAt },
       ])
     )
   );
+}
+
+/** The adapters the fixture registry needs: every authority in it is the BOE. */
+export function fixtureAdapters(fetcher: FakeCorpusFetcher = fixtureFetcher()): readonly SourceAdapter[] {
+  return [fakeBoeAdapter(fetcher)];
 }
 
 export function setEnv(values: Record<string, string | undefined>): void {

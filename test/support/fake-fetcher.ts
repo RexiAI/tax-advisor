@@ -4,11 +4,13 @@
  * asserted to cost zero fetches.
  */
 
-import type { CorpusFetcher, FetchedUpdate, FetchedXml } from '@/corpus/fetcher';
+import { createBoeAdapter } from '@/corpus/boe-adapter';
+import type { CorpusFetcher, FetchedDocument, FetchedUpdate } from '@/corpus/fetcher';
+import type { SourceAdapter } from '@/corpus/source-adapter';
 
 export interface FakeDocument {
-  readonly xml: string;
-  readonly fechaActualizacion: string;
+  readonly document: string;
+  readonly updatedAt: string;
 }
 
 export class FakeCorpusFetcher implements CorpusFetcher {
@@ -22,18 +24,23 @@ export class FakeCorpusFetcher implements CorpusFetcher {
     this.metadataCount += 1;
     const document = this.documents[normId];
     if (document === undefined) return { ok: false, error: `unknown norm ${normId}` };
-    return { ok: true, fechaActualizacion: document.fechaActualizacion };
+    return { ok: true, updatedAt: document.updatedAt };
   }
 
-  async fetchNormXml(normId: string): Promise<FetchedXml> {
+  async fetchDocument(normId: string): Promise<FetchedDocument> {
     this.fetchCount += 1;
     this.fetchedNormIds.push(normId);
     const document = this.documents[normId];
     if (document === undefined) return { ok: false, error: `unknown norm ${normId}` };
-    return { ok: true, xml: document.xml };
+    return { ok: true, document: document.document };
   }
 
-  replaceXml(normId: string, xml: string, fechaActualizacion: string): void {
-    this.documents[normId] = { xml, fechaActualizacion };
+  replaceDocument(normId: string, document: string, updatedAt: string): void {
+    this.documents[normId] = { document, updatedAt };
   }
+}
+
+/** The BOE adapter backed by a fake fetcher, for sync tests. */
+export function fakeBoeAdapter(fetcher: CorpusFetcher = new FakeCorpusFetcher({})): SourceAdapter {
+  return createBoeAdapter({ fetcher });
 }

@@ -8,11 +8,11 @@
 
 import type { CorpusArtifact } from './artifact';
 import { parseCorpusArtifact, toIsoUtcSeconds } from './artifact';
-import type { CorpusFetcher } from './fetcher';
+import type { SourceAdapter } from './source-adapter';
 import { runCorpusSync } from './sync';
 
 export interface SyncCliDeps {
-  readonly fetcher: CorpusFetcher;
+  readonly adapters: readonly SourceAdapter[];
   readonly taxYear: number;
   readonly now: () => Date;
   readonly readFile: (path: string) => string | null;
@@ -35,7 +35,7 @@ export async function runCorpusSyncCli(
   deps: SyncCliDeps & { readonly artifactPath: string }
 ): Promise<number> {
   const result = await runCorpusSync({
-    fetcher: deps.fetcher,
+    adapters: deps.adapters,
     previous: previousArtifact(deps.readFile, deps.artifactPath),
     generatedAt: toIsoUtcSeconds(deps.now()),
     taxYear: deps.taxYear,

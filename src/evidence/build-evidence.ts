@@ -9,6 +9,7 @@
 
 import { citationOf, type Citation } from '../domain/citation';
 import type { Passage } from '../domain/passage';
+import type { Jurisdiction } from '../domain/source';
 import { search } from '../retrieval/index';
 import type { CorpusIndex } from '../retrieval/types';
 
@@ -36,6 +37,8 @@ export type EvidenceBundle = SufficientEvidence | InsufficientEvidence;
 export interface EvidenceOptions {
   readonly minRetrievalScore: number;
   readonly topK?: number;
+  /** When set, only passages of this jurisdiction are eligible. */
+  readonly jurisdiction?: Jurisdiction;
 }
 
 function toEvidencePassage(passage: Passage): EvidencePassage {
@@ -47,7 +50,14 @@ export function buildEvidence(
   index: CorpusIndex,
   options: EvidenceOptions
 ): EvidenceBundle {
-  const results = search(index, query, options.topK);
+  const results = search(
+    index,
+    query,
+    options.topK,
+    options.jurisdiction === undefined
+      ? undefined
+      : (passage) => passage.jurisdiction === options.jurisdiction
+  );
   const passages = results.map((result) => toEvidencePassage(result.passage));
 
   if (passages.length === 0) {

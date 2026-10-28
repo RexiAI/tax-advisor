@@ -8,9 +8,10 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import type { ReactElement } from 'react';
 
+import { AnswerBlock } from '@/components/AnswerBlock';
 import { ChatScreen, type ChatScreenProps } from '@/components/ChatScreen';
 import { Notice, type NoticeProps } from '@/components/Notice';
-import type { AnswerResponse, ChatResponse } from '@/service/types';
+import type { AnswerResponse, ChatResponse, InsufficientEvidenceResponse } from '@/service/types';
 
 export const CORPUS = { taxYear: 2025, generatedAt: '2026-03-18T08:00:00Z' };
 
@@ -19,7 +20,51 @@ export const CITATION = {
   normTitle: 'Ley 35/2006, de 28 de noviembre, del Impuesto sobre la Renta de las Personas Físicas',
   articleLabel: 'Artículo 63',
   sourceUrl: 'https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764',
-  boeUpdatedAt: '2026-03-17',
+  publisher: 'boe' as const,
+  jurisdiction: 'state' as const,
+  authorityUsed: 'boe' as const,
+  updatedAt: '2026-03-17',
+};
+
+/** A pilot community citation: the BOCM published the norm, the BOE hosts its text. */
+export const MADRID_CITATION = {
+  passageId: 'BOCM-m-2010-90068#a4',
+  normTitle:
+    'Decreto Legislativo 1/2010, de 21 de octubre, del Consejo de Gobierno, por el que se aprueba el Texto Refundido de las Disposiciones Legales de la Comunidad de Madrid en materia de tributos cedidos por el Estado.',
+  articleLabel: 'Artículo 4',
+  sourceUrl: 'https://www.boe.es/buscar/act.php?id=BOCM-m-2010-90068',
+  publisher: 'bocm' as const,
+  jurisdiction: 'madrid' as const,
+  authorityUsed: 'boe' as const,
+  updatedAt: '2026-10-07',
+};
+
+export const MURCIA_CITATION = {
+  passageId: 'BOE-A-2011-10542#a5',
+  normTitle:
+    'Decreto Legislativo 1/2010, de 5 de noviembre, por el que se aprueba el Texto Refundido de las disposiciones legales vigentes en la Región de Murcia en materia de tributos cedidos.',
+  articleLabel: 'Artículo 5',
+  sourceUrl: 'https://www.boe.es/buscar/act.php?id=BOE-A-2011-10542',
+  publisher: 'borm' as const,
+  jurisdiction: 'murcia' as const,
+  authorityUsed: 'boe' as const,
+  updatedAt: '2026-11-02',
+};
+
+/**
+ * The same issuing publisher as `MADRID_CITATION`, but the community bulletin is
+ * the authority that serves the text — so the link must read "Ver en el BOCM".
+ */
+export const BOCM_AUTHORITY_CITATION = {
+  passageId: 'BOCM-m-2010-90068#a5',
+  normTitle:
+    'Decreto Legislativo 1/2010, de 21 de octubre, del Consejo de Gobierno, por el que se aprueba el Texto Refundido de las Disposiciones Legales de la Comunidad de Madrid en materia de tributos cedidos por el Estado.',
+  articleLabel: 'Artículo 4',
+  sourceUrl: 'https://www.bocm.es/eli/es-md/dlg/2010/10/21/1',
+  publisher: 'bocm' as const,
+  jurisdiction: 'madrid' as const,
+  authorityUsed: 'bocm' as const,
+  updatedAt: '2026-10-07',
 };
 
 export const DEFAULT_DISCLAIMER =
@@ -72,6 +117,23 @@ export function renderScreen(overrides: Partial<ChatScreenProps> = {}): ScreenVi
  */
 export function renderNotice(props: NoticeProps): HTMLElement {
   return render(<Notice {...props} />).container;
+}
+
+export function insufficientResponse(
+  overrides: Partial<InsufficientEvidenceResponse> = {}
+): InsufficientEvidenceResponse {
+  return {
+    kind: 'insufficient_evidence',
+    explanation: 'No he encontrado suficiente información',
+    handoffUrl: 'mailto:asesoria@example.com',
+    disclaimer: DEFAULT_DISCLAIMER,
+    ...overrides,
+  };
+}
+
+/** Renders one `AnswerBlock` in isolation — the component the note lives in. */
+export function renderAnswerBlock(response: AnswerResponse): HTMLElement {
+  return render(<AnswerBlock response={response} />).container;
 }
 
 export async function askAndWait(text = '¿Puedo deducir el alquiler?'): Promise<void> {

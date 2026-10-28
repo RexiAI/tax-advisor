@@ -43,14 +43,14 @@ function passageFor(normId: string) {
     articleLabel: 'Artículo 1',
     text: 'Texto normativo de prueba.',
     sourceUrl: boeSourceUrl(normId),
-    boeUpdatedAt: '2026-03-17',
+    updatedAt: '2026-03-17',
     fetchedAt: '2026-03-18T08:00:00Z',
   });
 }
 
 describe('AC-002-01 the registry holds the two IRPF norms and the six verified new norms', () => {
-  it('AC-002-01: exactly eight entries, with the six new pairs copied verbatim', () => {
-    expect(ALLOWED_NORMS).toHaveLength(8);
+  it('AC-002-01: the eight state entries plus the two pilots, with the six new pairs copied verbatim', () => {
+    expect(ALLOWED_NORMS).toHaveLength(10);
 
     for (const [normId, normTitle] of [...IRPF_NORMS, ...NEW_NORMS]) {
       const entry = ALLOWED_NORMS.find((candidate) => candidate.normId === normId);

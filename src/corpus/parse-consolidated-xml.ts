@@ -4,9 +4,12 @@
  * parse never silently shrinks the corpus.
  */
 
-import { createPassage, type Passage, type PassageError } from '../domain/passage';
+import { createPassage, type Passage } from '../domain/passage';
+import { boeSourceUrl } from '../domain/source';
 
 import { deriveArticleLabel } from './article-label';
+import type { SkipReason, SkippedBlock, SourceParseResult } from './source-adapter';
+import { skipReasonFor } from './source-adapter';
 import {
   attributesOf,
   childrenOf,
@@ -20,24 +23,12 @@ import {
 export interface ParserMeta {
   readonly normId: string;
   readonly normTitle: string;
-  readonly boeUpdatedAt: string;
+  readonly updatedAt: string;
   readonly fetchedAt: string;
 }
 
-export type SkipReason = 'non_normative_block' | 'empty_text' | 'invalid_metadata';
-
-export interface SkippedBlock {
-  readonly blockId: string;
-  readonly reason: SkipReason;
-}
-
-export type ConsolidatedParseResult =
-  | {
-      readonly ok: true;
-      readonly passages: readonly Passage[];
-      readonly skipped: readonly SkippedBlock[];
-    }
-  | { readonly ok: false; readonly error: 'unparsable' };
+export type { SkipReason, SkippedBlock } from './source-adapter';
+export type ConsolidatedParseResult = SourceParseResult;
 
 const NON_NORMATIVE_TIPOS = new Set([
   'preambulo',
@@ -53,18 +44,7 @@ const NON_NORMATIVE_TIPOS = new Set([
   'firma',
 ]);
 
-const REASON_FOR_PASSAGE_ERROR: Readonly<Record<PassageError, SkipReason>> = {
-  empty_text: 'empty_text',
-  empty_block_id: 'invalid_metadata',
-  unsupported_norm: 'invalid_metadata',
-  invalid_source_url: 'invalid_metadata',
-  invalid_boe_updated_at: 'invalid_metadata',
-  invalid_fetched_at: 'invalid_metadata',
-};
-
-export function boeSourceUrl(normId: string): string {
-  return `https://www.boe.es/buscar/act.php?id=${normId}`;
-}
+export { boeSourceUrl };
 
 interface BlockOutcome {
   readonly passage?: Passage;
@@ -107,12 +87,12 @@ function passageOutcome(
     articleLabel: deriveArticleLabel(attributes.blockTitle, attributes.blockId),
     text,
     sourceUrl: boeSourceUrl(meta.normId),
-    boeUpdatedAt: meta.boeUpdatedAt,
+    updatedAt: meta.updatedAt,
     fetchedAt: meta.fetchedAt,
   });
 
   if (!result.ok) {
-    return { blockId: attributes.blockId, skip: REASON_FOR_PASSAGE_ERROR[result.error] };
+    return { blockId: attributes.blockId, skip: skipReasonFor(result.error) };
   }
   return { blockId: attributes.blockId, passage: result.passage };
 }

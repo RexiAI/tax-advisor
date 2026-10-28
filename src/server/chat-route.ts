@@ -15,6 +15,7 @@ import { answerQuestion, streamAnswer } from '../service/answer-question';
 import type { ChatRequest, ChatResponse, TurnFrame, TurnTelemetry } from '../service/types';
 import { createTurnTelemetry } from '../service/types';
 
+import type { LoadedCorpus } from './corpus-loader';
 import type { AppDeps } from './deps';
 
 const CHAT_ROUTE = '/api/chat';
@@ -213,20 +214,21 @@ function sseResponse(
 }
 
 function buildAnswerDeps(
-  corpusIndex: AnswerDeps['index'],
+  corpus: LoadedCorpus,
   adapter: LlmAdapter,
   config: Config,
   context: TurnContext,
   deps: AppDeps
 ): AnswerDeps {
   return {
-    index: corpusIndex,
+    index: corpus.index,
     adapter,
     config,
     conversations: deps.conversations,
     telemetry: createTurnTelemetry(),
     now: deps.now,
     signal: context.signal,
+    coverage: corpus.artifact.coverage,
   };
 }
 
@@ -241,7 +243,7 @@ async function answerTurn(
   if (!corpus.ok) return complete(context, errorCompletion('corpus_unavailable'), deps);
 
   const adapter = deps.createAdapter(config);
-  const answerDeps = buildAnswerDeps(corpus.corpus.index, adapter, config, context, deps);
+  const answerDeps = buildAnswerDeps(corpus.corpus, adapter, config, context, deps);
 
   if (wantsStream) return sseResponse(request, answerDeps, context, deps);
 

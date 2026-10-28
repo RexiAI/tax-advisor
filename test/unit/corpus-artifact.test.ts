@@ -1,9 +1,49 @@
 import { describe, expect, it } from 'vitest';
 
 import { canonicalJson, contentHashOf, parseCorpusArtifact } from '@/corpus/artifact';
+import type { CoveragePair } from '@/domain/coverage';
+import type { CorpusNorm } from '@/corpus/artifact';
+import type { Passage } from '@/domain/passage';
 import { loadCorpusFromText } from '@/server/corpus-loader';
 
 import { makePassage } from '../support/factories';
+
+function hashOf(
+  passages: readonly Passage[],
+  norms: readonly CorpusNorm[] = [],
+  coverage: readonly CoveragePair[] = []
+): string {
+  return contentHashOf({ coverage, norms, passages });
+}
+
+const STATE_NORM: CorpusNorm = {
+  normId: 'BOE-A-2006-20764',
+  normTitle: 'Ley 35/2006 del Impuesto sobre la Renta',
+  publisher: 'boe',
+  jurisdiction: 'state',
+  authorityUsed: 'boe',
+  officialId: 'BOE-A-2006-20764',
+  sourceUrl: 'https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764',
+  updatedAt: '2026-03-17',
+  fetchedAt: '2026-03-18T08:00:00Z',
+  licenseNote: 'Reutilización de textos del BOE.',
+};
+
+const COVERAGE: readonly CoveragePair[] = [{ jurisdiction: 'state', tax: 'irpf' }];
+
+function artifactText(overrides: Record<string, unknown> = {}): string {
+  const passage = makePassage();
+  return JSON.stringify({
+    schemaVersion: 2,
+    taxYear: 2025,
+    generatedAt: '2026-03-18T08:00:00Z',
+    contentHash: hashOf([passage], [STATE_NORM], COVERAGE),
+    coverage: COVERAGE,
+    norms: [STATE_NORM],
+    passages: [passage],
+    ...overrides,
+  });
+}
 
 describe('canonicalJson', () => {
   it('sorts keys at every level', () => {
@@ -23,17 +63,17 @@ describe('contentHashOf', () => {
   it('is stable across key insertion order', () => {
     const passage = makePassage();
     const reordered = { ...passage, text: passage.text, normTitle: passage.normTitle };
-    expect(contentHashOf([passage])).toBe(contentHashOf([reordered]));
+    expect(hashOf([passage])).toBe(hashOf([reordered]));
   });
 
   it('changes when any passage text changes', () => {
-    const first = contentHashOf([makePassage()]);
-    const second = contentHashOf([makePassage({ text: 'Texto distinto.' })]);
+    const first = hashOf([makePassage()]);
+    const second = hashOf([makePassage({ text: 'Texto distinto.' })]);
     expect(first).not.toBe(second);
   });
 
   it('is a hex sha-256 digest', () => {
-    expect(contentHashOf([makePassage()])).toMatch(/^[0-9a-f]{64}$/);
+    expect(hashOf([makePassage()])).toMatch(/^[0-9a-f]{64}$/);
   });
 });
 
@@ -54,31 +94,16 @@ describe('parseCorpusArtifact', () => {
   });
 
   it('reports an artifact with no passages as empty', () => {
-    const raw = JSON.stringify({
-      schemaVersion: 1,
-      taxYear: 2025,
-      generatedAt: '2026-03-18T08:00:00Z',
-      contentHash: 'abc',
-      norms: [],
-      passages: [],
+    expect(parseCorpusArtifact(artifactText({ passages: [] }))).toEqual({
+      ok: false,
+      error: 'empty',
     });
-    expect(parseCorpusArtifact(raw)).toEqual({ ok: false, error: 'empty' });
   });
 });
 
 describe('loadCorpusFromText', () => {
   it('builds an index from a valid artifact', () => {
-    const passage = makePassage();
-    const raw = JSON.stringify({
-      schemaVersion: 1,
-      taxYear: 2025,
-      generatedAt: '2026-03-18T08:00:00Z',
-      contentHash: contentHashOf([passage]),
-      norms: [],
-      passages: [passage],
-    });
-
-    const loaded = loadCorpusFromText(raw);
+    const loaded = loadCorpusFromText(artifactText());
     expect(loaded.ok).toBe(true);
     if (!loaded.ok) return;
     expect(loaded.corpus.index.size).toBe(1);
@@ -87,14 +112,8 @@ describe('loadCorpusFromText', () => {
 
   it('refuses an artifact whose passages repeat a passageId', () => {
     const passage = makePassage();
-    const raw = JSON.stringify({
-      schemaVersion: 1,
-      taxYear: 2025,
-      generatedAt: '2026-03-18T08:00:00Z',
-      contentHash: 'abc',
-      norms: [],
-      passages: [passage, passage],
-    });
-    expect(loadCorpusFromText(raw)).toEqual({ ok: false, error: 'unparsable' });
+    expect(
+      loadCorpusFromText(artifactText({ passages: [passage, passage], contentHash: 'abc' }))
+    ).toEqual({ ok: false, error: 'unparsable' });
   });
 });

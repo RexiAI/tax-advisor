@@ -9,7 +9,8 @@ import { validateCitations } from '../citations/validate';
 import { toPlainText } from '../content/format';
 import { gestorGuide } from '../content/gestor-guides';
 import { AI_DISCLOSURE, REINFORCED_SCOPE_DISCLAIMER } from '../content/strings';
-import { isNonIrpfNorm } from '../domain/allowed-norms';
+import { isNonIrpfNorm, REGISTRY_COVERAGE } from '../domain/allowed-norms';
+import type { CoveragePair } from '../domain/coverage';
 import type { Citation } from '../domain/citation';
 import { normIdOfPassageId } from '../domain/passage';
 import type { EvidenceBundle } from '../evidence/build-evidence';
@@ -23,11 +24,16 @@ import {
   errorResponseFor,
   firstQuestion,
   guideResponse,
+  ibiBoundaryNoteFor,
   insufficientResponse,
+  jurisdictionClarification,
+  noteFields,
   privacyResponse,
   scopeResponse,
   yearNoticeFor,
+  type TurnNotes,
 } from './responses';
+import { resolveJurisdiction } from './scope-guard';
 import type { AnswerResponse, ChatRequest, ChatResponse, TurnFrame, TurnTelemetry } from './types';
 
 export interface AnswerConfig {
@@ -44,6 +50,8 @@ export interface AnswerDeps {
   readonly telemetry: TurnTelemetry;
   readonly now: () => number;
   readonly signal?: AbortSignal;
+  /** The artifact's declared coverage; defaults to the registry's derivation. */
+  readonly coverage?: readonly CoveragePair[];
 }
 
 const WORKED_EXAMPLE_PREFIX = /^ejemplo\s*:\s*/i;
@@ -68,28 +76,53 @@ function callOptions(deps: AnswerDeps): LlmCallOptions {
 
 type PreModel = { readonly response: ChatResponse } | { readonly bundle: EvidenceBundle };
 
-function preModel(input: ChatRequest, deps: AnswerDeps): PreModel {
-  const guide = gestorGuide(input.message);
-  const blocked =
+/**
+ * The two deterministic notes a turn may carry. Both are derived from the message
+ * alone and both are read only after the guard has passed, so a refusal never
+ * carries either.
+ */
+function turnNotes(input: ChatRequest, deps: AnswerDeps): TurnNotes {
+  return {
+    yearNotice: yearNoticeFor(input.message, deps.config.corpusTaxYear),
+    boundaryNote: ibiBoundaryNoteFor(input.message),
+  };
+}
+
+function guideResponseFor(message: string): ChatResponse | null {
+  const guide = gestorGuide(message);
+  return guide === null ? null : guideResponse(guide);
+}
+
+function blockedResponse(
+  input: ChatRequest,
+  deps: AnswerDeps,
+  resolution: ReturnType<typeof resolveJurisdiction>
+): ChatResponse | null {
+  return (
     privacyResponse(input.message) ??
-    (guide === null ? null : guideResponse(guide)) ??
-    scopeResponse(input.message);
+    guideResponseFor(input.message) ??
+    scopeResponse(input.message, deps.coverage ?? REGISTRY_COVERAGE, resolution) ??
+    jurisdictionClarification(resolution)
+  );
+}
+
+function preModel(input: ChatRequest, deps: AnswerDeps): PreModel {
+  const resolution = resolveJurisdiction(input.message);
+  const blocked = blockedResponse(input, deps, resolution);
   if (blocked !== null) return { response: blocked };
 
   const bundle = buildEvidence(input.message, deps.index, {
     minRetrievalScore: deps.config.minRetrievalScore,
     topK: deps.config.retrievalTopK,
+    // A regional question is answered only from that region's passages; a state
+    // question only from the state corpus. An unresolvable one was clarified above.
+    jurisdiction: resolution.kind === 'resolved' ? resolution.jurisdiction : 'state',
   });
   deps.telemetry.retrievalHitCount = bundle.passages.length;
 
   if (bundle.status === 'insufficient') {
     deps.telemetry.citationValidation = 'not_applicable';
-    return {
-      response: insufficientResponse(
-        bundle.reason,
-        yearNoticeFor(input.message, deps.config.corpusTaxYear)
-      ),
-    };
+    return { response: insufficientResponse(bundle.reason, turnNotes(input, deps)) };
   }
 
   return { bundle };
@@ -118,7 +151,6 @@ function answerResponse(
   const body = paragraphs.filter((paragraph) => !WORKED_EXAMPLE_PREFIX.test(paragraph));
   const explanation = body[0] ?? answerText.trim();
   const rule = body.slice(1).join('\n\n') || explanation;
-  const yearNotice = yearNoticeFor(input.message, deps.config.corpusTaxYear);
   const scopeDisclaimer = scopeDisclaimerFor(citations);
 
   const response: AnswerResponse = {
@@ -129,7 +161,7 @@ function answerResponse(
     disclaimer: AI_DISCLOSURE,
     ...(scopeDisclaimer === undefined ? {} : { scopeDisclaimer }),
     ...(workedExample === undefined ? {} : { workedExample }),
-    ...(yearNotice === undefined ? {} : { yearNotice }),
+    ...noteFields(turnNotes(input, deps)),
   };
   return response;
 }
@@ -141,14 +173,13 @@ function clarificationOrAbstain(
 ): ChatResponse {
   const question = firstQuestion(answerText);
   const conversationId = input.conversationId;
-  const yearNotice = yearNoticeFor(input.message, deps.config.corpusTaxYear);
+  const abstain = (): ChatResponse =>
+    insufficientResponse('no_citations', turnNotes(input, deps));
 
-  if (question === null) return insufficientResponse('no_citations', yearNotice);
+  if (question === null) return abstain();
   if (conversationId === undefined)
     return { kind: 'clarification', question, disclaimer: AI_DISCLOSURE };
-  if (deps.conversations.hasClarified(conversationId)) {
-    return insufficientResponse('no_citations', yearNotice);
-  }
+  if (deps.conversations.hasClarified(conversationId)) return abstain();
   deps.conversations.markClarified(conversationId);
   return { kind: 'clarification', question, disclaimer: AI_DISCLOSURE };
 }
@@ -163,10 +194,7 @@ function resolveOutcome(
 
   if (validation.status === 'fail') {
     deps.telemetry.citationValidation = 'fail';
-    return insufficientResponse(
-      'unverified_citation',
-      yearNoticeFor(input.message, deps.config.corpusTaxYear)
-    );
+    return insufficientResponse('unverified_citation', turnNotes(input, deps));
   }
 
   if (validation.status === 'insufficient') {

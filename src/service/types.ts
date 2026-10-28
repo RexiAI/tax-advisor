@@ -25,6 +25,8 @@ export interface AnswerResponse {
   readonly scopeDisclaimer?: string;
   readonly workedExample?: string;
   readonly yearNotice?: string;
+  /** Present when the message mentioned the IBI and the turn was not refused. */
+  readonly boundaryNote?: string;
 }
 
 export interface InsufficientEvidenceResponse {
@@ -33,6 +35,8 @@ export interface InsufficientEvidenceResponse {
   readonly handoffUrl: string;
   readonly disclaimer: string;
   readonly yearNotice?: string;
+  /** Present when the message mentioned the IBI and the turn was not refused. */
+  readonly boundaryNote?: string;
 }
 
 export interface OutOfScopeResponse {
